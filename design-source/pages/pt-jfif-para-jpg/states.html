@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>States — /pt/jfif-para-jpg | CleanPaths design handoff</title>
+<link rel="stylesheet" href="../../assets/design-system.css">
+</head>
+<body>
+<main class="wrap" style="padding:48px 24px">
+  <span class="spec">State board · /pt/jfif-para-jpg</span>
+  <h1 style="margin:12px 0 8px">/pt/jfif-para-jpg — upload component states</h1>
+  <p style="color:var(--ink-2);max-width:60em;margin-bottom:40px">Tool interaction states for <b>/pt/jfif-para-jpg</b>. Same dropzone component, state modifiers only. Default (empty) state is the live page; this board shows the rest.</p>
+  <div class="state-grid">
+  <section class="state-block"><span class="spec">STATE 2 · drag-over</span><div style="margin-top:10px">
+<div class="dropzone is-dragover matgrid">
+  <svg class="dz-icon" width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+<rect x="5" y="9" width="36" height="30" rx="5" fill="#FAF6EE" stroke="#1E2430" stroke-width="2"/>
+<path d="M23 31 V17 M17 23 l6-6 6 6" stroke="#E4572E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="35" cy="16" r="2.4" fill="#1F6E5C"/>
+</svg>
+  <div class="dz-text">Arraste seu arquivo .jfif aqui — ou clique para escolher</div>
+  <div class="dz-or">SOLTE PARA COMEÇAR</div>
+  <div class="dz-formats">ACCEPTS: .JFIF · PROCESSED LOCALLY</div>
+</div></div></section><section class="state-block"><span class="spec">STATE 3 · processing</span><div style="margin-top:10px">
+<div class="dropzone proc">
+  <div class="dz-text">Convertendo — no seu navegador, nada foi enviado</div>
+  <div class="bar-outer"><div class="bar-inner"></div></div>
+  <div class="steps-mini">
+    <span class="done">✓ Lendo o arquivo (local)</span>
+    <span class="now">▸ Reempacotando como JPG</span>
+    <span>○ Preparando o download</span>
+  </div>
+</div></div></section><section class="state-block"><span class="spec">STATE 4 · result (download) + feedback form [Amend A001]</span><div style="margin-top:10px">
+<div class="dropzone" style="border-style:solid;border-color:var(--mat)">
+  <div class="result">
+    <div class="panel">
+      <div class="cap">INPUT</div>
+      <img src="../../assets/samples/ui-settings_before.png" alt="input preview" style="aspect-ratio:4/3;object-fit:cover">
+    </div>
+    <div class="panel">
+      <div class="cap">OUTPUT PREVIEW</div>
+      <img src="../../assets/samples/ui-settings_before.png" alt="output preview" style="aspect-ratio:4/3;object-fit:cover">
+    </div>
+  </div>
+  <ul class="layers" style="margin-top:14px;background:var(--paper);border:1.5px solid var(--line);border-radius:6px">
+    <li><span class="sw" style="background:#E0E4EA"></span>contêiner reembalado · .jfif → .jpg · dados da imagem intactos</li>
+  </ul>
+  <div class="dl-row"><button class="btn btn--primary" type="button">Baixar JPG</button></div>
+  <div class="share-block" data-visible-when="result">
+  <div class="spec">Compartilhe seu resultado</div>
+  <div class="share-row">
+    <button class="btn btn--sm" type="button">Copiar link</button>
+    <a class="btn btn--sm" href="https://x.com/intent/post?text=Converti%20minha%20imagem%20em%20camadas%20vetoriais%20limpas%20—%20direto%20no%20navegador,%20sem%20upload.%20cleanpaths.io" target="_blank" rel="noopener">Postar no X</a>
+    <button class="btn btn--sm" type="button">Baixar imagem para compartilhar</button>
+  </div>
+  <label class="share-optin">
+    <input type="checkbox">
+    <span>Mostrar meu resultado no mural de exemplos<br><span class="micro">Desativado por padrão. Se marcar, confirmamos por e-mail antes de publicar — deixe um contato no formulário de feedback.</span></span>
+  </label>
+</div>
+</div>
+<div style="margin-top:16px"><div class="feedback" data-context="result">
+  <h3>How did this one turn out?</h3>
+  <div class="emojis" role="group" aria-label="Rate this result">
+    <button class="emoji" type="button">😄 <span>Cut-ready — it worked</span></button>
+    <button class="emoji" type="button">😐 <span>Close, but not quite</span></button>
+    <button class="emoji" type="button">😞 <span>Not usable</span></button>
+  </div>
+  <textarea placeholder="What went wrong (or right)? Optional — please don't include personal info you don't want to share. Leave your email only if you'd like a reply." aria-label="Optional feedback"></textarea>
+  <button class="btn btn--sm" type="button">Enviar feedback</button>
+</div></div></div></section><section class="state-block"><span class="spec">STATE 5 · error (unsupported file)</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="state-note state-note--error"><b>!</b><span><b>Este arquivo não pode ser convertido aqui.</b> Esta página aceita .JFIF. Nada foi enviado, então nada foi armazenado.</span></div>
+  <div style="margin-top:14px"><button class="btn" type="button">Escolher outro arquivo</button></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 6 · daily cap reached — 05 §11.2 frozen copy (PT neutral variant)</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="state-note state-note--cap"><span class="badge" aria-label="10 of 10 free conversions used today"><b>10/10</b></span><span>Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.</span></div>
+  <div class="dl-row" style="justify-content:center">
+    <a class="btn btn--ghost" href="../pricing/code.html">Ver opções →</a>
+  </div>
+  <div class="dz-formats" style="margin-top:12px">CONTADOR GRATUITO REINICIA TODO DIA</div>
+</div></div></section><section class="state-block"><span class="spec">STATE 8 · Pro active (license verified, offline-capable)</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="badges" style="justify-content:center"><span class="badge"><b>✓ PRO ACTIVE</b></span><span class="badge badge--soft">no daily cap</span><span class="badge badge--soft">works offline after activation</span></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 9 · feedback submitted (success)</span><div style="margin-top:10px"><div class="feedback"><span class="ok">Obrigado — vai direto para a pessoa que está construindo o CleanPaths.</span></div></div></section><section class="state-block"><span class="spec">STATE 10 · feedback FAB — 4 states (06c-A1)</span><div style="margin-top:10px">
+<div style="display:grid;gap:18px">
+  <div><span class="spec">default</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:12px"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">hover</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:14px;transform:translateY(-2px)"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">focus-visible</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:12px;outline:3px solid #E4572E;outline-offset:3px"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">reduced-motion · quiet (tool busy)</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback is-quiet" style="position:absolute;right:16px;bottom:12px;transition:none"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 11 · feedback modal — 4 states (06c-A2)</span><div style="margin-top:10px"><div style="background:rgba(30,36,48,.12);padding:24px;border-radius:10px"><div style="margin-bottom:24px"><span class="spec">default</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideias, elogios — cai direto na minha bancada, não numa fila de tickets.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Ideia</button><button type="button" aria-pressed="true">Bug</button><button type="button" aria-pressed="false">Elogio</button><button type="button" aria-pressed="false">Outro</button></div>
+    <textarea placeholder="O que funcionou, o que não funcionou…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="E-mail ou usuário (opcional — só se quiser resposta)" aria-label="Contact (optional)">
+    <div class="fb-trust">Não é preciso deixar contato — não inclua dados pessoais que você não quer compartilhar. Anexamos esta página e seu idioma automaticamente, nunca seus arquivos. <b>Nós nunca vemos seus arquivos.</b></div>
+    
+    <div class="actions"><button class="btn btn--primary" type="button">Enviar feedback</button></div></div></div><div style="margin-bottom:24px"><span class="spec">submitting</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideias, elogios — cai direto na minha bancada, não numa fila de tickets.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Ideia</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Elogio</button><button type="button" aria-pressed="false">Outro</button></div>
+    <textarea placeholder="O que funcionou, o que não funcionou…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="E-mail ou usuário (opcional — só se quiser resposta)" aria-label="Contact (optional)">
+    <div class="fb-trust">Não é preciso deixar contato — não inclua dados pessoais que você não quer compartilhar. Anexamos esta página e seu idioma automaticamente, nunca seus arquivos. <b>Nós nunca vemos seus arquivos.</b></div>
+    
+    <div class="actions"><button class="btn btn--primary" type="button" disabled style="opacity:.6">Enviar feedback…</button></div></div></div><div style="margin-bottom:24px"><span class="spec">success</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <div class="fb-success"><div class="big">✅</div><p style="font-weight:600">Obrigado — vai direto para a pessoa que está construindo o CleanPaths.</p></div></div></div><div style="margin-bottom:24px"><span class="spec">error</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideias, elogios — cai direto na minha bancada, não numa fila de tickets.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Ideia</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Elogio</button><button type="button" aria-pressed="false">Outro</button></div>
+    <textarea placeholder="O que funcionou, o que não funcionou…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="E-mail ou usuário (opcional — só se quiser resposta)" aria-label="Contact (optional)">
+    <div class="fb-trust">Não é preciso deixar contato — não inclua dados pessoais que você não quer compartilhar. Anexamos esta página e seu idioma automaticamente, nunca seus arquivos. <b>Nós nunca vemos seus arquivos.</b></div>
+    <div class="fb-error-note">Não foi possível enviar — tente de novo, ou escreva para feedback@cleanpaths.io.</div>
+    <div class="actions"><button class="btn btn--primary" type="button">Tentar de novo</button></div></div></div></div></div></section>
+  </div>
+</main>
+</body>
+</html>

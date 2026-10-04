@@ -1,0 +1,25 @@
+{
+  "project": "cleanpaths.io",
+  "stage": "06-design",
+  "version": "design-handoff-v1.3",
+  "generated": "2026-09-30",
+  "copy_source": "05-copy-freeze-v1.md v1.2 (verbatim, zero rewrites; §11 + §12 frozen strings applied)",
+  "viewport": {"desktop": "1440x900", "mobile": "390x844"},
+  "routes": [
+    {"route": "/", "dir": "pages/home", "type": "tool+landing", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser", "schema": "SoftwareApplication + FAQPage", "states": ["empty(default)", "dragover", "processing", "result+feedback", "error", "daily-cap", "pro-locked", "pro-active", "feedback-sent"]},
+    {"route": "/png-to-dxf", "dir": "pages/png-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "PNG to DXF Converter — Cut-Ready Output", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
+    {"route": "/jpg-to-dxf", "dir": "pages/jpg-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JPG to DXF — Turn Client Photos of Logos into Cut Files", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
+    {"route": "/svg-to-dxf-converter", "dir": "pages/svg-to-dxf-converter", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "SVG to DXF Converter — R12 & R2000, Units Included", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
+    {"route": "/jfif-to-jpg", "dir": "pages/jfif-to-jpg", "type": "tool-light", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JFIF to JPG Converter — Free, No Upload", "schema": "SoftwareApplication", "states": "7-state set (05 §11.12-1: no Precision slider, no AI HD rescue)"},
+    {"route": "/pt/jfif-para-jpg", "dir": "pages/pt-jfif-para-jpg", "type": "tool-light-neutral", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Conversor de JFIF para JPG — Grátis, sem Upload", "schema": "SoftwareApplication", "states": "7-state set, full PT wording (05 §11.3 PT table), cap state = §11.2 PT neutral variant, no $59", "notes": "neutral tool page: no brand story, no persona cards, no pricing block; hreflang pair with /jfif-to-jpg"},
+    {"route": "/screenshot-to-svg", "dir": "pages/screenshot-to-svg", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Screenshot to SVG — Clean Vector from Any UI Screenshot", "schema": "SoftwareApplication (+ FAQPage optional)", "states": "same 9-state set via states.html"},
+    {"route": "/samples", "dir": "pages/samples", "type": "gallery", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "See the Difference: Before / After", "schema": "ImageGallery + ImageObject/ItemList per card (07 implements; 06c requires server-side indexable static HTML — NO iframe/dynamic wall)", "states": "no tool states; UGC teaser strip is static (v1 collects intent only); Community group slot reserved (#community, opens on first opt-ins)"},
+    {"route": "/for/cricut-sellers", "dir": "pages/for-cricut-sellers", "type": "persona", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Cut-Ready SVG & DXF Files for Cricut Sellers", "schema": "WebPage + FAQPage", "states": "no tool states; FAQ as symptom→diagnosis cards"},
+    {"route": "/for/embroidery", "dir": "pages/for-embroidery", "type": "persona", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "From Image to Embroidery: Honest Prep, Human Digitizers", "schema": "WebPage + FAQPage", "states": "no tool states; FTC affiliate footnote in-page"},
+    {"route": "/pricing", "dir": "pages/pricing", "type": "pricing", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Simple, One-Time Pricing", "schema": "FAQPage (+ Product/Offer pending 07)", "states": "4-card structure: Free / Pro Core (featured) / Add-on packs / Monthly Pass (de-emphasized)"},
+    {"route": "/privacy", "dir": "pages/privacy", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Privacy Policy", "schema": "none", "states": "static; placeholders from 03 rendered as highlighted chips"},
+    {"route": "/terms", "dir": "pages/terms", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Terms of Service", "schema": "none", "states": "static"},
+    {"route": "/cookies", "dir": "pages/cookies", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Cookie Policy", "schema": "none", "states": "static; NO cookie banner anywhere by architectural decision"},
+    {"route": "/refund", "dir": "pages/refund", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Refund Policy", "schema": "none", "states": "static"}
+  ]
+}

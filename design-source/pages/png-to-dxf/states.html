@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>States — /png-to-dxf | CleanPaths design handoff</title>
+<link rel="stylesheet" href="../../assets/design-system.css">
+</head>
+<body>
+<main class="wrap" style="padding:48px 24px">
+  <span class="spec">State board · /png-to-dxf</span>
+  <h1 style="margin:12px 0 8px">/png-to-dxf — upload component states</h1>
+  <p style="color:var(--ink-2);max-width:60em;margin-bottom:40px">Tool interaction states for <b>/png-to-dxf</b>. Same dropzone component, state modifiers only. Default (empty) state is the live page; this board shows the rest.</p>
+  <div class="state-grid">
+  <section class="state-block"><span class="spec">STATE 2 · drag-over</span><div style="margin-top:10px">
+<div class="dropzone is-dragover matgrid">
+  <svg class="dz-icon" width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+<rect x="5" y="9" width="36" height="30" rx="5" fill="#FAF6EE" stroke="#1E2430" stroke-width="2"/>
+<path d="M23 31 V17 M17 23 l6-6 6 6" stroke="#E4572E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="35" cy="16" r="2.4" fill="#1F6E5C"/>
+</svg>
+  <div class="dz-text">Drop your file here</div>
+  <div class="dz-or">RELEASE TO START</div>
+  <div class="dz-formats">ACCEPTS: .PNG · PROCESSED LOCALLY</div>
+</div></div></section><section class="state-block"><span class="spec">STATE 3 · processing</span><div style="margin-top:10px">
+<div class="dropzone proc">
+  <div class="dz-text">Converting — on your device, nothing uploaded</div>
+  <div class="bar-outer"><div class="bar-inner"></div></div>
+  <div class="steps-mini">
+    <span class="done">✓ Reading file (local)</span>
+    <span class="now">▸ Tracing paths — auto-tuned parameters</span>
+    <span>○ Preparing download</span>
+  </div>
+</div></div></section><section class="state-block"><span class="spec">STATE 4 · result (download) + feedback form [Amend A001]</span><div style="margin-top:10px">
+<div class="dropzone" style="border-style:solid;border-color:var(--mat)">
+  <div class="result">
+    <div class="panel">
+      <div class="cap">INPUT</div>
+      <img src="../../assets/samples/logo-peak_before.png" alt="input preview" style="aspect-ratio:4/3;object-fit:cover">
+    </div>
+    <div class="panel">
+      <div class="cap">OUTPUT PREVIEW</div>
+      <img src="../../assets/samples/logo-peak_after.png" alt="output preview" style="aspect-ratio:4/3;object-fit:cover">
+    </div>
+  </div>
+  <ul class="layers" style="margin-top:14px;background:var(--paper);border:1.5px solid var(--line);border-radius:6px">
+    
+<li><span class="sw" style="background:#1F4E79"></span>layer-1 · #1F4E79 · closed</li>
+<li><span class="sw" style="background:#F08F1C"></span>layer-2 · #F08F1C · closed</li>
+<li style="color:var(--ink-3)">… 7 more layers, all closed paths</li>
+  </ul>
+  <div style="margin-top:14px;text-align:left">
+    <label class="spec" style="margin-bottom:6px">Precision</label>
+    <input type="range" min="1" max="10" value="6" style="width:100%;accent-color:#E4572E" aria-label="Precision">
+  </div>
+  <div class="dl-row">
+<button class="btn btn--primary" type="button">Download DXF (R2000)</button>
+<button class="btn" type="button">Download DXF (R12)</button>
+<button class="btn btn--ghost" type="button">Download SVG</button></div>
+  <div class="share-block" data-visible-when="result">
+  <div class="spec">Share your result</div>
+  <div class="share-row">
+    <button class="btn btn--sm" type="button">Copy link</button>
+    <a class="btn btn--sm" href="https://x.com/intent/post?text=Just%20turned%20a%20messy%20image%20into%20clean%20vector%20layers%20—%20in%20my%20browser,%20no%20upload.%20cleanpaths.io" target="_blank" rel="noopener">Post to X</a>
+    <button class="btn btn--sm" type="button">Download share image</button>
+  </div>
+  <label class="share-optin">
+    <input type="checkbox">
+    <span>Feature my result on the examples wall<br><span class="micro">Off by default. If you check it, we confirm by email before anything goes up — leave a contact in the feedback form.</span></span>
+  </label>
+</div>
+</div>
+<div style="margin-top:16px"><div class="feedback" data-context="result">
+  <h3>How did this one turn out?</h3>
+  <div class="emojis" role="group" aria-label="Rate this result">
+    <button class="emoji" type="button">😄 <span>Cut-ready — it worked</span></button>
+    <button class="emoji" type="button">😐 <span>Close, but not quite</span></button>
+    <button class="emoji" type="button">😞 <span>Not usable</span></button>
+  </div>
+  <textarea placeholder="What went wrong (or right)? Optional — please don't include personal info you don't want to share. Leave your email only if you'd like a reply." aria-label="Optional feedback"></textarea>
+  <button class="btn btn--sm" type="button">Send feedback</button>
+</div></div></div></section><section class="state-block"><span class="spec">STATE 5 · error (unsupported file)</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="state-note state-note--error"><b>!</b><span><b>That file can't be converted here.</b> This page accepts .PNG. Nothing was uploaded, so nothing was stored.</span></div>
+  <div style="margin-top:14px"><button class="btn" type="button">Choose another file</button></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 6 · daily cap reached — 05 §11.2 frozen copy</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="state-note state-note--cap"><span class="badge" aria-label="10 of 10 free conversions used today"><b>10/10</b></span><span>That's your 10 for today — the free counter resets tomorrow.</span></div>
+  <p style="margin-top:12px;font-size:15px;color:var(--ink-2)">On a deadline? Pro removes the daily cap — $59, one time. No subscriptions. 30-day money-back guarantee.</p>
+  <div class="dl-row" style="justify-content:center">
+    <a class="btn btn--primary" href="../pricing/code.html">Get CleanPaths Pro — $59, one time</a>
+    <a class="btn btn--ghost" href="../pricing/code.html">See pricing →</a>
+  </div>
+  <div class="dz-formats" style="margin-top:12px">FREE COUNTER RESETS DAILY · PRO: NO DAILY CAP</div>
+</div></div></section><section class="state-block"><span class="spec">STATE 7 · Pro-locked feature / permission state (AI HD rescue)</span><div style="margin-top:10px">
+<div class="dropzone" style="text-align:left">
+  <label class="switch"><span class="track"></span>AI HD rescue <span class="try-badge">2 / 3 FREE TRIES LEFT</span></label>
+  <p style="margin-top:10px;font-size:14px;color:var(--ink-2)">An optional AI upscaler that runs on your device's GPU (no upload) for heavily degraded images. Free tier includes 3 tries; Pro includes it with no per-use limit.</p>
+</div></div></section><section class="state-block"><span class="spec">STATE 8 · Pro active (license verified, offline-capable)</span><div style="margin-top:10px">
+<div class="dropzone">
+  <div class="badges" style="justify-content:center"><span class="badge"><b>✓ PRO ACTIVE</b></span><span class="badge badge--soft">no daily cap</span><span class="badge badge--soft">works offline after activation</span></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 9 · feedback submitted (success)</span><div style="margin-top:10px"><div class="feedback"><span class="ok">Thanks — this goes straight to the person building CleanPaths.</span></div></div></section><section class="state-block"><span class="spec">STATE 10 · feedback FAB — 4 states (06c-A1)</span><div style="margin-top:10px">
+<div style="display:grid;gap:18px">
+  <div><span class="spec">default</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:12px"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">hover</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:14px;transform:translateY(-2px)"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">focus-visible</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback" style="position:absolute;right:16px;bottom:12px;outline:3px solid #E4572E;outline-offset:3px"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+  <div><span class="spec">reduced-motion · quiet (tool busy)</span><div style="margin-top:8px;position:relative;height:52px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:8px">
+    <span class="fab-feedback is-quiet" style="position:absolute;right:16px;bottom:12px;transition:none"><span class="dot"></span><span class="fab-label">FEEDBACK</span></span></div></div>
+</div></div></section><section class="state-block"><span class="spec">STATE 11 · feedback modal — 4 states (06c-A2)</span><div style="margin-top:10px"><div style="background:rgba(30,36,48,.12);padding:24px;border-radius:10px"><div style="margin-bottom:24px"><span class="spec">default</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideas, praise, anything — it lands on my workbench, not in a ticket queue.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Idea</button><button type="button" aria-pressed="true">Bug</button><button type="button" aria-pressed="false">Praise</button><button type="button" aria-pressed="false">Other</button></div>
+    <textarea placeholder="What worked, what didn't…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="Email or handle (optional — only if you'd like a reply)" aria-label="Contact (optional)">
+    <div class="fb-trust">No contact info needed — please don't include personal info you don't want to share. We auto-attach this page and your language, never your files. <b>We never see your files.</b></div>
+    
+    <div class="actions"><button class="btn btn--primary" type="button">Send feedback</button></div></div></div><div style="margin-bottom:24px"><span class="spec">submitting</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideas, praise, anything — it lands on my workbench, not in a ticket queue.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Idea</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Praise</button><button type="button" aria-pressed="false">Other</button></div>
+    <textarea placeholder="What worked, what didn't…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="Email or handle (optional — only if you'd like a reply)" aria-label="Contact (optional)">
+    <div class="fb-trust">No contact info needed — please don't include personal info you don't want to share. We auto-attach this page and your language, never your files. <b>We never see your files.</b></div>
+    
+    <div class="actions"><button class="btn btn--primary" type="button" disabled style="opacity:.6">Send feedback…</button></div></div></div><div style="margin-bottom:24px"><span class="spec">success</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <div class="fb-success"><div class="big">✅</div><p style="font-weight:600">Thanks — this goes straight to the person building CleanPaths.</p></div></div></div><div style="margin-bottom:24px"><span class="spec">error</span>
+  <div class="fb-modal__card" style="max-width:520px;margin-top:8px"><h3>Feedback</h3>
+    <p class="sub">Bugs, ideas, praise, anything — it lands on my workbench, not in a ticket queue.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Idea</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Praise</button><button type="button" aria-pressed="false">Other</button></div>
+    <textarea placeholder="What worked, what didn't…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="Email or handle (optional — only if you'd like a reply)" aria-label="Contact (optional)">
+    <div class="fb-trust">No contact info needed — please don't include personal info you don't want to share. We auto-attach this page and your language, never your files. <b>We never see your files.</b></div>
+    <div class="fb-error-note">That didn't send — try again, or email feedback@cleanpaths.io directly.</div>
+    <div class="actions"><button class="btn btn--primary" type="button">Try again</button></div></div></div></div></div></section>
+  </div>
+</main>
+</body>
+</html>
