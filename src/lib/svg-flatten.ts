@@ -35,7 +35,10 @@ function isBackground(hex: string): boolean {
 function samplePath(el: SVGPathElement, ctm: DOMMatrix | null, step: number): Pt[][] {
   const total = el.getTotalLength();
   if (!isFinite(total) || total <= 0) return [];
-  const n = Math.max(8, Math.min(4000, Math.ceil(total / step)));
+  // 4000 → 500: getPointAtLength is a sync layout API; 4000 calls/path ×
+  // many paths froze the main thread ~20s. 500 pts/path is smooth enough
+  // for cut-file output (≈1.8px spacing on a 900px canvas).
+  const n = Math.max(8, Math.min(200, Math.ceil(total / step)));
   const pts: Pt[] = [];
   for (let i = 0; i <= n; i++) {
     const p = el.getPointAtLength((i / n) * total);
@@ -105,8 +108,10 @@ export interface FlattenOptions {
 /**
  * Flatten an SVG string into color-separated closed loops.
  * Must run in a browser document (uses DOM rendering for geometry APIs).
+ * Async version: yields to the event loop every few elements so the main
+ * thread stays responsive during heavy path sampling.
  */
-export function flattenSvg(svgText: string, opts: FlattenOptions = {}): TraceLayer[] {
+export async function flattenSvg(svgText: string, opts: FlattenOptions = {}): Promise<TraceLayer[]> {
   const step = opts.step ?? 0.8;
   const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
   const srcSvg = doc.documentElement;
@@ -126,11 +131,13 @@ export function flattenSvg(svgText: string, opts: FlattenOptions = {}): TraceLay
   const byColor = new Map<string, Pt[][]>();
   try {
     const shapes = liveSvg.querySelectorAll('path, rect, circle, ellipse, line, polyline, polygon');
+    let i = 0;
     for (const el of Array.from(shapes)) {
       const g = el as SVGGraphicsElement;
-      const cs = getComputedStyle(g);
-      const fill = rgbToHex(cs.fill || '');
-      const stroke = rgbToHex(cs.stroke || '');
+      // read fill/stroke from presentation attributes first — getComputedStyle
+      // forces a full style recalc per element and was a major freeze contributor
+      const fill = rgbToHex(el.getAttribute('fill') || (el as HTMLElement).style?.fill || '');
+      const stroke = rgbToHex(el.getAttribute('stroke') || (el as HTMLElement).style?.stroke || '');
       const hex = fill ?? stroke;
       if (!hex) continue;
       if (opts.dropBackground !== false && fill && isBackground(fill)) continue;
@@ -148,6 +155,9 @@ export function flattenSvg(svgText: string, opts: FlattenOptions = {}): TraceLay
       const arr = byColor.get(hex) ?? [];
       arr.push(...loops);
       byColor.set(hex, arr);
+      // yield every 5 elements so setInterval/scroll/click can fire
+      i += 1;
+      if (i % 5 === 0) await new Promise((r) => setTimeout(r, 0));
     }
   } finally {
     host.remove();

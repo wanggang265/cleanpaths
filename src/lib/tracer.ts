@@ -7,6 +7,8 @@
  * Everything runs locally — no network call except the same-origin WASM fetch.
  */
 
+import { vectorize } from './engine-client';
+
 export interface TraceOptions {
   /** 'auto' picks from input analysis; explicit values for the Precision slider */
   colorPrecision?: number;
@@ -21,17 +23,6 @@ export interface TraceResult {
   svg: string;
   width: number;
   height: number;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let enginePromise: Promise<any> | null = null;
-
-function loadEngine() {
-  if (!enginePromise) {
-    const engineUrl = '/vendor/vectorizer/vectorizer.bundle.js';
-    enginePromise = import(/* webpackIgnore: true */ engineUrl);
-  }
-  return enginePromise;
 }
 
 /** Decode image bytes to an <img> + canvas pipeline helpers. */
@@ -92,7 +83,6 @@ function estimateColorfulness(img: ImageData): number {
 }
 
 export async function traceImage(bytes: Uint8Array, mime: string, opts: TraceOptions = {}): Promise<TraceResult> {
-  const engine = await loadEngine();
   const img = await decodeToImageData(bytes, mime);
   const colorful = estimateColorfulness(img);
 
@@ -113,7 +103,7 @@ export async function traceImage(bytes: Uint8Array, mime: string, opts: TraceOpt
     pathPrecision: opts.pathPrecision ?? 2,
   };
 
-  const svg: string = await engine.vectorize(bytes, config);
+  const svg: string = await vectorize(bytes, config);
   return { svg, width: img.width, height: img.height };
 }
 

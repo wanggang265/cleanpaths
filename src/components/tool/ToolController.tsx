@@ -233,19 +233,17 @@ export default function ToolController(props: ToolProps) {
       if (kind === 'svg-dxf' || (kind === 'trace-multi' && extOf(name) === '.svg')) {
         const text = new TextDecoder().decode(bytes);
         const step = stepForPrecision(S.precision);
-        const layers = flattenSvg(text, { step, dropBackground: true });
+        const layers = await flattenSvg(text, { step, dropBackground: true });
         if (layers.length === 0) throw new Error('no vector shapes found');
         const prepared = prepareLayers(layers);
         const dims = svgDims(text);
         const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
         const r12 = new Blob([buildDxf(prepared, 'R12')], { type: 'application/dxf' });
-        // Download SVG: optimizer pass when the WASM engine loads, else original bytes
+        // Download SVG: optimizer pass via engine worker (main thread stays responsive)
         let svgBlob = new Blob([text], { type: 'image/svg+xml' });
         try {
-          const engineUrl = '/vendor/vectorizer/vectorizer.bundle.js';
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const engine: any = await import(/* webpackIgnore: true */ engineUrl);
-          const optimized: string = await engine.optimize(text, { preset: 1 });
+          const { optimize } = await import('@/lib/engine-client');
+          const optimized: string = await optimize(text, { preset: 1 });
           if (optimized && optimized.length > 100) svgBlob = new Blob([optimized], { type: 'image/svg+xml' });
         } catch {
           /* fallback: original SVG bytes */
@@ -289,7 +287,7 @@ export default function ToolController(props: ToolProps) {
         inputMime = 'image/png';
       }
       const traced = await traceImage(input, inputMime, { preset, ...precisionConfig(S.precision, preset) });
-      const layers = flattenSvg(traced.svg, { step: 0.8, dropBackground: true });
+      const layers = await flattenSvg(traced.svg, { step: 0.8, dropBackground: true });
       if (layers.length === 0) throw new Error('trace produced no layers');
       const prepared = prepareLayers(layers);
       const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
