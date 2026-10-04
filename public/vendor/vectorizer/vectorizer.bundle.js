@@ -132,7 +132,7 @@ function getReuseWorker(value) {
   return { size, strict };
 }
 var nextWorkerID = 0;
-var ThreadManager = /* @__PURE__ */ function() {
+var ThreadManager = /* @__PURE__ */ (function() {
   function ThreadManager2(options) {
     var _a;
     this.unusedWorkers = [];
@@ -420,8 +420,8 @@ var ThreadManager = /* @__PURE__ */ function() {
     });
   };
   return ThreadManager2;
-}();
-var kIsProxy = Symbol("kIsProxy");
+})();
+var kIsProxy = /* @__PURE__ */ Symbol("kIsProxy");
 function createInstanceProxy(instance, memory) {
   if (instance[kIsProxy])
     return instance;
@@ -522,7 +522,7 @@ function getThreadSpawnResultView(memory, address, wasm64) {
   }
   return new Int32Array(buffer, offset, 2);
 }
-var WASIThreads = /* @__PURE__ */ function() {
+var WASIThreads = /* @__PURE__ */ (function() {
   function WASIThreads2(options) {
     var _this_1 = this;
     if (!options) {
@@ -748,7 +748,7 @@ var WASIThreads = /* @__PURE__ */ function() {
     }
   };
   return WASIThreads2;
-}();
+})();
 function patchWasiInstance(wasiThreads, wasi) {
   var patched = patchedWasiInstances.get(wasiThreads);
   if (patched.has(wasi)) {
@@ -802,7 +802,7 @@ function setupInstance(wasi, instance) {
   wasi[kInstance2] = instance;
   wasi[kSetMemory2](instance.exports.memory);
 }
-var ThreadMessageHandler = /* @__PURE__ */ function() {
+var ThreadMessageHandler = /* @__PURE__ */ (function() {
   function ThreadMessageHandler2(options) {
     var postMsg = getPostMessage(options);
     if (typeof postMsg !== "function") {
@@ -919,7 +919,7 @@ var ThreadMessageHandler = /* @__PURE__ */ function() {
     }
   };
   return ThreadMessageHandler2;
-}();
+})();
 function notifyPthreadCreateResult(sab, result, error) {
   if (sab) {
     serizeErrorToBuffer(sab.buffer, result, error);
@@ -1031,7 +1031,7 @@ function loadSync(wasmInput, imports) {
   return source;
 }
 function createNapiModule(options) {
-  var napiModule = function() {
+  var napiModule = (function() {
     var ENVIRONMENT_IS_NODE2 = typeof process === "object" && process !== null && typeof process.versions === "object" && process.versions !== null && typeof process.versions.node === "string";
     var ENVIRONMENT_IS_PTHREAD = Boolean(options.childThread);
     var waitThreadStart = typeof options.waitThreadStart === "number" ? options.waitThreadStart : Boolean(options.waitThreadStart);
@@ -6719,7 +6719,7 @@ function createNapiModule(options) {
         return HEAP_DATA_VIEW.buffer === wasmMemory.buffer ? HEAP_DATA_VIEW : HEAP_DATA_VIEW = new DataView(wasmMemory.buffer);
       };
       if (!description) {
-        var value = emnapiCtx.addToCurrentScope(Symbol()).id;
+        var value = emnapiCtx.addToCurrentScope(/* @__PURE__ */ Symbol()).id;
         GET_HEAP_DATA_VIEW().setUint32(result, value, true);
       } else {
         var handle = emnapiCtx.handleStore.get(description);
@@ -10319,7 +10319,7 @@ function createNapiModule(options) {
     napiModule2.imports.napi.napi_unref_threadsafe_function = napi_unref_threadsafe_function;
     napiModule2.imports.napi.napi_ref_threadsafe_function = napi_ref_threadsafe_function;
     return napiModule2;
-  }();
+  })();
   return napiModule;
 }
 function loadNapiModuleImpl(loadFn, userNapiModule, wasmInput, options) {
@@ -10466,7 +10466,7 @@ function instantiateNapiModule(wasmInput, options) {
 function instantiateNapiModuleSync(wasmInput, options) {
   return loadNapiModuleImpl(loadSyncCallback, void 0, wasmInput, options);
 }
-var MessageHandler = /* @__PURE__ */ function(_super) {
+var MessageHandler = /* @__PURE__ */ (function(_super) {
   __extends(MessageHandler3, _super);
   function MessageHandler3(options) {
     var _this = this;
@@ -10521,7 +10521,7 @@ var MessageHandler = /* @__PURE__ */ function(_super) {
     }
   };
   return MessageHandler3;
-}(ThreadMessageHandler);
+})(ThreadMessageHandler);
 var version = "1.11.3";
 
 // node_modules/@emnapi/runtime/dist/emnapi.esm-bundler.js
@@ -10565,21 +10565,21 @@ var externalValue = /* @__PURE__ */ new WeakMap();
 function isExternal(object) {
   return externalValue.has(object);
 }
-var External = function() {
+var External = (function() {
   function External2(value) {
     Object.setPrototypeOf(this, null);
     externalValue.set(this, value);
   }
   External2.prototype = null;
   return External2;
-}();
+})();
 function getExternalValue(external) {
   if (!isExternal(external)) {
     throw new TypeError("not external");
   }
   return externalValue.get(external);
 }
-var supportNewFunction = /* @__PURE__ */ function() {
+var supportNewFunction = /* @__PURE__ */ (function() {
   var f;
   try {
     f = new Function();
@@ -10587,13 +10587,13 @@ var supportNewFunction = /* @__PURE__ */ function() {
     return false;
   }
   return typeof f === "function";
-}();
-var _global = /* @__PURE__ */ function() {
+})();
+var _global = /* @__PURE__ */ (function() {
   if (typeof globalThis !== "undefined")
     return globalThis;
-  var g = /* @__PURE__ */ function() {
+  var g = /* @__PURE__ */ (function() {
     return this;
-  }();
+  })();
   if (!g && supportNewFunction) {
     try {
       g = new Function("return this")();
@@ -10611,8 +10611,8 @@ var _global = /* @__PURE__ */ function() {
       return self;
   }
   return g;
-}();
-var TryCatch = /* @__PURE__ */ function() {
+})();
+var TryCatch = /* @__PURE__ */ (function() {
   function TryCatch2() {
     this._exception = void 0;
     this._caught = false;
@@ -10640,51 +10640,51 @@ var TryCatch = /* @__PURE__ */ function() {
     return e;
   };
   return TryCatch2;
-}();
-var canSetFunctionName = /* @__PURE__ */ function() {
+})();
+var canSetFunctionName = /* @__PURE__ */ (function() {
   var _a;
   try {
     return Boolean((_a = Object.getOwnPropertyDescriptor(Function.prototype, "name")) === null || _a === void 0 ? void 0 : _a.configurable);
   } catch (_) {
     return false;
   }
-}();
+})();
 var supportReflect = typeof Reflect === "object";
 var supportFinalizer = typeof FinalizationRegistry !== "undefined" && typeof WeakRef !== "undefined";
-var supportWeakSymbol = /* @__PURE__ */ function() {
+var supportWeakSymbol = /* @__PURE__ */ (function() {
   try {
-    var sym = Symbol();
+    var sym = /* @__PURE__ */ Symbol();
     new WeakRef(sym);
     (/* @__PURE__ */ new WeakMap()).set(sym, void 0);
   } catch (_) {
     return false;
   }
   return true;
-}();
+})();
 var supportBigInt = typeof BigInt !== "undefined";
 function isReferenceType(v) {
   return typeof v === "object" && v !== null || typeof v === "function";
 }
-var _require = /* @__PURE__ */ function() {
+var _require = /* @__PURE__ */ (function() {
   var nativeRequire;
   if (typeof __webpack_public_path__ !== "undefined") {
-    nativeRequire = /* @__PURE__ */ function() {
+    nativeRequire = /* @__PURE__ */ (function() {
       return typeof __non_webpack_require__ !== "undefined" ? __non_webpack_require__ : void 0;
-    }();
+    })();
   } else {
-    nativeRequire = /* @__PURE__ */ function() {
+    nativeRequire = /* @__PURE__ */ (function() {
       return typeof __webpack_public_path__ !== "undefined" ? typeof __non_webpack_require__ !== "undefined" ? __non_webpack_require__ : void 0 : typeof __require !== "undefined" ? __require : void 0;
-    }();
+    })();
   }
   return nativeRequire;
-}();
-var _MessageChannel = typeof MessageChannel === "function" ? MessageChannel : /* @__PURE__ */ function() {
+})();
+var _MessageChannel = typeof MessageChannel === "function" ? MessageChannel : /* @__PURE__ */ (function() {
   try {
     return _require("worker_threads").MessageChannel;
   } catch (_) {
   }
   return void 0;
-}();
+})();
 var _setImmediate = typeof setImmediate === "function" ? setImmediate.bind(_global) : function(callback) {
   if (typeof callback !== "function") {
     throw new TypeError('The "callback" argument must be of type function');
@@ -10701,19 +10701,19 @@ var _setImmediate = typeof setImmediate === "function" ? setImmediate.bind(_glob
     setTimeout(callback, 0);
   }
 };
-var _Buffer = typeof Buffer === "function" ? Buffer : /* @__PURE__ */ function() {
+var _Buffer = typeof Buffer === "function" ? Buffer : /* @__PURE__ */ (function() {
   try {
     return _require("buffer").Buffer;
   } catch (_) {
   }
   return void 0;
-}();
+})();
 var version2 = "1.11.3";
 var NODE_API_SUPPORTED_VERSION_MIN = 1;
 var NODE_API_SUPPORTED_VERSION_MAX = 10;
 var NAPI_VERSION_EXPERIMENTAL = 2147483647;
 var NODE_API_DEFAULT_MODULE_API_VERSION = 8;
-var Handle = /* @__PURE__ */ function() {
+var Handle = /* @__PURE__ */ (function() {
   function Handle2(id, value) {
     this.id = id;
     this.value = value;
@@ -10779,8 +10779,8 @@ var Handle = /* @__PURE__ */ function() {
     this.value = void 0;
   };
   return Handle2;
-}();
-var ConstHandle = /* @__PURE__ */ function(_super) {
+})();
+var ConstHandle = /* @__PURE__ */ (function(_super) {
   __extends(ConstHandle2, _super);
   function ConstHandle2(id, value) {
     return _super.call(this, id, value) || this;
@@ -10788,8 +10788,8 @@ var ConstHandle = /* @__PURE__ */ function(_super) {
   ConstHandle2.prototype.dispose = function() {
   };
   return ConstHandle2;
-}(Handle);
-var HandleStore = /* @__PURE__ */ function() {
+})(Handle);
+var HandleStore = /* @__PURE__ */ (function() {
   function HandleStore2() {
     this._values = [
       void 0,
@@ -10844,8 +10844,8 @@ var HandleStore = /* @__PURE__ */ function() {
   HandleStore2.GLOBAL = new ConstHandle(5, _global);
   HandleStore2.MIN_ID = 6;
   return HandleStore2;
-}();
-var HandleScope = /* @__PURE__ */ function() {
+})();
+var HandleScope = /* @__PURE__ */ (function() {
   function HandleScope2(handleStore, id, parentScope, start, end) {
     if (end === void 0) {
       end = start;
@@ -10898,8 +10898,8 @@ var HandleScope = /* @__PURE__ */ function() {
     return this._escapeCalled;
   };
   return HandleScope2;
-}();
-var ScopeStore = /* @__PURE__ */ function() {
+})();
+var ScopeStore = /* @__PURE__ */ (function() {
   function ScopeStore2() {
     this._rootScope = new HandleScope(null, 0, null, 1, HandleStore.MIN_ID);
     this.currentScope = this._rootScope;
@@ -10931,8 +10931,8 @@ var ScopeStore = /* @__PURE__ */ function() {
     this._values.length = 1;
   };
   return ScopeStore2;
-}();
-var RefTracker = /* @__PURE__ */ function() {
+})();
+var RefTracker = /* @__PURE__ */ (function() {
   function RefTracker2() {
     this._next = null;
     this._prev = null;
@@ -10965,8 +10965,8 @@ var RefTracker = /* @__PURE__ */ function() {
     }
   };
   return RefTracker2;
-}();
-var Finalizer = /* @__PURE__ */ function() {
+})();
+var Finalizer = /* @__PURE__ */ (function() {
   function Finalizer2(envObject, _finalizeCallback, _finalizeData, _finalizeHint) {
     if (_finalizeCallback === void 0) {
       _finalizeCallback = 0;
@@ -11019,8 +11019,8 @@ var Finalizer = /* @__PURE__ */ function() {
     this._makeDynCall_vppp = void 0;
   };
   return Finalizer2;
-}();
-var TrackedFinalizer = /* @__PURE__ */ function(_super) {
+})();
+var TrackedFinalizer = /* @__PURE__ */ (function(_super) {
   __extends(TrackedFinalizer2, _super);
   function TrackedFinalizer2(envObject, finalize_callback, finalize_data, finalize_hint) {
     var _this = _super.call(this) || this;
@@ -11060,7 +11060,7 @@ var TrackedFinalizer = /* @__PURE__ */ function(_super) {
     }
   };
   return TrackedFinalizer2;
-}(RefTracker);
+})(RefTracker);
 function throwNodeApiVersionError(moduleName, moduleApiVersion) {
   var errorMessage = "".concat(moduleName, " requires Node-API version ").concat(moduleApiVersion, ", but this version of Node.js only supports version ").concat(NODE_API_SUPPORTED_VERSION_MAX, " add-ons.");
   throw new Error(errorMessage);
@@ -11071,7 +11071,7 @@ function handleThrow(envObject, value) {
   }
   throw value;
 }
-var Env = /* @__PURE__ */ function() {
+var Env = /* @__PURE__ */ (function() {
   function Env2(ctx, moduleApiVersion, makeDynCall_vppp, makeDynCall_vp, abort) {
     this.ctx = ctx;
     this.moduleApiVersion = moduleApiVersion;
@@ -11230,8 +11230,8 @@ var Env = /* @__PURE__ */ function() {
     return this.instanceData ? this.instanceData.data() : 0;
   };
   return Env2;
-}();
-var NodeEnv = /* @__PURE__ */ function(_super) {
+})();
+var NodeEnv = /* @__PURE__ */ (function(_super) {
   __extends(NodeEnv2, _super);
   function NodeEnv2(ctx, filename, moduleApiVersion, makeDynCall_vppp, makeDynCall_vp, abort, nodeBinding) {
     var _this = _super.call(this, ctx, moduleApiVersion, makeDynCall_vppp, makeDynCall_vp, abort) || this;
@@ -11321,7 +11321,7 @@ var NodeEnv = /* @__PURE__ */ function(_super) {
     }
   };
   return NodeEnv2;
-}(Env);
+})(Env);
 function newEnv(ctx, filename, moduleApiVersion, makeDynCall_vppp, makeDynCall_vp, abort, nodeBinding) {
   moduleApiVersion = typeof moduleApiVersion !== "number" ? NODE_API_DEFAULT_MODULE_API_VERSION : moduleApiVersion;
   if (moduleApiVersion < NODE_API_DEFAULT_MODULE_API_VERSION) {
@@ -11336,7 +11336,7 @@ function newEnv(ctx, filename, moduleApiVersion, makeDynCall_vppp, makeDynCall_v
   }, 0);
   return env;
 }
-var EmnapiError = /* @__PURE__ */ function(_super) {
+var EmnapiError = /* @__PURE__ */ (function(_super) {
   __extends(EmnapiError2, _super);
   function EmnapiError2(message) {
     var _newTarget = this.constructor;
@@ -11357,37 +11357,37 @@ var EmnapiError = /* @__PURE__ */ function(_super) {
     return _this;
   }
   return EmnapiError2;
-}(Error);
+})(Error);
 Object.defineProperty(EmnapiError.prototype, "name", {
   configurable: true,
   writable: true,
   value: "EmnapiError"
 });
-var NotSupportWeakRefError = /* @__PURE__ */ function(_super) {
+var NotSupportWeakRefError = /* @__PURE__ */ (function(_super) {
   __extends(NotSupportWeakRefError2, _super);
   function NotSupportWeakRefError2(api, message) {
     return _super.call(this, "".concat(api, ': The current runtime does not support "FinalizationRegistry" and "WeakRef".').concat(message ? " ".concat(message) : "")) || this;
   }
   return NotSupportWeakRefError2;
-}(EmnapiError);
+})(EmnapiError);
 Object.defineProperty(NotSupportWeakRefError.prototype, "name", {
   configurable: true,
   writable: true,
   value: "NotSupportWeakRefError"
 });
-var NotSupportBufferError = /* @__PURE__ */ function(_super) {
+var NotSupportBufferError = /* @__PURE__ */ (function(_super) {
   __extends(NotSupportBufferError2, _super);
   function NotSupportBufferError2(api, message) {
     return _super.call(this, "".concat(api, ': The current runtime does not support "Buffer". Consider using buffer polyfill to make sure `globalThis.Buffer` is defined.').concat(message ? " ".concat(message) : "")) || this;
   }
   return NotSupportBufferError2;
-}(EmnapiError);
+})(EmnapiError);
 Object.defineProperty(NotSupportBufferError.prototype, "name", {
   configurable: true,
   writable: true,
   value: "NotSupportBufferError"
 });
-var StrongRef = /* @__PURE__ */ function() {
+var StrongRef = /* @__PURE__ */ (function() {
   function StrongRef2(value) {
     this._value = value;
   }
@@ -11398,8 +11398,8 @@ var StrongRef = /* @__PURE__ */ function() {
     this._value = void 0;
   };
   return StrongRef2;
-}();
-var Persistent = /* @__PURE__ */ function() {
+})();
+var Persistent = /* @__PURE__ */ (function() {
   function Persistent2(value) {
     this._ref = new StrongRef(value);
   }
@@ -11472,7 +11472,7 @@ var Persistent = /* @__PURE__ */ function() {
     }
   }) : void 0;
   return Persistent2;
-}();
+})();
 var ReferenceOwnership;
 (function(ReferenceOwnership2) {
   ReferenceOwnership2[ReferenceOwnership2["kRuntime"] = 0] = "kRuntime";
@@ -11481,7 +11481,7 @@ var ReferenceOwnership;
 function canBeHeldWeakly(value) {
   return value.isObject() || value.isFunction() || value.isSymbol();
 }
-var Reference = /* @__PURE__ */ function(_super) {
+var Reference = /* @__PURE__ */ (function(_super) {
   __extends(Reference2, _super);
   function Reference2(envObject, handle_id, initialRefcount, ownership) {
     var _this = _super.call(this) || this;
@@ -11579,8 +11579,8 @@ var Reference = /* @__PURE__ */ function(_super) {
     this.id = 0;
   };
   return Reference2;
-}(RefTracker);
-var ReferenceWithData = /* @__PURE__ */ function(_super) {
+})(RefTracker);
+var ReferenceWithData = /* @__PURE__ */ (function(_super) {
   __extends(ReferenceWithData2, _super);
   function ReferenceWithData2(envObject, value, initialRefcount, ownership, _data) {
     var _this = _super.call(this, envObject, value, initialRefcount, ownership) || this;
@@ -11597,8 +11597,8 @@ var ReferenceWithData = /* @__PURE__ */ function(_super) {
     return this._data;
   };
   return ReferenceWithData2;
-}(Reference);
-var ReferenceWithFinalizer = /* @__PURE__ */ function(_super) {
+})(Reference);
+var ReferenceWithFinalizer = /* @__PURE__ */ (function(_super) {
   __extends(ReferenceWithFinalizer2, _super);
   function ReferenceWithFinalizer2(envObject, value, initialRefcount, ownership, finalize_callback, finalize_data, finalize_hint) {
     var _this = _super.call(this, envObject, value, initialRefcount, ownership) || this;
@@ -11632,8 +11632,8 @@ var ReferenceWithFinalizer = /* @__PURE__ */ function(_super) {
     this._finalizer = void 0;
   };
   return ReferenceWithFinalizer2;
-}(Reference);
-var Deferred = /* @__PURE__ */ function() {
+})(Reference);
+var Deferred = /* @__PURE__ */ (function() {
   function Deferred2(ctx, value) {
     Object.defineProperties(this, {
       id: {
@@ -11676,8 +11676,8 @@ var Deferred = /* @__PURE__ */ function() {
     this.ctx = null;
   };
   return Deferred2;
-}();
-var Store = /* @__PURE__ */ function() {
+})();
+var Store = /* @__PURE__ */ (function() {
   function Store2() {
     this._values = [void 0];
     this._values.length = 4;
@@ -11723,10 +11723,10 @@ var Store = /* @__PURE__ */ function() {
     this._freeList = [];
   };
   return Store2;
-}();
+})();
 var kMaxReasonableBytes = BigInt(1) << BigInt(60);
 var kMinReasonableBytes = -kMaxReasonableBytes;
-var ExternalMemory = /* @__PURE__ */ function() {
+var ExternalMemory = /* @__PURE__ */ (function() {
   function ExternalMemory2(onChange) {
     this.total = BigInt(0);
     this.onChange = onChange !== null && onChange !== void 0 ? onChange : null;
@@ -11746,8 +11746,8 @@ var ExternalMemory = /* @__PURE__ */ function() {
     return amount;
   };
   return ExternalMemory2;
-}();
-var CleanupHookCallback = /* @__PURE__ */ function() {
+})();
+var CleanupHookCallback = /* @__PURE__ */ (function() {
   function CleanupHookCallback2(envObject, fn, arg, order) {
     this.envObject = envObject;
     this.fn = fn;
@@ -11755,8 +11755,8 @@ var CleanupHookCallback = /* @__PURE__ */ function() {
     this.order = order;
   }
   return CleanupHookCallback2;
-}();
-var CleanupQueue = /* @__PURE__ */ function() {
+})();
+var CleanupQueue = /* @__PURE__ */ (function() {
   function CleanupQueue2() {
     this._cleanupHooks = [];
     this._cleanupHookCounter = 0;
@@ -11801,8 +11801,8 @@ var CleanupQueue = /* @__PURE__ */ function() {
     this._cleanupHookCounter = 0;
   };
   return CleanupQueue2;
-}();
-var NodejsWaitingRequestCounter = /* @__PURE__ */ function() {
+})();
+var NodejsWaitingRequestCounter = /* @__PURE__ */ (function() {
   function NodejsWaitingRequestCounter2() {
     this.refHandle = new _MessageChannel().port1;
     this.count = 0;
@@ -11826,8 +11826,8 @@ var NodejsWaitingRequestCounter = /* @__PURE__ */ function() {
     this.count--;
   };
   return NodejsWaitingRequestCounter2;
-}();
-var Context = /* @__PURE__ */ function() {
+})();
+var Context = /* @__PURE__ */ (function() {
   function Context2(options) {
     var _this = this;
     this._isStopping = false;
@@ -11975,7 +11975,7 @@ var Context = /* @__PURE__ */ function() {
     this.runCleanup();
   };
   return Context2;
-}();
+})();
 var defaultContext;
 function createContext(options) {
   return new Context(options);
@@ -12820,9 +12820,9 @@ var AsyncTable = class extends FileDescriptorTable {
     this.used--;
   }
 };
-var WebAssemblyMemory = /* @__PURE__ */ function() {
+var WebAssemblyMemory = /* @__PURE__ */ (function() {
   return _WebAssembly3.Memory;
-}();
+})();
 var Memory = class extends WebAssemblyMemory {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(descriptor) {
@@ -14407,11 +14407,11 @@ var WASI$1 = class _WASI$1 {
   }
 };
 var kEmptyObject = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.create(null));
-var kExitCode = Symbol("kExitCode");
-var kSetMemory = Symbol("kSetMemory");
-var kStarted = Symbol("kStarted");
-var kInstance = Symbol("kInstance");
-var kBindingName = Symbol("kBindingName");
+var kExitCode = /* @__PURE__ */ Symbol("kExitCode");
+var kSetMemory = /* @__PURE__ */ Symbol("kSetMemory");
+var kStarted = /* @__PURE__ */ Symbol("kStarted");
+var kInstance = /* @__PURE__ */ Symbol("kInstance");
+var kBindingName = /* @__PURE__ */ Symbol("kBindingName");
 function validateOptions(options) {
   var _a;
   validateObject(options, "options");
@@ -14578,19 +14578,13 @@ var {
   napiModule: __napiModule
 } = await instantiateNapiModule2(__wasmFile, {
   context: __emnapiContext,
-  asyncWorkPoolSize: 4,
+  asyncWorkPoolSize: 0,
   wasi: __wasi,
-  onCreateWorker(info) {
-    try {
-      const worker = new Worker(new URL("./worker.js", import.meta.url), {
-        type: "module"
-      });
-      console.log("[vectorizer] worker created", info, worker);
-      return worker;
-    } catch (e) {
-      console.error("[vectorizer] worker creation failed", info, e);
-      throw e;
-    }
+  onCreateWorker() {
+    const worker = new Worker(new URL("./worker.js", import.meta.url), {
+      type: "module"
+    });
+    return worker;
   },
   overwriteImports(importObject) {
     importObject.env = {

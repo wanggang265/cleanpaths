@@ -1,7 +1,7 @@
 import {
   createOnMessage as __wasmCreateOnMessageForFsProxy,
   getDefaultContext as __emnapiGetDefaultContext,
-  instantiateNapiModuleSync as __emnapiInstantiateNapiModuleSync,
+  instantiateNapiModule as __emnapiInstantiateNapiModule,
   WASI as __WASI,
 } from '@napi-rs/wasm-runtime';
 
@@ -24,9 +24,9 @@ const {
   instance: __napiInstance,
   module: __wasiModule,
   napiModule: __napiModule,
-} = __emnapiInstantiateNapiModuleSync(__wasmFile, {
+} = await __emnapiInstantiateNapiModule(__wasmFile, {
   context: __emnapiContext,
-  asyncWorkPoolSize: 4,
+  asyncWorkPoolSize: 0,
   wasi: __wasi,
   onCreateWorker() {
     const worker = new Worker(new URL('./worker.js', import.meta.url), {

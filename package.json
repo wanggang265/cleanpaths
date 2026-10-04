@@ -10,6 +10,7 @@
     "audit:copy": "node scripts/audit-copy.mjs",
     "gate": "bash scripts/deploy-gate.sh",
     "build": "npm run gate && next build",
+    "build:vendor": "esbuild .vendor-src/vectorizer.js --bundle --format=esm --platform=browser --target=es2022 --external:./worker.js --outfile=public/vendor/vectorizer/vectorizer.bundle.js",
     "deploy": "bash deploy.sh"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "@types/node": "22.7.5",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
+    "esbuild": "^0.28.2",
     "typescript": "5.6.3"
   }
 }
