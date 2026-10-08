@@ -32,18 +32,83 @@ function isBackground(hex: string): boolean {
   return r > 242 && g > 242 && b > 242;
 }
 
-function samplePath(el: SVGPathElement, ctm: DOMMatrix | null, step: number): Pt[][] {
+/**
+ * #19a fix (user-picked option A): curvature-adaptive sampling.
+ * The old fixed cap (4000 → 200) starved high-curvature regions — QA
+ * regression showed maxDev 2.2–7.7mm vs the 4000-pt reference. Instead of a
+ * uniform cap we seed coarsely, then recursively subdivide ONLY where the
+ * chord deviates from the true curve: straight/low-curvature runs stay
+ * sparse (few getPointAtLength calls), corners/tight curves get dense.
+ * Async with periodic yields so a single heavy path can't freeze the main
+ * thread (napi-wasm troubleshooting §3 — getPointAtLength is a sync layout API).
+ */
+/** per-path point ceiling — matches the pre-regression fidelity reference */
+const SAMPLE_HARD_CAP = 4000;
+/** chord-deviation tolerance (SVG user units ≈ px) before a span is split */
+const CHORD_TOL = 0.25;
+/** arc-length floor per span — below this, remaining error is sub-pixel */
+const MIN_SPAN = 0.12;
+/** seed samples per path (straight paths never need more) */
+const SEED_CAP = 256;
+/** yield to the event loop every N geometry probes */
+const YIELD_EVERY = 2048;
+
+const yieldToMain = () => new Promise((r) => setTimeout(r, 0));
+
+function distPtToSeg(p: { x: number; y: number }, a: { x: number; y: number }, b: { x: number; y: number }): number {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  const l2 = dx * dx + dy * dy;
+  let t = l2 === 0 ? 0 : ((p.x - a.x) * dx + (p.y - a.y) * dy) / l2;
+  t = Math.max(0, Math.min(1, t));
+  return Math.hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy));
+}
+
+async function samplePath(el: SVGPathElement, ctm: DOMMatrix | null, step: number): Promise<Pt[][]> {
   const total = el.getTotalLength();
   if (!isFinite(total) || total <= 0) return [];
-  // 4000 → 500: getPointAtLength is a sync layout API; 4000 calls/path ×
-  // many paths froze the main thread ~20s. 500 pts/path is smooth enough
-  // for cut-file output (≈1.8px spacing on a 900px canvas).
-  const n = Math.max(8, Math.min(200, Math.ceil(total / step)));
-  const pts: Pt[] = [];
+  let probes = 0;
+  const probe = (len: number) => {
+    probes += 1;
+    return el.getPointAtLength(len);
+  };
+
+  // 1) coarse uniform seed (spacing = precision step, capped)
+  const n = Math.max(8, Math.min(SEED_CAP, Math.ceil(total / step)));
+  let lens: number[] = [];
+  let raw: Array<{ x: number; y: number }> = [];
   for (let i = 0; i <= n; i++) {
-    const p = el.getPointAtLength((i / n) * total);
-    pts.push(ctm ? applyMatrix(p, ctm) : { x: p.x, y: p.y });
+    lens.push((i / n) * total);
+    raw.push(probe(lens[i]));
   }
+
+  // 2) adaptive refinement: split spans whose midpoint misses the chord
+  for (let pass = 0; pass < 16; pass++) {
+    const nextLens: number[] = [lens[0]];
+    const nextRaw: Array<{ x: number; y: number }> = [raw[0]];
+    let splits = 0;
+    for (let i = 0; i < lens.length - 1; i++) {
+      const span = lens[i + 1] - lens[i];
+      if (span > MIN_SPAN && nextLens.length + (lens.length - i) < SAMPLE_HARD_CAP) {
+        const mid = (lens[i] + lens[i + 1]) / 2;
+        const pm = probe(mid);
+        if (distPtToSeg(pm, raw[i], raw[i + 1]) > CHORD_TOL) {
+          nextLens.push(mid);
+          nextRaw.push(pm);
+          splits += 1;
+        }
+      }
+      nextLens.push(lens[i + 1]);
+      nextRaw.push(raw[i + 1]);
+      if (probes % YIELD_EVERY === 0) await yieldToMain();
+    }
+    lens = nextLens;
+    raw = nextRaw;
+    if (splits === 0) break;
+    if (probes % YIELD_EVERY !== 0) await yieldToMain();
+  }
+
+  const pts: Pt[] = raw.map((p) => (ctm ? applyMatrix(p, ctm) : { x: p.x, y: p.y }));
   // drop duplicate closing point; DXF closed flag joins the loop
   if (pts.length > 1) {
     const a = pts[0];
@@ -149,7 +214,7 @@ export async function flattenSvg(svgText: string, opts: FlattenOptions = {}): Pr
       }
       const loops =
         el.tagName.toLowerCase() === 'path'
-          ? samplePath(el as SVGPathElement, ctm, step)
+          ? await samplePath(el as SVGPathElement, ctm, step)
           : primitiveToPoints(el, ctm);
       if (loops.length === 0) continue;
       const arr = byColor.get(hex) ?? [];
