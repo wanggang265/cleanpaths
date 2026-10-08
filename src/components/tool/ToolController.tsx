@@ -15,6 +15,7 @@ import { useEffect, useRef } from 'react';
 import { CAP_COPY, DL_COPY, SHARE_COPY, STATE_COPY, STEPS } from '@/lib/copy';
 import { buildDxf, prepareLayers, PX_TO_MM, type TraceLayer } from '@/lib/dxf';
 import { flattenSvg, layersToSvg } from '@/lib/svg-flatten';
+import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
 import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
@@ -56,6 +57,19 @@ function baseOf(name: string): string {
   return b || 'image';
 }
 
+/**
+ * #18 big-file guard UI note — NEW COPY, not part of the 05 v1.2 freeze.
+ * [NEEDS-COPY-REVIEW] — route through zhongshu/05c before freeze.
+ */
+const SIZE_NOTE = {
+  en: `Large image — auto-resized to ${MAX_INPUT_EDGE}px on the long edge so conversion stays fast. Still 100% on your device, nothing uploaded.`,
+  pt: `Imagem grande — redimensionada automaticamente para ${MAX_INPUT_EDGE}px no lado maior para manter a conversão rápida. Ainda 100% no seu navegador, nada foi enviado.`,
+} as const;
+
+function sizeNoteHtml(note: string): string {
+  return `<div class="state-note state-note--info" data-tool-size-note style="margin-top:12px"><span>${note}</span></div>`;
+}
+
 export default function ToolController(props: ToolProps) {
   const { kind, lang, accept, errorMessage } = props;
   const anchorId = props.anchorId ?? 'convert';
@@ -70,6 +84,7 @@ export default function ToolController(props: ToolProps) {
     urls: string[];
     precision: number;
     aiHdOn: boolean;
+    sizeNote: string | null; // #18: resize notice shown in processing + result
   }>({
     initialHtml: null,
     cleanupOn: true, // "Clean up bad images (recommended)" — design default ON
@@ -80,6 +95,7 @@ export default function ToolController(props: ToolProps) {
     urls: [],
     precision: 6,
     aiHdOn: false,
+    sizeNote: null,
   });
 
   useEffect(() => {
@@ -183,8 +199,25 @@ export default function ToolController(props: ToolProps) {
       }
 
       renderState('processing', processingHtml(stepsFor(kind, lang), lang));
-      const bytes = new Uint8Array(await file.arrayBuffer());
+      let bytes = new Uint8Array(await file.arrayBuffer());
       S.lastFile = { bytes, name: file.name, mime: file.type || guessMime(ext) };
+
+      // 3) #18 big-file guard: >10MB or longest edge >2000px → auto downscale
+      //    before the engine (raster inputs only; svg/jfif pass through)
+      S.sizeNote = null;
+      if (kind !== 'jfif' && ext !== '.svg') {
+        try {
+          const guarded = await guardRasterInput(bytes, S.lastFile.mime);
+          if (guarded.downscaled) {
+            bytes = guarded.bytes;
+            S.lastFile = { bytes, name: file.name, mime: guarded.mime };
+            S.sizeNote = SIZE_NOTE[lang];
+            dz.insertAdjacentHTML('beforeend', sizeNoteHtml(S.sizeNote));
+          }
+        } catch {
+          /* decode failed — engine will surface the frozen error state */
+        }
+      }
 
       try {
         const out = await produce(bytes, file.name, S.lastFile.mime);
@@ -282,7 +315,9 @@ export default function ToolController(props: ToolProps) {
       if (S.aiHdOn) {
         input = await preprocessImage(bytes, mime, 4);
         inputMime = 'image/png';
-      } else if (kind === 'trace-raster' && S.cleanupOn && (extOf(name) === '.jpg' || extOf(name) === '.jpeg')) {
+      } else if (kind === 'trace-raster' && S.cleanupOn && !S.sizeNote && (extOf(name) === '.jpg' || extOf(name) === '.jpeg')) {
+        // cleanup 2x upscale is skipped when the #18 guard already downscaled
+        // (upscaling back to 4000px would defeat the guard)
         input = await preprocessImage(bytes, mime, 2);
         inputMime = 'image/png';
       }
@@ -330,6 +365,7 @@ export default function ToolController(props: ToolProps) {
       dz.innerHTML = S.initialHtml ?? dz.innerHTML;
       S.out = null;
       S.aiHdOn = false;
+      S.sizeNote = null;
       wireStatic();
       setBusy(false);
     }
@@ -372,6 +408,7 @@ export default function ToolController(props: ToolProps) {
       dz.style.borderStyle = 'solid';
       dz.style.borderColor = 'var(--mat)';
       dz.innerHTML = resultHtml(render);
+      if (S.sizeNote) dz.querySelector('.dl-row')?.insertAdjacentHTML('beforebegin', sizeNoteHtml(S.sizeNote));
       wireResult();
       setBusy(true);
       void c; // (kept for future frozen fragments)
