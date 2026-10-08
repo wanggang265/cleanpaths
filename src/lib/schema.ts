@@ -44,7 +44,8 @@ export function softwareApplication(opts: {
 }): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    // open-items #6 contract literal: SoftwareApplication (08 P2-⑧ confirmed)
+    '@type': 'SoftwareApplication',
     name: opts.name,
     url: opts.url,
     description: opts.description,

@@ -7,6 +7,12 @@
  * intercepts them and POSTs to /api/checkout (08: Creem checkout session;
  * expected response {url} → redirect). Until 08 lands, the endpoint 404s and
  * the user stays on the page — NO fake success UI. Handoff: "08 接线".
+ *
+ * QA #26-① fix: the wrapper used to render EMPTY next to PageShell, so CTAs
+ * were never inside [data-checkout-links] and the interceptor was dead code.
+ * It now wraps the page content via children — clicks on #checkout anchors
+ * bubble up to the listener here. Safe behavior is unchanged: click does not
+ * navigate, does not error, until 08 wires Creem.
  */
 import { useEffect, useRef } from 'react';
 
@@ -18,7 +24,7 @@ function planFromButton(btn: HTMLElement): string {
   return 'pro';
 }
 
-export default function CheckoutLinks() {
+export default function CheckoutLinks({ children }: { children?: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const root = ref.current;
@@ -45,5 +51,9 @@ export default function CheckoutLinks() {
     root.addEventListener('click', onClick);
     return () => root.removeEventListener('click', onClick);
   }, []);
-  return <div ref={ref} style={{ display: 'contents' }} data-checkout-links />;
+  return (
+    <div ref={ref} style={{ display: 'contents' }} data-checkout-links>
+      {children}
+    </div>
+  );
 }

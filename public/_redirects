@@ -1,0 +1,3 @@
+# SEO P2: trailing-slash normalization (next.config trailingSlash emits /route/
+# as canonical; 301 the bare form to it). Cloudflare Pages _redirects syntax.
+/pricing /pricing/ 301

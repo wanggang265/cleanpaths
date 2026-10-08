@@ -4,7 +4,7 @@ import { DEFAULT_IMAGE, SITE_NAME, SITE_URL } from '@/lib/schema';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME} — Cut-Ready DXF/SVG, in Your Browser`, template: `%s` },
-  icons: { icon: [{ url: '/assets/logo.svg', type: 'image/svg+xml' }] },
+  icons: { icon: [{ url: '/assets/logo.svg', type: 'image/svg+xml' }, { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' }] },
   // OG defaults — each page merges in its own title/description/url (08 P1-2).
   // og:url resolves against metadataBase → production domain https://cleanpaths.io.
   openGraph: {
