@@ -45,8 +45,11 @@ ok "15 route files present"
 node scripts/audit-copy.mjs || fail "copy audit failed"
 ok "frozen copy audit PASS"
 
-# 5) legal .fill placeholders must still be visible (08/legal backfill pending)
-grep -q 'class="fill"' src/content/pages/privacy.ts || fail "privacy .fill placeholders missing"
-ok "legal .fill placeholders present (not yet backfilled — expected)"
+# 5) legal placeholders must be ZERO (open-items #20 launch gate: 07e backfilled all .fill chips)
+for f in src/content/pages/privacy.ts src/content/pages/terms.ts src/content/pages/refund.ts src/content/pages/cookies.ts; do
+  if grep -q 'class="fill"' "$f"; then fail "legal .fill placeholders still present in $f (must be zero)"; fi
+  if grep -qE '\[用户填入|\[待确认|\[待回填' "$f"; then fail "legal placeholder marker still present in $f (must be zero)"; fi
+done
+ok "legal .fill placeholders: zero (backfilled)"
 
 echo "✅ GATE: all checks passed — build may proceed"

@@ -8,7 +8,7 @@ export const mainHtml = `<section class="section">
       <span class="spec">Legal · plain English</span>
       <h1 style="margin-top:12px">Cookie Policy</h1>
       
-      <p><strong>Effective date:</strong> <span class="fill">[用户填入]</span> ｜ <strong>Last updated:</strong> <span class="fill">[用户填入]</span></p>
+      <p><strong>Effective date:</strong> October 8, 2026 ｜ <strong>Last updated:</strong> October 8, 2026</p>
 <h2>The short answer: we don't use tracking cookies</h2>
 <p>CleanPaths is built on a <strong>no-tracking-cookie architecture</strong>. There is no cookie consent banner because there is nothing that legally requires one (no ad cookies, no analytics cookies, no cross-site trackers).</p>
 <h2>What your browser does store</h2>
@@ -20,12 +20,12 @@ export const mainHtml = `<section class="section">
 </tbody></table></div>
 <p>These are <strong>strictly necessary</strong> for the Service to function. Under GDPR/ePrivacy (and Brazil's LGPD), strictly-necessary storage does not require consent. None of it is used for advertising, profiling, or tracking across sites.</p>
 <h2>Analytics without cookies</h2>
-<p>We use <strong><span class="fill">[待回填：Cloudflare Web Analytics 或 Plausible — 08 选型后回填并链接其隐私说明]</span></strong>, a privacy-focused analytics tool that works <strong>without cookies</strong> and collects only aggregate, anonymous statistics (page views, approximate region, device type). It does not identify you and does not follow you around the web.</p>
+<p>We currently do not use any third-party analytics service. If we add one in the future, it will be a privacy-focused analytics tool that works <strong>without cookies</strong> and collects only aggregate, anonymous statistics (page views, approximate region, device type). It will not identify you and will not follow you around the web.</p>
 <h2>If this ever changes</h2>
 <p>If we ever introduce any non-essential cookie, we will: (1) update this page first, and (2) show a consent banner before setting it. We don't expect this to happen.</p>
 <h2>Managing your choices</h2>
 <p>You can clear or block local storage in your browser settings at any time. Blocking it may degrade the Service (e.g., the free daily counter and Pro offline activation may not work).</p>
-<p>Contact: <strong>privacy@cleanpaths.io <span class="fill">[待确认]</span></strong></p>
+<p>Contact: <strong>privacy@cleanpaths.io</strong></p>
     </div>
   </div>
 </section>`;
