@@ -20,6 +20,7 @@ import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
 import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
+import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
 import { openFeedbackDialog, TOOL_BUSY_EVENT } from '../feedback';
 
 export type ToolKind = 'trace-multi' | 'trace-raster' | 'screenshot' | 'svg-dxf' | 'jfif';
@@ -200,6 +201,12 @@ export default function ToolController(props: ToolProps) {
       }
 
       renderState('processing', processingHtml(stepsFor(kind, lang), lang));
+      // 07d: real staged progress — jfif repack is near-instant, keep the
+      // frozen static steps there; every other kind gets the live UI.
+      const isSvgInput = kind === 'svg-dxf' || (kind === 'trace-multi' && ext === '.svg');
+      const prog: ProgressUI | null =
+        kind === 'jfif' ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
+      prog?.enter('read');
       let bytes = new Uint8Array(await file.arrayBuffer());
       S.lastFile = { bytes, name: file.name, mime: file.type || guessMime(ext) };
 
@@ -214,6 +221,7 @@ export default function ToolController(props: ToolProps) {
             S.lastFile = { bytes, name: file.name, mime: guarded.mime };
             S.sizeNote = SIZE_NOTE[lang];
             dz.insertAdjacentHTML('beforeend', sizeNoteHtml(S.sizeNote));
+            prog?.bigFile(); // 07d: honest 1–2 min expectation for big files
           }
         } catch {
           /* decode failed — engine will surface the frozen error state */
@@ -221,11 +229,13 @@ export default function ToolController(props: ToolProps) {
       }
 
       try {
-        const out = await produce(bytes, file.name, S.lastFile.mime);
+        const out = await produce(bytes, file.name, S.lastFile.mime, prog);
+        prog?.finish();
         S.out = out;
         recordConversion();
         renderResult();
       } catch (err) {
+        prog?.stop();
         console.error('[cleanpaths] conversion failed', err);
         renderState('error', errorHtml(`<b>${errorMessage.split('</b>')[0]}</b> ${errorMessage.split('</b>')[1] ?? ''}`, lang));
       }
@@ -237,7 +247,7 @@ export default function ToolController(props: ToolProps) {
       return STEPS.trace;
     }
 
-    async function produce(bytes: Uint8Array, name: string, mime: string): Promise<RunOutput> {
+    async function produce(bytes: Uint8Array, name: string, mime: string, prog: ProgressUI | null = null): Promise<RunOutput> {
       const base = baseOf(name);
       const urls: string[] = [];
       const track = (b: Blob) => {
@@ -267,8 +277,10 @@ export default function ToolController(props: ToolProps) {
       if (kind === 'svg-dxf' || (kind === 'trace-multi' && extOf(name) === '.svg')) {
         const text = new TextDecoder().decode(bytes);
         const step = stepForPrecision(S.precision);
-        const layers = await flattenSvgAsync(text, { step, dropBackground: true });
+        prog?.enter('paths'); // 07d: curves → polylines (real 0..1 from flatten worker)
+        const layers = await flattenSvgAsync(text, { step, dropBackground: true, onProgress: (f) => prog?.phaseProgress(f) });
         if (layers.length === 0) throw new Error('no vector shapes found');
+        prog?.enter('export');
         const prepared = prepareLayers(layers);
         const dims = svgDims(text);
         const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
@@ -313,6 +325,7 @@ export default function ToolController(props: ToolProps) {
       const preset = kind === 'screenshot' && S.presetOn ? ('screenshot' as const) : undefined;
       let input = bytes;
       let inputMime = mime;
+      prog?.enter('prep'); // 07d
       if (S.aiHdOn) {
         input = await preprocessImage(bytes, mime, 4);
         inputMime = 'image/png';
@@ -322,9 +335,20 @@ export default function ToolController(props: ToolProps) {
         input = await preprocessImage(bytes, mime, 2);
         inputMime = 'image/png';
       }
-      const traced = await traceImage(input, inputMime, { preset, ...precisionConfig(S.precision, preset) });
-      const layers = await flattenSvgAsync(traced.svg, { step: 0.8, dropBackground: true });
+      prog?.enter('trace'); // 07d: engine worker — real phase events bump the bar
+      const traced = await traceImage(input, inputMime, {
+        preset,
+        ...precisionConfig(S.precision, preset),
+        onPhase: (phase) => {
+          // real worker events: WASM bundle load vs actual trace start
+          if (phase === 'engine-loading') prog?.phaseProgress(0.04);
+          else if (phase === 'tracing') prog?.phaseProgress(0.18);
+        },
+      });
+      prog?.enter('paths'); // 07d: flatten — real 0..1 progress from the worker
+      const layers = await flattenSvgAsync(traced.svg, { step: 0.8, dropBackground: true, onProgress: (f) => prog?.phaseProgress(f) });
       if (layers.length === 0) throw new Error('trace produced no layers');
+      prog?.enter('export');
       const prepared = prepareLayers(layers);
       const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
       const r12 = new Blob([buildDxf(prepared, 'R12')], { type: 'application/dxf' });

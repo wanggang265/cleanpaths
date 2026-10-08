@@ -504,10 +504,15 @@ h3 { font-size: 19px; }
 /* states: processing / error / cap */
 .proc { text-align: left; }
 .proc .bar-outer { height: 10px; border: 1.5px solid var(--line-strong); border-radius: 999px; overflow: hidden; background: var(--paper-2); margin: var(--s3) 0; }
-.proc .bar-inner { height: 100%; width: 62%; background: repeating-linear-gradient(45deg, var(--mat) 0 10px, #2b8a73 10px 20px); }
+/* 07d: width is now driven by real stage events (inline style, transitioned);
+   the stripe slide is a pure "alive" affordance, not a fake position. */
+.proc .bar-inner { height: 100%; width: 62%; background: repeating-linear-gradient(45deg, var(--mat) 0 10px, #2b8a73 10px 20px); transition: width .35s ease; animation: proc-stripes 1.4s linear infinite; }
+@keyframes proc-stripes { from { background-position: 0 0; } to { background-position: 28px 0; } }
+@media (prefers-reduced-motion: reduce) { .proc .bar-inner { animation: none; } }
 .proc .steps-mini { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display: grid; gap: 6px; }
 .proc .steps-mini .done { color: var(--mat); }
 .proc .steps-mini .now { color: var(--blade-dark); font-weight: 600; }
+.proc .proc-elapsed { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-top: 8px; }
 .state-note {
   border-radius: var(--r-btn); padding: 12px 14px; font-size: 14.5px; font-weight: 500;
   border: 1.5px solid; display: flex; gap: 10px; align-items: flex-start; text-align: left;

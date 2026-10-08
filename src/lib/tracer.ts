@@ -17,6 +17,8 @@ export interface TraceOptions {
   pathPrecision?: number;
   /** screenshot preset: cleaner input, fewer speckles */
   preset?: 'default' | 'screenshot';
+  /** 07d: real engine-worker phase events ('engine-loading' | 'tracing') */
+  onPhase?: (phase: string) => void;
 }
 
 export interface TraceResult {
@@ -103,7 +105,7 @@ export async function traceImage(bytes: Uint8Array, mime: string, opts: TraceOpt
     pathPrecision: opts.pathPrecision ?? 2,
   };
 
-  const svg: string = await vectorize(bytes, config);
+  const svg: string = await vectorize(bytes, config, opts.onPhase);
   return { svg, width: img.width, height: img.height };
 }
 

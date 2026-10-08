@@ -21,12 +21,17 @@ export function processingHtml(steps: readonly string[], lang: 'en' | 'pt'): str
       return `<span${cls ? ` class="${cls}"` : ''}>${s}</span>`;
     })
     .join('\n    ');
+  // 07d: data-tool-* hooks let progress.ts drive REAL staged progress
+  // (bar width, live phase rows, elapsed clock, big-file note). The frozen
+  // `steps` rows stay as the no-JS fallback — progress.ts replaces them.
   return `
   <div class="dz-text">${c.proc_main}</div>
-  <div class="bar-outer"><div class="bar-inner"></div></div>
-  <div class="steps-mini">
+  <div class="bar-outer"><div class="bar-inner" data-tool-bar style="width:2%"></div></div>
+  <div class="steps-mini" data-tool-steps aria-live="polite">
     ${rows}
-  </div>`;
+  </div>
+  <div class="proc-elapsed" data-tool-elapsed hidden></div>
+  <div data-tool-bignote></div>`;
 }
 
 export function errorHtml(message: string, lang: 'en' | 'pt'): string {
