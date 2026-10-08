@@ -163,7 +163,8 @@ def footer(lang="en"):
     <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro · Sem cookies de rastreamento</span>
     <span class="links">
       <a href="{href('/privacy')}">Política de Privacidade</a><span>·</span>
-      <a href="{href('/jfif-to-jpg')}">English version</a>
+      <a href="{href('/jfif-to-jpg')}">English version</a><span>·</span>
+      <a href="mailto:support@cleanpaths.io">Suporte: support@cleanpaths.io</a>
     </span>
   </div>
 </div></footer>"""
@@ -210,7 +211,7 @@ def footer(lang="en"):
   <div class="footer-trust">
     <span>Files never leave your device · No account · No tracking cookies</span>
     <span class="links">
-      <a href="{href('/privacy')}">Privacy</a><span>·</span><a href="{href('/terms')}">Terms</a><span>·</span><a href="{href('/refund')}">Refund</a><span>·</span><a href="{href('/cookies')}">Cookies</a><span>·</span><a href="{href('/pricing')}">Pricing</a><span>·</span><a href="{href('/samples')}">Samples</a><span>·</span><a href="#feedback-modal">Feedback</a>
+      <a href="{href('/privacy')}">Privacy</a><span>·</span><a href="{href('/terms')}">Terms</a><span>·</span><a href="{href('/refund')}">Refund</a><span>·</span><a href="{href('/cookies')}">Cookies</a><span>·</span><a href="{href('/pricing')}">Pricing</a><span>·</span><a href="{href('/samples')}">Samples</a><span>·</span><a href="#feedback-modal">Feedback</a><span>·</span><a href="mailto:support@cleanpaths.io">Support: support@cleanpaths.io</a>
     </span>
     {social_slots()}
   </div>
