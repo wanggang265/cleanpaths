@@ -17,6 +17,24 @@ export function jsonLd(...nodes: Array<Record<string, unknown> | null>): string 
   return JSON.stringify(nodes.filter(Boolean));
 }
 
+/**
+ * OpenGraph block for page metadata (08 P1-2). Next.js replaces the layout's
+ * openGraph wholesale when a page defines its own, so every page must carry
+ * the FULL set — this helper keeps it uniform. og:url resolves against
+ * metadataBase (https://cleanpaths.io); content comes from frozen title/desc.
+ */
+export function openGraphFor(opts: { title: string; description: string; url: string; locale?: string }) {
+  return {
+    title: opts.title,
+    description: opts.description,
+    url: opts.url,
+    siteName: SITE_NAME,
+    type: 'website' as const,
+    locale: opts.locale ?? 'en_US',
+    images: [DEFAULT_IMAGE],
+  };
+}
+
 /* ---------------- SoftwareApplication (tool pages) ---------------- */
 
 export function softwareApplication(opts: {

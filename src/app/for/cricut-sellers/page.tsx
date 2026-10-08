@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 import { description, mainHtml, title } from '@/content/pages/for-cricut-sellers';
 import PageShell from '@/components/PageShell';
-import { faqPageFromHtml, jsonLd, SITE_URL, webPage } from '@/lib/schema';
+import { faqPageFromHtml, jsonLd, SITE_URL, webPage, openGraphFor } from '@/lib/schema';
 
-export const metadata: Metadata = { title, description, alternates: { canonical: '/for/cricut-sellers/' } };
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/for/cricut-sellers/' },
+  openGraph: openGraphFor({ title, description, url: '/for/cricut-sellers/' }),
+};
 
 export default function ForCricutSellersPage() {
   const schema = jsonLd(

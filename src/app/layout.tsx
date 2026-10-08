@@ -1,10 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { SITE_NAME, SITE_URL } from '@/lib/schema';
+import { DEFAULT_IMAGE, SITE_NAME, SITE_URL } from '@/lib/schema';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME} — Cut-Ready DXF/SVG, in Your Browser`, template: `%s` },
   icons: { icon: [{ url: '/assets/logo.svg', type: 'image/svg+xml' }] },
+  // OG defaults — each page merges in its own title/description/url (08 P1-2).
+  // og:url resolves against metadataBase → production domain https://cleanpaths.io.
+  openGraph: {
+    siteName: SITE_NAME,
+    type: 'website',
+    locale: 'en_US',
+    images: [DEFAULT_IMAGE],
+  },
 };
 
 export const viewport: Viewport = {

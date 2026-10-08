@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
 import { description, mainHtml, title } from '@/content/pages/jpg-to-dxf';
 import ToolPage from '@/components/ToolPage';
+import { openGraphFor } from '@/lib/schema';
 
-export const metadata: Metadata = { title, description, alternates: { canonical: '/jpg-to-dxf/' } };
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/jpg-to-dxf/' },
+  openGraph: openGraphFor({ title, description, url: '/jpg-to-dxf/' }),
+};
 
 const ERROR_MESSAGE = `<b>That file can't be converted here.</b> This page accepts .JPG. Nothing was uploaded, so nothing was stored.`;
 

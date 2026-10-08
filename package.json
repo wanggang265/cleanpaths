@@ -9,7 +9,7 @@
     "audit:design": "python3 design-source/build/audit.py",
     "audit:copy": "node scripts/audit-copy.mjs",
     "gate": "bash scripts/deploy-gate.sh",
-    "build": "npm run gate && next build",
+    "build": "npm run gate && next build && node scripts/postbuild.mjs",
     "build:vendor": "esbuild .vendor-src/vectorizer.js --bundle --format=esm --platform=browser --target=es2022 --external:./worker.js --outfile=public/vendor/vectorizer/vectorizer.bundle.js",
     "deploy": "bash deploy.sh"
   },
