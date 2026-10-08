@@ -14,7 +14,8 @@
 import { useEffect, useRef } from 'react';
 import { CAP_COPY, DL_COPY, SHARE_COPY, STATE_COPY, STEPS } from '@/lib/copy';
 import { buildDxf, prepareLayers, PX_TO_MM, type TraceLayer } from '@/lib/dxf';
-import { flattenSvg, layersToSvg } from '@/lib/svg-flatten';
+import { layersToSvg } from '@/lib/svg-flatten';
+import { flattenSvgAsync } from '@/lib/flatten-client';
 import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
@@ -266,7 +267,7 @@ export default function ToolController(props: ToolProps) {
       if (kind === 'svg-dxf' || (kind === 'trace-multi' && extOf(name) === '.svg')) {
         const text = new TextDecoder().decode(bytes);
         const step = stepForPrecision(S.precision);
-        const layers = await flattenSvg(text, { step, dropBackground: true });
+        const layers = await flattenSvgAsync(text, { step, dropBackground: true });
         if (layers.length === 0) throw new Error('no vector shapes found');
         const prepared = prepareLayers(layers);
         const dims = svgDims(text);
@@ -322,7 +323,7 @@ export default function ToolController(props: ToolProps) {
         inputMime = 'image/png';
       }
       const traced = await traceImage(input, inputMime, { preset, ...precisionConfig(S.precision, preset) });
-      const layers = await flattenSvg(traced.svg, { step: 0.8, dropBackground: true });
+      const layers = await flattenSvgAsync(traced.svg, { step: 0.8, dropBackground: true });
       if (layers.length === 0) throw new Error('trace produced no layers');
       const prepared = prepareLayers(layers);
       const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
