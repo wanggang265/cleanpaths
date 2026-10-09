@@ -33,7 +33,7 @@ export const mainHtml = `<section class="section">
 <p>Purchases are handled by our Merchant of Record <strong>Creem</strong>, which acts as the seller of record and an <strong>independent controller</strong> of your payment data. They process your card, billing details, and applicable taxes (VAT/GST/sales tax) under their own privacy policy. We recommend you read it: <strong><a href="https://www.creem.io/privacy">Creem Privacy Policy</a></strong>.</p>
 <p>We receive from them only what we need to deliver your purchase: your email address, order ID, license key, and country. We never receive, process, or store your card number.</p>
 <h2>5. Cookies and tracking</h2>
-<p><strong>We do not use tracking cookies.</strong> See our <a href="/cookies">Cookie Policy</a> — the short version is: one strictly-necessary browser storage entry (your free-tier usage counter and license cache) and cookieless aggregate analytics. No ad networks, no retargeting, no selling data. Ever.</p>
+<p><strong>We do not use tracking cookies.</strong> See our <a href="/cookies/">Cookie Policy</a> — the short version is: one strictly-necessary browser storage entry (your free-tier usage counter and license cache) and cookieless aggregate analytics. No ad networks, no retargeting, no selling data. Ever.</p>
 <h2>6. Testimonials and "Show Your Work" (planned, v1.1)</h2>
 <p>We may feature user testimonials and photos of finished work on the site. <strong>We will only do this with your explicit written consent</strong> (obtained by email reply), you can withdraw it at any time by emailing privacy@cleanpaths.io, and we will remove the content within 14 days of withdrawal. We will never lift your feedback text or images without asking first.</p>
 <h2>7. Third-party services we use</h2>

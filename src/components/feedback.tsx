@@ -119,9 +119,9 @@ export function FeedbackModal({ lang = 'en' }: { lang?: Lang }) {
       }}
     >
       <div className="fb-modal__card" data-page-context={typeof window === 'undefined' ? '/' : window.location.pathname}>
-        <a className="fb-modal__close" href="#" aria-label={c.close_aria} onClick={(e) => { e.preventDefault(); setOpen(false); }}>
+        <button type="button" className="fb-modal__close" aria-label={c.close_aria} onClick={() => setOpen(false)}>
           ✕
-        </a>
+        </button>
         {state === 'success' ? (
           <>
             <h3>{c.title}</h3>

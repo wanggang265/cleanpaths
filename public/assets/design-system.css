@@ -660,6 +660,7 @@ h3 { font-size: 19px; }
   float: right; text-decoration: none; color: var(--ink-3);
   font-family: var(--font-mono); font-size: 18px; line-height: 1;
   border: 1.5px solid var(--line); border-radius: 6px; padding: 4px 9px;
+  background: transparent; cursor: pointer; /* P2-c: now a <button>, normalize UA styles */
 }
 .fb-modal__close:hover { color: var(--error); border-color: var(--error); }
 .fb-modal h3 { font-size: 22px; margin-bottom: 6px; }

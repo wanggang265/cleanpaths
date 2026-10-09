@@ -17,7 +17,18 @@ def md_to_html(md_text, skip_title=True):
         t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
         t = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", t)
         t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
-        t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
+        # site-internal links get a trailing slash (route contract: trailingSlash
+        # everywhere; open-item #30 — fixing here, not in generated code.html)
+        def _abs_link(m):
+            text, url = m.group(1), m.group(2)
+            if url.startswith("/") and not url.startswith("//"):
+                path, _, frag = url.partition("#")
+                last = path.rsplit("/", 1)[-1]
+                if path and not path.endswith("/") and "." not in last:
+                    path += "/"
+                url = path + (("#" + frag) if frag else "")
+            return f'<a href="{url}">{text}</a>'
+        t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _abs_link, t)
         # mark placeholders
         t = re.sub(r"\[(?:用户填入|待回填|待确认)[^\]]*\]", r'<span class="fill">\g<0></span>', t)
         return t
