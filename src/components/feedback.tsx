@@ -71,8 +71,14 @@ export function FeedbackModal({ lang = 'en' }: { lang?: Lang }) {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<ModalState>('default');
   const [typeIdx, setTypeIdx] = useState<number | null>(null); // default: none selected
+  const [msgRequired, setMsgRequired] = useState(false); // 05 v1.4 §B: empty-submit hint
   const textRef = useRef<HTMLTextAreaElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
+
+  // 09 Task B-2 fix: mount the global a[href="#feedback-modal"] delegation here
+  // too — it previously only lived on FeedbackInline, so pages without an
+  // inline form (home, legal, samples…) had a dead FAB/footer CTA.
+  useFeedbackDelegation();
 
   useEffect(() => {
     const onOpen = () => {
@@ -94,6 +100,13 @@ export function FeedbackModal({ lang = 'en' }: { lang?: Lang }) {
 
   const submit = useCallback(async () => {
     if (state === 'submitting') return;
+    // 05 v1.4 §F-3: empty-message guard — no postFeedback, no state transition,
+    // inline hint rendered under the textarea; hides once the user types.
+    if (!textRef.current?.value.trim()) {
+      setMsgRequired(true);
+      return;
+    }
+    setMsgRequired(false);
     setState('submitting');
     const ok = await postFeedback({
       kind: 'modal',
@@ -146,7 +159,19 @@ export function FeedbackModal({ lang = 'en' }: { lang?: Lang }) {
                 </button>
               ))}
             </div>
-            <textarea ref={textRef} placeholder={c.placeholder} aria-label="Feedback"></textarea>
+            <textarea
+              ref={textRef}
+              placeholder={c.placeholder}
+              aria-label="Feedback"
+              onInput={() => {
+                if (msgRequired) setMsgRequired(false);
+              }}
+            ></textarea>
+            {msgRequired && (
+              <p className="fb-msg-required" role="status" aria-live="polite" style={{ margin: '6px 0 0', fontSize: 13, color: 'var(--ink-2, #5b6472)' }}>
+                {c.msg_required}
+              </p>
+            )}
             <input ref={contactRef} type="text" placeholder={c.contact} aria-label="Contact (optional)" />
             <div className="fb-trust" dangerouslySetInnerHTML={{ __html: c.trust }} />
             {state === 'error' && <div className="fb-error-note">{c.error}</div>}

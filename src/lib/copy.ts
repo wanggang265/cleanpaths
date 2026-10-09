@@ -20,6 +20,9 @@ export const FB_COPY = {
     close_aria: 'Close feedback dialog',
     error: "That didn't send — try again, or email feedback@cleanpaths.io directly.",
     retry: 'Try again',
+    // 05 v1.4 §B (frozen): FAB modal empty-submit inline hint (FAB modal only,
+    // not FeedbackInline — emoji rating alone is valid feedback there).
+    msg_required: 'Add a quick message first — even one word helps.',
   },
   pt: {
     fab: 'Feedback',
@@ -36,6 +39,7 @@ export const FB_COPY = {
     close_aria: 'Fechar feedback',
     error: 'Não foi possível enviar — tente de novo, ou escreva para feedback@cleanpaths.io.',
     retry: 'Tentar de novo',
+    msg_required: 'Escreva uma mensagem primeiro — mesmo uma palavra já ajuda.',
   },
 } as const;
 
@@ -119,6 +123,11 @@ export const STATE_COPY = {
     err_main_pre: "That file can't be converted here.",
     err_main_post: 'Nothing was uploaded, so nothing was stored.',
     err_btn: 'Choose another file',
+    // 05 v1.4 §A (frozen 2026-10-09): processing-failure variant — file passed
+    // the format gate but the pipeline threw. Never co-render with err_main_pre.
+    err_fail_pre: "Your file is the right type, but we couldn't convert it.",
+    err_fail_hint:
+      'Try a simpler file — or, for an SVG, re-save it as a plain SVG in an editor first and drop it back in.',
     input_cap: 'INPUT',
     output_cap: 'OUTPUT PREVIEW',
     closed: 'closed',
@@ -138,6 +147,10 @@ export const STATE_COPY = {
     err_main_pre: 'Este arquivo não pode ser convertido aqui.',
     err_main_post: 'Nada foi enviado, então nada foi armazenado.',
     err_btn: 'Escolher outro arquivo',
+    // 05 v1.4 §A (frozen 2026-10-09): processing-failure variant
+    err_fail_pre: 'Seu arquivo é do tipo certo, mas não conseguimos convertê-lo.',
+    err_fail_hint:
+      'Tente um arquivo mais simples — ou, se for um SVG, salve-o novamente como SVG simples em um editor e arraste de volta.',
     input_cap: 'INPUT',
     output_cap: 'OUTPUT PREVIEW',
     closed: 'closed',

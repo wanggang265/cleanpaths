@@ -650,6 +650,8 @@ h3 { font-size: 19px; }
   padding: 20px;
 }
 .fb-modal:target { display: flex; }
+/* 07 React state-driven open (JS dialog per handoff note above) */
+.fb-modal.is-open { display: flex; }
 .fb-modal__card {
   background: var(--paper); border: 1.5px solid var(--line-strong); border-radius: var(--r-card);
   box-shadow: 6px 6px 0 rgba(30,36,48,.88);

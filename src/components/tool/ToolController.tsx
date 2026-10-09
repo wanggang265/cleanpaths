@@ -237,7 +237,10 @@ export default function ToolController(props: ToolProps) {
       } catch (err) {
         prog?.stop();
         console.error('[cleanpaths] conversion failed', err);
-        renderState('error', errorHtml(`<b>${errorMessage.split('</b>')[0]}</b> ${errorMessage.split('</b>')[1] ?? ''}`, lang));
+        // 05 v1.4 §F-2: processing-failure branch — err_fail group (never the
+        // format-gate err_main_pre). err_main_post + err_btn reused per §C.
+        const c = STATE_COPY[lang];
+        renderState('error', errorHtml(`<b>${c.err_fail_pre}</b> ${c.err_fail_hint} ${c.err_main_post}`, lang));
       }
     }
 
