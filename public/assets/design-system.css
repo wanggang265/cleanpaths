@@ -183,7 +183,10 @@ h3 { font-size: 19px; }
   border: 1.5px solid var(--line-strong); border-radius: 999px;
   background: var(--card); padding: 5px 13px;
   color: var(--ink);
-  white-space: nowrap;
+  white-space: normal;        /* #37: allow wrap — long PT copy must not overflow narrow viewports */
+  overflow-wrap: break-word;
+  max-width: 100%;
+  text-align: center;
 }
 .badge b { color: var(--mat); font-weight: 600; }
 .badge--soft { border-color: var(--line); background: transparent; color: var(--ink-2); }

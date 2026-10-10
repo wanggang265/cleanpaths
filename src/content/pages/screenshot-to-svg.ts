@@ -32,8 +32,8 @@ export const mainHtml = `<section class="hero matgrid">
       <p class="proof__quote">"Flat colors and crisp edges are exactly what tracing loves. In our tests, a typical UI screenshot converts to about <span class="hl">5 clean color layers</span> — no cleanup pass needed, no node soup."</p>
       <div class="ba">
         <div class="ba__imgs">
-          <img src="/assets/samples/ui-dashboard_before.png" alt="UI screenshot input (synthetic sample)">
-          <img src="/assets/samples/ui-dashboard_after.png" alt="Traced SVG layer output (synthetic sample)">
+          <img src="/assets/samples/ui-dashboard_before.png" width="900" height="675" alt="UI screenshot input (synthetic sample)" loading="lazy" decoding="async">
+          <img src="/assets/samples/ui-dashboard_after.png" width="900" height="675" alt="Traced SVG layer output (synthetic sample)" loading="lazy" decoding="async">
         </div>
         <div class="ba__divider"></div><div class="ba__handle">⇔</div>
         <span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span>

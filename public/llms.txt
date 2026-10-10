@@ -1,0 +1,35 @@
+# CleanPaths
+
+> CleanPaths is a free, privacy-first browser-based file conversion toolkit for makers. It converts PNG, JPG, SVG and screenshots into cut-ready DXF/SVG files for Cricut, laser cutters and CNC — all processing happens locally in your browser, files never leave your device.
+
+## Tools
+
+- [PNG to DXF Converter](https://cleanpaths.io/png-to-dxf/): Turn PNG images into cut-ready DXF files, locally in your browser
+- [JPG to DXF Converter](https://cleanpaths.io/jpg-to-dxf/): Turn client photos of logos into cut files
+- [SVG to DXF Converter](https://cleanpaths.io/svg-to-dxf-converter/): Convert SVG to DXF in R12 & R2000 formats, units included
+- [Screenshot to SVG](https://cleanpaths.io/screenshot-to-svg/): Clean vector output from any UI screenshot
+- [JFIF to JPG Converter](https://cleanpaths.io/jfif-to-jpg/): Repackage JFIF images as standard JPG, free, no upload
+
+## Portuguese / Português
+
+- [Conversor de JFIF para JPG](https://cleanpaths.io/pt/jfif-para-jpg/): Converta JFIF para JPG grátis, direto no navegador, sem upload
+
+## Use-case guides
+
+- [For Cricut Sellers](https://cleanpaths.io/for/cricut-sellers/): Cut-ready SVG & DXF files for Cricut sellers
+- [For Embroidery](https://cleanpaths.io/for/embroidery/): From image to embroidery — honest prep, human digitizers
+- [Samples: Before / After](https://cleanpaths.io/samples/): See real conversion results side by side
+
+## Pricing & policies
+
+- [Pricing](https://cleanpaths.io/pricing/): Simple, one-time pricing — free tier included
+- [Privacy Policy](https://cleanpaths.io/privacy/): No uploads, no servers, no accounts — files stay on your device
+- [Terms of Service](https://cleanpaths.io/terms/)
+- [Cookie Policy](https://cleanpaths.io/cookies/): No cookies used, no banner needed
+- [Refund Policy](https://cleanpaths.io/refund/)
+
+## About
+
+- Privacy-first: all conversion runs 100% client-side; no file ever leaves the browser
+- Free tier: 10 conversions per day, no account required
+- Deterministic converters (not generative AI): output is traceable and reproducible

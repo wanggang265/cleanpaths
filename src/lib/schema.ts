@@ -167,7 +167,7 @@ export function pricingProduct(): Record<string, unknown> {
 export function samplesGallery(mainHtml: string): Record<string, unknown>[] {
   const items: Array<Record<string, unknown>> = [];
   const seen = new Set<string>();
-  const IMG_RE = /<img src="(\/assets\/samples\/[^"]+)" alt="([^"]*)"/g;
+  const IMG_RE = /<img src="(\/assets\/samples\/[^"]+)"(?:\s+width="\d+")?(?:\s+height="\d+")?\s+alt="([^"]*)"/g;
   let i = 0;
   for (const m of mainHtml.matchAll(IMG_RE)) {
     const path = m[1];

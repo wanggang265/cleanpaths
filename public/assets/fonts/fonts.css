@@ -3,7 +3,7 @@
      3|  font-style: normal;
      4|  font-weight: 400 800;
      5|  font-stretch: 100%;
-     6|  font-display: swap;
+     6|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
      7|  src: url(bricolage-400_800.woff2) format('woff2');
      8|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
      9|}
@@ -11,7 +11,7 @@
     11|  font-family: 'Hanken Grotesk';
     12|  font-style: normal;
     13|  font-weight: 400;
-    14|  font-display: swap;
+    14|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     15|  src: url(hanken-400.woff2) format('woff2');
     16|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     17|}
@@ -19,7 +19,7 @@
     19|  font-family: 'Hanken Grotesk';
     20|  font-style: normal;
     21|  font-weight: 500;
-    22|  font-display: swap;
+    22|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     23|  src: url(hanken-500.woff2) format('woff2');
     24|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     25|}
@@ -27,7 +27,7 @@
     27|  font-family: 'Hanken Grotesk';
     28|  font-style: normal;
     29|  font-weight: 600;
-    30|  font-display: swap;
+    30|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     31|  src: url(hanken-600.woff2) format('woff2');
     32|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     33|}
@@ -35,7 +35,7 @@
     35|  font-family: 'Hanken Grotesk';
     36|  font-style: normal;
     37|  font-weight: 700;
-    38|  font-display: swap;
+    38|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     39|  src: url(hanken-700.woff2) format('woff2');
     40|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     41|}
@@ -43,7 +43,7 @@
     43|  font-family: 'IBM Plex Mono';
     44|  font-style: normal;
     45|  font-weight: 400;
-    46|  font-display: swap;
+    46|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     47|  src: url(plexmono-400.woff2) format('woff2');
     48|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     49|}
@@ -51,7 +51,7 @@
     51|  font-family: 'IBM Plex Mono';
     52|  font-style: normal;
     53|  font-weight: 500;
-    54|  font-display: swap;
+    54|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     55|  src: url(plexmono-500.woff2) format('woff2');
     56|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     57|}
@@ -59,7 +59,7 @@
     59|  font-family: 'IBM Plex Mono';
     60|  font-style: normal;
     61|  font-weight: 600;
-    62|  font-display: swap;
+    62|  font-display: optional; /* #38b: prevent late font-swap re-paint from delaying LCP */
     63|  src: url(plexmono-600.woff2) format('woff2');
     64|  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     65|}

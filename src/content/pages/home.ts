@@ -43,8 +43,8 @@ export const mainHtml = `<section class="hero matgrid">
       </div>
       <div class="ba">
         <div class="ba__imgs">
-          <img src="/assets/samples/logo-acme_before.png" alt="Heavily compressed 150px logo JPG (synthetic sample)">
-          <img src="/assets/samples/logo-acme_after.png" alt="Same logo after CleanPaths conversion: 9 clean color layers (synthetic sample)">
+          <img src="/assets/samples/logo-acme_before.png" width="900" height="675" alt="Heavily compressed 150px logo JPG (synthetic sample)" loading="lazy" decoding="async">
+          <img src="/assets/samples/logo-acme_after.png" width="900" height="675" alt="Same logo after CleanPaths conversion: 9 clean color layers (synthetic sample)" loading="lazy" decoding="async">
         </div>
         <div class="ba__divider"></div>
         <div class="ba__handle">⇔</div>
@@ -62,15 +62,15 @@ export const mainHtml = `<section class="hero matgrid">
     </div>
     <div class="grid-3">
       <a class="card" style="text-decoration:none" href="/samples/#logos">
-        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/logo-acme_before.png" alt="150px logo JPG (synthetic sample)"><img src="/assets/samples/logo-acme_after.png" alt="9-layer cut file output (synthetic sample)"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
+        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/logo-acme_before.png" width="900" height="675" alt="150px logo JPG (synthetic sample)" loading="lazy" decoding="async"><img src="/assets/samples/logo-acme_after.png" width="900" height="675" alt="9-layer cut file output (synthetic sample)" loading="lazy" decoding="async"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
         <p class="cap-line" style="margin-top:10px">150px compressed JPG → 9 color layers</p>
       </a>
       <a class="card" style="text-decoration:none" href="/samples/#screenshots">
-        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/ui-dashboard_before.png" alt="UI screenshot (synthetic sample)"><img src="/assets/samples/ui-dashboard_after.png" alt="recolor-ready layers (synthetic sample)"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
+        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/ui-dashboard_before.png" width="900" height="675" alt="UI screenshot (synthetic sample)" loading="lazy" decoding="async"><img src="/assets/samples/ui-dashboard_after.png" width="900" height="675" alt="recolor-ready layers (synthetic sample)" loading="lazy" decoding="async"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
         <p class="cap-line" style="margin-top:10px">Dashboard screenshot → recolor-ready layers</p>
       </a>
       <a class="card" style="text-decoration:none" href="/samples/#lineart">
-        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/line-flower_before.png" alt="scanned sketch (synthetic sample)"><img src="/assets/samples/line-flower_after.png" alt="closed cut paths (synthetic sample)"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
+        <div class="ba"><div class="ba__imgs"><img src="/assets/samples/line-flower_before.png" width="900" height="675" alt="scanned sketch (synthetic sample)" loading="lazy" decoding="async"><img src="/assets/samples/line-flower_after.png" width="900" height="675" alt="closed cut paths (synthetic sample)" loading="lazy" decoding="async"></div><div class="ba__divider"></div><span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span><span class="synth-tag">SYNTHETIC SAMPLE</span></div>
         <p class="cap-line" style="margin-top:10px">Scanned sketch → closed cut paths</p>
       </a>
     </div>
