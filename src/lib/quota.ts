@@ -13,8 +13,25 @@ const KEY_COUNT = `cp.free.count`;
 const KEY_DAY = `cp.free.day`;
 const KEY_PRO = 'cp.pro.license';
 const KEY_PRO_OK = 'cp.pro.verified';
+const KEY_ENTITLEMENT = 'cp.pro.entitlement';
+const KEY_INSTANCES = 'cp.pro.instances';
 const KEY_HD_TRIES = 'cp.hd.tries';
 const HD_TRIES = 3;
+
+export type EntitlementTier = 'pro_core' | 'monthly_pass' | 'pack';
+export type EntitlementPack = 'batch' | 'precision';
+
+/** 04 §7 entitlement (local, no account system): accumulated across keys. */
+export interface Entitlement {
+  tier: EntitlementTier | null;
+  packs: EntitlementPack[];
+  updated_at: string;
+}
+
+interface InstanceRecord {
+  instance_name: string;
+  instance_id: string | null;
+}
 
 export interface QuotaState {
   used: number;
@@ -62,6 +79,95 @@ export function isProActive(): boolean {
   }
 }
 
+// ------------------------------------------------------ entitlement (08) ---
+
+const EMPTY_ENTITLEMENT: Entitlement = { tier: null, packs: [], updated_at: '' };
+
+export function getEntitlement(): Entitlement {
+  try {
+    const raw = localStorage.getItem(KEY_ENTITLEMENT);
+    if (!raw) return { ...EMPTY_ENTITLEMENT };
+    const parsed = JSON.parse(raw) as Partial<Entitlement>;
+    return {
+      tier: parsed.tier ?? null,
+      packs: Array.isArray(parsed.packs) ? (parsed.packs as EntitlementPack[]) : [],
+      updated_at: typeof parsed.updated_at === 'string' ? parsed.updated_at : '',
+    };
+  } catch {
+    return { ...EMPTY_ENTITLEMENT };
+  }
+}
+
+/** Add-on pack unlock (04 §1.2): Batch queue / Precision advanced tiers. */
+export function hasPack(pack: EntitlementPack): boolean {
+  return getEntitlement().packs.includes(pack);
+}
+
+function readInstances(): Record<string, InstanceRecord> {
+  try {
+    return (JSON.parse(localStorage.getItem(KEY_INSTANCES) || '{}') as Record<string, InstanceRecord>) ?? {};
+  } catch {
+    return {};
+  }
+}
+
+function instanceNameFor(key: string): InstanceRecord {
+  const all = readInstances();
+  const existing = all[key];
+  if (existing?.instance_name) return existing;
+  const rec: InstanceRecord = {
+    instance_name: `cleanpaths-web-${crypto.randomUUID()}`,
+    instance_id: null,
+  };
+  all[key] = rec;
+  try {
+    localStorage.setItem(KEY_INSTANCES, JSON.stringify(all));
+  } catch {
+    /* storage full/blocked — activation still works online */
+  }
+  return rec;
+}
+
+function saveInstanceId(key: string, instanceId: string | null): void {
+  if (!instanceId) return;
+  const all = readInstances();
+  if (!all[key]) return;
+  all[key] = { ...all[key], instance_id: instanceId };
+  try {
+    localStorage.setItem(KEY_INSTANCES, JSON.stringify(all));
+  } catch {
+    /* ignore */
+  }
+}
+
+/** tier precedence: pro_core > monthly_pass > pack (cap removal is Core/Pass only, 04 §1.2). */
+function tierRank(t: EntitlementTier | null): number {
+  return t === 'pro_core' ? 3 : t === 'monthly_pass' ? 2 : t === 'pack' ? 1 : 0;
+}
+
+function mergeEntitlement(tier: EntitlementTier | null, packs: EntitlementPack[]): void {
+  const cur = getEntitlement();
+  const merged: Entitlement = {
+    tier: tierRank(tier) >= tierRank(cur.tier) ? tier : cur.tier,
+    packs: Array.from(new Set([...cur.packs, ...packs])),
+    updated_at: new Date().toISOString(),
+  };
+  try {
+    localStorage.setItem(KEY_ENTITLEMENT, JSON.stringify(merged));
+  } catch {
+    /* ignore */
+  }
+}
+
+function clearEntitlement(): void {
+  try {
+    localStorage.removeItem(KEY_ENTITLEMENT);
+    localStorage.removeItem(KEY_PRO_OK);
+  } catch {
+    /* ignore */
+  }
+}
+
 /**
  * Capture ?license= from checkout success redirect (08 contract), store,
  * attempt one-time online activation. Until the 08 endpoint exists the key
@@ -78,24 +184,56 @@ export async function captureLicenseFromUrl(): Promise<void> {
   await verifyLicense();
 }
 
+interface VerifyResponse {
+  ok?: boolean;
+  valid?: boolean;
+  status?: string;
+  tier?: EntitlementTier | null;
+  packs?: EntitlementPack[];
+  instance_id?: string | null;
+}
+
+/**
+ * One-time online activation / re-validation via /api/license/verify
+ * (08: server proxies Creem; the API key never reaches the browser).
+ * First call on a device sends instance_name (activate); once Creem returns
+ * an instance_id we send that instead (validate). A valid response merges
+ * tier/packs into the local entitlement (04 §7) and clears the daily cap;
+ * an explicit invalid (refunded/deactivated/revoked) clears it again.
+ */
 export async function verifyLicense(): Promise<boolean> {
   const key = getLicenseKey();
   if (!key) return false;
+  const inst = instanceNameFor(key);
   try {
     const res = await fetch('/api/license/verify', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ license_key: key }),
+      body: JSON.stringify(
+        inst.instance_id
+          ? { license_key: key, instance_id: inst.instance_id }
+          : { license_key: key, instance_name: inst.instance_name },
+      ),
     });
-    if (res.ok) {
-      const data = (await res.json()) as { valid?: boolean };
-      if (data.valid) {
+    if (!res.ok) return false; // 429/5xx — transient, keep current local state
+    const data = (await res.json()) as VerifyResponse;
+    if (data.valid) {
+      mergeEntitlement(data.tier ?? null, Array.isArray(data.packs) ? data.packs : []);
+      // Cap removal + unlimited AI HD are Core/Monthly-Pass rights ONLY
+      // (04 §1.2) — a pack-only key must not flip isProActive().
+      const t = getEntitlement().tier;
+      if (t === 'pro_core' || t === 'monthly_pass') {
         localStorage.setItem(KEY_PRO_OK, '1');
-        return true;
       }
+      saveInstanceId(key, data.instance_id ?? null);
+      return true;
+    }
+    if (data.ok) {
+      // Server reached Creem and the answer was a definitive "not active".
+      clearEntitlement();
     }
   } catch {
-    /* 08 endpoint not wired yet */
+    /* offline — local entitlement stands (one-time purchase promise) */
   }
   return false;
 }
