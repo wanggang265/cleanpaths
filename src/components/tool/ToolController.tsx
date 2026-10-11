@@ -19,6 +19,7 @@ import { flattenSvgAsync } from '@/lib/flatten-client';
 import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
+import { wireLicenseEntry } from '@/lib/license-panel';
 import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
 import { openFeedbackDialog, TOOL_BUSY_EVENT } from '../feedback';
@@ -196,6 +197,12 @@ export default function ToolController(props: ToolProps) {
       const q = getQuota();
       if (!q.allowed) {
         renderState('cap', capHtml(lang));
+        // 05 v1.5 §F-5 / zhongshu §D-3: license entry inside the cap state.
+        wireLicenseEntry(dz, lang, () => {
+          // Success → frozen badge row at the dropzone top (§C reuse pattern,
+          // same as the ?license= auto-capture path at mount).
+          if (!dz.querySelector('.badges')) dz.insertAdjacentHTML('afterbegin', proActiveHtml(lang));
+        });
         setBusy(false);
         return;
       }

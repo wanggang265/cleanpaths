@@ -13,11 +13,13 @@
  * the page — there is no frozen string for that case yet (wenshu 加急 filed
  * via zhongshu).
  *
- * Success landing (dispatch v2 §4, zero-new-copy scheme): Creem redirects to
- * /pricing/?checkout=success; we detect + strip the param here. A visible
- * success toast needs approved copy — pending wenshu, reported to zhongshu.
+ * Success landing (dispatch v2 §4 + 05 v1.5 §F-2/§D-3): Creem redirects to
+ * /pricing/?checkout=success; we strip the params and render the frozen
+ * EN toast + a license activation entry next to it.
  */
 import { useEffect, useRef } from 'react';
+import { CHECKOUT_COPY, LICENSE_COPY } from '@/lib/copy';
+import { wireLicenseEntry } from '@/lib/license-panel';
 
 type Plan = 'pro' | 'monthly-pass' | 'batch-pack' | 'precision-pack';
 
@@ -40,15 +42,49 @@ const CREEM_PRODUCT_URL: Record<Plan, string> = {
 export default function CheckoutLinks({ children }: { children?: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Success-landing param handling (mount once).
+  // Success-landing param handling (mount once). 05 v1.5 §F-2 + zhongshu §D-3:
+  // dismissible EN toast (aria-live) + second license entry next to it.
+  // Creem appends checkout_id/order_id/customer_id/product_id to success_url
+  // (docs.creem.io checkout-api) — strip all of them for a clean URL.
+  // §D-2 resolved: Creem does NOT append ?license= — no capture needed here.
   useEffect(() => {
     const url = new URL(window.location.href);
-    if (url.searchParams.get('checkout') === 'success') {
-      url.searchParams.delete('checkout');
-      window.history.replaceState(null, '', url.toString());
-      // Visible confirmation is copy-blocked (wenshu 加急) — the license key
-      // arrives by email and the pricing FAQ already says so (frozen copy).
+    if (url.searchParams.get('checkout') !== 'success') return;
+    for (const p of ['checkout', 'checkout_id', 'order_id', 'customer_id', 'product_id', 'signature']) {
+      url.searchParams.delete(p);
     }
+    window.history.replaceState(null, '', url.toString());
+
+    const c = CHECKOUT_COPY.en; // EN-only render (05 v1.5 §A-4 ruling)
+    const toast = document.createElement('div');
+    toast.setAttribute('aria-live', 'polite');
+    toast.style.cssText =
+      'position:fixed;left:50%;transform:translateX(-50%);bottom:24px;z-index:60;max-width:min(560px,calc(100vw - 32px));background:var(--paper,#fff);border:1px solid var(--line,#e5e2dc);border-radius:14px;padding:16px 18px;box-shadow:0 8px 30px rgba(0,0,0,.12);cursor:pointer';
+    toast.innerHTML = `
+      <div class="state-note" style="border:none;padding:0;background:none">
+        <span><b>${c.ok_main}</b></span>
+        <span style="display:block;margin-top:6px;font-size:14px;color:var(--ink-2)">${c.ok_sub}</span>
+      </div>
+      <div style="margin-top:10px;text-align:center"><button type="button" data-license-entry class="btn btn--ghost">${LICENSE_COPY.en.entry}</button></div>
+      <div data-license-panel hidden></div>`;
+    document.body.appendChild(toast);
+    // Dismiss: click anywhere on the toast chrome (not inside the open panel);
+    // auto-dismiss after 30s if the buyer never engages.
+    const dismiss = window.setTimeout(() => {
+      if (toast.querySelector<HTMLElement>('[data-license-panel]')?.hidden !== false) toast.remove();
+    }, 30_000);
+    toast.addEventListener('click', (e) => {
+      const panel = toast.querySelector<HTMLElement>('[data-license-panel]');
+      const insidePanel = panel && !panel.hidden && panel.contains(e.target as Node);
+      if ((e.target as HTMLElement).closest('[data-license-entry]') || insidePanel) return;
+      window.clearTimeout(dismiss);
+      toast.remove();
+    });
+    wireLicenseEntry(toast, 'en');
+    return () => {
+      window.clearTimeout(dismiss);
+      toast.remove();
+    };
   }, []);
 
   useEffect(() => {

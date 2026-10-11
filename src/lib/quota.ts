@@ -71,6 +71,15 @@ export function getLicenseKey(): string | null {
   }
 }
 
+/** Store a manually entered key (license panel, 05 v1.5 §F-5). */
+export function setLicenseKey(key: string): void {
+  try {
+    localStorage.setItem(KEY_PRO, key.trim());
+  } catch {
+    /* ignore */
+  }
+}
+
 export function isProActive(): boolean {
   try {
     return Boolean(localStorage.getItem(KEY_PRO) && localStorage.getItem(KEY_PRO_OK) === '1');
@@ -193,6 +202,8 @@ interface VerifyResponse {
   instance_id?: string | null;
 }
 
+export type VerifyResult = 'ok' | 'invalid' | 'transient';
+
 /**
  * One-time online activation / re-validation via /api/license/verify
  * (08: server proxies Creem; the API key never reaches the browser).
@@ -200,10 +211,14 @@ interface VerifyResponse {
  * an instance_id we send that instead (validate). A valid response merges
  * tier/packs into the local entitlement (04 §7) and clears the daily cap;
  * an explicit invalid (refunded/deactivated/revoked) clears it again.
+ *
+ * Returns a discriminated result (zhongshu 裁决 §D-1 → P1) so the UI can
+ * split honest failure tracks: 'invalid' → err_invalid copy, 'transient'
+ * (network/429/5xx) → err_network copy. Never collapse the two.
  */
-export async function verifyLicense(): Promise<boolean> {
+export async function verifyLicense(): Promise<VerifyResult> {
   const key = getLicenseKey();
-  if (!key) return false;
+  if (!key) return 'invalid';
   const inst = instanceNameFor(key);
   try {
     const res = await fetch('/api/license/verify', {
@@ -215,7 +230,7 @@ export async function verifyLicense(): Promise<boolean> {
           : { license_key: key, instance_name: inst.instance_name },
       ),
     });
-    if (!res.ok) return false; // 429/5xx — transient, keep current local state
+    if (!res.ok) return 'transient'; // 429/5xx — keep current local state
     const data = (await res.json()) as VerifyResponse;
     if (data.valid) {
       mergeEntitlement(data.tier ?? null, Array.isArray(data.packs) ? data.packs : []);
@@ -226,16 +241,18 @@ export async function verifyLicense(): Promise<boolean> {
         localStorage.setItem(KEY_PRO_OK, '1');
       }
       saveInstanceId(key, data.instance_id ?? null);
-      return true;
+      return 'ok';
     }
     if (data.ok) {
       // Server reached Creem and the answer was a definitive "not active".
       clearEntitlement();
+      return 'invalid';
     }
+    return 'transient'; // ok:false without 5xx — treat as retryable
   } catch {
     /* offline — local entitlement stands (one-time purchase promise) */
+    return 'transient';
   }
-  return false;
 }
 
 // ------------------------------------------------------------- HD tries ---

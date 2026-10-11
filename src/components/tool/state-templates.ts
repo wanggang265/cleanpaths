@@ -4,7 +4,7 @@
  * strings come from src/lib/copy.ts (05 §11/§12 frozen). Dynamic values are
  * limited to data (colors, counts, URLs) — never copy.
  */
-import { CAP_COPY, DL_COPY, FB_COPY, INLINE_FEEDBACK, SHARE_COPY, STATE_COPY } from '@/lib/copy';
+import { CAP_COPY, DL_COPY, FB_COPY, INLINE_FEEDBACK, LICENSE_COPY, SHARE_COPY, STATE_COPY } from '@/lib/copy';
 
 export interface LayerRow {
   hex: string;
@@ -49,6 +49,8 @@ export function capHtml(lang: 'en' | 'pt'): string {
   <div class="dl-row" style="justify-content:center">
     <a class="btn btn--ghost" href="/pricing/">${c.cta}</a>
   </div>
+  <div style="margin-top:10px;text-align:center"><button type="button" data-license-entry class="btn btn--ghost">${LICENSE_COPY.pt.entry}</button></div>
+  <div data-license-panel hidden></div>
   <div class="dz-formats" style="margin-top:12px">${c.mono}</div>`;
   }
   const c = CAP_COPY.en;
@@ -59,7 +61,59 @@ export function capHtml(lang: 'en' | 'pt'): string {
     <a class="btn btn--primary" href="/pricing/">${c.cta_pro}</a>
     <a class="btn btn--ghost" href="/pricing/">${c.cta_pricing}</a>
   </div>
+  <div style="margin-top:10px;text-align:center"><button type="button" data-license-entry class="btn btn--ghost">${LICENSE_COPY.en.entry}</button></div>
+  <div data-license-panel hidden></div>
   <div class="dz-formats" style="margin-top:12px">${c.mono}</div>`;
+}
+
+// -------------------------------------------------- license panel (05 v1.5) ---
+
+/**
+ * License activation panel — string assembly pattern identical to
+ * capHtml/errorHtml; all visible strings from LICENSE_COPY (05 v1.5 frozen,
+ * verbatim). {PACKS} interpolation in ok_pack is DATA (frozen product names
+ * from §4: 'Batch Pack' / 'Precision Pack'), not copy.
+ */
+
+/** Panel shell: label + input + submit. Mounted into [data-license-panel]. */
+export function licensePanelHtml(lang: 'en' | 'pt'): string {
+  const c = LICENSE_COPY[lang];
+  return `
+  <div class="state-note" style="text-align:left">
+    <label class="spec" for="cp-license-input" style="margin-bottom:6px;display:block">${c.label}</label>
+    <input id="cp-license-input" type="text" autocomplete="off" spellcheck="false" placeholder="${c.placeholder}" aria-label="${c.label}" data-license-input style="width:100%;box-sizing:border-box">
+    <div style="margin-top:10px"><button class="btn btn--primary" type="button" data-license-submit>${c.submit}</button></div>
+    <div data-license-status aria-live="polite" style="margin-top:10px"></div>
+  </div>`;
+}
+
+/** In-place busy line while the verify request is in flight. */
+export function licenseCheckingHtml(lang: 'en' | 'pt'): string {
+  return `<span>${LICENSE_COPY[lang].checking}</span>`;
+}
+
+/**
+ * Success replacement lines: ok_main always; ok_pro when the entitlement tier
+ * is pro_core/monthly_pass; ok_pack (can co-render) when packs were unlocked.
+ * The frozen proActiveHtml badge row renders right below (05 v1.5 §C).
+ */
+export function licenseOkHtml(lang: 'en' | 'pt', opts: { pro: boolean; packs: string[] }): string {
+  const c = LICENSE_COPY[lang];
+  const packNames = opts.packs
+    .map((p) => (p === 'batch' ? 'Batch Pack' : p === 'precision' ? 'Precision Pack' : p))
+    .join(' + ');
+  const rows = [
+    `<span><b>${c.ok_main}</b></span>`,
+    opts.pro ? `<span style="display:block;margin-top:6px">${c.ok_pro}</span>` : '',
+    packNames ? `<span style="display:block;margin-top:6px">${c.ok_pack.replace('{PACKS}', packNames)}</span>` : '',
+  ];
+  return rows.filter(Boolean).join('\n');
+}
+
+/** Inline error line under the input. kind: 'invalid' | 'network'. */
+export function licenseErrorHtml(lang: 'en' | 'pt', kind: 'invalid' | 'network'): string {
+  const c = LICENSE_COPY[lang];
+  return `<div class="state-note state-note--error"><b>!</b><span>${kind === 'invalid' ? c.err_invalid : c.err_network}</span></div>`;
 }
 
 export function proActiveHtml(lang: 'en' | 'pt'): string {

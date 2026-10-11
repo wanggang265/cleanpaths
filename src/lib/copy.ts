@@ -114,6 +114,50 @@ export const CAP_COPY = {
   },
 } as const;
 
+/** Checkout success toast — 05 v1.5 冻结 2026-10-11（§A，逐字，一字不许改） */
+export const CHECKOUT_COPY = {
+  en: {
+    ok_main: 'Payment successful — your license key is on its way to your inbox.',
+    ok_sub: "Can't find it? Check your spam folder, or email support@cleanpaths.io.",
+  },
+  pt: {
+    ok_main: 'Pagamento concluído — sua chave de licença está a caminho do seu e-mail.',
+    ok_sub: 'Não achou? Confira a caixa de spam, ou escreva para support@cleanpaths.io.',
+  },
+} as const;
+
+/** License activation panel — 05 v1.5 冻结 2026-10-11（§B，逐字，一字不许改）。{PACKS} 为数据插值非文案。 */
+export const LICENSE_COPY = {
+  en: {
+    entry: 'Have a license key?',
+    label: 'License key',
+    placeholder: 'Paste the key from your purchase email',
+    submit: 'Activate',
+    checking: 'Checking your key…',
+    ok_main: 'License activated ✓',
+    ok_pro: 'Pro is unlocked on this device — no daily cap.',
+    ok_pack: '{PACKS} unlocked on this device.',
+    err_invalid:
+      "That key didn't work — check for typos and that it matches your purchase email. Still stuck? Email support@cleanpaths.io.",
+    err_network:
+      'No connection — activation needs to be online once. Check your connection and try again. Already activated on this device? Your Pro still works offline.',
+  },
+  pt: {
+    entry: 'Tem uma chave de licença?',
+    label: 'Chave de licença',
+    placeholder: 'Cole a chave do e-mail de compra',
+    submit: 'Ativar',
+    checking: 'Verificando sua chave…',
+    ok_main: 'Licença ativada ✓',
+    ok_pro: 'Pro desbloqueado neste dispositivo — sem limite diário.',
+    ok_pack: 'Desbloqueado neste dispositivo: {PACKS}',
+    err_invalid:
+      'Não foi possível ativar essa chave — confira a digitação e compare com o e-mail de compra. Se não resolver, escreva para support@cleanpaths.io.',
+    err_network:
+      'Sem conexão — a ativação precisa de internet só na primeira vez. Confira sua conexão e tente de novo. Já ativou neste dispositivo? O Pro continua funcionando offline.',
+  },
+} as const;
+
 /** Tool state UI — frozen 05 §11.3, verbatim from states_common.py */
 export const STATE_COPY = {
   en: {
