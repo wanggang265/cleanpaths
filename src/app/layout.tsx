@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { DEFAULT_IMAGE, SITE_NAME, SITE_URL } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -25,6 +26,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* Cloudflare Web Analytics */}
+        <Script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          strategy="afterInteractive"
+          data-cf-beacon='{"token": "4c614779f2ae415bb7b4cfe8c7e53e80"}'
+        />
+        {/* End Cloudflare Web Analytics */}
         {/* Self-hosted fonts only — no Google Fonts CDN (zero-exfil narrative, 06 §8) */}
         <link rel="stylesheet" href="/assets/fonts/fonts.css" />
         <link rel="stylesheet" href="/assets/design-system.css" />
