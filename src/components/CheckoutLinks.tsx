@@ -20,6 +20,7 @@
 import { useEffect, useRef } from 'react';
 import { CHECKOUT_COPY, LICENSE_COPY } from '@/lib/copy';
 import { wireLicenseEntry } from '@/lib/license-panel';
+import { beacon } from '@/lib/beacon';
 
 type Plan = 'pro' | 'monthly-pass' | 'batch-pack' | 'precision-pack';
 
@@ -54,6 +55,9 @@ export default function CheckoutLinks({ children }: { children?: React.ReactNode
       url.searchParams.delete(p);
     }
     window.history.replaceState(null, '', url.toString());
+    // #54 preregistered: purchase success landing. Funnel reference only —
+    // the source of truth for purchases is the Creem webhook (08).
+    beacon('purchase');
 
     const c = CHECKOUT_COPY.en; // EN-only render (05 v1.5 §A-4 ruling)
     const toast = document.createElement('div');

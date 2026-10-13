@@ -19,6 +19,7 @@ import { flattenSvgAsync } from '@/lib/flatten-client';
 import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
+import { beacon } from '@/lib/beacon';
 import { wireLicenseEntry } from '@/lib/license-panel';
 import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
@@ -196,6 +197,7 @@ export default function ToolController(props: ToolProps) {
       // 2) quota gate (03: localStorage counter; IP-hash second factor = 08)
       const q = getQuota();
       if (!q.allowed) {
+        beacon('cap_hit'); // #54 preregistered: cap state rendered
         renderState('cap', capHtml(lang));
         // 05 v1.5 §F-5 / zhongshu §D-3: license entry inside the cap state.
         wireLicenseEntry(dz, lang, () => {
@@ -207,6 +209,7 @@ export default function ToolController(props: ToolProps) {
         return;
       }
 
+      beacon('tool_start'); // #54 preregistered: conversion started (post quota gate)
       renderState('processing', processingHtml(stepsFor(kind, lang), lang));
       // 07d: real staged progress — jfif repack is near-instant, keep the
       // frozen static steps there; every other kind gets the live UI.
@@ -240,6 +243,7 @@ export default function ToolController(props: ToolProps) {
         prog?.finish();
         S.out = out;
         recordConversion();
+        beacon('tool_complete'); // #54 preregistered: conversion completed
         renderResult();
       } catch (err) {
         prog?.stop();

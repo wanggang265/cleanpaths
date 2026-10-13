@@ -6,6 +6,7 @@
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 import { FeedbackFab, FeedbackModal } from './feedback';
+import CtaBeacon from './CtaBeacon';
 
 export default function PageShell({
   route,
@@ -26,6 +27,7 @@ export default function PageShell({
       <SiteFooter lang={lang} />
       <FeedbackFab lang={lang} />
       <FeedbackModal lang={lang} />
+      <CtaBeacon />
       {schemaJson ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson }} /> : null}
     </>
   );
