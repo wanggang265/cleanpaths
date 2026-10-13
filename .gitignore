@@ -13,3 +13,4 @@ next-env.d.ts
 # verification artifacts (kept locally, not shipped)
 /verification/shots/*.png
 __pycache__/
+.wrangler/
