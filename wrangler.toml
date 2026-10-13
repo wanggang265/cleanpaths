@@ -1,8 +1,0 @@
-name = "cleanpaths"
-pages_build_output_dir = "out"
-
-# #54 first-party beacon storage (docs/analytics-spec.md).
-# Namespace created 2026-10-13 via wrangler (account f58e8bcc).
-[[kv_namespaces]]
-binding = "BEACON_KV"
-id = "2d52124fbac54d0185d052f66bc9743b"
