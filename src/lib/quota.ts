@@ -7,7 +7,10 @@
  * one-time activation.
  */
 
-const CAP = 10;
+import { FREE_DAILY_CAP } from './config';
+
+// #45: cap value lives in src/lib/config.ts (single parameter source).
+const CAP = FREE_DAILY_CAP;
 const DAY = () => new Date().toISOString().slice(0, 10);
 const KEY_COUNT = `cp.free.count`;
 const KEY_DAY = `cp.free.day`;
