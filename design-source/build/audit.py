@@ -249,6 +249,9 @@ SENTINELS = {
    "A note on the feedback form",
    "Merchant of Record",
    "We do not use tracking cookies",
+   "Cloudflare Web Analytics (Cloudflare)",
+   "cookieless, with no cross-site tracking and no personal profiles",
+   "Aggregate page-view statistics only",
  ],
  "terms": [
    "The honest version of our quality boundaries lives here in plain English",
@@ -264,6 +267,9 @@ SENTINELS = {
    "we don't use tracking cookies",
    "no cookie consent banner",
    "strictly necessary",
+   "We use Cloudflare Web Analytics, a privacy-focused analytics tool that works without cookies",
+   "collects only aggregate, anonymous statistics (page views, approximate region, device type)",
+   "It does not identify you and does not follow you around the web.",
  ],
  "refund": [
    "30-day, no-questions-asked refund",
@@ -484,7 +490,8 @@ def main():
             fails.append(f"[S12-NEG] {slug}: old PT B5 draft present")
 
     # banned words across all pages ('anonymous' handled strictly above per §12.8-5;
-    # legal pages keep 03's frozen "anonymous, aggregated analytics" wording — out of 06 scope to rewrite)
+    # privacy/cookies analytics wording amended 2026-10-13 for CF WA; anonymous wording
+    # remains limited to legal pages pending further zhongshu wording review)
     for slug in list(SENTINELS):
         t = texts[slug].lower()
         for b in BANNED:
