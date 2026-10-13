@@ -249,9 +249,9 @@ SENTINELS = {
    "A note on the feedback form",
    "Merchant of Record",
    "We do not use tracking cookies",
-   "Cloudflare Web Analytics (Cloudflare)",
+   "Cloudflare Web Analytics (Cloudflare) and our own first-party aggregate event counter",
    "cookieless, with no cross-site tracking and no personal profiles",
-   "Aggregate page-view statistics only",
+   "Aggregate page-view and funnel-event statistics only",
  ],
  "terms": [
    "The honest version of our quality boundaries lives here in plain English",
