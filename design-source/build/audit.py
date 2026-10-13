@@ -176,7 +176,8 @@ SENTINELS = {
    "readable at 1.5–2 inches",
    "The small-cut workflow",
    "Selling every week? The math",
-   "Pro is $59, one time: no daily cap",
+   "Pro is $59, one time: a commercial license for selling what you make",
+   "you bought the rights for that moment in time",
    "Get CleanPaths Pro — $59, one time",
    "Can I sell products made from converted files?",
  ],
@@ -202,23 +203,26 @@ SENTINELS = {
    "Get a digitizer quote →",
  ],
  "pricing": [
-   "Simple, One-Time Pricing",
-   "Built for sellers who clean client images every week.",
-   "Free for light use — full quality, no watermark, no account. One-time payment when your shop outgrows it. No subscriptions — ever.",
-   "30-day money-back guarantee — no questions asked",
-   "One-time payment, yours forever",
-   "Files stay on your device",
-   "No account needed",
-   "10 conversions a day",
-   "Full cut-ready output: DXF (R2000 + R12) and SVG",
-   "AI HD rescue: 3 free tries",
-   "Start converting — free",
-   "Most shops pick this",
-   "No daily cap — convert all day",
-   "License key by email — works offline after a one-time activation",
-   "Get CleanPaths Pro — $59, one time",
-   "Prefer to try first?",
-   "Monthly Pass — $10/mo, credits toward one-time purchase",
+  "Simple, One-Time Pricing",
+  "Built for sellers who clean client images every week — and sell what they make. A paid license makes your output officially commercial.",
+  "Free for light use — full quality, no watermark, no account. One-time payment when your shop outgrows it. No subscriptions — ever.",
+  "30-day money-back guarantee — no questions asked",
+  "One-time payment, yours forever",
+  "Files stay on your device",
+  "No account needed",
+  "10 conversions a day",
+  "Full cut-ready output: DXF (R2000 + R12) and SVG",
+  "AI HD rescue: 3 free tries",
+  "Personal use",
+  "Start converting — free",
+  "Most shops pick this",
+  "Commercial license — for client work and selling what you make",
+  "No daily cap — convert all day",
+  "License key by email — works offline after a one-time activation",
+  "Get CleanPaths Pro — $59, one time",
+  "Prefer to try first?",
+  "Includes commercial use.",
+  "Monthly Pass — $10/mo, credits toward one-time purchase",
    "For heavy shop workloads",
    "Batch Pack", "Precision Pack",
    "Add Batch Pack — $29, one time",
@@ -235,8 +239,9 @@ SENTINELS = {
    "$49.99–$99.99",
    "PixelToPath",
    "Is it really a one-time payment?",
-   "Who processes my payment?",
-   "Start free. Upgrade when the orders say so.",
+  "Who processes my payment?",
+  "What counts as commercial use?",
+  "Start free. Upgrade when the orders say so.",
  ],
  "privacy": [
    "The one-line version: your files never leave your device — conversion happens in your browser, and there is no upload step. The details below are written to be read, not hidden.",
@@ -249,6 +254,9 @@ SENTINELS = {
    "The honest version of our quality boundaries lives here in plain English",
    "you always test-cut before production",
    "Your content — you own it",
+   "keeps its commercial-use rights — you bought the rights for that moment in time",
+   "Items you already sold stay sold",
+   "any use connected with the sale or promotion of goods or services, or any use by or on behalf of a business entity",
    "Affiliate disclosure (FTC)",
    "16 CFR Part 255",
  ],
@@ -285,7 +293,7 @@ def main():
             return strip(f.read())
 
     CAP_EN = ["That's your 10 for today — the free counter resets tomorrow.",
-              "On a deadline? Pro removes the daily cap — $59, one time. No subscriptions. 30-day money-back guarantee.",
+              "On a deadline? Pro is built for client work — commercial license, AI HD rescue, and no daily cap. $59, one time. No subscriptions. 30-day money-back guarantee.",
               "FREE COUNTER RESETS DAILY · PRO: NO DAILY CAP",
               "Get CleanPaths Pro — $59, one time", "See pricing →"]
     CAP_EN_RAW = ["10 of 10 free conversions used today"]  # lives in aria-label attribute
@@ -321,7 +329,10 @@ def main():
     }
     NEGATIVE = {
         "svg-to-dxf-converter": ["Tracing paths"],
-        "jfif-to-jpg": ["Precision", "AI HD rescue", "Tracing paths", "Download DXF"],
+        # jfif: AI HD *feature block* must stay off this page — needle is the
+        # feature-block description, not the bare name (Phase 2 conv line
+        # legitimately mentions "AI HD rescue" as a Pro benefit, 05 v1.6 §D).
+        "jfif-to-jpg": ["Precision", "runs on your device's GPU", "Tracing paths", "Download DXF"],
         "pt-jfif-para-jpg": ["$59", "Precision", "AI HD rescue", "Download DXF", "Tracing paths"],
     }
     for slug, sents in STATES.items():

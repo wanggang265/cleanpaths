@@ -100,7 +100,7 @@ export const CAP_COPY = {
     badge: '10/10',
     aria: '10 of 10 free conversions used today',
     main: "That's your 10 for today — the free counter resets tomorrow.",
-    conv: 'On a deadline? Pro removes the daily cap — $59, one time. No subscriptions. 30-day money-back guarantee.',
+    conv: 'On a deadline? Pro is built for client work — commercial license, AI HD rescue, and no daily cap. $59, one time. No subscriptions. 30-day money-back guarantee.',
     mono: 'FREE COUNTER RESETS DAILY · PRO: NO DAILY CAP',
     cta_pro: 'Get CleanPaths Pro — $59, one time',
     cta_pricing: 'See pricing →',

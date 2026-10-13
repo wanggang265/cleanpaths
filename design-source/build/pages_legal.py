@@ -12,6 +12,7 @@ def md_to_html(md_text, skip_title=True):
     html, i = [], 0
     in_table = False
     list_type = None
+    in_nested = False
 
     def inline(t):
         t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
@@ -33,8 +34,16 @@ def md_to_html(md_text, skip_title=True):
         t = re.sub(r"\[(?:用户填入|待回填|待确认)[^\]]*\]", r'<span class="fill">\g<0></span>', t)
         return t
 
+    def close_nested():
+        nonlocal in_nested
+        if in_nested:
+            # close sub-<ul> and the parent <li> left open for it
+            html.append("</ul></li>")
+            in_nested = False
+
     def close_list():
         nonlocal list_type
+        close_nested()
         if list_type:
             html.append(f"</{list_type}>")
             list_type = None
@@ -72,7 +81,19 @@ def md_to_html(md_text, skip_title=True):
             close_list(); html.append(f"<h3>{inline(ln[4:])}</h3>")
         elif ln.startswith("## "):
             close_list(); html.append(f"<h2>{inline(ln[3:])}</h2>")
+        elif re.match(r"^\s+- ", ln):
+            # nested bullet (indented "- "): sub-<ul> inside the previous top-level <li>
+            if list_type == "ul" and html and html[-1].endswith("</li>"):
+                if not in_nested:
+                    html[-1] = html[-1][:-len("</li>")]
+                    html.append("<ul>")
+                    in_nested = True
+                html.append(f"<li>{inline(ln.strip()[2:])}</li>")
+            else:
+                close_list()
+                html.append(f"<p>{inline(ln.strip())}</p>")
         elif ln.startswith("- "):
+            close_nested()
             if list_type != "ul":
                 close_list(); html.append("<ul>"); list_type = "ul"
             html.append(f"<li>{inline(ln[2:])}</li>")

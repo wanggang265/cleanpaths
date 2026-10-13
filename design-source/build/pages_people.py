@@ -81,7 +81,7 @@ def build_cricut():
     <span class="spec spec--mat">04 · the math</span>
     <h2 style="margin-top:12px">Selling every week? The math</h2>
     <div class="grid-2" style="align-items:center;margin-top:16px">
-      <p style="font-size:17px;color:var(--ink-2)">"The free tier covers 10 conversions a day — full quality, no watermark. Past that, Pro is $59, one time: no daily cap, AI HD rescue for the worst images, no subscriptions. One outsourced cleanup runs $4–6 on Fiverr; at ten orders a month that's $40–60 — Pro pays for itself in about a month of orders, then it's yours for good. 30-day money-back guarantee."</p>
+      <p style="font-size:17px;color:var(--ink-2)">"The free tier covers 10 conversions a day — full quality, no watermark. Past that, Pro is $59, one time: a commercial license for selling what you make, AI HD rescue for the worst images, no daily cap. No subscriptions. One outsourced cleanup runs $4–6 on Fiverr; at ten orders a month that's $40–60 — Pro pays for itself in about a month of orders, then it's yours for good. 30-day money-back guarantee."</p>
       <div class="card">
         <div class="stats" style="margin-bottom:14px"><span class="stat">FIVERR CLEANUP <b>$4–6 / order</b></span><span class="stat">10 ORDERS/MO <b>$40–60</b></span><span class="stat">PRO <b>$59 once</b></span></div>
         <a class="btn btn--primary" href="{href('/pricing')}">Get CleanPaths Pro — $59, one time</a>
@@ -93,7 +93,7 @@ def build_cricut():
         ("Do you upload or store my client images?",
          faq_std_answer() + " Client work stays between you and your customer — the files never reach us."),
         ("Can I sell products made from converted files?",
-         "Yes — output files are yours, for personal and commercial use, no attribution required (Terms §3). Note: converting someone else's logo doesn't grant you rights to that logo — you need the rights to any image you convert."),
+         "Yes — with any paid license. Output made on the free tier is for personal use: hobbies, your own projects, gifts for friends and family. Output made while you hold any valid paid license (Pro Core, Batch Pack, Precision Pack, or Monthly Pass) is yours for personal and commercial use. Selling finished items counts as commercial use no matter how occasional — Etsy, your own shop, a craft fair or market stall. A charity or fundraiser sale is still a sale under the Terms; we won't come knocking over a school fundraiser, but a $10 Monthly Pass for that month keeps it clean. Two more things people ask: if your Monthly Pass ends, everything you made while it was active keeps its commercial rights — you bought the rights for that moment in time; only new conversions go back to personal use. And if you ever refund a license, items you already sold stay sold — nothing is retroactive. One thing never changes: converting someone else's logo doesn't grant you rights to that logo — you need the rights to any image you convert. Full text in <a href=\"/terms/\">Terms §3</a>."),
     ]
     faq_sec = f"""<section class="section"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px">{faq(faq_items)}</div></div></section>"""
     final = f"""
@@ -209,7 +209,7 @@ def build_pricing():
   <div class="wrap" style="max-width:900px">
     <div class="hero__eyebrow"><span class="spec">Pricing · one-time, yours forever</span></div>
     <h1>Simple, One-Time Pricing</h1>
-    <p class="hero__sub"><b>Built for sellers who clean client images every week.</b></p>
+    <p class="hero__sub"><b>Built for sellers who clean client images every week — and sell what they make. A paid license makes your output officially commercial.</b></p>
     <p class="hero__sub">Free for light use — full quality, no watermark, no account. One-time payment when your shop outgrows it. No subscriptions — ever.</p>
   </div>
 </section>"""
@@ -233,6 +233,7 @@ def build_pricing():
       <li>No watermark, no account</li>
       <li>Your files never leave your device</li>
       <li>AI HD rescue: 3 free tries</li>
+      <li>Personal use</li>
     </ul>
     <a class="btn" href="{href('/')}">Start converting — free</a>
   </div>
@@ -242,8 +243,9 @@ def build_pricing():
     <div class="amount">$59 <small>one-time</small></div>
     <ul>
       <li>Everything in Free</li>
-      <li>No daily cap — convert all day</li>
+      <li>Commercial license — for client work and selling what you make</li>
       <li>AI HD rescue included (runs on your device's GPU)</li>
+      <li>No daily cap — convert all day</li>
       <li>License key by email — works offline after a one-time activation</li>
       <li>30-day money-back guarantee, no questions asked</li>
     </ul>
@@ -254,6 +256,7 @@ def build_pricing():
       <span class="tier">Monthly Pass — try first</span>
       <div class="amount" style="font-size:32px">$10 <small>/mo</small></div>
       <p style="font-size:14px;color:var(--ink-2);margin:8px 0">Prefer to try first? Everything in Pro Core, monthly. Cancel anytime — access runs to the end of the paid month. 100% of what you've paid credits toward the one-time price within 60 days.</p>
+      <p style="font-size:14px;font-weight:600;margin:4px 0 0">Includes commercial use.</p>
       <a class="btn btn--ghost btn--sm" href="#checkout">Monthly Pass — $10/mo, credits toward one-time purchase</a>
     </div>
     <div class="pack-pair">
@@ -315,6 +318,8 @@ def build_pricing():
          "No. Free is 10 conversions a day at full quality with no watermark. Paid removes the cap. There is no per-file metering and never a watermark."),
         ("Who processes my payment?",
          "Checkout is handled by our Merchant of Record — they process your card and taxes; we receive only your email, order ID, license key and country. We never see your card number."),
+        ("What counts as commercial use?",
+         "Commercial use is any use connected with selling or promoting goods or services, or any use by or for a business — selling items made with converted files (on Etsy, in your own shop, at a craft fair or market stall), fulfilling client orders, or producing promotional material for a business. Personal use is hobbies, your own projects, and gifts for friends and family. Free-tier output is licensed for personal use; output made while any paid license is active — Pro Core, Batch Pack, Precision Pack, or Monthly Pass — is licensed for personal and commercial use. Full definition in Terms §3."),
     ]
     faq_sec = f"""<section class="section section--alt"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px">{faq(faq_items)}</div></div></section>"""
     final = f"""
