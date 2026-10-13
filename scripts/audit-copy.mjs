@@ -58,47 +58,59 @@ const mod = { exports: {} };
 new Function('module', 'exports', bundled)(mod, mod.exports);
 const { FB_COPY, STATE_COPY, CHECKOUT_COPY, LICENSE_COPY } = mod.exports;
 
-// Expected frozen values. v1.4: err_fail_pre/err_fail_hint (STATE_COPY) +
-// msg_required (FB_COPY), EN+PT. v1.5: CHECKOUT_COPY (2 keys) + LICENSE_COPY
-// (10 keys), EN+PT. Sources: 05-copy-freeze-v1.4-error-variants-addendum.md,
-// 05-copy-freeze-v1.5-checkout-license-addendum.md (§A/§B tables, verbatim).
+// Expected frozen values, byte-identical to the freeze docs. v1.4: err_fail_pre/
+// err_fail_hint (STATE_COPY) + msg_required (FB_COPY), EN+PT. v1.5: CHECKOUT_COPY
+// (2 keys) + LICENSE_COPY (10 keys), EN+PT. Sources:
+// 05-copy-freeze-v1.4-error-variants-addendum.md, 05-copy-freeze-v1.5-checkout-license-addendum.md (§A/§B tables, verbatim).
+// Every string asserted twice: runtime value === frozen literal (逐字), and the
+// frozen literal appears EXACTLY ONCE in raw copy.ts source (count==1).
+// (2026-10-13 Phase 2 升级：由 7 条锚点抽查改为 30 串全量逐字断言 — v1.5 §D-5 原案。)
 const EXPECTED = [
   // ---- v1.4 (6) ----
-  ['FB_COPY.en.msg_required', FB_COPY.en.msg_required],
-  ['FB_COPY.pt.msg_required', FB_COPY.pt.msg_required],
-  ['STATE_COPY.en.err_fail_pre', STATE_COPY.en.err_fail_pre],
-  ['STATE_COPY.en.err_fail_hint', STATE_COPY.en.err_fail_hint],
-  ['STATE_COPY.pt.err_fail_pre', STATE_COPY.pt.err_fail_pre],
-  ['STATE_COPY.pt.err_fail_hint', STATE_COPY.pt.err_fail_hint],
+  ['FB_COPY.en.msg_required', 'Add a quick message first — even one word helps.'],
+  ['FB_COPY.pt.msg_required', 'Escreva uma mensagem primeiro — mesmo uma palavra já ajuda.'],
+  ['STATE_COPY.en.err_fail_pre', "Your file is the right type, but we couldn't convert it."],
+  ['STATE_COPY.en.err_fail_hint', 'Try a simpler file — or, for an SVG, re-save it as a plain SVG in an editor first and drop it back in.'],
+  ['STATE_COPY.pt.err_fail_pre', 'Seu arquivo é do tipo certo, mas não conseguimos convertê-lo.'],
+  ['STATE_COPY.pt.err_fail_hint', 'Tente um arquivo mais simples — ou, se for um SVG, salve-o novamente como SVG simples em um editor e arraste de volta.'],
   // ---- v1.5 CHECKOUT_COPY (4) ----
-  ['CHECKOUT_COPY.en.ok_main', CHECKOUT_COPY.en.ok_main],
-  ['CHECKOUT_COPY.en.ok_sub', CHECKOUT_COPY.en.ok_sub],
-  ['CHECKOUT_COPY.pt.ok_main', CHECKOUT_COPY.pt.ok_main],
-  ['CHECKOUT_COPY.pt.ok_sub', CHECKOUT_COPY.pt.ok_sub],
+  ['CHECKOUT_COPY.en.ok_main', 'Payment successful — your license key is on its way to your inbox.'],
+  ['CHECKOUT_COPY.en.ok_sub', "Can't find it? Check your spam folder, or email support@cleanpaths.io."],
+  ['CHECKOUT_COPY.pt.ok_main', 'Pagamento concluído — sua chave de licença está a caminho do seu e-mail.'],
+  ['CHECKOUT_COPY.pt.ok_sub', 'Não achou? Confira a caixa de spam, ou escreva para support@cleanpaths.io.'],
   // ---- v1.5 LICENSE_COPY (20) ----
-  ...['entry', 'label', 'placeholder', 'submit', 'checking', 'ok_main', 'ok_pro', 'ok_pack', 'err_invalid', 'err_network'].flatMap(
-    (k) => [
-      [`LICENSE_COPY.en.${k}`, LICENSE_COPY.en[k]],
-      [`LICENSE_COPY.pt.${k}`, LICENSE_COPY.pt[k]],
-    ],
-  ),
+  ['LICENSE_COPY.en.entry', 'Have a license key?'],
+  ['LICENSE_COPY.en.label', 'License key'],
+  ['LICENSE_COPY.en.placeholder', 'Paste the key from your purchase email'],
+  ['LICENSE_COPY.en.submit', 'Activate'],
+  ['LICENSE_COPY.en.checking', 'Checking your key…'],
+  ['LICENSE_COPY.en.ok_main', 'License activated ✓'],
+  ['LICENSE_COPY.en.ok_pro', 'Pro is unlocked on this device — no daily cap.'],
+  ['LICENSE_COPY.en.ok_pack', '{PACKS} unlocked on this device.'],
+  ['LICENSE_COPY.en.err_invalid', "That key didn't work — check for typos and that it matches your purchase email. Still stuck? Email support@cleanpaths.io."],
+  ['LICENSE_COPY.en.err_network', 'No connection — activation needs to be online once. Check your connection and try again. Already activated on this device? Your Pro still works offline.'],
+  ['LICENSE_COPY.pt.entry', 'Tem uma chave de licença?'],
+  ['LICENSE_COPY.pt.label', 'Chave de licença'],
+  ['LICENSE_COPY.pt.placeholder', 'Cole a chave do e-mail de compra'],
+  ['LICENSE_COPY.pt.submit', 'Ativar'],
+  ['LICENSE_COPY.pt.checking', 'Verificando sua chave…'],
+  ['LICENSE_COPY.pt.ok_main', 'Licença ativada ✓'],
+  ['LICENSE_COPY.pt.ok_pro', 'Pro desbloqueado neste dispositivo — sem limite diário.'],
+  ['LICENSE_COPY.pt.ok_pack', 'Desbloqueado neste dispositivo: {PACKS}'],
+  ['LICENSE_COPY.pt.err_invalid', 'Não foi possível ativar essa chave — confira a digitação e compare com o e-mail de compra. Se não resolver, escreva para support@cleanpaths.io.'],
+  ['LICENSE_COPY.pt.err_network', 'Sem conexão — a ativação precisa de internet só na primeira vez. Confira sua conexão e tente de novo. Já ativou neste dispositivo? O Pro continua funcionando offline.'],
 ];
 
 let sentinelFailures = 0;
-const seen = new Set();
-for (const [name, value] of EXPECTED) {
-  if (typeof value !== 'string' || !value) {
-    console.error(`✗ sentinel: ${name} missing/empty in copy.ts`);
+for (const [name, frozen] of EXPECTED) {
+  const actual = name.split('.').reduce((o, k) => o?.[k], mod.exports);
+  if (actual !== frozen) {
+    console.error(`✗ sentinel: ${name} drifted from frozen text`);
     sentinelFailures++;
     continue;
   }
-  if (seen.has(value)) {
-    console.error(`✗ sentinel: ${name} duplicates another frozen string value`);
-    sentinelFailures++;
-  }
-  seen.add(value);
   // count==1 in raw source: catches duplicate paste and quote-level drift.
-  const occurrences = rawCopy.split(value).length - 1;
+  const occurrences = rawCopy.split(frozen).length - 1;
   if (occurrences !== 1) {
     console.error(`✗ sentinel: ${name} appears ${occurrences}× in copy.ts (must be exactly 1)`);
     sentinelFailures++;
@@ -115,23 +127,5 @@ for (const dict of ['LICENSE_COPY', 'CHECKOUT_COPY']) {
   }
 }
 
-// Spot-check byte-identity anchors (verbatim freeze, anti-drift).
-const ANCHORS = {
-  'CHECKOUT_COPY.en.ok_main': 'Payment successful — your license key is on its way to your inbox.',
-  'LICENSE_COPY.en.entry': 'Have a license key?',
-  'LICENSE_COPY.en.ok_pack': '{PACKS} unlocked on this device.',
-  'LICENSE_COPY.pt.ok_pack': 'Desbloqueado neste dispositivo: {PACKS}',
-  'LICENSE_COPY.pt.entry': 'Tem uma chave de licença?',
-  'FB_COPY.en.msg_required': 'Add a quick message first — even one word helps.',
-  'STATE_COPY.en.err_fail_pre': "Your file is the right type, but we couldn't convert it.",
-};
-for (const [name, expected] of Object.entries(ANCHORS)) {
-  const actual = name.split('.').reduce((o, k) => o?.[k], mod.exports);
-  if (actual !== expected) {
-    console.error(`✗ sentinel: ${name} drifted from frozen text`);
-    sentinelFailures++;
-  }
-}
-
 if (sentinelFailures) { console.error(`copy.ts sentinel: ${sentinelFailures} failure(s)`); process.exit(1); }
-console.log(`copy.ts sentinel: PASS (v1.4 6 + v1.5 24 strings, count==1, EN/PT keys aligned)`);
+console.log('copy.ts sentinel: PASS (v1.4 6 + v1.5 24 strings, verbatim + count==1, EN/PT keys aligned)');
