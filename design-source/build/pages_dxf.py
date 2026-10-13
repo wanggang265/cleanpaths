@@ -48,8 +48,8 @@ def build_png():
       <p class="proof__quote">"R2000 output carries units, so your file opens at the size you drew it. R12 compatibility mode covers older CAM. Every path closed, every layer color-separated — in our tests, a compressed logo that default tracing renders in <span class="hl">88 layers</span> comes out in <span class="hl">the teens or better</span>."</p>
       <div class="ba">
         <div class="ba__imgs">
-          <img src="../../assets/samples/logo-peak_before.png" alt="Compressed logo PNG input (synthetic sample)">
-          <img src="../../assets/samples/logo-peak_after.png" alt="Color-separated clean output (synthetic sample)">
+          <img src="../../assets/samples/logo-peak_before.png" width="900" height="675" alt="Compressed logo PNG input (synthetic sample)" loading="lazy" decoding="async">
+          <img src="../../assets/samples/logo-peak_after.png" width="900" height="675" alt="Color-separated clean output (synthetic sample)" loading="lazy" decoding="async">
         </div>
         <div class="ba__divider"></div><div class="ba__handle">⇔</div>
         <span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span>
@@ -164,8 +164,8 @@ def build_jpg():
       <p class="proof__quote">"JPEG compression is the enemy of clean tracing — it rings every edge with noise. In our tests, denoising and upscaling a compressed logo before tracing cut the output from <span class="hl">88 color layers</span> down to <span class="hl">as few as 9</span>."</p>
       <div class="ba">
         <div class="ba__imgs">
-          <img src="../../assets/samples/logo-bean_before.png" alt="Compressed, noisy JPG logo input (synthetic sample)">
-          <img src="../../assets/samples/logo-bean_after.png" alt="Cleaned and traced output (synthetic sample)">
+          <img src="../../assets/samples/logo-bean_before.png" width="900" height="675" alt="Compressed, noisy JPG logo input (synthetic sample)" loading="lazy" decoding="async">
+          <img src="../../assets/samples/logo-bean_after.png" width="900" height="675" alt="Cleaned and traced output (synthetic sample)" loading="lazy" decoding="async">
         </div>
         <div class="ba__divider"></div><div class="ba__handle">⇔</div>
         <span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span>

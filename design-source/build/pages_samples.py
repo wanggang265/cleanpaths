@@ -9,8 +9,8 @@ def sample_card(name, before, after, stats, cta_route, caption):
   <p class="sample-title">{name}</p>
   <div class="ba">
     <div class="ba__imgs">
-      <img src="../../assets/samples/{before}" alt="{name} — input (synthetic sample)">
-      <img src="../../assets/samples/{after}" alt="{name} — traced output (synthetic sample)">
+      <img src="../../assets/samples/{before}" width="900" height="675" alt="{name} — input (synthetic sample)" loading="lazy" decoding="async">
+      <img src="../../assets/samples/{after}" width="900" height="675" alt="{name} — traced output (synthetic sample)" loading="lazy" decoding="async">
     </div>
     <div class="ba__divider"></div><div class="ba__handle">⇔</div>
     <span class="ba__tag ba__tag--before">BEFORE</span><span class="ba__tag ba__tag--after">AFTER</span>
