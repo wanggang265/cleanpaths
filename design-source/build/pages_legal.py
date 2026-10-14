@@ -119,7 +119,7 @@ CONTAINER = {
 TITLES = {
     "/privacy": ("Privacy Policy | CleanPaths", "Privacy Policy", "How cleanpaths.io handles data — short version: your files never leave your device."),
     "/terms": ("Terms of Service | CleanPaths", "Terms of Service", "The terms for using cleanpaths.io, including our honest quality boundaries in plain English."),
-    "/cookies": ("Cookie Policy | CleanPaths", "Cookie Policy", "No tracking cookies, no consent banner — what your browser stores and why."),
+    "/cookies": ("Cookie Policy | CleanPaths", "Cookie Policy", "The analytics cookies we use (GA4, Clarity), strictly-necessary browser storage, and how to opt out."),
     "/refund": ("Refund Policy | CleanPaths", "Refund Policy", "30-day, no-questions-asked refunds on one-time purchases; Monthly Pass terms."),
 }
 

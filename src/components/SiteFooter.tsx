@@ -22,7 +22,7 @@ export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
       <footer className="site-footer">
         <div className="wrap">
           <div className="footer-trust" style={{ borderTop: 0 }}>
-            <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro · Sem cookies de rastreamento</span>
+            <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro</span>
             <span className="links">
               <Link href="/privacy/">Política de Privacidade</Link>
               <span>·</span>
@@ -112,7 +112,7 @@ export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
           </div>
         </div>
         <div className="footer-trust">
-          <span>Files never leave your device · No account · No tracking cookies</span>
+          <span>Files never leave your device · No account</span>
           <span className="links">
             <Link href="/privacy/">Privacy</Link>
             <span>·</span>

@@ -52,7 +52,7 @@ SENTINELS = {
    "How did this one turn out?",
    "Cut-ready — it worked", "Close, but not quite", "Not usable",
    "Send feedback",
-   "Files never leave your device · No account · No tracking cookies",
+   "Files never leave your device · No account",
  ],
  "png-to-dxf": [
    "PNG to DXF Converter — Cut-Ready Output",
@@ -147,7 +147,7 @@ SENTINELS = {
    "Preciso criar conta?",
    "Tem limite de uso?",
    "Converter JFIF grátis agora",
-   "Sem cookies de rastreamento",
+   "Sem cadastro",
    "Política de Privacidade",
    "English version",
  ],

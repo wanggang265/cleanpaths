@@ -160,7 +160,7 @@ def footer(lang="en"):
     if lang == "pt":
         return f"""<footer class="site-footer"><div class="wrap">
   <div class="footer-trust" style="border-top:0">
-    <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro · Sem cookies de rastreamento</span>
+    <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro</span>
     <span class="links">
       <a href="{href('/privacy')}">Política de Privacidade</a><span>·</span>
       <a href="{href('/jfif-to-jpg')}">English version</a><span>·</span>
@@ -209,7 +209,7 @@ def footer(lang="en"):
     </div>
   </div>
   <div class="footer-trust">
-    <span>Files never leave your device · No account · No tracking cookies</span>
+    <span>Files never leave your device · No account</span>
     <span class="links">
       <a href="{href('/privacy')}">Privacy</a><span>·</span><a href="{href('/terms')}">Terms</a><span>·</span><a href="{href('/refund')}">Refund</a><span>·</span><a href="{href('/cookies')}">Cookies</a><span>·</span><a href="{href('/pricing')}">Pricing</a><span>·</span><a href="{href('/samples')}">Samples</a><span>·</span><a href="#feedback-modal">Feedback</a><span>·</span><a href="mailto:support@cleanpaths.io">Support: support@cleanpaths.io</a>
     </span>
