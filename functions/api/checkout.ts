@@ -25,6 +25,9 @@ interface Env {
   CREEM_PRODUCT_ID_PRECISION?: string;
   CREEM_PRODUCT_ID_MONTHLY?: string;
   CREEM_PRODUCT_ID_TEST_DOLLAR?: string;
+  // Optional override for Creem test mode (https://test-api.creem.io).
+  // Unset = production. Set ONLY during test-mode E2E; delete after.
+  CREEM_CHECKOUT_API?: string;
 }
 
 interface PagesEventContext<E> {
@@ -34,7 +37,7 @@ interface PagesEventContext<E> {
 }
 type PagesFunction<E> = (context: PagesEventContext<E>) => Promise<Response> | Response;
 
-const CREEM_API = 'https://api.creem.io/v1/checkouts';
+const CREEM_API = 'https://api.creem.io/v1/checkouts'; // production default; CREEM_CHECKOUT_API env overrides for test mode
 const RATE_LIMIT = 10; // checkout attempts
 const RATE_WINDOW_MS = 60_000; // per minute per IP
 
@@ -123,8 +126,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const successUrl = `${origin}/pricing/?checkout=success`;
 
   let creemRes: Response;
+  const creemApi = context.env.CREEM_CHECKOUT_API ?? CREEM_API;
   try {
-    creemRes = await fetch(CREEM_API, {
+    creemRes = await fetch(creemApi, {
       method: 'POST',
       headers: {
         'x-api-key': apiKey,
