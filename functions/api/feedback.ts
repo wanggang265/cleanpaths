@@ -13,6 +13,17 @@
 
 interface Env {
   TELEGRAM_BOT_TOKEN?: string;
+  // 05 v1.6 (2026-10-14): D1 persistence — feedback is stored for aggregate
+  // review at /admin/feedback (key-gated). Telegram notify kept as the
+  // real-time channel. DB is best-effort: a D1 failure never fails the user.
+  DB?: D1Database;
+}
+
+// Minimal D1 types (same no-dependency rationale as PagesFunction below).
+interface D1Database {
+  prepare(sql: string): {
+    bind(...args: unknown[]): { run(): Promise<unknown> };
+  };
 }
 
 // Minimal Pages Function types (avoids a hard dependency on
@@ -83,6 +94,31 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const contact = str(body.contact, 300);
   const lang = str(body.lang, 10);
   const optin = body.showcase_optin === true ? 'yes' : body.showcase_optin === false ? 'no' : '';
+
+  // 05 v1.6: persist to D1 first (aggregate review at /admin/feedback).
+  // Best-effort — storage failure must not block the Telegram notify or the
+  // user's success confirmation.
+  if (context.env.DB) {
+    try {
+      await context.env.DB.prepare(
+        'INSERT INTO feedback (kind, type, rating, message, contact, page, lang, showcase_optin, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      )
+        .bind(
+          str(body.kind, 20) || 'modal',
+          type,
+          str(body.rating, 100),
+          text,
+          contact,
+          page,
+          lang,
+          body.showcase_optin === true ? 1 : 0,
+          ip,
+        )
+        .run();
+    } catch {
+      /* D1 unavailable — Telegram notify below is the fallback record */
+    }
+  }
 
   const lines = [
     `📬 CleanPaths feedback`,

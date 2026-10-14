@@ -12,7 +12,7 @@
  *   POST /api/checkout        — Creem checkout (pricing CTAs)
  */
 import { useEffect, useRef } from 'react';
-import { CAP_COPY, DL_COPY, SHARE_COPY, STATE_COPY, STEPS } from '@/lib/copy';
+import { CAP_COPY, DL_COPY, STATE_COPY, STEPS } from '@/lib/copy';
 import { buildDxf, prepareLayers, PX_TO_MM, type TraceLayer } from '@/lib/dxf';
 import { layersToSvg } from '@/lib/svg-flatten';
 import { flattenSvgAsync } from '@/lib/flatten-client';
@@ -113,6 +113,16 @@ export default function ToolController(props: ToolProps) {
     const S = stateRef.current;
     S.initialHtml = dz.innerHTML;
 
+    // 05 v1.6 cancel/watchdog state (2026-10-14): runSeq invalidates in-flight
+    // runs on cancel/reset so their late resolve/reject is discarded; watchdog
+    // auto-fails a run that exceeds the hard cap (honest frozen error state
+    // instead of an endless spinner — user report: "stuck, no close button,
+    // had to refresh").
+    let runSeq = 0;
+    let watchdog: ReturnType<typeof setTimeout> | null = null;
+    let activeProg: ProgressUI | null = null;
+    const WATCHDOG_MS = 240_000; // > worst honest big-file run (~141s @22MB, 09 QA)
+
     void captureLicenseFromUrl().then(() => {
       if (isProActive()) dz.insertAdjacentHTML('afterbegin', proActiveHtml(lang));
     });
@@ -188,6 +198,7 @@ export default function ToolController(props: ToolProps) {
     };
 
     async function run(file: File) {
+      const myRun = ++runSeq; // 05 v1.6: cancel token — stale runs discard their outcome
       // 1) format gate (frozen error)
       const ext = extOf(file.name);
       if (!accept.includes(ext)) {
@@ -216,6 +227,18 @@ export default function ToolController(props: ToolProps) {
       const isSvgInput = kind === 'svg-dxf' || (kind === 'trace-multi' && ext === '.svg');
       const prog: ProgressUI | null =
         kind === 'jfif' ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
+      activeProg = prog;
+      // 05 v1.6 watchdog: never leave the user on an endless processing state.
+      if (watchdog) clearTimeout(watchdog);
+      watchdog = setTimeout(() => {
+        if (myRun !== runSeq || dz.dataset.state !== 'processing') return;
+        console.error('[cleanpaths] watchdog: conversion exceeded', WATCHDOG_MS, 'ms — failing honestly');
+        runSeq++; // invalidate the stuck run — its late resolve/reject is discarded
+        activeProg?.stop();
+        activeProg = null;
+        const c = STATE_COPY[lang];
+        renderState('error', errorHtml(`<b>${c.err_fail_pre}</b> ${c.err_fail_hint} ${c.err_main_post}`, lang));
+      }, WATCHDOG_MS);
       prog?.enter('read');
       let bytes = new Uint8Array(await file.arrayBuffer());
       S.lastFile = { bytes, name: file.name, mime: file.type || guessMime(ext) };
@@ -240,12 +263,16 @@ export default function ToolController(props: ToolProps) {
 
       try {
         const out = await produce(bytes, file.name, S.lastFile.mime, prog);
+        if (myRun !== runSeq) return; // 05 v1.6: cancelled/reset mid-run — discard
+        if (watchdog) { clearTimeout(watchdog); watchdog = null; }
         prog?.finish();
         S.out = out;
         recordConversion();
         beacon('tool_complete'); // #54 preregistered: conversion completed
         renderResult();
       } catch (err) {
+        if (myRun !== runSeq) return; // 05 v1.6: cancelled/reset mid-run — discard
+        if (watchdog) { clearTimeout(watchdog); watchdog = null; }
         prog?.stop();
         console.error('[cleanpaths] conversion failed', err);
         // 05 v1.4 §F-2: processing-failure branch — err_fail group (never the
@@ -389,15 +416,21 @@ export default function ToolController(props: ToolProps) {
       else dz.classList.remove('proc');
       dz.innerHTML = html;
       setBusy(state === 'processing' || state === 'result');
-      if (state === 'error') {
-        dz.querySelector('[data-tool-reset]')?.addEventListener('click', reset);
-      }
+      // 05 v1.6: reset button now lives on BOTH error and result states
+      // (result previously had no way to convert another file without refresh).
+      dz.querySelector('[data-tool-reset]')?.addEventListener('click', reset);
       if (state === 'processing') {
+        // 05 v1.6: cancel affordance — invalidate the run and go back to idle.
+        dz.querySelector('[data-tool-cancel]')?.addEventListener('click', reset);
         dz.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
 
     function reset() {
+      runSeq++; // 05 v1.6: invalidate any in-flight run (its late outcome is discarded)
+      if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+      activeProg?.stop();
+      activeProg = null;
       dz.dataset.state = 'empty';
       dz.classList.remove('proc');
       dz.classList.add('matgrid');
@@ -507,22 +540,8 @@ export default function ToolController(props: ToolProps) {
           void rerun();
         };
       }
-      // share block
-      const share = SHARE_COPY[lang];
-      const copyBtn = dz.querySelector<HTMLButtonElement>('[data-share-copy]');
-      if (copyBtn) {
-        copyBtn.onclick = async () => {
-          try {
-            await navigator.clipboard.writeText(window.location.href);
-            copyBtn.textContent = share.copied;
-            setTimeout(() => (copyBtn.textContent = share.copy), 1600);
-          } catch {
-            /* clipboard unavailable — no frozen error string, keep silent */
-          }
-        };
-      }
-      const imgBtn = dz.querySelector<HTMLButtonElement>('[data-share-img]');
-      if (imgBtn) imgBtn.onclick = () => void downloadShareImage();
+      // share block removed (05 v1.6, 2026-10-14 user decision — makers share
+      // their output file, not the tool site; download buttons cover it).
       // result feedback form
       const fb = dz.querySelector<HTMLElement>('[data-tool-feedback]');
       if (fb) {
@@ -535,7 +554,6 @@ export default function ToolController(props: ToolProps) {
           };
         });
         fb.querySelector<HTMLButtonElement>('[data-fb-submit]')!.onclick = async () => {
-          const optin = (dz.querySelector('[data-share-optin]') as HTMLInputElement | null)?.checked ?? false;
           try {
             const res = await fetch('/api/feedback', {
               method: 'POST',
@@ -545,7 +563,7 @@ export default function ToolController(props: ToolProps) {
                 context: 'result',
                 rating,
                 message: fb.querySelector('textarea')?.value ?? '',
-                showcase_optin: optin,
+                showcase_optin: false, // 05 v1.6: opt-in checkbox removed with the share block
                 page: window.location.pathname,
                 lang: document.documentElement.lang || lang,
                 ts: new Date().toISOString(),
@@ -568,44 +586,6 @@ export default function ToolController(props: ToolProps) {
       } catch (err) {
         console.error('[cleanpaths] re-run failed', err);
       }
-    }
-
-    async function downloadShareImage() {
-      const out = S.out;
-      if (!out) return;
-      const canvas = document.createElement('canvas');
-      canvas.width = 1200;
-      canvas.height = 675;
-      const ctx = canvas.getContext('2d')!;
-      ctx.fillStyle = '#FAF6EE';
-      ctx.fillRect(0, 0, 1200, 675);
-      const src = out.svgText
-        ? 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(out.svgText)
-        : out.outputUrl;
-      await new Promise<void>((resolve) => {
-        const img = new Image();
-        img.onload = () => {
-          const scale = Math.min(1040 / (img.width || 1), 520 / (img.height || 1));
-          const w = (img.width || 1) * scale;
-          const h = (img.height || 1) * scale;
-          ctx.drawImage(img, (1200 - w) / 2, (600 - h) / 2, w, h);
-          resolve();
-        };
-        img.onerror = () => resolve();
-        img.src = src;
-      });
-      ctx.fillStyle = '#717789';
-      ctx.font = '600 22px "IBM Plex Mono", monospace';
-      ctx.textAlign = 'right';
-      ctx.fillText('cleanpaths.io', 1160, 635);
-      canvas.toBlob((blob) => {
-        if (!blob) return;
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = `${baseOf(S.lastFile?.name ?? 'result')}-cleanpaths-share.png`;
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-      }, 'image/png');
     }
 
     return () => {

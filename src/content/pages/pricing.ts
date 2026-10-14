@@ -78,6 +78,7 @@ export const mainHtml = `<section class="hero" style="padding-bottom:32px">
     <h2 style="margin:12px 0 16px">The refund policy most converter tools won't give you</h2>
     <p>30-day money-back guarantee — no questions asked. Email us your order ID within 30 days and we refund in full. Some converter tools state 'no refunds' in their terms — Vector Magic and Convertio among them. We'd rather earn your trust than lock you in.</p>
     <p style="margin-top:14px">Refunds go back to your original payment method through our payment partner; your license deactivates, and that's the whole deal. No forms, no retention scripts.</p>
+    <p style="margin-top:14px;font-size:15px"><a href="/refund/" style="color:inherit;text-decoration:underline">Read the full Refund Policy &rarr;</a></p>
   </div>
 </div></section>
 <section class="section--alt" style="padding:48px 0"><div class="wrap">

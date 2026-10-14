@@ -4,7 +4,7 @@
  * strings come from src/lib/copy.ts (05 §11/§12 frozen). Dynamic values are
  * limited to data (colors, counts, URLs) — never copy.
  */
-import { CAP_COPY, DL_COPY, FB_COPY, INLINE_FEEDBACK, LICENSE_COPY, SHARE_COPY, STATE_COPY } from '@/lib/copy';
+import { CAP_COPY, DL_COPY, FB_COPY, INLINE_FEEDBACK, LICENSE_COPY, STATE_COPY } from '@/lib/copy';
 
 export interface LayerRow {
   hex: string;
@@ -31,7 +31,8 @@ export function processingHtml(steps: readonly string[], lang: 'en' | 'pt'): str
     ${rows}
   </div>
   <div class="proc-elapsed" data-tool-elapsed hidden></div>
-  <div data-tool-bignote></div>`;
+  <div data-tool-bignote></div>
+  <div style="margin-top:14px;text-align:center"><button class="btn btn--ghost" type="button" data-tool-cancel>${c.cancel}</button></div>`;
 }
 
 export function errorHtml(message: string, lang: 'en' | 'pt'): string {
@@ -140,7 +141,9 @@ export function resultHtml(r: ResultRender): string {
   // PT route is tool-light (05 §11.12-1): precision/AI-HD blocks never render
   // there (showAiHd/showPrecision=false), so narrowing to the EN shape is safe.
   const c = STATE_COPY[r.lang] as (typeof STATE_COPY)['en'];
-  const share = SHARE_COPY[r.lang];
+  // 05 v1.6 (2026-10-14, user decision): share block removed — makers share
+  // their output file, not the tool site. Result state gains a reset button
+  // (reuses frozen err_btn) so users can convert another file without refresh.
   const fb = INLINE_FEEDBACK;
   const fbc = FB_COPY[r.lang];
 
@@ -180,8 +183,6 @@ export function resultHtml(r: ResultRender): string {
     )
     .join('\n');
 
-  const prefill = share.x_prefill.replace(/ /g, '%20');
-
   return `
   <div class="result">
     <div class="panel">
@@ -197,18 +198,7 @@ export function resultHtml(r: ResultRender): string {
     ${layerRows}
   </ul>${precision}${aiHd}
   <div class="dl-row">${dlButtons}</div>
-  <div class="share-block" data-visible-when="result">
-  <div class="spec">${share.title}</div>
-  <div class="share-row">
-    <button class="btn btn--sm" type="button" data-share-copy>${share.copy}</button>
-    <a class="btn btn--sm" href="https://x.com/intent/post?text=${prefill}" target="_blank" rel="noopener">${share.x}</a>
-    <button class="btn btn--sm" type="button" data-share-img>${share.dl_img}</button>
-  </div>
-  <label class="share-optin">
-    <input type="checkbox" data-share-optin>
-    <span>${share.optin}<br><span class="micro">${share.optin_micro}</span></span>
-  </label>
-</div>
+  <div style="margin-top:12px;text-align:center"><button class="btn btn--ghost" type="button" data-tool-reset>${c.err_btn}</button></div>
 <div style="margin-top:16px" data-tool-feedback>
   <div class="feedback" data-context="result">
   <h3>${fb.heading}</h3>

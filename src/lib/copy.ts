@@ -167,6 +167,10 @@ export const STATE_COPY = {
     err_main_pre: "That file can't be converted here.",
     err_main_post: 'Nothing was uploaded, so nothing was stored.',
     err_btn: 'Choose another file',
+    // 05 v1.6 (2026-10-14, user-approved batch): processing-state cancel affordance
+    // (was: no escape hatch mid-run, users had to refresh) + result-state reset
+    // reuses frozen err_btn above (zero new result copy).
+    cancel: 'Cancel conversion',
     // 05 v1.4 §A (frozen 2026-10-09): processing-failure variant — file passed
     // the format gate but the pipeline threw. Never co-render with err_main_pre.
     err_fail_pre: "Your file is the right type, but we couldn't convert it.",
@@ -191,6 +195,8 @@ export const STATE_COPY = {
     err_main_pre: 'Este arquivo não pode ser convertido aqui.',
     err_main_post: 'Nada foi enviado, então nada foi armazenado.',
     err_btn: 'Escolher outro arquivo',
+    // 05 v1.6 (2026-10-14): cancel affordance (see EN note)
+    cancel: 'Cancelar conversão',
     // 05 v1.4 §A (frozen 2026-10-09): processing-failure variant
     err_fail_pre: 'Seu arquivo é do tipo certo, mas não conseguimos convertê-lo.',
     err_fail_hint:
