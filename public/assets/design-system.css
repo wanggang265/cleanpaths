@@ -546,6 +546,7 @@ h3 { font-size: 19px; }
   display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--s6);
   padding: var(--s7) 0 var(--s5);
 }
+.footer-grid--5 { grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr; }
 .footer-grid h4 { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--s3); font-weight: 600; }
 .footer-grid ul { list-style: none; display: grid; gap: 7px; }
 .footer-grid a { color: var(--ink-2); text-decoration: none; font-size: 14.5px; }
@@ -732,13 +733,27 @@ h3 { font-size: 19px; }
 }
 .community-slot p { color: var(--ink-2); max-width: 44em; margin: 10px auto 0; }
 
+/* BOFU comparison table — mobile stacking (06e) */
+@media (max-width: 620px) {
+  .cmp-versus table, .cmp-versus thead, .cmp-versus tbody, .cmp-versus tr, .cmp-versus td { display: block; }
+  .cmp-versus thead { position: absolute; left: -9999px; }
+  .cmp-versus tr { border: 1.5px solid var(--line-strong); border-radius: var(--r-btn); margin-bottom: 12px; overflow: hidden; }
+  .cmp-versus td { border: none; border-bottom: 1px solid var(--line); }
+  .cmp-versus td:last-child { border-bottom: none; }
+  .cmp-versus td[data-col]:not([data-col=""])::before {
+    content: attr(data-col);
+    display: block; font-family: var(--font-mono); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px;
+  }
+}
+
 /* responsive */
 @media (max-width: 960px) {
   .hero__grid { grid-template-columns: 1fr; gap: var(--s6); }
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .price-grid { grid-template-columns: 1fr; }
   .trustbar { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid, .footer-grid--5 { grid-template-columns: 1fr 1fr; }
   .manifesto .body { columns: 1; }
   .proof { grid-template-columns: 1fr; }
   .main-nav .navlink--desktop { display: none; }
@@ -751,7 +766,7 @@ h3 { font-size: 19px; }
   .hero { padding: var(--s6) 0; }
   .main-nav { display: none; }
   .result { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: var(--s5); }
+  .footer-grid, .footer-grid--5 { grid-template-columns: 1fr; gap: var(--s5); }
   .trustbar { grid-template-columns: 1fr; }
   .btn--lg { width: 100%; justify-content: center; }
 }

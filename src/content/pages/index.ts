@@ -104,5 +104,33 @@ export const PAGES = [
     "type": "legal",
     "h1": "Refund Policy",
     "schema": "none"
+  },
+  {
+    "slug": "vector-magic-alternative",
+    "route": "/vector-magic-alternative",
+    "type": "comparison",
+    "h1": "A Vector Magic Alternative That Runs in Your Browser — and Exports Cut-Ready DXF",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "cloudconvert-alternative",
+    "route": "/cloudconvert-alternative",
+    "type": "comparison",
+    "h1": "A CloudConvert Alternative That Never Uploads Your File",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "vectorizer-ai-alternative",
+    "route": "/vectorizer-ai-alternative",
+    "type": "comparison",
+    "h1": "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "convertio-alternative",
+    "route": "/convertio-alternative",
+    "type": "comparison",
+    "h1": "A Convertio Alternative Built for Cut Files, Not Just Conversions",
+    "schema": "SoftwareApplication + FAQPage"
   }
 ] as const;

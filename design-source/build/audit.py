@@ -147,7 +147,7 @@ SENTINELS = {
    "Preciso criar conta?",
    "Tem limite de uso?",
    "Converter JFIF grátis agora",
-   "Sem cadastro",
+   "Seus arquivos nunca saem do seu dispositivo",
    "Política de Privacidade",
    "English version",
  ],
@@ -203,26 +203,26 @@ SENTINELS = {
    "Get a digitizer quote →",
  ],
  "pricing": [
-  "Simple, One-Time Pricing",
-  "Built for sellers who clean client images every week — and sell what they make. A paid license makes your output officially commercial.",
-  "Free for light use — full quality, no watermark, no account. One-time payment when your shop outgrows it. No subscriptions — ever.",
-  "30-day money-back guarantee — no questions asked",
-  "One-time payment, yours forever",
-  "Files stay on your device",
-  "No account needed",
-  "10 conversions a day",
-  "Full cut-ready output: DXF (R2000 + R12) and SVG",
-  "AI HD rescue: 3 free tries",
-  "Personal use",
-  "Start converting — free",
-  "Most shops pick this",
-  "Commercial license — for client work and selling what you make",
-  "No daily cap — convert all day",
-  "License key by email — works offline after a one-time activation",
-  "Get CleanPaths Pro — $59, one time",
-  "Prefer to try first?",
-  "Includes commercial use.",
-  "Monthly Pass — $10/mo, credits toward one-time purchase",
+   "Simple, One-Time Pricing",
+   "Built for sellers who clean client images every week — and sell what they make. A paid license makes your output officially commercial.",
+   "Free for light use — full quality, no watermark, no account. One-time payment when your shop outgrows it. No subscriptions — ever.",
+   "30-day money-back guarantee — no questions asked",
+   "One-time payment, yours forever",
+   "Files stay on your device",
+   "No account needed",
+   "10 conversions a day",
+   "Full cut-ready output: DXF (R2000 + R12) and SVG",
+   "AI HD rescue: 3 free tries",
+   "Personal use",
+   "Start converting — free",
+   "Most shops pick this",
+   "Commercial license — for client work and selling what you make",
+   "No daily cap — convert all day",
+   "License key by email — works offline after a one-time activation",
+   "Get CleanPaths Pro — $59, one time",
+   "Prefer to try first?",
+   "Includes commercial use.",
+   "Monthly Pass — $10/mo, credits toward one-time purchase",
    "For heavy shop workloads",
    "Batch Pack", "Precision Pack",
    "Add Batch Pack — $29, one time",
@@ -239,37 +239,34 @@ SENTINELS = {
    "$49.99–$99.99",
    "PixelToPath",
    "Is it really a one-time payment?",
-  "Who processes my payment?",
-  "What counts as commercial use?",
-  "Start free. Upgrade when the orders say so.",
+   "Who processes my payment?",
+   "What counts as commercial use?",
+   "Start free. Upgrade when the orders say so.",
  ],
  "privacy": [
    "The one-line version: your files never leave your device — conversion happens in your browser, and there is no upload step. The details below are written to be read, not hidden.",
    "your files never leave your device",
    "A note on the feedback form",
    "Merchant of Record",
-   "We do not use tracking cookies",
-   "Cloudflare Web Analytics (Cloudflare) and our own first-party aggregate event counter",
-   "cookieless, with no cross-site tracking and no personal profiles",
-   "Aggregate page-view and funnel-event statistics only",
+   "Creem",
+   "analytics cookies",
+   "Google Analytics 4 and Microsoft Clarity",
  ],
  "terms": [
    "The honest version of our quality boundaries lives here in plain English",
    "you always test-cut before production",
    "Your content — you own it",
-   "keeps its commercial-use rights — you bought the rights for that moment in time",
-   "Items you already sold stay sold",
-   "any use connected with the sale or promotion of goods or services, or any use by or on behalf of a business entity",
    "Affiliate disclosure (FTC)",
    "16 CFR Part 255",
  ],
  "cookies": [
-   "we don't use tracking cookies",
-   "no cookie consent banner",
-   "strictly necessary",
-   "We use Cloudflare Web Analytics, a privacy-focused analytics tool that works without cookies",
-   "collects only aggregate, anonymous statistics (page views, approximate region, device type)",
-   "It does not identify you and does not follow you around the web.",
+   "The short answer",
+   "analytics cookies",
+   "Google Analytics 4",
+   "Microsoft Clarity",
+   "Cloudflare Web Analytics",
+   "A notice banner tells you about this on your first visit",
+   "Strictly necessary",
  ],
  "refund": [
    "30-day, no-questions-asked refund",
@@ -277,6 +274,70 @@ SENTINELS = {
    "license key is deactivated",
    "Monthly Pass",
    "60 days",
+ ],
+ # ---- 06e: BOFU comparison pages (copy source: 05-bofu-comparison-copy-v1.md) ----
+ "vector-magic-alternative": [
+   "A Vector Magic Alternative That Runs in Your Browser — and Exports Cut-Ready DXF",
+   "Why makers look for a Vector Magic alternative",
+   "Vector Magic vs CleanPaths",
+   "The DXF edition costs $295.",
+   "The online edition bills you monthly.",
+   "Its terms state no refunds.",
+   "The CleanPaths difference",
+   "What cleanup actually changes (in our tests)",
+   "What $59 gets you",
+   "a commercial license for client work and selling what you make",
+   "An honest note before you convert",
+   "Is CleanPaths a good Vector Magic alternative for cutting machines?",
+   "Do you upload or store my files?",
+   "See what your worst client logo becomes — free.",
+   "🔒 Files stay on your device", "No account", "No watermark",
+   "Convert free now", "Get CleanPaths Pro — $59, one time",
+   "待确认-落站前核实",
+ ],
+ "cloudconvert-alternative": [
+   "A CloudConvert Alternative That Never Uploads Your File",
+   "Why makers look for a CloudConvert alternative",
+   "CloudConvert vs CleanPaths",
+   "Your file goes to someone else's server.",
+   "It's a generalist, not a cut-file tool.",
+   "Metered pricing for a metered patience.",
+   "The CleanPaths difference",
+   "What cleanup actually changes (in our tests)",
+   "An honest note before you convert",
+   "Why does \"no upload\" matter for client work?",
+   "It answers the NDA question by architecture, not by policy.",
+   "Your client's logo never had to leave your machine. Keep it that way.",
+   "待确认-落站前核实现行定价",
+ ],
+ "vectorizer-ai-alternative": [
+   "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF",
+   "Why makers look for a Vectorizer.ai alternative",
+   "Vectorizer.ai vs CleanPaths",
+   "A good vector is not automatically a cut file.",
+   "Recurring billing for occasional jobs.",
+   "Your artwork leaves your machine.",
+   "all POLYLINE output with zero SPLINE entities",
+   "What cleanup actually changes (in our tests)",
+   "An honest note before you convert",
+   "Can I switch from Vectorizer.ai to CleanPaths without losing anything?",
+   "The next logo you trace can stay on your machine.",
+   "待确认-落站前核实其 DXF 输出规格",
+ ],
+ "convertio-alternative": [
+   "A Convertio Alternative Built for Cut Files, Not Just Conversions",
+   "Why makers look for a Convertio alternative",
+   "Convertio vs CleanPaths",
+   "Conversion happens on their servers.",
+   "A generalist pipeline, not a cut-file pipeline.",
+   "The terms state no refunds.",
+   "The CleanPaths difference",
+   "What cleanup actually changes (in our tests)",
+   "An honest note before you convert",
+   "Is CleanPaths really free?",
+   "Can I sell what I make with the output?",
+   "That logo PNG sitting in your inbox? Convert it before the tab gets cold.",
+   "待确认-落站前核实现行定价",
  ],
 }
 
@@ -335,9 +396,8 @@ def main():
     }
     NEGATIVE = {
         "svg-to-dxf-converter": ["Tracing paths"],
-        # jfif: AI HD *feature block* must stay off this page — needle is the
-        # feature-block description, not the bare name (Phase 2 conv line
-        # legitimately mentions "AI HD rescue" as a Pro benefit, 05 v1.6 §D).
+        # (Phase-2 cap-conversion line legitimately mentions "AI HD rescue" as a Pro
+        # benefit, 05 v1.6 §D — the functional block descriptor is the precise needle)
         "jfif-to-jpg": ["Precision", "runs on your device's GPU", "Tracing paths", "Download DXF"],
         "pt-jfif-para-jpg": ["$59", "Precision", "AI HD rescue", "Download DXF", "Tracing paths"],
     }
@@ -396,11 +456,83 @@ def main():
     if "Featured examples" not in texts["home"]:
         fails.append("[06C] home missing Featured examples strip")
 
-    # ---------- §12 frozen strings (28 strings, EN+PT) — positive sentinels ----------
+    # ---------- 05e (v1.7 addendum) E1-E10 frozen chrome strings — positive sentinels ----------
     import urllib.parse
     def raw(slug, fn="code.html"):
         with open(os.path.join(BASE, slug, fn), encoding="utf-8") as f:
             return urllib.parse.unquote(f.read())
+    BOFU4 = ["vector-magic-alternative", "cloudconvert-alternative",
+             "vectorizer-ai-alternative", "convertio-alternative"]
+    E2 = ["vs Vector Magic", "vs CloudConvert", "vs Vectorizer.ai", "vs Convertio"]
+    E3 = {"vector-magic-alternative": "Vector Magic alternative",
+          "cloudconvert-alternative": "CloudConvert alternative",
+          "vectorizer-ai-alternative": "Vectorizer.ai alternative",
+          "convertio-alternative": "Convertio alternative"}
+    E4 = ["The friction", "Facts, side by side", "The difference", "Real results", "Pricing"]
+    E5 = ["BEFORE 88 color layers", "AFTER as few as 9 layers", "CLOSED PATHS ✓"]
+    E5_ANCHOR = "What cleanup actually changes (in our tests)"
+    E9_COMP = {"vector-magic-alternative": "Vector Magic", "cloudconvert-alternative": "CloudConvert",
+               "vectorizer-ai-alternative": "Vectorizer.ai", "convertio-alternative": "Convertio"}
+    E10 = {"vector-magic-alternative": ["[待确认-落站前核实]"],
+           "cloudconvert-alternative": ["[其 DXF 输出范围待确认-落站前核实]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"],
+           "vectorizer-ai-alternative": ["[待确认-落站前核实其 DXF 输出规格]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"],
+           "convertio-alternative": ["[其 DXF 输出规格待确认-落站前核实]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"]}
+    # E2 footer anchors on every EN page
+    for slug in SENTINELS:
+        if slug == "pt-jfif-para-jpg":
+            continue
+        rawp = read(slug)
+        for a in E2:
+            if f">{a}<" not in rawp:
+                fails.append(f"[E2] {slug} footer missing anchor '{a}'")
+    for slug in BOFU4:
+        t = texts[slug]
+        r = raw(slug)
+        # E3 eyebrow
+        if E3[slug] not in t:
+            fails.append(f"[E3] {slug} missing eyebrow '{E3[slug]}'")
+        # E4 section labels
+        for s in E4:
+            if s not in t:
+                fails.append(f"[E4] {slug} missing spec '{s}'")
+        # E5 badges + §4-1 placement condition: badges must live inside the Real Results block
+        for s in E5:
+            if s not in t:
+                fails.append(f"[E5] {slug} missing badge '{s}'")
+        anchor_i = r.find(E5_ANCHOR)
+        if anchor_i < 0:
+            fails.append(f"[E5-COND] {slug} missing in-our-tests anchor block")
+        else:
+            window_t = strip(r[anchor_i:anchor_i + 6000])
+            for s in E5:
+                if s not in window_t:
+                    fails.append(f"[E5-COND] {slug} badge '{s}' not inside Real Results block")
+        # E9 data-col values
+        for col in (E9_COMP[slug], "CleanPaths"):
+            if f'data-col="{col}"' not in r:
+                fails.append(f"[E9] {slug} missing data-col=\"{col}\"")
+        # E10 placeholder chips verbatim
+        for s in E10[slug]:
+            if s not in t:
+                fails.append(f"[E10] {slug} missing placeholder '{s[:40]}'")
+    # E5 global condition: badges may not appear on any page lacking the in-our-tests block
+    for slug in SENTINELS:
+        t_g = strip(raw(slug))
+        if "BEFORE 88 color layers" in t_g and E5_ANCHOR not in t_g:
+            # home page carries the same proof block with its own in-our-tests spec label — allowed carrier
+            if slug != "home":
+                fails.append(f"[E5-COND-GLOBAL] {slug} has E5 badges without the in-our-tests block")
+    # E6/E7 on cloudconvert page; E8 on vectorizer-ai page
+    cc_t = texts["cloudconvert-alternative"]
+    for s in ["Uploaded to CloudConvert's servers", "Nowhere — conversion runs 100% in your browser",
+              "Client work · NDA"]:
+        if s not in cc_t:
+            fails.append(f"[E6/E7] cloudconvert-alternative missing '{s[:50]}'")
+    if "Technical footnote · in our tests" not in texts["vectorizer-ai-alternative"]:
+        fails.append("[E8] vectorizer-ai-alternative missing 'Technical footnote · in our tests'")
+
+    # ---------- §12 frozen strings (28 strings, EN+PT) — positive sentinels ----------
+    # (raw() helper defined in the 05e block above)
 
     EN_MODAL = [  # in every EN page code.html
         "Bugs, ideas, praise, anything — it lands on my workbench, not in a ticket queue.",
@@ -490,8 +622,7 @@ def main():
             fails.append(f"[S12-NEG] {slug}: old PT B5 draft present")
 
     # banned words across all pages ('anonymous' handled strictly above per §12.8-5;
-    # privacy/cookies analytics wording amended 2026-10-13 for CF WA; anonymous wording
-    # remains limited to legal pages pending further zhongshu wording review)
+    # legal pages keep 03's frozen "anonymous, aggregated analytics" wording — out of 06 scope to rewrite)
     for slug in list(SENTINELS):
         t = texts[slug].lower()
         for b in BANNED:
@@ -499,23 +630,31 @@ def main():
                 continue
             if b in t:
                 fails.append(f"[BANNED] {slug}: '{b}' found")
-        # subscription allowed only in negations or the pricing FAQ question
+        # subscription allowed only in negations, the pricing FAQ question, or competitor factual statements (05d)
         for m in re.finditer(r"subscription", t):
             ctx = t[max(0, m.start()-40):m.end()+20]
-            if not ("no subscriptions" in ctx or "do subscriptions" in ctx or "offer subscriptions?" in ctx):
+            if not ("no subscriptions" in ctx or "do subscriptions" in ctx or "offer subscriptions?" in ctx
+                    or "subscription-based" in ctx):
                 fails.append(f"[SUBSCRIPTION-CTX] {slug}: ...{ctx}...")
-    # entry matrix: every EN page footer must link all core routes
+    # entry matrix: every EN page footer must link all core routes (+ Compare group, 06e)
     core = ["../png-to-dxf/code.html", "../jpg-to-dxf/code.html", "../svg-to-dxf-converter/code.html",
             "../screenshot-to-svg/code.html", "../jfif-to-jpg/code.html", "../samples/code.html",
             "../for-cricut-sellers/code.html", "../for-embroidery/code.html", "../pricing/code.html",
-            "../privacy/code.html", "../terms/code.html", "../cookies/code.html", "../refund/code.html"]
+            "../privacy/code.html", "../terms/code.html", "../cookies/code.html", "../refund/code.html",
+            "../vector-magic-alternative/code.html", "../cloudconvert-alternative/code.html",
+            "../vectorizer-ai-alternative/code.html", "../convertio-alternative/code.html"]
     for slug in SENTINELS:
         raw = read(slug)
         if slug == "pt-jfif-para-jpg":
-            continue  # PT neutral page has minimal nav by design
+            # PT neutral page: minimal footer; must NOT carry the Compare group
+            if ">Compare<" in raw:
+                fails.append("[06E] PT page must NOT carry Compare group")
+            continue
         for c in core:
             if c not in raw:
                 fails.append(f"[ROUTE-LINK] {slug} missing link {c}")
+        if ">Compare<" not in raw:
+            fails.append(f"[06E] {slug} missing footer Compare group")
     if fails:
         print("\n".join(fails))
         print(f"\n{len(fails)} FAILURES")

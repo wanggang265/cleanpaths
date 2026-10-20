@@ -1,10 +1,12 @@
-# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.3）
+# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.5）
 
-- 执行：moyun ｜ 日期：2026-09-30 ｜ Skill：site-design-student v2.3.0
+- 执行：moyun ｜ 日期：2026-10-20 ｜ Skill：site-design-student v2.3.0
 - **Changelog**：
-  - v1.3（2026-09-30）——06d 文案微换（05c §12 冻结落位）：FB_COPY 4 处（A8 信任行 EN/PT 改稿去 anonymous、A9/A10 补 PT `Enviar feedback`/成功态译稿）+ SHARE_COPY 3 处（B5 X 预填 EN/PT 改稿去无条件 cut-ready、B8 PT 补操作指引尾句）；PT 结果页 §0.7 表单 submit/success 同步 PT（§12.3）；SHOWCASE_COPY 零改动（C5 spec 注核对一致）。audit.py 补 §12 全部 28 串正向哨兵 + anonymous/Anônimo 全站负向扫描 + B5 旧稿反向哨兵，PASS。[PENDING-05c] 标记清零。
-  - v1.2（2026-09-28）——06c 返修（用户三条意见，zhongshu 拆解）：A 反馈系统升级（全站 FAB + 四分弹窗 + 四态规格）；B footer 社媒槽位 + 结果页 Share CTA（复制链接/预填 X/下载分享图 + opt-in 上墙勾选默认不勾）；C /samples 可索引展示墙（卡题/场景槽位 + Community 预留槽）+ 首页 Featured examples 横条。
-  - v1.1（2026-09-26）——应用 05 §11 裁决（§11.12 设计侧 6 动作逐项核销）：jfif 两页删 Precision 滑杆/AI HD 开关、PT 状态板整组 PT 措辞 + 移除 $59 付费墙换中性变体、svg-to-dxf 步骤改 `Converting curves to polylines`、样本卡加可见 `SYNTHETIC SAMPLE` 标签、cap 态换 §11.2 专属文案、对比表单元格 `Limited (default settings)`；audit.py 哨兵集扩充（§11 EN+PT 全串 + 负向断言）复跑 PASS。§7 十项全部翻正。
+  - v1.5（2026-10-20）——05e 冻结落位（v1.7 附录 E1-E10）+ [PENDING-05e] 清零 + audit.py 哨兵扩充：E1-E10 全部冻结串入正向哨兵（含 E10 占位原串省略号变体）；E5 落位条件实现为区块级 DOM 邻近自动断言（徽章必须在 Real Results 块窗口内 + 全局「无 in-our-tests 承载块不得出现徽章」反向断言）；裁决对照 0 改稿（建议稿=冻结串逐字一致），真源零替换仅清标记。
+  - v1.4（2026-10-20）——06e BOFU 增量：4 个 comparison 新路由（模板 A 骨架：`/vector-magic-alternative` `/cloudconvert-alternative` `/vectorizer-ai-alternative` `/convertio-alternative`）+ /png-to-dxf FAQ#2 插入 pixel-to-path 条目（05d §5）+ footer 新增 Compare 分组（全站 EN 页脚；PT 页不加，中性约束）。上游对齐：法律页按 03 现行 md 重建（GA4/Clarity/Creem 回填后文本）；footer 信任行删除 "No tracking cookies"（EN+PT，open-items #60 用户 10-14 拍板，05e 附录 §4-3 已追认登记）。
+  - v1.3（2026-09-30）——06d 文案微换（05c §12 冻结落位）：FB_COPY 4 处 + SHARE_COPY 3 处 + PT 表单补译；哨兵升级 PASS。
+  - v1.2（2026-09-28）——06c 返修：反馈 FAB + 四分弹窗、社媒槽位、结果页 Share CTA、展示墙升级。
+  - v1.1（2026-09-26）——06b：05 §11 裁决 6 动作核销。
 - 文案唯一来源：`05-copy-freeze-v1.md` v1.2（含 §11/§12，**逐字引用，零改写**；审计脚本 `build/audit.py` 全量哨兵校验通过）
 - 法律页正文来源：`03-compliance-v1/*.md`（容器引导句来自 05 §0.9）
 - 路由范围：Route Contract 全集 15 路由（10+1 内容 + 4 法律），见 `route-mapping.json`
@@ -132,6 +134,26 @@ trace 类五页（首页/png/jpg/svg-dxf/screenshot）9 态：① empty（=code.
 
 ### 新增文案纪律（v1.3 已冻结）
 06c 新增串 **28 串已全部经 05c §12 冻结**（采纳 23 / 改稿 5 / 驳回 0），集中于 `build/components.py` 的 `FB_COPY / SHARE_COPY / SHOWCASE_COPY` 三 dict；[PENDING-05c] 标记清零。audit.py 哨兵集含 §12 全部冻结串（EN+PT）+ `anonymous`/`Anônimo` 反馈语境全站负向扫描 + B5 旧稿反向哨兵——任何改动都会触发 FAIL。历史建议稿存档见包根 `06c-new-copy-return-table.md`（裁决对照以 05 §12 为准）。
+
+## 7c. 06e BOFU 增量（4 comparison 页 + FAQ 插入 + footer Compare）
+
+### 模板 A 骨架（四页共用，`build/bofu_template.py`）
+Hero（H1+副标题+上传组件+徽章行）→ Intro → Why-alternative 痛点 → 对比表（`.cmp-versus`）→ 差异化三条 → Real Results（§0 共用 88→9，"in our tests" 进 H2 视觉层级，非脚注）→ 定价块（v2 卖点序原文）→ 质量诚实块（真 H2 + 警示条）→ FAQ×7 手风琴 → Final CTA → 页尾内链块。④零定制组件全复用；②FAQ#2 提为正文高亮卡（contrast 块）+「Where files go」行 mat-soft 强调（☁️/💻 事实标注）；③POLYLINE/SPLINE 技术注脚卡（in our tests）。
+
+### 对比表红线执行
+竞对列纯事实文字，**无 ❌/✅**；`[待确认-落站前核实]` 渲染为 caution 色文字 chip（可见、非视觉断言）；CleanPaths 列（我方事实）打 ✅；移动端 `.cmp-versus` 堆叠（`data-col` 属性出列名，零新增文案）。②「Where files go」= 强调行。
+
+### E5 落位条件（05e §4-1，07 硬约束）
+`in our tests` 限定由 Real Results 区块 H2 `What cleanup actually changes (in our tests)` + E8 技术注脚承担；E5 三枚徽章**不得脱离这两个承载体**单独复用到其他页面位置。audit.py 已将其写为自动断言（区块级 DOM 邻近检查 + 全局反向断言），07 实现后仍列为人工 QA 复核点。
+
+### 开放点（归 07，不裁决）
+Hero 上传组件转换完成后的流向（停留本页 vs 跳 /png-to-dxf 结果流）——05d §1 注记原样保留，DESIGN 仅落组件位。
+
+### 上游对齐记录（v1.4 不得不动的既有像素）
+- **法律 4 页**：pages_legal.py 自 03 现行 md 重建（10-13/10-14 上游回填：Creem 实名+隐私链接、GA4/Clarity 入第三方表、Cookie 政策重写为「通知 banner + 分析 cookie 表 + 拦截器退出路径」）。sentinel 已同步。
+- **footer 信任行**：删 "No tracking cookies"（EN）/ "Sem cookies de rastreamento"（PT）——open-items #60 用户 10-14 拍板口径；包内 /cookies 页已含分析 cookie 表，footer 旧主张若不删将自相矛盾。
+- **CookieNotice 通知条**：线上 10-14 已上线（通知式非 opt-in，localStorage 记忆），本包**尚无**该组件设计真源 —— 回传 zhongshu：建议 06f 补 CookieNotice 设计真源（样式/token/EN/PT 双语文案槽），或确认以线上实现为准不入包。
+- **PT 页**：不加 Compare 分组（中性工具页约束延伸，同 B1 先例）。
 
 ## 8. 前端实现注意事项（交 07）
 

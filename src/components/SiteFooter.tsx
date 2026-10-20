@@ -56,7 +56,7 @@ export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
             <FeedbackInline context="footer" />
           </div>
         </div>
-        <div className="footer-grid">
+        <div className="footer-grid footer-grid--5">
           <div>
             <Logo />
             <p style={{ marginTop: 12, color: 'var(--ink-2)', fontSize: 14, maxWidth: '26em' }}>
@@ -90,6 +90,23 @@ export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
               </li>
               <li>
                 <Link href="/pricing/">Pricing</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Compare</h4>
+            <ul>
+              <li>
+                <Link href="/vector-magic-alternative/">vs Vector Magic</Link>
+              </li>
+              <li>
+                <Link href="/cloudconvert-alternative/">vs CloudConvert</Link>
+              </li>
+              <li>
+                <Link href="/vectorizer-ai-alternative/">vs Vectorizer.ai</Link>
+              </li>
+              <li>
+                <Link href="/convertio-alternative/">vs Convertio</Link>
               </li>
             </ul>
           </div>
