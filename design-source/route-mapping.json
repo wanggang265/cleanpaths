@@ -1,13 +1,20 @@
 {
   "project": "cleanpaths.io",
   "stage": "06-design",
-  "version": "design-handoff-v1.3",
-  "generated": "2026-09-30",
-  "copy_source": "05-copy-freeze-v1.md v1.2 (verbatim, zero rewrites; §11 + §12 frozen strings applied)",
+  "version": "design-handoff-v1.5",
+  "generated": "2026-10-20",
+  "copy_source": "05-copy-freeze-v1.md v1.2 (+v1.6/v1.7 appendices) + 05-bofu-comparison-copy-v1.md (verbatim, zero rewrites)",
+  "changelog": [
+    "v1.5 (2026-10-20): 05e frozen chrome strings landed (v1.7 addendum E1-E10) + [PENDING-05e] markers cleared + audit.py sentinels expanded (E5 placement condition as automated DOM-proximity assertion)",
+    "v1.4 (2026-10-20): 06e BOFU increment — 4 comparison routes (template A) + /png-to-dxf FAQ#2 pixel-to-path insert + footer Compare group site-wide (EN); legal pages rebuilt from current 03 md (GA4/Clarity/Creem backfill); footer trust line dropped 'No tracking cookies' per open-items #60 (user decision 2026-10-14)",
+    "v1.3 (2026-09-30): 06d swap — 05c §12 frozen strings applied",
+    "v1.2 (2026-09-28): 06c — feedback FAB+modal, social slots, share CTA, showcase wall",
+    "v1.1 (2026-09-26): 06b — 05 §11 rulings applied"
+  ],
   "viewport": {"desktop": "1440x900", "mobile": "390x844"},
   "routes": [
     {"route": "/", "dir": "pages/home", "type": "tool+landing", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser", "schema": "SoftwareApplication + FAQPage", "states": ["empty(default)", "dragover", "processing", "result+feedback", "error", "daily-cap", "pro-locked", "pro-active", "feedback-sent"]},
-    {"route": "/png-to-dxf", "dir": "pages/png-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "PNG to DXF Converter — Cut-Ready Output", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
+    {"route": "/png-to-dxf", "dir": "pages/png-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "PNG to DXF Converter — Cut-Ready Output", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html", "notes": "06e: FAQ#2 = 'How does CleanPaths compare to PixelToPath?' (05d §5), inserted after R12/R2000 item, into FAQPage schema (07)"},
     {"route": "/jpg-to-dxf", "dir": "pages/jpg-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JPG to DXF — Turn Client Photos of Logos into Cut Files", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
     {"route": "/svg-to-dxf-converter", "dir": "pages/svg-to-dxf-converter", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "SVG to DXF Converter — R12 & R2000, Units Included", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
     {"route": "/jfif-to-jpg", "dir": "pages/jfif-to-jpg", "type": "tool-light", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JFIF to JPG Converter — Free, No Upload", "schema": "SoftwareApplication", "states": "7-state set (05 §11.12-1: no Precision slider, no AI HD rescue)"},
@@ -20,6 +27,10 @@
     {"route": "/privacy", "dir": "pages/privacy", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Privacy Policy", "schema": "none", "states": "static; placeholders from 03 rendered as highlighted chips"},
     {"route": "/terms", "dir": "pages/terms", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Terms of Service", "schema": "none", "states": "static"},
     {"route": "/cookies", "dir": "pages/cookies", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Cookie Policy", "schema": "none", "states": "static; NO cookie banner anywhere by architectural decision"},
-    {"route": "/refund", "dir": "pages/refund", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Refund Policy", "schema": "none", "states": "static"}
+    {"route": "/refund", "dir": "pages/refund", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Refund Policy", "schema": "none", "states": "static"},
+    {"route": "/vector-magic-alternative", "dir": "pages/vector-magic-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Vector Magic Alternative That Runs in Your Browser — and Exports Cut-Ready DXF", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "content page: FAQ accordion open/close (native details), comparison table mobile-stacked (.cmp-versus); hero upload component states = reuse tool-page states (07)", "notes": "template A; [待确认] cells render as text chips, no ❌/✅ on competitor column"},
+    {"route": "/cloudconvert-alternative", "dir": "pages/cloudconvert-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A CloudConvert Alternative That Never Uploads Your File", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; 'Where files go' row visually emphasized (factual labels only); FAQ#2 NDA answer also as body highlight card"},
+    {"route": "/vectorizer-ai-alternative", "dir": "pages/vectorizer-ai-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; POLYLINE/SPLINE technical footnote card (in our tests)"},
+    {"route": "/convertio-alternative", "dir": "pages/convertio-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Convertio Alternative Built for Cut Files, Not Just Conversions", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; B_QUEUE floor-volume page, zero custom components"}
   ]
 }
