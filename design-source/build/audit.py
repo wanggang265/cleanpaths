@@ -402,6 +402,11 @@ def main():
             if s not in t:
                 fails.append(f"[MISSING] {slug}: {s[:90]}")
 
+    # cookies meta description lives in <head> (attribute, invisible to strip()) — raw-side pin:
+    # 06f pages_legal regen reverted it once; must stay on the GA4/Clarity wording (amend-002 + HEAD d7eff62).
+    if 'The analytics cookies we use (GA4, Clarity)' not in read("cookies"):
+        fails.append("[MISSING-RAW] cookies: meta description reverted off GA4/Clarity wording")
+
     # ---------- §11 frozen strings: states boards + samples ----------
     def read_states(slug):
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
