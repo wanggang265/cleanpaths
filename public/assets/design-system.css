@@ -724,6 +724,26 @@ h3 { font-size: 19px; }
 .share-optin input { margin-top: 3px; accent-color: var(--blade); width: 16px; height: 16px; flex: none; }
 .share-optin .micro { color: var(--ink-3); font-size: 12.5px; }
 
+/* ---------------- cookie notice bar (06f, mirrors production) ---------------- */
+.cookie-notice {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  background: var(--ink); color: #F3EFE4;
+  padding: 12px 16px; font-size: 14px; line-height: 1.5;
+  box-shadow: 0 -2px 12px rgba(0,0,0,.25);
+}
+.cookie-notice__inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.cookie-notice__text { flex: 1 1 420px; }
+.cookie-notice__text a { color: #F3EFE4; text-decoration: underline; }
+.cookie-notice__btn {
+  background: var(--blade); color: #fff; border: none; border-radius: 999px;
+  padding: 8px 20px; font-size: 14px; font-weight: 600; cursor: pointer; flex-shrink: 0;
+}
+/* FAB避让：cookie bar visible → FAB lifts above it */
+body:has(.cookie-notice) .fab-feedback { bottom: 84px; }
+
 /* ---------------- featured examples strip / community slot (06c-C) ---------------- */
 .featured-strip .card { padding: var(--s4); }
 .sample-title { font-family: var(--font-display); font-weight: 600; font-size: 16px; text-align: center; }

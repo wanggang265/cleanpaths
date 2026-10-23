@@ -339,6 +339,53 @@ SENTINELS = {
    "That logo PNG sitting in your inbox? Convert it before the tab gets cold.",
    "待确认-落站前核实现行定价",
  ],
+ # ---- 06f: new tool pages (copy source: 05-copy-freeze-v1.8 §A/§B) ----
+ "jfif-to-png": [
+   "JFIF to PNG Converter — Free, No Upload",
+   "Drag in a JFIF, download a PNG.",
+   "Drop a .jfif file here — or browse",
+   "Why convert JFIF to PNG?",
+   "Convert JFIF to PNG in three steps",
+   "How to open a JFIF file",
+   "Will the PNG have a transparent background?",
+   "Do you upload or store my files?",
+   "Convert JFIF to PNG free now",
+   "JFIF to JPG converter",
+   "All converters live on the CleanPaths home page",
+ ],
+ "pt-jfif-para-png": [
+   "Conversor de JFIF para PNG — Grátis, sem Upload",
+   "Arraste seu arquivo .jfif aqui — ou clique para escolher",
+   "Converter grátis",
+   "Por que converter JFIF para PNG?",
+   "Como abrir um arquivo JFIF",
+   "Converter JFIF para PNG grátis",
+   "Seus arquivos nunca saem do seu dispositivo",
+ ],
+ "webp-to-svg": [
+   "WebP to SVG Converter — Cut-Ready & Free | CleanPaths",
+   "WebP to SVG Converter — Cut-Ready Output",
+   "Drop a WebP, get a clean SVG that actually cuts",
+   "Drop a WebP here — or browse",
+   "Flat-color graphics → cut-ready · Photos → stylized result",
+   "WebP is built for the web. Your cutter needs paths.",
+   "An honest note before you convert",
+   "How to convert WebP to SVG (and get a file that cuts)",
+   "Need DXF instead of SVG?",
+   "This page outputs SVG.",
+   "Convert WebP to SVG free now",
+   "In our tests, a heavily compressed logo that default auto-tracing explodes into 88 messy color layers comes out with as few as 9",
+ ],
+ "pt-webp-para-svg": [
+   "Conversor de WebP para SVG — Grátis, sem Upload",
+   "Arraste seu arquivo .webp aqui — ou clique para escolher",
+   "Converter grátis",
+   "Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado",
+   "Um aviso honesto antes de converter",
+   "Converter WebP para SVG grátis",
+   "Precisa de DXF em vez de SVG?",
+   "Esta página gera SVG.",
+ ],
 }
 
 BANNED = ["unlimited", "infinite", "lifetime", "guaranteed", "100% accurate", "official partner",
@@ -347,6 +394,7 @@ BANNED = ["unlimited", "infinite", "lifetime", "guaranteed", "100% accurate", "o
 def main():
     fails = []
     texts = {}
+    PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"}
     for slug, sents in SENTINELS.items():
         t = strip(read(slug))
         texts[slug] = t
@@ -439,13 +487,14 @@ def main():
         for needle in ("fab-feedback", 'id="feedback-modal"'):
             if needle not in raw:
                 fails.append(f"[06C] {slug} missing {needle}")
-        if slug == "pt-jfif-para-jpg":
+        if slug in PT_PAGES:
             if "social-slots" in raw:
-                fails.append("[06C] PT page must NOT carry social slots (neutral tool page)")
+                fails.append(f"[06C] PT page {slug} must NOT carry social slots (neutral tool page)")
         else:
             if "social-slots" not in raw:
                 fails.append(f"[06C] {slug} missing footer social slots")
-    for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg", "pt-jfif-para-jpg"):
+    for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg", "pt-jfif-para-jpg",
+                 "jfif-to-png", "pt-jfif-para-png", "webp-to-svg", "pt-webp-para-svg"):
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
             rs = f.read()
         for needle in ("share-block", "feedback FAB — 4 states", "feedback modal — 4 states"):
@@ -479,7 +528,7 @@ def main():
            "convertio-alternative": ["[其 DXF 输出规格待确认-落站前核实]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"]}
     # E2 footer anchors on every EN page
     for slug in SENTINELS:
-        if slug == "pt-jfif-para-jpg":
+        if slug in PT_PAGES:
             continue
         rawp = read(slug)
         for a in E2:
@@ -519,8 +568,8 @@ def main():
     for slug in SENTINELS:
         t_g = strip(raw(slug))
         if "BEFORE 88 color layers" in t_g and E5_ANCHOR not in t_g:
-            # home page carries the same proof block with its own in-our-tests spec label — allowed carrier
-            if slug != "home":
+            # home + webp-to-svg carry the same proof block with its own in-our-tests spec label/quote — allowed carriers
+            if slug not in ("home", "webp-to-svg"):
                 fails.append(f"[E5-COND-GLOBAL] {slug} has E5 badges without the in-our-tests block")
     # E6/E7 on cloudconvert page; E8 on vectorizer-ai page
     cc_t = texts["cloudconvert-alternative"]
@@ -543,7 +592,7 @@ def main():
         "Open feedback", "Close feedback dialog", "Open the feedback dialog →",
     ]
     for slug in SENTINELS:
-        if slug == "pt-jfif-para-jpg":
+        if slug in PT_PAGES:
             continue
         t = strip(raw(slug))
         r = raw(slug)
@@ -559,9 +608,11 @@ def main():
         "Abrir feedback", "Fechar feedback", "Enviar feedback",
     ]
     pt_t, pt_r = strip(raw("pt-jfif-para-jpg")), raw("pt-jfif-para-jpg")
-    for s in PT_PAGE:
-        if s not in pt_t and s not in pt_r:
-            fails.append(f"[S12-PT] pt code.html: {s[:70]}")
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"):
+        pt_t, pt_r = strip(raw(pt_slug)), raw(pt_slug)
+        for s in PT_PAGE:
+            if s not in pt_t and s not in pt_r:
+                fails.append(f"[S12-PT] {pt_slug} code.html: {s[:70]}")
 
     EN_STATES_S12 = [  # every EN tool states.html
         "Share your result", "Copy link", "Post to X", "Download share image",
@@ -588,9 +639,11 @@ def main():
             if s not in t and s not in r:
                 fails.append(f"[S12-EN-STATES] {slug}: {s[:70]}")
     t = strip(raw("pt-jfif-para-jpg", "states.html")); r = raw("pt-jfif-para-jpg", "states.html")
-    for s in PT_STATES_S12:
-        if s not in t and s not in r:
-            fails.append(f"[S12-PT-STATES]: {s[:70]}")
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"):
+        t, r = strip(raw(pt_slug, "states.html")), raw(pt_slug, "states.html")
+        for s in PT_STATES_S12:
+            if s not in t and s not in r:
+                fails.append(f"[S12-PT-STATES] {pt_slug}: {s[:70]}")
 
     # C group (EN only)
     for s in ["Featured examples", "See all before / after →"]:
@@ -645,16 +698,42 @@ def main():
             "../vectorizer-ai-alternative/code.html", "../convertio-alternative/code.html"]
     for slug in SENTINELS:
         raw = read(slug)
-        if slug == "pt-jfif-para-jpg":
-            # PT neutral page: minimal footer; must NOT carry the Compare group
+        if slug in PT_PAGES:
+            # PT neutral pages: minimal footer; must NOT carry the Compare group
             if ">Compare<" in raw:
-                fails.append("[06E] PT page must NOT carry Compare group")
+                fails.append(f"[06E] PT page {slug} must NOT carry Compare group")
             continue
         for c in core:
             if c not in raw:
                 fails.append(f"[ROUTE-LINK] {slug} missing link {c}")
         if ">Compare<" not in raw:
             fails.append(f"[06E] {slug} missing footer Compare group")
+
+    # ---------- 06f negative assertions + footer Tools slots ----------
+    def main_html(slug):
+        r = read(slug)
+        m = re.search(r"<main>(.*)</main>", r, re.S)
+        return m.group(1) if m else r
+    for bad in ("cut-ready", "DXF"):
+        if bad in main_html("jfif-to-png"):
+            fails.append(f"[06F-NEG] jfif-to-png main contains '{bad}' (bitmap→bitmap page)")
+    if "Download DXF" in main_html("webp-to-svg"):
+        fails.append("[06F-NEG] webp-to-svg main contains 'Download DXF' (SVG-only page)")
+    if 'class="seg"' in read("webp-to-svg"):
+        fails.append("[06F-NEG] webp-to-svg contains DXF version segmented control")
+    for slug in ("pt-jfif-para-png", "pt-webp-para-svg"):
+        if "$59" in read(slug):
+            fails.append(f"[06F-NEG] {slug} contains $59 (PT neutral page)")
+        with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
+            if "$59" in f.read():
+                fails.append(f"[06F-NEG] {slug}/states.html contains $59")
+    for slug in SENTINELS:
+        if slug in PT_PAGES:
+            continue
+        rawp = read(slug)
+        for lbl in ('>JFIF to PNG<', '>WebP to SVG<'):
+            if lbl not in rawp:
+                fails.append(f"[06F] {slug} footer missing Tools link {lbl}")
     if fails:
         print("\n".join(fails))
         print(f"\n{len(fails)} FAILURES")
