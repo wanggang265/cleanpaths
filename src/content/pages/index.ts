@@ -132,5 +132,33 @@ export const PAGES = [
     "type": "comparison",
     "h1": "A Convertio Alternative Built for Cut Files, Not Just Conversions",
     "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "jfif-to-png",
+    "route": "/jfif-to-png",
+    "type": "tool-light",
+    "h1": "JFIF to PNG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-jfif-para-png",
+    "route": "/pt/jfif-para-png",
+    "type": "tool-light-neutral",
+    "h1": "Conversor de JFIF para PNG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "webp-to-svg",
+    "route": "/webp-to-svg",
+    "type": "tool",
+    "h1": "WebP to SVG Converter — Cut-Ready Output",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-webp-para-svg",
+    "route": "/pt/webp-para-svg",
+    "type": "tool-neutral",
+    "h1": "Conversor de WebP para SVG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
   }
 ] as const;

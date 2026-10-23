@@ -1,8 +1,9 @@
-# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.5）
+# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.6）
 
-- 执行：moyun ｜ 日期：2026-10-20 ｜ Skill：site-design-student v2.3.0
+- 执行：moyun ｜ 日期：2026-10-22 ｜ Skill：site-design-student v2.3.0
 - **Changelog**：
-  - v1.5（2026-10-20）——05e 冻结落位（v1.7 附录 E1-E10）+ [PENDING-05e] 清零 + audit.py 哨兵扩充：E1-E10 全部冻结串入正向哨兵（含 E10 占位原串省略号变体）；E5 落位条件实现为区块级 DOM 邻近自动断言（徽章必须在 Real Results 块窗口内 + 全局「无 in-our-tests 承载块不得出现徽章」反向断言）；裁决对照 0 改稿（建议稿=冻结串逐字一致），真源零替换仅清标记。
+  - v1.6（2026-10-22）——06f 增量（工单 PROMPT_sheji_06f_newpages）：4 新路由（/jfif-to-png + /pt/jfif-para-png + /webp-to-svg + /pt/webp-para-svg，含 4 状态板）+ CookieNotice 真源补位（#66，镜像线上 CookieNotice.tsx，零行为改动）+ footer Tools 槽位加两条 + **v1.6 商用授权附录回填进 builders**（pricing hero/权益行/FAQ#9、cricut 支撑句+FAQ#7、cap 态转化行——修 audit 漂移）。注：工单写 v1.4→v1.5，但 v1.5 已被 05e 落位占用，本批实际升 v1.6。新增设计侧串走 [PENDING-06f] 回传表（`06f-new-copy-return-table.md`）。
+  - v1.5（2026-10-20）——05e 冻结落位（v1.7 附录 E1-E10）+ [PENDING-05e] 清零 + audit.py 哨兵扩充（E5 落位条件为自动断言）。
   - v1.4（2026-10-20）——06e BOFU 增量：4 个 comparison 新路由（模板 A 骨架：`/vector-magic-alternative` `/cloudconvert-alternative` `/vectorizer-ai-alternative` `/convertio-alternative`）+ /png-to-dxf FAQ#2 插入 pixel-to-path 条目（05d §5）+ footer 新增 Compare 分组（全站 EN 页脚；PT 页不加，中性约束）。上游对齐：法律页按 03 现行 md 重建（GA4/Clarity/Creem 回填后文本）；footer 信任行删除 "No tracking cookies"（EN+PT，open-items #60 用户 10-14 拍板，05e 附录 §4-3 已追认登记）。
   - v1.3（2026-09-30）——06d 文案微换（05c §12 冻结落位）：FB_COPY 4 处 + SHARE_COPY 3 处 + PT 表单补译；哨兵升级 PASS。
   - v1.2（2026-09-28）——06c 返修：反馈 FAB + 四分弹窗、社媒槽位、结果页 Share CTA、展示墙升级。
@@ -144,7 +145,17 @@ Hero（H1+副标题+上传组件+徽章行）→ Intro → Why-alternative 痛�
 竞对列纯事实文字，**无 ❌/✅**；`[待确认-落站前核实]` 渲染为 caution 色文字 chip（可见、非视觉断言）；CleanPaths 列（我方事实）打 ✅；移动端 `.cmp-versus` 堆叠（`data-col` 属性出列名，零新增文案）。②「Where files go」= 强调行。
 
 ### E5 落位条件（05e §4-1，07 硬约束）
-`in our tests` 限定由 Real Results 区块 H2 `What cleanup actually changes (in our tests)` + E8 技术注脚承担；E5 三枚徽章**不得脱离这两个承载体**单独复用到其他页面位置。audit.py 已将其写为自动断言（区块级 DOM 邻近检查 + 全局反向断言），07 实现后仍列为人工 QA 复核点。
+`in our tests` 限定由 Real Results 区块 H2 `What cleanup actually changes (in our tests)` + E8 技术注脚承担；E5 三枚徽章**不得脱离这两个承载体**单独复用到其他页面位置。audit.py 已将其写为自动断言（区块级 DOM 邻近检查 + 全局反向断言），07 实现后仍列为人工 QA 复核点。v1.6 起 /webp-to-svg  Proof 块为合法承载页（"Proof — in our tests" spec + 88→9 冻结串同块）。
+
+## 7d. 06f 新增（4 路由 + CookieNotice 真源）
+
+- **/jfif-to-png**（+PT）：镜像 /jfif-to-jpg 单栏骨架；无定价锚点模块、无 §0.3 microcopy、**全页零 cut-ready/DXF 叙事**（audit 负向断言守卫 main 区）；FAQ#2 = "How to open a JFIF file"（dengta 必含项）；页尾内链块置 Final CTA 上方；7 态状态板（无 Precision/AI HD，同 jfif 纪律）。
+- **/webp-to-svg**（+PT）：镜像 /png-to-dxf 骨架；Hero **无 DXF 版本选择器**（audit 负向断言 `class="seg"`）；DXF 仅以交叉引导块（info-strip，明示 "This page outputs SVG."）出现；质量诚实块落位；Proof 复用 88→9 冻结串（zhongshu 已放行 PENDING-08，"in our tests" 语境保留）；9 态状态板、下载仅 SVG。
+- **PT 两页**：中性约束（零价格/零 Pro/零品牌叙事）；dropzone CTA = `Converter grátis`（zhongshu 裁决覆盖 v1.8 §E-2 复用串）；PT webp 保留诚实块（合规口径非品牌叙事）。
+- **CookieNotice 真源（#66）**：镜像线上 CookieNotice.tsx（2026-10-14 版）回画——底部通栏通知条（非 opt-in）、ink 底/blade 按钮、EN/PT 按路由、localStorage `cookie-notice-dismissed` 记忆、role="status"；z-index 90 高于 FAB（40），FAB 避让规则 `body:has(.cookie-notice) .fab-feedback { bottom: 84px }`。**线上行为零改动**，本包仅补设计真源。
+- **footer Tools 槽位**：Converters 分组 +JFIF to PNG / WebP to SVG（全站 EN 页脚）；Compare 分组不动。
+- **v1.6 漂移修复**：audit.py 已被上游更新为 v1.6 商用授权口径哨兵，本批把 builders（pricing/cricut/cap-states）补齐至 v1.6 附录原文，哨兵-真源闭环恢复。
+- **C 组捎带**：/jfif-to-jpg、/jpg-to-dxf、/png-to-dxf 三页 copy-only 变更（05 v1.8 §C）**不进本包**（07 直落），route-mapping 已备注。
 
 ### 开放点（归 07，不裁决）
 Hero 上传组件转换完成后的流向（停留本页 vs 跳 /png-to-dxf 结果流）——05d §1 注记原样保留，DESIGN 仅落组件位。

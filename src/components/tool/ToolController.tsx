@@ -487,6 +487,9 @@ export default function ToolController(props: ToolProps) {
     }
 
     function wireResult() {
+      // 05 v1.6 reset button lives on the result state too — wire it here because
+      // renderResult() bypasses renderState() (where the error-state wiring lives).
+      dz.querySelector('[data-tool-reset]')?.addEventListener('click', reset);
       // downloads
       dz.querySelectorAll<HTMLButtonElement>('[data-tool-dl]').forEach((btn) => {
         btn.onclick = () => {
