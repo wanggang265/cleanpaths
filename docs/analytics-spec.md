@@ -28,9 +28,9 @@
 | `d:<day>:<event>` | 日总计数 | 无（长期聚合） |
 | `d:<day>:<event>:<slug>` | 页面/工具日计数 | 无 |
 | `d:<day>:cta_click:slot:<slot>` | cta_click 位置拆分 | 无 |
-| `ip:<day>:<iph>:<event>` | IP 级存在标记（三分类 join 用） | **25h**，join 窗口 24h + 1h 容差后自然消亡 |
+| `ip:<day>:<iph>:<event>` | IP 级存在标记（三分类 join 用） | **24h**，与 Privacy「24 小时内删除」逐字对齐；按日桶前缀查询，join 窗口不受影响 |
 
-KV 长期只留日聚合，不留 IP 级明细——与 Privacy「hash deleted within 24 hours」口径对齐（25h TTL 覆盖 join 窗口后即删）。
+KV 长期只留日聚合，不留 IP 级明细——与 Privacy「hash deleted within 24 hours」口径对齐（TTL 24h，逐字一致）。
 计数为 read-modify-write，高并发下有丢计可能；本站点量级下对聚合分析可忽略。不得因此引入 Durable Objects 等服务端成本——裁决 §三.4 闸门：任何引入服务端成本的功能上线前重跑定价五问。
 
 **CF 绑定方式（2026-10-13 实证）**：`BEACON_KV`（namespace id `2d52124fbac54d0185d052f66bc9743b`）绑定在 Pages 项目 `cleanpaths` 的 production deployment_config（服务端持久，CLI deploy 不丢）。**禁止**在仓内加 wrangler.toml 声明该绑定——wrangler.toml 存在会触发 wrangler 新版 Pages 打包路径（functionsWorker 引入 node:stream，CF 拒绝发布，2026-10-13 实测）。`BEACON_ADMIN_KEY` 走 `wrangler pages secret put`（已在 production）。

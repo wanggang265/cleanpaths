@@ -9,7 +9,7 @@
  * cta_click-only (pricing card / cap state / cricut page share one event).
  *
  * The server (functions/api/beacon.ts) buckets by UTC day and stores an
- * IP-derived one-way hash with a 25h TTL — see docs/analytics-spec.md.
+ * IP-derived one-way hash with a 24h TTL — see docs/analytics-spec.md.
  */
 
 export type BeaconEvent = 'tool_start' | 'tool_complete' | 'cap_hit' | 'purchase' | 'cta_click';

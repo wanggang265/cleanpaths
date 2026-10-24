@@ -15,9 +15,10 @@
  * - d:<day>:<event>              daily total counter (increment)
  * - d:<day>:<event>:<slug>       per-page/tool daily counter
  * - d:<day>:cta_click:slot:<s>   extra slot breakdown for cta_click only
- * - ip:<day>:<iph>:<event>       existence marker, TTL 25h — powers the
+ * - ip:<day>:<iph>:<event>       existence marker, TTL 24h — powers the
  *   cap three-classification join, then expires on its own (Privacy:
- *   "hash deleted within 24 hours" — TTL 25h covers the 24h join window).
+ *   "hash deleted within 24 hours" — TTL matches the promise verbatim;
+ *   day-bucket prefix queries are unaffected by the removed 1h skew).
  * - iph = SHA-256("cp-beacon-v1:" + day + ":" + cf-connecting-ip) — the
  *   day bucket IS the daily-rotating salt: derived per request, never
  *   persisted, so yesterday's hashes can't be joined to today's.
@@ -52,7 +53,7 @@ interface PagesEventContext<E> {
 type PagesFunction<E> = (context: PagesEventContext<E>) => Promise<Response> | Response;
 
 const EVENTS = new Set(['tool_start', 'tool_complete', 'cap_hit', 'purchase', 'cta_click']);
-const IP_TTL_SECONDS = 25 * 3600; // 25h: 24h join window + 1h skew
+const IP_TTL_SECONDS = 24 * 3600; // 24h: verbatim match with Privacy "hash deleted within 24 hours"
 const NO_CONTENT = () => new Response(null, { status: 204 });
 
 function cleanPart(v: unknown, max = 60): string {
