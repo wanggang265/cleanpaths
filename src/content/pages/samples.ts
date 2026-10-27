@@ -70,6 +70,7 @@ export const mainHtml = `<section class="hero" style="padding-bottom:40px">
       <a class="btn" href="/png-to-dxf/">PNG to DXF converter →</a>
       <a class="btn" href="/jpg-to-dxf/">JPG to DXF converter →</a>
     </div>
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px">Need a compatible JPG first? You can <a href="/jfif-to-jpg/">convert JFIF to JPG</a> free, right in your browser.</p>
   </div>
 </section>
 <section class="section section--alt" id="screenshots">

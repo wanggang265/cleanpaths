@@ -96,6 +96,7 @@ export const mainHtml = `<section class="hero matgrid">
 <tr><td>Closed, color-separated paths</td><td class="part">Limited (default settings)</td><td class="yes">✅</td></tr>
 <tr><td>Files stay on your device</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 </tbody></table></div>
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px">Holding a .jfif instead of a PNG? Our <a href="/jfif-to-jpg/">free JFIF to JPG tool</a> fixes the extension first — then trace as usual.</p>
   </div>
 </section>
 <section class="section--alt" style="padding:40px 0">

@@ -56,6 +56,7 @@ export const mainHtml = `<section class="hero matgrid">
     <span class="spec spec--mat">The difference</span>
     <h2 style="margin-top:12px">The CleanPaths difference</h2>
     <ol class="steps" style="margin-top:20px"><li><h3>Cut-ready DXF, in two versions.</h3><p>R2000 with units embedded, R12 compatibility mode for older CAM, every path closed, layers separated by color — output a cutter can actually follow, not a generic conversion.</p></li><li><h3>Cleanup built for bad input.</h3><p>The images clients send are compressed, small and noisy. CleanPaths denoises and upscales before a single path is traced — the step generalist converters don't have.</p></li><li><h3>Nothing leaves your device.</h3><p>There is no upload step to audit. For client work under NDA or simple shop hygiene, local processing isn't a feature — it's the whole architecture.</p></li></ol>
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px">The same rule covers quick format fixes: <a href="/jfif-to-jpg/">change a JFIF file to JPG</a> locally — nothing is uploaded there either.</p>
   </div>
 </section>
 <section class="section">

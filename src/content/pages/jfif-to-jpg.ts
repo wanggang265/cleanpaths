@@ -20,29 +20,88 @@ export const mainHtml = `<section class="hero matgrid">
   
   
 </div>
-<div style="margin-top:14px"><div class="badges"><span class="badge">🔒 Files stay on your device</span><span class="badge">No account</span><span class="badge">No watermark</span><span class="badge">10 free conversions a day</span></div></div></div>
+<div style="margin-top:14px"><div class="badges"><span class="badge">🔒 Files stay on your device</span><span class="badge">No account</span><span class="badge">No watermark</span><span class="badge">10 free conversions a day</span></div></div>
+    <p style="margin-top:14px;font-size:14.5px;color:var(--ink-2)">Free · No upload · No watermark — your files never leave your device.</p></div>
   </div>
 </section>
 <section class="section">
   <div class="wrap" style="max-width:820px">
     <span class="spec">Explainer</span>
-    <h2 style="margin-top:12px">Why do I even have a JFIF file?</h2>
-    <p style="color:var(--ink-2);max-width:62em">JFIF is the original JPEG interchange format — some apps and browsers still save images with the .jfif extension. The picture inside is ordinary JPEG data; many tools just refuse the file extension. This converter repackages it as a standard .jpg that everything accepts.</p>
+    <h2 style="margin-top:12px">What is a JFIF file?</h2>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">A JFIF file is usually a JPEG image saved with the .jfif extension. JFIF stands for JPEG File Interchange Format. In most cases, the image data is the same as a .jpg or .jpeg file, but some apps, devices, and upload forms recognize .jpg more reliably.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">If you received a .jfif file and a website, design tool, or print workflow refuses to accept it, converting it to .jpg is the safest fix.</p>
   </div>
 </section>
 <section class="section section--alt">
   <div class="wrap" style="max-width:820px">
-    <span class="spec">Workflow</span>
-    <h2 style="margin-top:12px">Convert JFIF to JPG in three steps</h2>
-    <ol class="steps" style="margin-top:20px">
-      <li><h3>Drop your .jfif file.</h3></li>
-      <li><h3>It converts in your browser — instantly.</h3></li>
-      <li><h3>Download the .jpg.</h3></li>
-    </ol>
-    <p style="margin-top:20px;font-family:var(--font-mono);font-size:13px;color:var(--ink-2)">No upload. No account. No watermark. Free, 10 conversions a day.</p>
+    <span class="spec">Formats</span>
+    <h2 style="margin-top:12px">JFIF vs JPG vs JPEG</h2>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">For everyday use, .jfif, .jpg, and .jpeg are closely related. The practical difference is compatibility:</p>
+    <ul class="plist" style="margin-top:12px;max-width:62em">
+      <li>Use .jpg when a site or app asks for JPG.</li>
+      <li>Use .jpeg if a workflow specifically requires that extension.</li>
+      <li>Convert .jfif to .jpg when you want the broadest compatibility.</li>
+    </ul>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">CleanPaths converts the file in your browser, so you are not uploading private images to a server.</p>
   </div>
-</section><section class="section"><div class="wrap" style="max-width:820px"><span class="spec">FAQ</span><div style="margin-top:12px"><div class='faq'><details><summary>What is a JFIF file?</summary><div class='a'>JFIF (JPEG File Interchange Format) is the original container for JPEG images. The image data is identical to a JPG — only the packaging and extension differ. Some Windows apps and older browsers still save images as .jfif.</div></details><details><summary>Will converting JFIF to JPG reduce quality?</summary><div class='a'>The conversion repackages the same image data into standard JPG format. The preview shows the result before you download.</div></details><details><summary>Do you upload or store my files?</summary><div class='a'>No. Conversion runs entirely in your browser — there is no upload step. We never receive, see, or store your images or the files you generate. Close the tab and they're gone; we never had them. This is how the tool is built, not a marketing claim. Details in our <a href="/privacy/">Privacy Policy</a>.</div></details><details><summary>Is there a limit?</summary><div class='a'>Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page.</div></details></div></div></div></section>
-<section class="section section--alt cta-band">
+</section>
+<section class="section">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">Workflow</span>
+    <h2 style="margin-top:12px">How to convert JFIF to JPG</h2>
+    <ol class="steps" style="margin-top:20px">
+      <li><h3>Drop your .jfif file into the converter.</h3></li>
+      <li><h3>Check the preview to make sure the image looks right.</h3></li>
+      <li><h3>Click convert and download the .jpg file.</h3></li>
+    </ol>
+    <p style="margin-top:20px;color:var(--ink-2);max-width:62em">The conversion runs locally in your browser. There is no account, no watermark, and no file upload.</p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">Free &amp; private</span>
+    <h2 style="margin-top:12px">Convert JFIF to JPG free, without uploading</h2>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Many online converters ask you to upload files first. CleanPaths is different: the conversion happens on your device. That means faster results for normal images and better privacy for personal or client work.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">If you only need to change a .jfif file into a more compatible .jpg, you do not need a full design suite or a paid converter.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">Why this happens</span>
+    <h2 style="margin-top:12px">Why did my file download as .jfif?</h2>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Some systems save JPEG images with the .jfif extension, especially when the file comes from a browser, messenger, screenshot tool, or older Windows workflow. The file may still open in an image viewer, but other tools may reject it.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Converting it to .jpg helps when you need to upload the image to a website, import it into design software, send it to a printer, or use it in a marketplace listing.</p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">Common shortcut</span>
+    <h2 style="margin-top:12px">Can I just rename .jfif to .jpg?</h2>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Sometimes renaming works if the file is already a standard JPEG. But renaming only changes the extension. It does not normalize metadata, color profile handling, or compatibility issues.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">If the image matters — for a listing, client file, print job, or upload form — converting it is safer than renaming it.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">Fixes</span>
+    <h2 style="margin-top:12px">Troubleshooting</h2>
+    <ul class="plist" style="margin-top:12px;max-width:62em">
+      <li>If the file will not open, make sure it is actually an image and not an HTML error page saved with the wrong extension.</li>
+      <li>If colors look different, check whether the original file uses an unusual color profile.</li>
+      <li>If the image appears rotated, convert it once and check the downloaded JPG.</li>
+      <li>If a site rejects the file, use the converted .jpg instead of the original .jfif.</li>
+      <li>If your image has transparency, note that JPG does not support transparency; use PNG instead.</li>
+    </ul>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap" style="max-width:820px">
+    <span class="spec">FAQ</span>
+    <h2 style="margin-top:12px">JFIF to JPG, answered</h2>
+    <div style="margin-top:12px"><div class='faq'><details><summary>Is JFIF the same as JPG?</summary><div class='a'>Usually yes for the image data. JFIF is a JPEG-based format, but the .jfif extension is less widely accepted than .jpg.</div></details><details><summary>How do I convert JFIF to JPG?</summary><div class='a'>Drop the .jfif file into CleanPaths, check the preview, then download the converted .jpg.</div></details><details><summary>Is this JFIF to JPG converter free?</summary><div class='a'>Yes. You can convert JFIF to JPG free in your browser.</div></details><details><summary>Do you upload my files?</summary><div class='a'>No. The conversion runs locally in your browser, so your files do not leave your device.</div></details><details><summary>Can I change JFIF to JPG without installing software?</summary><div class='a'>Yes. CleanPaths works in the browser, so there is nothing to install.</div></details><details><summary>What if my file is actually JPEG?</summary><div class='a'>Then converting it to .jpg should be quick and should improve compatibility with sites and apps.</div></details><details><summary>Does JPG support transparency?</summary><div class='a'>No. If you need transparency, use PNG instead of JPG.</div></details></div></div>
+  </div>
+</section>
+<section class="section cta-band">
   <div class="wrap">
     <a class="btn btn--primary btn--lg" href="#convert">Convert JFIF free now</a>
     <p class="sub" style="margin-top:16px"><a href="/pt/jfif-para-jpg/">Versão em português: JFIF para JPG →</a></p>
