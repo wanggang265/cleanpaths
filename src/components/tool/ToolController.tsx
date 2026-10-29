@@ -21,11 +21,11 @@ import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
 import { beacon } from '@/lib/beacon';
 import { wireLicenseEntry } from '@/lib/license-panel';
-import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
+import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
 import { openFeedbackDialog, TOOL_BUSY_EVENT } from '../feedback';
 
-export type ToolKind = 'trace-multi' | 'trace-raster' | 'screenshot' | 'svg-dxf' | 'jfif';
+export type ToolKind = 'trace-multi' | 'trace-raster' | 'screenshot' | 'svg-dxf' | 'jfif' | 'jfif-png' | 'webp-svg';
 
 export interface ToolProps {
   kind: ToolKind;
@@ -222,11 +222,11 @@ export default function ToolController(props: ToolProps) {
 
       beacon('tool_start'); // #54 preregistered: conversion started (post quota gate)
       renderState('processing', processingHtml(stepsFor(kind, lang), lang));
-      // 07d: real staged progress — jfif repack is near-instant, keep the
+      // 07d: real staged progress — jfif/jfif-png repack+convert is near-instant, keep the
       // frozen static steps there; every other kind gets the live UI.
       const isSvgInput = kind === 'svg-dxf' || (kind === 'trace-multi' && ext === '.svg');
       const prog: ProgressUI | null =
-        kind === 'jfif' ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
+        kind === 'jfif' || kind === 'jfif-png' ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
       activeProg = prog;
       // 05 v1.6 watchdog: never leave the user on an endless processing state.
       if (watchdog) clearTimeout(watchdog);
@@ -246,7 +246,7 @@ export default function ToolController(props: ToolProps) {
       // 3) #18 big-file guard: >10MB or longest edge >2000px → auto downscale
       //    before the engine (raster inputs only; svg/jfif pass through)
       S.sizeNote = null;
-      if (kind !== 'jfif' && ext !== '.svg') {
+      if (kind !== 'jfif' && kind !== 'jfif-png' && ext !== '.svg') {
         try {
           const guarded = await guardRasterInput(bytes, S.lastFile.mime);
           if (guarded.downscaled) {
@@ -284,6 +284,8 @@ export default function ToolController(props: ToolProps) {
 
     function stepsFor(k: ToolKind, l: 'en' | 'pt'): readonly string[] {
       if (k === 'jfif') return l === 'pt' ? STEPS.jfif_pt : STEPS.jfif;
+      if (k === 'jfif-png') return l === 'pt' ? STEPS.jfif_png_pt : STEPS.jfif_png;
+      if (k === 'webp-svg' && l === 'pt') return STEPS.webp_pt; // v1.9 F4: first PT trace steps
       if (k === 'svg-dxf') return STEPS.svg;
       return STEPS.trace;
     }
@@ -312,6 +314,39 @@ export default function ToolController(props: ToolProps) {
           layers: [],
           layersNoteHtml: JFIF_LAYER_NOTE,
           blobs: { jpg: { blob, filename: `${base}.jpg` } },
+        };
+      }
+
+      if (kind === 'jfif-png') {
+        // 05 v1.8 A-group pipeline: decode JPEG pixels -> PNG encode (lossless container).
+        // NO new lossy compression — this is what the F8 result note asserts (P1-gated).
+        if (bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8) throw new Error('not a JFIF/JPEG container');
+        const srcBlob = new Blob([bytes.buffer as ArrayBuffer], { type: 'image/jpeg' });
+        const bmp = await createImageBitmap(srcBlob);
+        let pngBlob: Blob;
+        if (typeof OffscreenCanvas !== 'undefined') {
+          const c = new OffscreenCanvas(bmp.width, bmp.height);
+          c.getContext('2d')!.drawImage(bmp, 0, 0);
+          pngBlob = await c.convertToBlob({ type: 'image/png' });
+        } else {
+          const c = document.createElement('canvas');
+          c.width = bmp.width;
+          c.height = bmp.height;
+          c.getContext('2d')!.drawImage(bmp, 0, 0);
+          pngBlob = await new Promise<Blob>((res, rej) => c.toBlob((b) => (b ? res(b) : rej(new Error('png encode failed'))), 'image/png'));
+        }
+        bmp.close();
+        const inUrl = track(srcBlob);
+        const outUrl = track(pngBlob);
+        return {
+          inputUrl: inUrl,
+          outputUrl: outUrl,
+          svgText: null,
+          width: 0,
+          height: 0,
+          layers: [],
+          layersNoteHtml: lang === 'pt' ? JFIF_PNG_LAYER_NOTE_PT : JFIF_PNG_LAYER_NOTE,
+          blobs: { png: { blob: pngBlob, filename: `${base}.png` } },
         };
       }
 
@@ -446,10 +481,14 @@ export default function ToolController(props: ToolProps) {
       const out = S.out;
       if (!out) return;
       const c = STATE_COPY[lang];
-      const dxfDual = kind !== 'screenshot' && kind !== 'jfif';
+      const dxfDual = kind !== 'screenshot' && kind !== 'jfif' && kind !== 'jfif-png' && kind !== 'webp-svg';
       const downloads: ResultRender['downloads'] = [];
-      if (kind === 'jfif') {
-        downloads.push({ key: 'jpg', label: lang === 'pt' ? DL_COPY.jpg_pt : DL_COPY.jpg, primary: true });
+      if (kind === 'jfif' || kind === 'jfif-png') {
+        if (kind === 'jfif-png') {
+          downloads.push({ key: 'png', label: lang === 'pt' ? DL_COPY.png_pt : DL_COPY.png, primary: true });
+        } else {
+          downloads.push({ key: 'jpg', label: lang === 'pt' ? DL_COPY.jpg_pt : DL_COPY.jpg, primary: true });
+        }
       } else if (dxfDual) {
         const r2000First = S.segVersion === 'R2000';
         downloads.push(
@@ -458,7 +497,7 @@ export default function ToolController(props: ToolProps) {
           { key: 'svg', label: DL_COPY.svg, primary: false, ghost: true },
         );
       } else {
-        downloads.push({ key: 'svg', label: DL_COPY.svg, primary: true });
+        downloads.push({ key: 'svg', label: lang === 'pt' ? DL_COPY.svg_pt : DL_COPY.svg, primary: true });
       }
 
       const tries = hdTriesLeft();
@@ -468,9 +507,9 @@ export default function ToolController(props: ToolProps) {
         layersNoteHtml: out.layersNoteHtml,
         layers: out.layers.map((l) => ({ hex: l.hex, name: l.hex })),
         extraLayers: Math.max(0, out.layers.length - 2),
-        showPrecision: kind !== 'jfif',
+        showPrecision: kind !== 'jfif' && kind !== 'jfif-png',
         precisionValue: S.precision,
-        showAiHd: kind === 'trace-multi' || kind === 'trace-raster' || kind === 'screenshot',
+        showAiHd: kind === 'trace-multi' || kind === 'trace-raster' || kind === 'screenshot' || kind === 'webp-svg',
         hdTries: tries,
         downloads,
         lang,

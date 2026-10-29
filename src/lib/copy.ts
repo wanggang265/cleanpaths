@@ -217,6 +217,11 @@ export const STEPS = {
   svg: ['✓ Reading file (local)', '▸ Converting curves to polylines', '○ Preparing download'],
   jfif: ['✓ Reading file (local)', '▸ Repackaging as JPG', '○ Preparing download'],
   jfif_pt: ['✓ Lendo o arquivo (local)', '▸ Reempacotando como JPG', '○ Preparando o download'],
+  // 05 v1.9 F1/F3 (jfif-to-png): decode→PNG encode, NOT a repackage — "Converting" is the honest verb
+  jfif_png: ['✓ Reading file (local)', '▸ Converting to PNG', '○ Preparing download'],
+  jfif_png_pt: ['✓ Lendo o arquivo (local)', '▸ Convertendo para PNG', '○ Preparando o download'],
+  // 05 v1.9 F4 (pt-webp-para-svg): first PT trace-pipeline steps
+  webp_pt: ['✓ Lendo o arquivo (local)', '▸ Vetorizando — parâmetros ajustados à imagem', '○ Preparando o download'],
 } as const;
 
 /** Download button labels — frozen (states_common.py *_DL_BTNS) */
@@ -224,6 +229,9 @@ export const DL_COPY = {
   dxf_r2000: 'Download DXF (R2000)',
   dxf_r12: 'Download DXF (R12)',
   svg: 'Download SVG',
+  svg_pt: 'Baixar SVG', // pt-webp-para-svg (states.html frozen, §11.3 PT 同族)
   jpg: 'Download JPG',
   jpg_pt: 'Baixar JPG',
+  png: 'Download PNG', // 05 v1.9 F2
+  png_pt: 'Baixar PNG', // 05 v1.9 F3
 } as const;
