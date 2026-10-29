@@ -8,6 +8,8 @@ const TOOLS_MENU: Array<[string, string]> = [
   ['/svg-to-dxf-converter/', 'SVG to DXF'],
   ['/screenshot-to-svg/', 'Screenshot to SVG'],
   ['/jfif-to-jpg/', 'JFIF to JPG'],
+  ['/jfif-to-png/', 'JFIF to PNG'],
+  ['/webp-to-svg/', 'WebP to SVG'],
 ];
 
 /**

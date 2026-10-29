@@ -218,4 +218,10 @@ export function feedbackOkHtml(lang: 'en' | 'pt'): string {
 export const JFIF_LAYER_NOTE =
   '<li><span class="sw" style="background:#E0E4EA"></span>container repackaged · .jfif → .jpg · image data untouched</li>';
 
+/** 05 v1.9 F8 (jfif-to-png result-layer note) — frozen, gated on P1 pipeline check */
+export const JFIF_PNG_LAYER_NOTE =
+  '<li><span class="sw" style="background:#E0E4EA"></span>decoded + stored as lossless .png · same pixels, no new compression</li>';
+export const JFIF_PNG_LAYER_NOTE_PT =
+  '<li><span class="sw" style="background:#E0E4EA"></span>decodificado e salvo como .png sem perdas · mesmos pixels, sem nova compressão</li>';
+
 export const DL = DL_COPY;

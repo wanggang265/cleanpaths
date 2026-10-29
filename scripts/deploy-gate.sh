@@ -29,19 +29,21 @@ node scripts/extract-pages.mjs >/dev/null
 git diff --quiet -- src/content/pages 2>/dev/null || true  # content is regenerated deterministically
 ok "content extraction re-ran (deterministic from design source)"
 
-# 3) all 19 routes have a page file
+# 3) all 23 routes have a page file
 for f in "src/app/page.tsx" "src/app/png-to-dxf/page.tsx" "src/app/jpg-to-dxf/page.tsx" \
          "src/app/svg-to-dxf-converter/page.tsx" "src/app/screenshot-to-svg/page.tsx" \
          "src/app/jfif-to-jpg/page.tsx" "src/app/pt/jfif-para-jpg/page.tsx" \
          "src/app/vector-magic-alternative/page.tsx" "src/app/cloudconvert-alternative/page.tsx" \
          "src/app/vectorizer-ai-alternative/page.tsx" "src/app/convertio-alternative/page.tsx" \
+         "src/app/jfif-to-png/page.tsx" "src/app/pt/jfif-para-png/page.tsx" \
+         "src/app/webp-to-svg/page.tsx" "src/app/pt/webp-para-svg/page.tsx" \
          "src/app/samples/page.tsx" "src/app/for/cricut-sellers/page.tsx" \
          "src/app/for/embroidery/page.tsx" "src/app/pricing/page.tsx" \
          "src/app/privacy/page.tsx" "src/app/terms/page.tsx" \
          "src/app/cookies/page.tsx" "src/app/refund/page.tsx"; do
   [ -f "$f" ] || fail "missing route file: $f"
 done
-ok "19 route files present"
+ok "23 route files present"
 
 # 4) frozen-copy audit (verbatim strings still byte-identical)
 node scripts/audit-copy.mjs || fail "copy audit failed"
