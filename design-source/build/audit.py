@@ -74,6 +74,12 @@ SENTINELS = {
    "That logo PNG sitting in your inbox? Convert it before the tab gets cold.",
    "Convert PNG free now",
    "photo to DXF or picture to DXF",
+   # ---- 05g module A: FAQ#9-#13 (copy source: 05-copy-freeze-v1.10 §A) ----
+   "Why does my DXF have so many nodes?",
+   "Why does my DXF open at the wrong size?",
+   "How do I open a DXF file in LightBurn?",
+   "Why is my DXF the wrong scale in LightBurn?",
+   "Why won't my DXF file open in LightBurn?",
  ],
  "jpg-to-dxf": [
    "JPG to DXF — Turn Client Photos of Logos into Cut Files",
