@@ -16,6 +16,7 @@ export default function ToolPage({
   kind,
   accept,
   errorMessage,
+  paramPanel,
 }: {
   route: string; // '/png-to-dxf/'
   lang?: 'en' | 'pt';
@@ -25,6 +26,7 @@ export default function ToolPage({
   kind: ToolKind;
   accept: string[];
   errorMessage: string;
+  paramPanel?: boolean; // 05 v1.12 #82 — /png-to-dxf/ only
 }) {
   const schema = jsonLd(
     softwareApplication({ name, url: `${SITE_URL}${route}`, description }),
@@ -33,7 +35,7 @@ export default function ToolPage({
   return (
     <>
       <PageShell route={route} lang={lang} mainHtml={mainHtml} schemaJson={schema} />
-      <ToolController kind={kind} lang={lang} accept={accept} errorMessage={errorMessage} />
+      <ToolController kind={kind} lang={lang} accept={accept} errorMessage={errorMessage} paramPanel={paramPanel} />
     </>
   );
 }

@@ -15,6 +15,10 @@ export interface TraceOptions {
   filterSpeckle?: number;
   layerDifference?: number;
   pathPrecision?: number;
+  /** 05 v1.12 #82: 1 = Cutout (default, no overlapping lines — 01.5 hard
+   *  requirement) / 0 = Stacked (filled color layers, "Engrave" mode).
+   *  Values per @neplex/vectorizer Hierarchical enum (Stacked=0, Cutout=1). */
+  hierarchical?: number;
   /** screenshot preset: cleaner input, fewer speckles */
   preset?: 'default' | 'screenshot';
   /** 07d: real engine-worker phase events ('engine-loading' | 'tracing') */
@@ -93,7 +97,7 @@ export async function traceImage(bytes: Uint8Array, mime: string, opts: TraceOpt
   const noisy = colorful > 96 && opts.preset !== 'screenshot';
   const config = {
     colorMode: 0, // Color
-    hierarchical: 1, // Cutout — no overlapping lines (01.5 hard requirement)
+    hierarchical: opts.hierarchical ?? 1, // Cutout — no overlapping lines (01.5 hard requirement); Stacked(0) via #82 panel Engrave mode
     filterSpeckle: opts.filterSpeckle ?? (opts.preset === 'screenshot' ? 4 : noisy ? 16 : 8),
     colorPrecision: opts.colorPrecision ?? (opts.preset === 'screenshot' ? 8 : noisy ? 6 : 8),
     layerDifference: opts.layerDifference ?? (noisy ? 32 : 16),

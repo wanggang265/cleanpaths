@@ -13,7 +13,7 @@
  */
 import { useEffect, useRef } from 'react';
 import { CAP_COPY, DL_COPY, STATE_COPY, STEPS } from '@/lib/copy';
-import { buildDxf, prepareLayers, PX_TO_MM, type TraceLayer } from '@/lib/dxf';
+import { buildDxf, geoDims, prepareLayers, PX_TO_MM, type TraceLayer } from '@/lib/dxf';
 import { layersToSvg } from '@/lib/svg-flatten';
 import { flattenSvgAsync } from '@/lib/flatten-client';
 import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
@@ -34,6 +34,10 @@ export interface ToolProps {
   errorMessage: string; // frozen full error sentence (may contain <b>)
   anchorId?: string; // default 'convert'
   outputBase?: string;
+  /** 05 v1.12 #82: render the Cut-settings param panel in the result state
+   *  (/png-to-dxf/ only, EN-only batch — zhongshu: jpg-to-dxf follow-up is a
+   *  separate fast-follow batch, NOT this one). */
+  paramPanel?: boolean;
 }
 
 interface RunOutput {
@@ -45,6 +49,12 @@ interface RunOutput {
   layers: TraceLayer[];
   blobs: Record<string, { blob: Blob; filename: string }>;
   layersNoteHtml?: string;
+  /** #82: prepared layers kept in memory so a mm-width change can rebuild the
+   *  DXF blobs without re-running the pipeline (<50ms string assembly). */
+  prepared?: ReturnType<typeof prepareLayers>;
+  /** #82: geometry bbox span (px) — mm-width scale basis (see dxf.geoDims). */
+  geoW?: number;
+  geoH?: number;
 }
 
 function setBusy(b: boolean) {
@@ -89,6 +99,11 @@ export default function ToolController(props: ToolProps) {
     precision: number;
     aiHdOn: boolean;
     sizeNote: string | null; // #18: resize notice shown in processing + result
+    // ---- 05 v1.12 #82 param-panel state (only consulted when props.paramPanel) ----
+    widthMm: number | null; // null = default 96dpi conversion (PX_TO_MM)
+    colorThreshold: number; // colorPrecision 4–9, initial = precisionConfig(6)
+    smooth: number; // 1–10, 5 = legacy 0.8 flatten step
+    mode: 'cut' | 'engrave'; // cut = Cutout(1, 01.5 default), engrave = Stacked(0)
   }>({
     initialHtml: null,
     cleanupOn: true, // "Clean up bad images (recommended)" — design default ON
@@ -100,6 +115,10 @@ export default function ToolController(props: ToolProps) {
     precision: 6,
     aiHdOn: false,
     sizeNote: null,
+    widthMm: null,
+    colorThreshold: precisionConfig(6).colorPrecision ?? 7,
+    smooth: 5,
+    mode: 'cut',
   });
 
   useEffect(() => {
@@ -415,6 +434,14 @@ export default function ToolController(props: ToolProps) {
       const traced = await traceImage(input, inputMime, {
         preset,
         ...precisionConfig(S.precision, preset),
+        // #82 param panel (/png-to-dxf/ only): Color threshold slider is the UI
+        // source of truth for colorPrecision (it tracks the Precision slider's
+        // linked value until the user overrides it); Mode seg maps to
+        // hierarchical (cut=Cutout(1), engrave=Stacked(0)). Non-panel pages:
+        // zero change — the spread below is skipped entirely.
+        ...(props.paramPanel
+          ? { colorPrecision: S.colorThreshold, hierarchical: S.mode === 'engrave' ? 0 : 1 }
+          : {}),
         onPhase: (phase) => {
           // real worker events: WASM bundle load vs actual trace start
           if (phase === 'engine-loading') prog?.phaseProgress(0.04);
@@ -422,12 +449,20 @@ export default function ToolController(props: ToolProps) {
         },
       });
       prog?.enter('paths'); // 07d: flatten — real 0..1 progress from the worker
-      const layers = await flattenSvgAsync(traced.svg, { step: 0.8, dropBackground: true, onProgress: (f) => prog?.phaseProgress(f) });
+      // #82: Node smoothing parameterizes the flatten sampling step on the
+      // raster path (5 = legacy 0.8; higher = larger step = fewer nodes).
+      const rasterStep = props.paramPanel ? Math.min(2, Math.max(0.2, (0.8 * S.smooth) / 5)) : 0.8;
+      const layers = await flattenSvgAsync(traced.svg, { step: rasterStep, dropBackground: true, onProgress: (f) => prog?.phaseProgress(f) });
       if (layers.length === 0) throw new Error('trace produced no layers');
       prog?.enter('export');
       const prepared = prepareLayers(layers);
-      const r2000 = new Blob([buildDxf(prepared, 'R2000')], { type: 'application/dxf' });
-      const r12 = new Blob([buildDxf(prepared, 'R12')], { type: 'application/dxf' });
+      // #82: mm width → DXF scale. Width semantics = geometry span (bbox),
+      // not canvas — the cutter cuts the shape, not the page. R2000 carries
+      // $INSUNITS=4 mm; R12 stores the same scaled coordinates.
+      const geo = geoDims(prepared);
+      const dxfScale = props.paramPanel && S.widthMm && S.widthMm > 0 && geo.w > 0 ? S.widthMm / geo.w : PX_TO_MM;
+      const r2000 = new Blob([buildDxf(prepared, 'R2000', true, dxfScale)], { type: 'application/dxf' });
+      const r12 = new Blob([buildDxf(prepared, 'R12', true, dxfScale)], { type: 'application/dxf' });
       const svgBlob = new Blob([traced.svg], { type: 'image/svg+xml' });
       return {
         inputUrl: track(new Blob([bytes.buffer as ArrayBuffer], { type: mime })),
@@ -436,6 +471,9 @@ export default function ToolController(props: ToolProps) {
         width: traced.width,
         height: traced.height,
         layers,
+        prepared,
+        geoW: geo.w,
+        geoH: geo.h,
         blobs: {
           'dxf-r2000': { blob: r2000, filename: `${base}-cleanpaths-r2000.dxf` },
           'dxf-r12': { blob: r12, filename: `${base}-cleanpaths-r12.dxf` },
@@ -513,6 +551,19 @@ export default function ToolController(props: ToolProps) {
         hdTries: tries,
         downloads,
         lang,
+        // #82: panel renders only when the page opted in AND we have real
+        // traced dimensions (raster path always sets width/height > 0).
+        paramPanel:
+          props.paramPanel && (out.geoW ?? 0) > 0
+            ? {
+                widthMm: S.widthMm ?? (out.geoW as number) * PX_TO_MM,
+                widthPx: out.geoW as number,
+                heightPx: out.geoH as number,
+                threshold: S.colorThreshold,
+                smooth: S.smooth,
+                mode: S.mode,
+              }
+            : undefined,
       };
       dz.dataset.state = 'result';
       dz.classList.remove('proc', 'matgrid');
@@ -551,9 +602,73 @@ export default function ToolController(props: ToolProps) {
           clearTimeout(t);
           t = setTimeout(() => {
             S.precision = parseInt(slider.value, 10);
+            // #82: on panel pages the Color threshold slider tracks the
+            // Precision-linked colorPrecision (precisionConfig itself is
+            // untouched — this is UI sync only, zero behavior change for the
+            // slider's existing linkage).
+            if (props.paramPanel) {
+              S.colorThreshold = precisionConfig(S.precision).colorPrecision ?? S.colorThreshold;
+              const ts = dz.querySelector<HTMLInputElement>('[data-tool-threshold]');
+              if (ts) ts.value = String(S.colorThreshold);
+            }
             void rerun();
           }, 250);
         };
+      }
+      // ---- #82 param panel (05 v1.12, /png-to-dxf/ only) ----
+      const panel = dz.querySelector<HTMLElement>('[data-tool-parampanel]');
+      if (panel) {
+        // P-W mm width: in-memory DXF rebuild, NO pipeline rerun (<50ms).
+        const widthInput = panel.querySelector<HTMLInputElement>('[data-tool-width]');
+        if (widthInput) {
+          let t: ReturnType<typeof setTimeout>;
+          widthInput.oninput = () => {
+            clearTimeout(t);
+            t = setTimeout(() => {
+              const v = parseFloat(widthInput.value);
+              if (!isFinite(v) || v <= 0) return; // keep last valid value
+              S.widthMm = v;
+              rebuildDxfBlobs();
+            }, 250);
+          };
+        }
+        // P-T color threshold: full pipeline rerun (same interaction as the
+        // Precision slider — 250ms debounce → rerun()).
+        const threshold = panel.querySelector<HTMLInputElement>('[data-tool-threshold]');
+        if (threshold) {
+          let t: ReturnType<typeof setTimeout>;
+          threshold.oninput = () => {
+            clearTimeout(t);
+            t = setTimeout(() => {
+              S.colorThreshold = parseInt(threshold.value, 10);
+              void rerun();
+            }, 250);
+          };
+        }
+        // P-N node smoothing: flatten-step rerun (phase-1 bound to full rerun
+        // per proposal §4; decoupling is a phase-2 item).
+        const smooth = panel.querySelector<HTMLInputElement>('[data-tool-smooth]');
+        if (smooth) {
+          let t: ReturnType<typeof setTimeout>;
+          smooth.oninput = () => {
+            clearTimeout(t);
+            t = setTimeout(() => {
+              S.smooth = parseInt(smooth.value, 10);
+              void rerun();
+            }, 250);
+          };
+        }
+        // P-M mode seg: cut=Cutout(1) / engrave=Stacked(0) → full rerun.
+        panel.querySelectorAll<HTMLButtonElement>('[data-tool-mode] button').forEach((btn) => {
+          btn.onclick = (e) => {
+            e.stopPropagation();
+            const m = btn.dataset.mode === 'engrave' ? 'engrave' : 'cut';
+            if (m === S.mode) return;
+            S.mode = m;
+            panel.querySelectorAll('[data-tool-mode] button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+            void rerun();
+          };
+        });
       }
       // AI HD rescue
       const aihd = dz.querySelector<HTMLElement>('[data-tool-aihd]');
@@ -627,6 +742,34 @@ export default function ToolController(props: ToolProps) {
         renderResult();
       } catch (err) {
         console.error('[cleanpaths] re-run failed', err);
+      }
+    }
+
+    // #82 P-W: rebuild both DXF blobs from the in-memory prepared layers with
+    // the user-set mm width — main-thread string assembly only (<50ms), no
+    // worker round-trip, no pipeline rerun (open-items #18 compliant).
+    function rebuildDxfBlobs() {
+      const out = S.out;
+      if (!out?.prepared || !S.widthMm || S.widthMm <= 0 || (out.geoW ?? 0) <= 0) return;
+      const geoW = out.geoW as number;
+      const geoH = out.geoH as number;
+      const base = baseOf(S.lastFile?.name ?? 'image');
+      const scale = S.widthMm / geoW;
+      out.blobs['dxf-r2000'] = {
+        blob: new Blob([buildDxf(out.prepared, 'R2000', true, scale)], { type: 'application/dxf' }),
+        filename: `${base}-cleanpaths-r2000.dxf`,
+      };
+      out.blobs['dxf-r12'] = {
+        blob: new Blob([buildDxf(out.prepared, 'R12', true, scale)], { type: 'application/dxf' }),
+        filename: `${base}-cleanpaths-r12.dxf`,
+      };
+      // read-only size line (N3 frozen template, {w}/{h} are data)
+      const sizeEl = dz.querySelector<HTMLElement>('[data-tool-output-size]');
+      if (sizeEl) {
+        const fmtMm = (n: number) => (Math.round(n * 10) / 10).toString();
+        sizeEl.textContent = STATE_COPY.en.output_size_tpl
+          .replace('{w}', fmtMm(S.widthMm))
+          .replace('{h}', fmtMm((S.widthMm * geoH) / geoW));
       }
     }
 

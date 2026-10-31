@@ -22,6 +22,7 @@ export default function PngToDxfPage() {
       kind="trace-raster"
       accept={['.png']}
       errorMessage={ERROR_MESSAGE}
+      paramPanel
     />
   );
 }

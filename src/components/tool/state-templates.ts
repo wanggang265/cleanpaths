@@ -135,6 +135,17 @@ export interface ResultRender {
   hdTries: number; // Infinity for pro
   downloads: Array<{ key: string; label: string; primary: boolean; ghost?: boolean }>;
   lang: 'en' | 'pt';
+  /** 05 v1.12 #82 param panel (/png-to-dxf/ only, EN-only) — when present the
+   *  Precision block is wrapped into the Cut-settings group. All labels come
+   *  from STATE_COPY.en (v1.12 frozen, verbatim). */
+  paramPanel?: {
+    widthMm: number; // current effective width (default = 96dpi conversion)
+    widthPx: number; // geometry bbox span W (px) — scale basis, NOT canvas width
+    heightPx: number; // geometry bbox span H (px)
+    threshold: number; // colorPrecision 4–9
+    smooth: number; // 1–10 (5 = current 0.8 flatten step)
+    mode: 'cut' | 'engrave';
+  };
 }
 
 export function resultHtml(r: ResultRender): string {
@@ -166,6 +177,40 @@ export function resultHtml(r: ResultRender): string {
   </div>`
     : '';
 
+  // 05 v1.12 #82: param panel wraps the (untouched) Precision block into the
+  // Cut-settings group — /png-to-dxf/ EN only. Strings: STATE_COPY.en frozen
+  // (v1.12 §A, verbatim — never reworded here). Mobile (#37): every control
+  // stacks vertically at width:100%, no fixed pixel widths.
+  const paramPanel = r.paramPanel
+    ? (() => {
+        const p = r.paramPanel;
+        const fmtMm = (n: number) => (Math.round(n * 10) / 10).toString();
+        const sizeLine = c.output_size_tpl
+          .replace('{w}', fmtMm(p.widthMm))
+          .replace('{h}', fmtMm((p.widthMm * p.heightPx) / p.widthPx));
+        return `
+  <div style="margin-top:14px;text-align:left" data-tool-parampanel>
+    <label class="spec" style="margin-bottom:10px">${c.panel_spec}</label>
+    <label class="spec" style="margin-bottom:6px;display:block">${c.width_label}</label>
+    <input type="text" inputmode="decimal" value="${fmtMm(p.widthMm)}" aria-label="${c.width_label}" data-tool-width style="width:100%;box-sizing:border-box">
+    <div class="microcopy" style="display:block;margin-top:6px" data-tool-output-size>${sizeLine}</div>
+    <p class="microcopy" style="display:block;margin-top:4px">${c.width_hint}</p>
+    ${precision}
+    <label class="spec" style="margin-bottom:6px;display:block;margin-top:14px">${c.threshold_label}</label>
+    <input type="range" min="4" max="9" step="1" value="${p.threshold}" style="width:100%;accent-color:#E4572E" aria-label="${c.threshold_label}" data-tool-threshold>
+    <p class="microcopy" style="display:block;margin-top:4px">${c.threshold_hint}</p>
+    <label class="spec" style="margin-bottom:6px;display:block;margin-top:14px">${c.smooth_label}</label>
+    <input type="range" min="1" max="10" step="1" value="${p.smooth}" style="width:100%;accent-color:#E4572E" aria-label="${c.smooth_label}" data-tool-smooth>
+    <p class="microcopy" style="display:block;margin-top:4px">${c.smooth_hint}</p>
+    <div class="seg" role="group" style="margin-top:14px" data-tool-mode>
+      <button aria-pressed="${p.mode === 'cut'}" data-mode="cut">${c.mode_cut}</button>
+      <button aria-pressed="${p.mode === 'engrave'}" data-mode="engrave">${c.mode_engrave}</button>
+    </div>
+    <p class="microcopy" style="display:block;margin-top:6px">${c.mode_hint}</p>
+  </div>`;
+      })()
+    : precision;
+
   const aiHd = r.showAiHd
     ? `
   <div style="margin-top:14px;text-align:left">
@@ -196,7 +241,7 @@ export function resultHtml(r: ResultRender): string {
   </div>
   <ul class="layers" style="margin-top:14px;background:var(--paper);border:1.5px solid var(--line);border-radius:6px">
     ${layerRows}
-  </ul>${precision}${aiHd}
+  </ul>${paramPanel}${aiHd}
   <div class="dl-row">${dlButtons}</div>
   <div style="margin-top:12px;text-align:center"><button class="btn btn--ghost" type="button" data-tool-reset>${c.err_btn}</button></div>
 <div style="margin-top:16px" data-tool-feedback>

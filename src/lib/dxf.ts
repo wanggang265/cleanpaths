@@ -55,6 +55,26 @@ function polygonArea(points: Pt[]): number {
   return Math.abs(a) / 2;
 }
 
+/**
+ * Bounding-box dimensions of the actual geometry (px, SVG space) — NOT the
+ * canvas size. #82 mm-width semantics: "Width (mm)" is the width of the shape
+ * you cut, so DXF scale = targetMm / geoWidth (artwork rarely fills the whole
+ * traced canvas; scaling by canvas width would undersize the cut geometry).
+ */
+export function geoDims(layers: Array<{ paths: Pt[][] }>): { w: number; h: number } {
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const l of layers)
+    for (const p of l.paths)
+      for (const pt of p) {
+        if (pt.x < minX) minX = pt.x;
+        if (pt.y < minY) minY = pt.y;
+        if (pt.x > maxX) maxX = pt.x;
+        if (pt.y > maxY) maxY = pt.y;
+      }
+  if (!isFinite(minX) || maxX <= minX || maxY <= minY) return { w: 0, h: 0 };
+  return { w: maxX - minX, h: maxY - minY };
+}
+
 /** Sort layers by total area desc and compute per-layer simplified paths. */
 export function prepareLayers(layers: TraceLayer[]): Array<{ hex: string; name: string; paths: Pt[][] }> {
   return layers

@@ -187,6 +187,22 @@ export const STATE_COPY = {
     ai_hd: 'AI HD rescue',
     ai_hd_desc:
       "An optional AI upscaler that runs on your device's GPU (no upload) for heavily degraded images. Free tier includes 3 tries; Pro includes it with no per-use limit.",
+    // ---- 05 v1.12 (2026-10-30): param-panel strings, /png-to-dxf/ result state ----
+    // Frozen verbatim per 05-copy-freeze-v1.12-param-panel-addendum.md §A.
+    // Lifecycle-bound to the #82 panel controls — removing/renaming a control
+    // requires unfreezing these strings first (v1.12 header declaration).
+    // EN-only: pt group intentionally unchanged (EN-only batch).
+    panel_spec: 'Cut settings',
+    width_label: 'Width (mm)',
+    output_size_tpl: 'Output size: {w} × {h} mm',
+    threshold_label: 'Color threshold',
+    threshold_hint: 'Lower = fewer colors, cleaner paths',
+    width_hint: 'Default size assumes 96 DPI — set the width you actually cut at.',
+    smooth_label: 'Node smoothing',
+    smooth_hint: 'Higher = fewer nodes, smaller file',
+    mode_cut: 'Cut',
+    mode_engrave: 'Engrave',
+    mode_hint: 'Engrave = filled color layers — not photo engraving',
   },
   pt: {
     dz_drop: 'Arraste seu arquivo .jfif aqui — ou clique para escolher',

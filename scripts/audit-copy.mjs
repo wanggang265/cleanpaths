@@ -99,10 +99,25 @@ const EXPECTED = [
   ['LICENSE_COPY.pt.ok_pack', 'Desbloqueado neste dispositivo: {PACKS}'],
   ['LICENSE_COPY.pt.err_invalid', 'Não foi possível ativar essa chave — confira a digitação e compare com o e-mail de compra. Se não resolver, escreva para support@cleanpaths.io.'],
   ['LICENSE_COPY.pt.err_network', 'Sem conexão — a ativação precisa de internet só na primeira vez. Confira sua conexão e tente de novo. Já ativou neste dispositivo? O Pro continua funcionando offline.'],
+  // ---- v1.12 param panel, STATE_COPY.en (11) — 05-copy-freeze-v1.12 §A verbatim ----
+  // Third element true = count check runs against the QUOTED literal ('...') so
+  // short strings ('Cut', 'Engrave') aren't inflated by superstrings like
+  // 'Cut settings' / the mode_hint sentence. EN-only batch: no pt keys (by design).
+  ['STATE_COPY.en.panel_spec', 'Cut settings', true],
+  ['STATE_COPY.en.width_label', 'Width (mm)', true],
+  ['STATE_COPY.en.output_size_tpl', 'Output size: {w} × {h} mm', true],
+  ['STATE_COPY.en.threshold_label', 'Color threshold', true],
+  ['STATE_COPY.en.threshold_hint', 'Lower = fewer colors, cleaner paths', true],
+  ['STATE_COPY.en.width_hint', 'Default size assumes 96 DPI — set the width you actually cut at.', true],
+  ['STATE_COPY.en.smooth_label', 'Node smoothing', true],
+  ['STATE_COPY.en.smooth_hint', 'Higher = fewer nodes, smaller file', true],
+  ['STATE_COPY.en.mode_cut', 'Cut', true],
+  ['STATE_COPY.en.mode_engrave', 'Engrave', true],
+  ['STATE_COPY.en.mode_hint', 'Engrave = filled color layers — not photo engraving', true],
 ];
 
 let sentinelFailures = 0;
-for (const [name, frozen] of EXPECTED) {
+for (const [name, frozen, quoted] of EXPECTED) {
   const actual = name.split('.').reduce((o, k) => o?.[k], mod.exports);
   if (actual !== frozen) {
     console.error(`✗ sentinel: ${name} drifted from frozen text`);
@@ -110,7 +125,8 @@ for (const [name, frozen] of EXPECTED) {
     continue;
   }
   // count==1 in raw source: catches duplicate paste and quote-level drift.
-  const occurrences = rawCopy.split(frozen).length - 1;
+  const needle = quoted ? `'${frozen}'` : frozen;
+  const occurrences = rawCopy.split(needle).length - 1;
   if (occurrences !== 1) {
     console.error(`✗ sentinel: ${name} appears ${occurrences}× in copy.ts (must be exactly 1)`);
     sentinelFailures++;
@@ -128,4 +144,4 @@ for (const dict of ['LICENSE_COPY', 'CHECKOUT_COPY']) {
 }
 
 if (sentinelFailures) { console.error(`copy.ts sentinel: ${sentinelFailures} failure(s)`); process.exit(1); }
-console.log('copy.ts sentinel: PASS (v1.4 6 + v1.5 24 strings, verbatim + count==1, EN/PT keys aligned)');
+console.log('copy.ts sentinel: PASS (v1.4 6 + v1.5 24 + v1.12 11 strings, verbatim + count==1, EN/PT keys aligned)');
