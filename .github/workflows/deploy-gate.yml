@@ -18,7 +18,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          # no .nvmrc / engines in repo (verified 2026-10-31) — pin 22 to match
+          # the local toolchain (node -v = v22.22.2)
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
