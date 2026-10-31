@@ -49,7 +49,15 @@ ok "23 route files present"
 node scripts/audit-copy.mjs || fail "copy audit failed"
 ok "frozen copy audit PASS"
 
-# 5) legal placeholders must be ZERO (open-items #20 launch gate: 07e backfilled all .fill chips)
+# 5) design-source sentinel audit (open-items #89: repo-local copy so CI runners
+#    without the truth dir still run it; dual-guard = "AUDIT PASS" in output AND exit 0)
+AUDIT_OUT="$(python3 design-source/build/audit.py 2>&1)" && AUDIT_RC=0 || AUDIT_RC=$?
+echo "$AUDIT_OUT"
+echo "$AUDIT_OUT" | grep -q 'AUDIT PASS' || fail "design-source audit.py failed (missing 'AUDIT PASS' in output)"
+[ "$AUDIT_RC" -eq 0 ] || fail "design-source audit.py exit code $AUDIT_RC (expected 0)"
+ok "design-source sentinel audit PASS (dual-guard: grep + exit code)"
+
+# 6) legal placeholders must be ZERO (open-items #20 launch gate: 07e backfilled all .fill chips)
 for f in src/content/pages/privacy.ts src/content/pages/terms.ts src/content/pages/refund.ts src/content/pages/cookies.ts; do
   if grep -q 'class="fill"' "$f"; then fail "legal .fill placeholders still present in $f (must be zero)"; fi
   if grep -qE '\[用户填入|\[待确认|\[待回填' "$f"; then fail "legal placeholder marker still present in $f (must be zero)"; fi
