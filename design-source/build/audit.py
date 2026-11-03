@@ -139,6 +139,11 @@ SENTINELS = {
    "What is a JFIF file?",
    "Convert JFIF free now",
    "Versão em português: JFIF para JPG →",
+   # ---- 05 v1.11 §8-2 + v1.14 §4: jfif 恢复批追加 4 针（恢复串逐字） ----
+   "No upload. No account. No watermark. Free, 10 conversions a day.",
+   "Will converting JFIF to JPG reduce quality?",
+   "Do you upload or store my files?",
+   "Is there a limit?",
  ],
  "pt-jfif-para-jpg": [
    "Conversor de JFIF para JPG — Grátis, sem Upload",
@@ -476,7 +481,13 @@ def main():
         "svg-to-dxf-converter": ["Tracing paths"],
         # (Phase-2 cap-conversion line legitimately mentions "AI HD rescue" as a Pro
         # benefit, 05 v1.6 §D — the functional block descriptor is the precise needle)
-        "jfif-to-jpg": ["Precision", "runs on your device's GPU", "Tracing paths", "Download DXF"],
+        "jfif-to-jpg": ["Precision", "runs on your device's GPU", "Tracing paths", "Download DXF",
+                # ---- 05 v1.11 §8-2 + v1.14 §4: 防回归负向针（判删串） ----
+                "Is JFIF the same as JPG?",                      # v1.11 N9 判删
+                "Do you upload my files?",                       # v1.11 N12 判删
+                "There is no account, no watermark, and no file upload.",  # v1.11 N3 判删
+                "It does not normalize metadata, color profile handling, or compatibility issues.",  # v1.14 判删句
+        ],
         "pt-jfif-para-jpg": ["$59", "Precision", "AI HD rescue", "Download DXF", "Tracing paths"],
     }
     for slug, sents in STATES.items():
