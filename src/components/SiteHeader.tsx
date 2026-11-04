@@ -38,7 +38,24 @@ const TOOL_ROUTES = new Set([
   '/screenshot-to-svg/',
   '/jfif-to-jpg/',
   '/pt/jfif-para-jpg/',
+  '/image-to-dxf/',
+  '/photo-to-dxf/',
 ]);
+
+/** Routes with NO header CTA (05 v1.13 §H negative sentinel: scenario page
+ *  omits 'Convert now — free' — no on-page #convert anchor by design). */
+const NO_CTA_ROUTES = new Set(['/png-to-dxf-for-laser-cutting/']);
+
+/** PT neutral pages → their EN pair for the "English version" link.
+ *  Full mapping per design truth v1.7 (2026-11-04: truth fixed the same
+ *  mislink in pt-jfif-para-png / pt-webp-para-svg source HTML). */
+export const PT_EN_PAIR: Record<string, string> = {
+  '/pt/jfif-para-jpg/': '/jfif-to-jpg/',
+  '/pt/jfif-para-png/': '/jfif-to-png/',
+  '/pt/webp-para-svg/': '/webp-to-svg/',
+  '/pt/imagem-para-dxf/': '/image-to-dxf/',
+  '/pt/foto-para-dxf/': '/photo-to-dxf/',
+};
 
 function nl(route: string, activeRoute: string, label: string) {
   return (
@@ -51,19 +68,20 @@ function nl(route: string, activeRoute: string, label: string) {
 export default function SiteHeader({ activeRoute = '/', lang = 'en' }: { activeRoute?: string; lang?: 'en' | 'pt' }) {
   if (lang === 'pt') {
     // PT page is a neutral tool page: minimal nav, language switch visible
+    const enPair = PT_EN_PAIR[activeRoute] ?? '/jfif-to-jpg/';
     return (
       <header className="site-header">
         <div className="wrap bar">
           <Logo />
           <nav className="main-nav" aria-label="Main">
-            <Link className="navlink" href="/jfif-to-jpg/">
+            <Link className="navlink" href={enPair}>
               English version →
             </Link>
           </nav>
           <details className="nav-mobile">
             <summary aria-label="Menu">☰</summary>
             <div className="menu">
-              <Link href="/jfif-to-jpg/">English version →</Link>
+              <Link href={enPair}>English version →</Link>
               <Link href="/privacy/">Política de Privacidade</Link>
             </div>
           </details>
@@ -112,9 +130,11 @@ export default function SiteHeader({ activeRoute = '/', lang = 'en' }: { activeR
           {nl('/for/cricut-sellers/', activeRoute, 'For Cricut sellers')}
           {nl('/for/embroidery/', activeRoute, 'For embroidery')}
           {nl('/pricing/', activeRoute, 'Pricing')}
-          <a className="btn btn--primary btn--sm nav-cta nav-cta-header" href={convertHref}>
-            Convert now — free
-          </a>
+          {NO_CTA_ROUTES.has(activeRoute) ? null : (
+            <a className="btn btn--primary btn--sm nav-cta nav-cta-header" href={convertHref}>
+              Convert now — free
+            </a>
+          )}
         </nav>
         <details className="nav-mobile">
           <summary aria-label="Menu">☰</summary>

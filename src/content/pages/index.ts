@@ -160,5 +160,40 @@ export const PAGES = [
     "type": "tool-neutral",
     "h1": "Conversor de WebP para SVG — Grátis, sem Upload",
     "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "image-to-dxf",
+    "route": "/image-to-dxf",
+    "type": "tool",
+    "h1": "Image to DXF Converter — Cut-Ready Output",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-imagem-para-dxf",
+    "route": "/pt/imagem-para-dxf",
+    "type": "tool-neutral",
+    "h1": "Conversor de Imagem para DXF — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "photo-to-dxf",
+    "route": "/photo-to-dxf",
+    "type": "tool",
+    "h1": "Photo to DXF Converter — Honest, Stylized Results",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-foto-para-dxf",
+    "route": "/pt/foto-para-dxf",
+    "type": "tool-neutral",
+    "h1": "Conversor de Foto para DXF — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "png-to-dxf-for-laser-cutting",
+    "route": "/png-to-dxf-for-laser-cutting",
+    "type": "content-scenario",
+    "h1": "PNG to DXF for Laser Cutting: From Image to LightBurn-Ready File",
+    "schema": "FAQPage only (NO SoftwareApplication — the tool lives at /png-to-dxf)"
   }
 ] as const;

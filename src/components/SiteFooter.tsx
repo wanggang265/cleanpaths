@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Logo } from './SiteHeader';
+import { Logo, PT_EN_PAIR } from './SiteHeader';
 import { FeedbackInline } from './feedback';
 
 const TOOLS_MENU: Array<[string, string]> = [
@@ -10,6 +10,10 @@ const TOOLS_MENU: Array<[string, string]> = [
   ['/jfif-to-jpg/', 'JFIF to JPG'],
   ['/jfif-to-png/', 'JFIF to PNG'],
   ['/webp-to-svg/', 'WebP to SVG'],
+  // design-handoff v1.7 (06 laser batch): EN footer Tools group +2,
+  // position verbatim — after WebP to SVG, before Samples gallery.
+  ['/image-to-dxf/', 'Image to DXF'],
+  ['/photo-to-dxf/', 'Photo to DXF'],
 ];
 
 /**
@@ -18,8 +22,9 @@ const TOOLS_MENU: Array<[string, string]> = [
  * URLs exist (open-items #12). Re-add with real URLs when accounts are live.
  */
 
-export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
+export default function SiteFooter({ lang = 'en', route = '/' }: { lang?: 'en' | 'pt'; route?: string }) {
   if (lang === 'pt') {
+    const enPair = PT_EN_PAIR[route] ?? '/jfif-to-jpg/';
     return (
       <footer className="site-footer">
         <div className="wrap">
@@ -28,7 +33,7 @@ export default function SiteFooter({ lang = 'en' }: { lang?: 'en' | 'pt' }) {
             <span className="links">
               <Link href="/privacy/">Política de Privacidade</Link>
               <span>·</span>
-              <Link href="/jfif-to-jpg/">English version</Link>
+              <Link href={enPair}>English version</Link>
               <span>·</span>
               <a href="mailto:support@cleanpaths.io">Suporte: support@cleanpaths.io</a>
             </span>

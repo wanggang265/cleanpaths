@@ -1,7 +1,8 @@
-# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.6）
+# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.7）
 
 - 执行：moyun ｜ 日期：2026-10-22 ｜ Skill：site-design-student v2.3.0
 - **Changelog**：
+  - v1.7（2026-11-03）——06 激光批增量：5 新路由（image-to-dxf EN+PT / photo-to-dxf EN+PT / png-to-dxf-for-laser-cutting 场景页）+ footer Tools +2 + audit.py 哨兵扩充（v1.13 §H）。（工单 PROMPT_sheji_06_laser_batch 原文日期写 2026-10-31，实际执行日落盘为 2026-11-03，此处按实际日期登记，偏差已上报。新增设计侧串走 [PENDING-06] 回传表 `06-new-copy-return-table.md`。）
   - v1.6（2026-10-22）——06f 增量（工单 PROMPT_sheji_06f_newpages）：4 新路由（/jfif-to-png + /pt/jfif-para-png + /webp-to-svg + /pt/webp-para-svg，含 4 状态板）+ CookieNotice 真源补位（#66，镜像线上 CookieNotice.tsx，零行为改动）+ footer Tools 槽位加两条 + **v1.6 商用授权附录回填进 builders**（pricing hero/权益行/FAQ#9、cricut 支撑句+FAQ#7、cap 态转化行——修 audit 漂移）。注：工单写 v1.4→v1.5，但 v1.5 已被 05e 落位占用，本批实际升 v1.6。新增设计侧串走 [PENDING-06f] 回传表（`06f-new-copy-return-table.md`）。
   - v1.5（2026-10-20）——05e 冻结落位（v1.7 附录 E1-E10）+ [PENDING-05e] 清零 + audit.py 哨兵扩充（E5 落位条件为自动断言）。
   - v1.4（2026-10-20）——06e BOFU 增量：4 个 comparison 新路由（模板 A 骨架：`/vector-magic-alternative` `/cloudconvert-alternative` `/vectorizer-ai-alternative` `/convertio-alternative`）+ /png-to-dxf FAQ#2 插入 pixel-to-path 条目（05d §5）+ footer 新增 Compare 分组（全站 EN 页脚；PT 页不加，中性约束）。上游对齐：法律页按 03 现行 md 重建（GA4/Clarity/Creem 回填后文本）；footer 信任行删除 "No tracking cookies"（EN+PT，open-items #60 用户 10-14 拍板，05e 附录 §4-3 已追认登记）。
@@ -165,6 +166,19 @@ Hero 上传组件转换完成后的流向（停留本页 vs 跳 /png-to-dxf 结�
 - **footer 信任行**：删 "No tracking cookies"（EN）/ "Sem cookies de rastreamento"（PT）——open-items #60 用户 10-14 拍板口径；包内 /cookies 页已含分析 cookie 表，footer 旧主张若不删将自相矛盾。
 - **CookieNotice 通知条**：线上 10-14 已上线（通知式非 opt-in，localStorage 记忆），本包**尚无**该组件设计真源 —— 回传 zhongshu：建议 06f 补 CookieNotice 设计真源（样式/token/EN/PT 双语文案槽），或确认以线上实现为准不入包。
 - **PT 页**：不加 Compare 分组（中性工具页约束延伸，同 B1 先例）。
+
+## 7e. 06 激光批增量（5 路由，工单 PROMPT_sheji_06_laser_batch，05 v1.13 逐字）
+
+生成器：`build/laser_batch_build.py`——冻结串从 05-copy-freeze-v1.13 md 槽位表**程序化解析**（190 键计数断言），chrome（header/footer/modal/cookie/状态板）从既有页文件逐字提取，零手抄。190 槽逐字自检内建于脚本尾段。
+
+- **/image-to-dxf**（A-EN）：镜像 /png-to-dxf 骨架——Hero（含 R2000/R12 seg 既有组件 + §0.3 microcopy + §0.2 徽章行，徽章间补 `·` 分隔符以同时满足 v1.13 整串逐字与原子哨兵）→ Proof（文本引述 + VERIFY mono 验证条贴下沿，及格线 #8）→ Problem → Solution → §0.3 质量诚实块（警示条）→ 专属模块 ×3（多格式语境 / 选择引导 4+1 卡片条——四张单格式卡内联指定锚文本 + 一张 blade 高亮「stay here」卡 / 场景样例三栏卡 + 收尾行）→ How → 定价锚点横条（同 /png-to-dxf）→ FAQ×5 → Final CTA。
+- **/photo-to-dxf**（B-EN）：同骨架；诚实边界块（模块①）做**全宽宣言式**（`.manifesto`，参照 /for/embroidery 诚实叙事块，本页情绪核心）；Proof 区挂「照片→海报化」before/after 样本位（新合成素材 `photo-scene_before/after.png`：before 5556 色连续调 / after 恰好 5 色海报化，可见 `SYNTHETIC SAMPLE` 标 + alt 双标，§11.6）；技巧模块 2×2 卡；§0.3 通用诚实块不落本页（v1.13 §B 登记的有意偏离）。
+- **/pt/imagem-para-dxf + /pt/foto-para-dxf**（A-PT/B-PT）：镜像 /pt/webp-para-svg 轻骨架（单栏 + Explainer + 诚实块 + Steps + FAQ×4 + CTA）；**PT 中性约束机检执行**：零价格零 Pro 零付费入口（audit.py $59 负向断言扩至本两页 code+states）、PT 极简 footer、无 Compare 组无社媒槽；`English version →` 按 v1.13 指**真实 EN 对应页**（见回传表观察项 N1）。
+- **/png-to-dxf-for-laser-cutting**（C）：**场景内容页，非工具页换 H1**——导语 → 工作流 5 编号步骤卡（步 1 内联锚 `PNG to DXF converter`）→ R12 info 块 → 场景样例 2×2 卡 + 收尾 → 质量论证（SPLINE 自查验证点 + `the PNG to DXF FAQ` 交叉链接）→ **CTA 引导卡（页中）**→ FAQ×5 → Final CTA band（页尾，CTA 二次出现同串）；无上传组件、无定价块、无徽章行、无头部 nav CTA（无 #convert 锚点；§H 负向哨兵守卫 `Convert now — free` 零命中）；schema 意图 FAQPage-only 已入 route-mapping。
+- **[PENDING-07] ×3 携带**：①`{FORMATS}` 占位 chip（caution 色，同 06e [待确认] chip 样式）落 dropzone 格式行 + 错误态接受清单（EN/PT 共 6 处），文案不锁清单；②场景页工具嵌入占位 = HTML 注释 + CTA 卡 `data-pending="07-embed"`，CTA 先行；③精度滑杆既有位保留（code.html How 步 2 注释 + 4 张状态板滑杆位注释），**v1.12 参数面板零进入**。
+- **footer Tools（Converters 组）EN +2**：`Image to DXF` / `Photo to DXF` 插入 Samples gallery 前，全站 20 个既有 EN 页脚 + 3 个新 EN 页同批落位（audit.py [V17] 逐页断言）；场景页不进 footer（工单 §4.4）；PT 页脚不动。
+- **audit.py 扩充**：SENTINELS 逐条入 v1.13 §H 五 slug 清单（meta-desc 片段走 raw 回退双检，仅限本批 5 slug）；STATES +4（错误态 `{FORMATS}` 占位串入哨兵防静默锁清单）；负向哨兵 = 面板词 6 枚（cut settings / width (mm) / color threshold / node smoothing / engrave / threshold，code+states 双文件小写扫描）+ 场景页 CTA 零命中；PT_PAGES / S12-PT / 状态板结构断言 / $59 守卫同步扩员。
+- **改动既有页清单**：仅 20 个 EN 页脚各 +2 链接（工单 §4.4 强制，06f 先例）；v1.6 及以前任何正文串零改动。
 
 ## 8. 前端实现注意事项（交 07）
 

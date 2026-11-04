@@ -401,6 +401,71 @@ SENTINELS = {
    "Precisa de DXF em vez de SVG?",
    "Esta página gera SVG.",
  ],
+ # ---------- v1.7 laser batch (05-copy-freeze-v1.13 §H, verbatim) ----------
+ "image-to-dxf": [
+   "Image to DXF Converter — Cut-Ready & Free | CleanPaths",
+   "Convert images to DXF with closed paths, color-separated layers",
+   "Image to DXF Converter — Cut-Ready Output",
+   "One converter for the images you actually have",
+   "Drop an image here — or browse",
+   "Flat-color graphics → cut-ready · Photos → stylized result",
+   "Images are everywhere. Cut files are not.",
+   "An honest note before you convert",
+   "The image you have beats the format you wish you had",
+   "Which converter should you use?",
+   "What a DXF from this page gets used for",
+   "How to convert an image to DXF (and get a file that cuts)",
+   "Which image formats can I convert here?",
+   "How is this different from the PNG to DXF and JPG to DXF converters?",
+   "Convert image to DXF free now",
+ ],
+ "pt-imagem-para-dxf": [
+   "Imagem para DXF — Conversor Grátis, sem Upload",
+   "Conversor de Imagem para DXF — Grátis, sem Upload",
+   "Arraste sua imagem aqui — ou clique para escolher",
+   "Um aviso honesto antes de converter",
+   "Por que converter imagem para DXF?",
+   "Converter imagem para DXF grátis",
+ ],
+ "photo-to-dxf": [
+   "Photo to DXF Converter — Honest & Free | CleanPaths",
+   "Convert photos to DXF with honest expectations",
+   "Photo to DXF Converter — Honest, Stylized Results",
+   "Some photos become striking poster-style cut art",
+   "Drop a photo here — or browse",
+   "Photos are the hardest thing to vectorize honestly",
+   "The honest line on photos",
+   "fine photographic detail does not become fine vector detail",
+   "How to get a better DXF from a photo",
+   "Is your photo actually a graphic?",
+   "How to convert a photo to DXF (and see the result first)",
+   "Will my photo come out as a detailed vector?",
+   "Can I convert a photo to DXF for laser cutting?",
+   "Convert photo to DXF free now",
+ ],
+ "pt-foto-para-dxf": [
+   "Foto para DXF — Conversor Grátis, sem Upload",
+   "Conversor de Foto para DXF — Grátis, sem Upload",
+   "Arraste sua foto aqui — ou clique para escolher",
+   "A regra honesta sobre fotos",
+   "Por que converter foto para DXF?",
+   "Converter foto para DXF grátis",
+ ],
+ "png-to-dxf-for-laser-cutting": [
+   "PNG to DXF for Laser Cutting: LightBurn Guide | CleanPaths",
+   "How to convert a PNG to DXF for laser cutting",
+   "PNG to DXF for Laser Cutting: From Image to LightBurn-Ready File",
+   "The workflow: PNG to laser-ready DXF in five steps",
+   "Do you ever need R12 compatibility mode?",
+   "What makers cut from a converted PNG",
+   "Why the quality of the DXF matters at the laser",
+   "Convert your PNG to DXF now",
+   "How do I convert a PNG to DXF for laser cutting?",
+   "Can I convert a logo to DXF for laser cutting?",
+   "Does the same workflow work for JPGs?",
+   "How do I get the physical size right before cutting?",
+   "Is this page different from the PNG to DXF converter?",
+ ],
 }
 
 BANNED = ["unlimited", "infinite", "lifetime", "guaranteed", "100% accurate", "official partner",
@@ -409,12 +474,14 @@ BANNED = ["unlimited", "infinite", "lifetime", "guaranteed", "100% accurate", "o
 def main():
     fails = []
     texts = {}
-    PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"}
+    PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"}
+    LASER5 = {"image-to-dxf", "pt-imagem-para-dxf", "photo-to-dxf", "pt-foto-para-dxf", "png-to-dxf-for-laser-cutting"}
     for slug, sents in SENTINELS.items():
         t = strip(read(slug))
         texts[slug] = t
+        raw5 = read(slug) if slug in LASER5 else ""
         for s in sents:
-            if s not in t:
+            if s not in t and s not in raw5:  # v1.7: raw fallback only for laser-batch slugs (meta-desc attr pins)
                 fails.append(f"[MISSING] {slug}: {s[:90]}")
 
     # cookies meta description lives in <head> (attribute, invisible to strip()) — raw-side pin:
@@ -480,6 +547,26 @@ def main():
                 "Escolher outro arquivo", "Baixar SVG",
                 "Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.",
                 "Ver opções →", "CONTADOR GRATUITO REINICIA TODO DIA"],
+ 
+        # v1.7 laser batch — error-line format list = {FORMATS} placeholder carry ([PENDING-07-formats])
+        "image-to-dxf": CAP_EN + COMMON + LAYERS_TPL + TRACE_STEPS + ["Download DXF (R2000)", "Download DXF (R12)",
+                "Download SVG", "Precision",
+                "That file can't be converted here. This page accepts {FORMATS}. Nothing was uploaded, so nothing was stored."],
+        "photo-to-dxf": CAP_EN + COMMON + LAYERS_TPL + TRACE_STEPS + ["Download DXF (R2000)", "Download DXF (R12)",
+                "Download SVG", "Precision",
+                "That file can't be converted here. This page accepts {FORMATS}. Nothing was uploaded, so nothing was stored."],
+        "pt-imagem-para-dxf": ["SOLTE PARA COMEÇAR", "Convertendo — no seu navegador, nada foi enviado",
+                "✓ Lendo o arquivo (local)", "▸ Vetorizando — parâmetros ajustados à imagem", "○ Preparando o download",
+                "Este arquivo não pode ser convertido aqui. Esta página aceita {FORMATS}. Nada foi enviado, então nada foi armazenado.",
+                "Escolher outro arquivo", "Baixar DXF (R2000)", "Baixar DXF (R12)", "Baixar SVG",
+                "Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.",
+                "Ver opções →", "CONTADOR GRATUITO REINICIA TODO DIA"],
+        "pt-foto-para-dxf": ["SOLTE PARA COMEÇAR", "Convertendo — no seu navegador, nada foi enviado",
+                "✓ Lendo o arquivo (local)", "▸ Vetorizando — parâmetros ajustados à imagem", "○ Preparando o download",
+                "Este arquivo não pode ser convertido aqui. Esta página aceita {FORMATS}. Nada foi enviado, então nada foi armazenado.",
+                "Escolher outro arquivo", "Baixar DXF (R2000)", "Baixar DXF (R12)", "Baixar SVG",
+                "Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.",
+                "Ver opções →", "CONTADOR GRATUITO REINICIA TODO DIA"],
     }
     NEGATIVE = {
         "svg-to-dxf-converter": ["Tracing paths"],
@@ -539,7 +626,8 @@ def main():
             if "social-slots" not in raw:
                 fails.append(f"[06C] {slug} missing footer social slots")
     for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg", "pt-jfif-para-jpg",
-                 "jfif-to-png", "pt-jfif-para-png", "webp-to-svg", "pt-webp-para-svg"):
+                 "jfif-to-png", "pt-jfif-para-png", "webp-to-svg", "pt-webp-para-svg",
+                 "image-to-dxf", "photo-to-dxf", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
             rs = f.read()
         for needle in ("share-block", "feedback FAB — 4 states", "feedback modal — 4 states"):
@@ -653,7 +741,7 @@ def main():
         "Abrir feedback", "Fechar feedback", "Enviar feedback",
     ]
     pt_t, pt_r = strip(raw("pt-jfif-para-jpg")), raw("pt-jfif-para-jpg")
-    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"):
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
         pt_t, pt_r = strip(raw(pt_slug)), raw(pt_slug)
         for s in PT_PAGE:
             if s not in pt_t and s not in pt_r:
@@ -684,7 +772,7 @@ def main():
             if s not in t and s not in r:
                 fails.append(f"[S12-EN-STATES] {slug}: {s[:70]}")
     t = strip(raw("pt-jfif-para-jpg", "states.html")); r = raw("pt-jfif-para-jpg", "states.html")
-    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"):
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
         t, r = strip(raw(pt_slug, "states.html")), raw(pt_slug, "states.html")
         for s in PT_STATES_S12:
             if s not in t and s not in r:
@@ -766,7 +854,7 @@ def main():
         fails.append("[06F-NEG] webp-to-svg main contains 'Download DXF' (SVG-only page)")
     if 'class="seg"' in read("webp-to-svg"):
         fails.append("[06F-NEG] webp-to-svg contains DXF version segmented control")
-    for slug in ("pt-jfif-para-png", "pt-webp-para-svg"):
+    for slug in ("pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
         if "$59" in read(slug):
             fails.append(f"[06F-NEG] {slug} contains $59 (PT neutral page)")
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
@@ -779,6 +867,27 @@ def main():
         for lbl in ('>JFIF to PNG<', '>WebP to SVG<'):
             if lbl not in rawp:
                 fails.append(f"[06F] {slug} footer missing Tools link {lbl}")
+    # v1.7: footer Tools group +2 on every EN page (work-order §4.4)
+    for slug in SENTINELS:
+        if slug in PT_PAGES:
+            continue
+        rawp = read(slug)
+        for lbl in ('>Image to DXF<', '>Photo to DXF<'):
+            if lbl not in rawp:
+                fails.append(f"[V17] {slug} footer missing Tools link {lbl}")
+    # ---------- v1.7 laser batch negative assertions (05 v1.13 §H: param-panel zero-reference + content-page CTA guard) ----------
+    def raw17(slug, fn="code.html"):  # 'raw' name is shadowed by the ROUTE-LINK loop above
+        with open(os.path.join(BASE, slug, fn), encoding="utf-8") as f:
+            return f.read()
+    PANEL_WORDS = ["cut settings", "width (mm)", "color threshold", "node smoothing", "engrave", "threshold"]
+    for slug in ("image-to-dxf", "pt-imagem-para-dxf", "photo-to-dxf", "pt-foto-para-dxf", "png-to-dxf-for-laser-cutting"):
+        for fn in (["code.html", "states.html"] if os.path.exists(os.path.join(BASE, slug, "states.html")) else ["code.html"]):
+            low = raw17(slug, fn).lower()
+            for w in PANEL_WORDS:
+                if w in low:
+                    fails.append(f"[V17-NEG] {slug}/{fn}: panel word '{w}' present")
+    if "convert now — free" in raw17("png-to-dxf-for-laser-cutting").lower():
+        fails.append("[V17-NEG] png-to-dxf-for-laser-cutting: 'Convert now — free' present (content page, no dropzone CTA)")
     if fails:
         print("\n".join(fails))
         print(f"\n{len(fails)} FAILURES")

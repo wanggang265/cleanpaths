@@ -24,7 +24,7 @@ export default function PageShell({
       <SiteHeader activeRoute={route} lang={lang} />
       {/* eslint-disable-next-line react/no-danger */}
       <main dangerouslySetInnerHTML={{ __html: mainHtml }} />
-      <SiteFooter lang={lang} />
+      <SiteFooter lang={lang} route={route} />
       <FeedbackFab lang={lang} />
       <FeedbackModal lang={lang} />
       <CtaBeacon />

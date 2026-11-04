@@ -1,10 +1,11 @@
 {
   "project": "cleanpaths.io",
   "stage": "06-design",
-  "version": "design-handoff-v1.6",
-  "generated": "2026-10-22",
-  "copy_source": "05-copy-freeze-v1.md v1.2 (+v1.6/v1.7/v1.8 appendices) + 05-bofu-comparison-copy-v1.md (verbatim, zero rewrites)",
+  "version": "design-handoff-v1.7",
+  "generated": "2026-11-03",
+  "copy_source": "05-copy-freeze-v1.md v1.2 (+v1.6/v1.7/v1.8/v1.13 appendices) + 05-bofu-comparison-copy-v1.md (verbatim, zero rewrites)",
   "changelog": [
+    "v1.7 (2026-11-03): 06 laser-batch increment — 5 new routes (/image-to-dxf + /pt/imagem-para-dxf + /photo-to-dxf + /pt/foto-para-dxf + /png-to-dxf-for-laser-cutting scenario page) + footer Tools group +2 (EN) + audit.py sentinel expansion per 05 v1.13 §H (incl. negative param-panel sentinels). Route count 23→28 = design-truth delivered scope; PRD §6 contract-scope count (36) is a separate ledger, not synced by design",
     "v1.6 (2026-10-22): 06f increment — 4 new routes (/jfif-to-png, /pt/jfif-para-png, /webp-to-svg, /pt/webp-para-svg) + CookieNotice design truth backfill (mirrors production, open-items #66) + footer Tools slots + v1.6 commercial-rights addendum landed in builders (pricing/cricut/cap-state) to close audit drift",
     "v1.5 (2026-10-20): 05e frozen chrome strings landed (v1.7 addendum E1-E10) + [PENDING-05e] markers cleared + audit.py sentinels expanded (E5 placement condition as automated DOM-proximity assertion)",
     "v1.4 (2026-10-20): 06e BOFU increment — 4 comparison routes (template A) + /png-to-dxf FAQ#2 pixel-to-path insert + footer Compare group site-wide (EN); legal pages rebuilt from current 03 md (GA4/Clarity/Creem backfill); footer trust line dropped 'No tracking cookies' per open-items #60 (user decision 2026-10-14)",
@@ -12,30 +13,444 @@
     "v1.2 (2026-09-28): 06c — feedback FAB+modal, social slots, share CTA, showcase wall",
     "v1.1 (2026-09-26): 06b — 05 §11 rulings applied"
   ],
-  "viewport": {"desktop": "1440x900", "mobile": "390x844"},
+  "viewport": {
+    "desktop": "1440x900",
+    "mobile": "390x844"
+  },
   "routes": [
-    {"route": "/", "dir": "pages/home", "type": "tool+landing", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser", "schema": "SoftwareApplication + FAQPage", "states": ["empty(default)", "dragover", "processing", "result+feedback", "error", "daily-cap", "pro-locked", "pro-active", "feedback-sent"]},
-    {"route": "/png-to-dxf", "dir": "pages/png-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "PNG to DXF Converter — Cut-Ready Output", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html", "notes": "06e: FAQ#2 = 'How does CleanPaths compare to PixelToPath?' (05d §5), inserted after R12/R2000 item, into FAQPage schema (07). 06f C-group: copy-only changes pending via 07 (C8-C10: photo/picture-to-DXF Problem line + FAQ#5 expansion + keywords) — NOT applied to this package"},
-    {"route": "/jpg-to-dxf", "dir": "pages/jpg-to-dxf", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JPG to DXF — Turn Client Photos of Logos into Cut Files", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html", "notes": "06f C-group: copy-only changes pending via 07 (C5-C7: photo/picture-to-DXF Problem line + FAQ#7 + keywords) — NOT applied to this package"},
-    {"route": "/svg-to-dxf-converter", "dir": "pages/svg-to-dxf-converter", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "SVG to DXF Converter — R12 & R2000, Units Included", "schema": "SoftwareApplication + FAQPage", "states": "same 9-state set via states.html"},
-    {"route": "/jfif-to-jpg", "dir": "pages/jfif-to-jpg", "type": "tool-light", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JFIF to JPG Converter — Free, No Upload", "schema": "SoftwareApplication", "states": "7-state set (05 §11.12-1: no Precision slider, no AI HD rescue)", "notes": "06f C-group: copy-only changes pending via 07 (C1-C4: JPEG synonym title/H1/FAQ#5 + keywords) — NOT applied to this package per 06f work order"},
-    {"route": "/pt/jfif-para-jpg", "dir": "pages/pt-jfif-para-jpg", "type": "tool-light-neutral", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Conversor de JFIF para JPG — Grátis, sem Upload", "schema": "SoftwareApplication", "states": "7-state set, full PT wording (05 §11.3 PT table), cap state = §11.2 PT neutral variant, no $59", "notes": "neutral tool page: no brand story, no persona cards, no pricing block; hreflang pair with /jfif-to-jpg"},
-    {"route": "/screenshot-to-svg", "dir": "pages/screenshot-to-svg", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Screenshot to SVG — Clean Vector from Any UI Screenshot", "schema": "SoftwareApplication (+ FAQPage optional)", "states": "same 9-state set via states.html"},
-    {"route": "/samples", "dir": "pages/samples", "type": "gallery", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "See the Difference: Before / After", "schema": "ImageGallery + ImageObject/ItemList per card (07 implements; 06c requires server-side indexable static HTML — NO iframe/dynamic wall)", "states": "no tool states; UGC teaser strip is static (v1 collects intent only); Community group slot reserved (#community, opens on first opt-ins)"},
-    {"route": "/for/cricut-sellers", "dir": "pages/for-cricut-sellers", "type": "persona", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Cut-Ready SVG & DXF Files for Cricut Sellers", "schema": "WebPage + FAQPage", "states": "no tool states; FAQ as symptom→diagnosis cards"},
-    {"route": "/for/embroidery", "dir": "pages/for-embroidery", "type": "persona", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "From Image to Embroidery: Honest Prep, Human Digitizers", "schema": "WebPage + FAQPage", "states": "no tool states; FTC affiliate footnote in-page"},
-    {"route": "/pricing", "dir": "pages/pricing", "type": "pricing", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Simple, One-Time Pricing", "schema": "FAQPage (+ Product/Offer pending 07)", "states": "4-card structure: Free / Pro Core (featured) / Add-on packs / Monthly Pass (de-emphasized)"},
-    {"route": "/privacy", "dir": "pages/privacy", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Privacy Policy", "schema": "none", "states": "static; placeholders from 03 rendered as highlighted chips"},
-    {"route": "/terms", "dir": "pages/terms", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Terms of Service", "schema": "none", "states": "static"},
-    {"route": "/cookies", "dir": "pages/cookies", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Cookie Policy", "schema": "none", "states": "static; NO cookie banner anywhere by architectural decision"},
-    {"route": "/refund", "dir": "pages/refund", "type": "legal", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "Refund Policy", "schema": "none", "states": "static"},
-    {"route": "/vector-magic-alternative", "dir": "pages/vector-magic-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Vector Magic Alternative That Runs in Your Browser — and Exports Cut-Ready DXF", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "content page: FAQ accordion open/close (native details), comparison table mobile-stacked (.cmp-versus); hero upload component states = reuse tool-page states (07)", "notes": "template A; [待确认] cells render as text chips, no ❌/✅ on competitor column"},
-    {"route": "/cloudconvert-alternative", "dir": "pages/cloudconvert-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A CloudConvert Alternative That Never Uploads Your File", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; 'Where files go' row visually emphasized (factual labels only); FAQ#2 NDA answer also as body highlight card"},
-    {"route": "/vectorizer-ai-alternative", "dir": "pages/vectorizer-ai-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; POLYLINE/SPLINE technical footnote card (in our tests)"},
-    {"route": "/convertio-alternative", "dir": "pages/convertio-alternative", "type": "comparison", "files": ["code.html", "screen.png", "screen-mobile.png"], "h1": "A Convertio Alternative Built for Cut Files, Not Just Conversions", "schema": "SoftwareApplication + FAQPage", "hreflang": "none (EN-only this batch)", "states": "same as comparison template A", "notes": "template A; B_QUEUE floor-volume page, zero custom components"},
-    {"route": "/jfif-to-png", "dir": "pages/jfif-to-png", "type": "tool-light", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "JFIF to PNG Converter — Free, No Upload", "schema": "SoftwareApplication + FAQPage", "hreflang": "/pt/jfif-para-png", "states": "7-state set (no Precision, no AI HD rescue; bitmap→bitmap)", "notes": "05 v1.8 §A; zero cut-ready narrative; no pricing anchor module"},
-    {"route": "/pt/jfif-para-png", "dir": "pages/pt-jfif-para-png", "type": "tool-light-neutral", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Conversor de JFIF para PNG — Grátis, sem Upload", "schema": "SoftwareApplication + FAQPage", "hreflang": "/jfif-to-png", "states": "7-state set, PT", "notes": "PT neutral; dropzone CTA = 'Converter grátis' (zhongshu ruling over v1.8 §E-2)"},
-    {"route": "/webp-to-svg", "dir": "pages/webp-to-svg", "type": "tool", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "WebP to SVG Converter — Cut-Ready Output", "schema": "SoftwareApplication + FAQPage", "hreflang": "/pt/webp-para-svg", "states": "9-state trace set; SVG-only downloads; NO DXF version selector", "notes": "05 v1.8 §B; DXF appears only as cross-guide cards; Proof reuses frozen 88→9 'in our tests' string"},
-    {"route": "/pt/webp-para-svg", "dir": "pages/pt-webp-para-svg", "type": "tool-neutral", "files": ["code.html", "screen.png", "screen-mobile.png", "states.html", "states.png"], "h1": "Conversor de WebP para SVG — Grátis, sem Upload", "schema": "SoftwareApplication + FAQPage", "hreflang": "/webp-to-svg", "states": "PT states set", "notes": "PT neutral; honesty block kept (compliance register, not brand narrative); no pricing block"}
+    {
+      "route": "/",
+      "dir": "pages/home",
+      "type": "tool+landing",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser",
+      "schema": "SoftwareApplication + FAQPage",
+      "states": [
+        "empty(default)",
+        "dragover",
+        "processing",
+        "result+feedback",
+        "error",
+        "daily-cap",
+        "pro-locked",
+        "pro-active",
+        "feedback-sent"
+      ]
+    },
+    {
+      "route": "/png-to-dxf",
+      "dir": "pages/png-to-dxf",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "PNG to DXF Converter — Cut-Ready Output",
+      "schema": "SoftwareApplication + FAQPage",
+      "states": "same 9-state set via states.html",
+      "notes": "06e: FAQ#2 = 'How does CleanPaths compare to PixelToPath?' (05d §5), inserted after R12/R2000 item, into FAQPage schema (07). 06f C-group: copy-only changes pending via 07 (C8-C10: photo/picture-to-DXF Problem line + FAQ#5 expansion + keywords) — NOT applied to this package"
+    },
+    {
+      "route": "/jpg-to-dxf",
+      "dir": "pages/jpg-to-dxf",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "JPG to DXF — Turn Client Photos of Logos into Cut Files",
+      "schema": "SoftwareApplication + FAQPage",
+      "states": "same 9-state set via states.html",
+      "notes": "06f C-group: copy-only changes pending via 07 (C5-C7: photo/picture-to-DXF Problem line + FAQ#7 + keywords) — NOT applied to this package"
+    },
+    {
+      "route": "/svg-to-dxf-converter",
+      "dir": "pages/svg-to-dxf-converter",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "SVG to DXF Converter — R12 & R2000, Units Included",
+      "schema": "SoftwareApplication + FAQPage",
+      "states": "same 9-state set via states.html"
+    },
+    {
+      "route": "/jfif-to-jpg",
+      "dir": "pages/jfif-to-jpg",
+      "type": "tool-light",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "JFIF to JPG Converter — Free, No Upload",
+      "schema": "SoftwareApplication",
+      "states": "7-state set (05 §11.12-1: no Precision slider, no AI HD rescue)",
+      "notes": "06f C-group: copy-only changes pending via 07 (C1-C4: JPEG synonym title/H1/FAQ#5 + keywords) — NOT applied to this package per 06f work order"
+    },
+    {
+      "route": "/pt/jfif-para-jpg",
+      "dir": "pages/pt-jfif-para-jpg",
+      "type": "tool-light-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de JFIF para JPG — Grátis, sem Upload",
+      "schema": "SoftwareApplication",
+      "states": "7-state set, full PT wording (05 §11.3 PT table), cap state = §11.2 PT neutral variant, no $59",
+      "notes": "neutral tool page: no brand story, no persona cards, no pricing block; hreflang pair with /jfif-to-jpg"
+    },
+    {
+      "route": "/screenshot-to-svg",
+      "dir": "pages/screenshot-to-svg",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Screenshot to SVG — Clean Vector from Any UI Screenshot",
+      "schema": "SoftwareApplication (+ FAQPage optional)",
+      "states": "same 9-state set via states.html"
+    },
+    {
+      "route": "/samples",
+      "dir": "pages/samples",
+      "type": "gallery",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "See the Difference: Before / After",
+      "schema": "ImageGallery + ImageObject/ItemList per card (07 implements; 06c requires server-side indexable static HTML — NO iframe/dynamic wall)",
+      "states": "no tool states; UGC teaser strip is static (v1 collects intent only); Community group slot reserved (#community, opens on first opt-ins)"
+    },
+    {
+      "route": "/for/cricut-sellers",
+      "dir": "pages/for-cricut-sellers",
+      "type": "persona",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Cut-Ready SVG & DXF Files for Cricut Sellers",
+      "schema": "WebPage + FAQPage",
+      "states": "no tool states; FAQ as symptom→diagnosis cards"
+    },
+    {
+      "route": "/for/embroidery",
+      "dir": "pages/for-embroidery",
+      "type": "persona",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "From Image to Embroidery: Honest Prep, Human Digitizers",
+      "schema": "WebPage + FAQPage",
+      "states": "no tool states; FTC affiliate footnote in-page"
+    },
+    {
+      "route": "/pricing",
+      "dir": "pages/pricing",
+      "type": "pricing",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Simple, One-Time Pricing",
+      "schema": "FAQPage (+ Product/Offer pending 07)",
+      "states": "4-card structure: Free / Pro Core (featured) / Add-on packs / Monthly Pass (de-emphasized)"
+    },
+    {
+      "route": "/privacy",
+      "dir": "pages/privacy",
+      "type": "legal",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Privacy Policy",
+      "schema": "none",
+      "states": "static; placeholders from 03 rendered as highlighted chips"
+    },
+    {
+      "route": "/terms",
+      "dir": "pages/terms",
+      "type": "legal",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Terms of Service",
+      "schema": "none",
+      "states": "static"
+    },
+    {
+      "route": "/cookies",
+      "dir": "pages/cookies",
+      "type": "legal",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Cookie Policy",
+      "schema": "none",
+      "states": "static; NO cookie banner anywhere by architectural decision"
+    },
+    {
+      "route": "/refund",
+      "dir": "pages/refund",
+      "type": "legal",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "Refund Policy",
+      "schema": "none",
+      "states": "static"
+    },
+    {
+      "route": "/vector-magic-alternative",
+      "dir": "pages/vector-magic-alternative",
+      "type": "comparison",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "A Vector Magic Alternative That Runs in Your Browser — and Exports Cut-Ready DXF",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "none (EN-only this batch)",
+      "states": "content page: FAQ accordion open/close (native details), comparison table mobile-stacked (.cmp-versus); hero upload component states = reuse tool-page states (07)",
+      "notes": "template A; [待确认] cells render as text chips, no ❌/✅ on competitor column"
+    },
+    {
+      "route": "/cloudconvert-alternative",
+      "dir": "pages/cloudconvert-alternative",
+      "type": "comparison",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "A CloudConvert Alternative That Never Uploads Your File",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "none (EN-only this batch)",
+      "states": "same as comparison template A",
+      "notes": "template A; 'Where files go' row visually emphasized (factual labels only); FAQ#2 NDA answer also as body highlight card"
+    },
+    {
+      "route": "/vectorizer-ai-alternative",
+      "dir": "pages/vectorizer-ai-alternative",
+      "type": "comparison",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "none (EN-only this batch)",
+      "states": "same as comparison template A",
+      "notes": "template A; POLYLINE/SPLINE technical footnote card (in our tests)"
+    },
+    {
+      "route": "/convertio-alternative",
+      "dir": "pages/convertio-alternative",
+      "type": "comparison",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "A Convertio Alternative Built for Cut Files, Not Just Conversions",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "none (EN-only this batch)",
+      "states": "same as comparison template A",
+      "notes": "template A; B_QUEUE floor-volume page, zero custom components"
+    },
+    {
+      "route": "/jfif-to-png",
+      "dir": "pages/jfif-to-png",
+      "type": "tool-light",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "JFIF to PNG Converter — Free, No Upload",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/pt/jfif-para-png",
+      "states": "7-state set (no Precision, no AI HD rescue; bitmap→bitmap)",
+      "notes": "05 v1.8 §A; zero cut-ready narrative; no pricing anchor module"
+    },
+    {
+      "route": "/pt/jfif-para-png",
+      "dir": "pages/pt-jfif-para-png",
+      "type": "tool-light-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de JFIF para PNG — Grátis, sem Upload",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/jfif-to-png",
+      "states": "7-state set, PT",
+      "notes": "PT neutral; dropzone CTA = 'Converter grátis' (zhongshu ruling over v1.8 §E-2)"
+    },
+    {
+      "route": "/webp-to-svg",
+      "dir": "pages/webp-to-svg",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "WebP to SVG Converter — Cut-Ready Output",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/pt/webp-para-svg",
+      "states": "9-state trace set; SVG-only downloads; NO DXF version selector",
+      "notes": "05 v1.8 §B; DXF appears only as cross-guide cards; Proof reuses frozen 88→9 'in our tests' string"
+    },
+    {
+      "route": "/pt/webp-para-svg",
+      "dir": "pages/pt-webp-para-svg",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de WebP para SVG — Grátis, sem Upload",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/webp-to-svg",
+      "states": "PT states set",
+      "notes": "PT neutral; honesty block kept (compliance register, not brand narrative); no pricing block"
+    },
+    {
+      "route": "/image-to-dxf",
+      "dir": "pages/image-to-dxf",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Image to DXF Converter — Cut-Ready Output",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/pt/imagem-para-dxf",
+      "states": "same 9-state set via states.html (precision slider slot = existing component, [PENDING-07-slider] verification = 07)",
+      "notes": "05 v1.13 §A-1 (53 keys verbatim, key-name comments preserved in HTML); multi-format entry page; dropzone + error-state format list = {FORMATS} placeholder chip [PENDING-07-formats], NOT locked by copy"
+    },
+    {
+      "route": "/pt/imagem-para-dxf",
+      "dir": "pages/pt-imagem-para-dxf",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de Imagem para DXF — Grátis, sem Upload",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/image-to-dxf",
+      "states": "PT states set (DXF R2000/R12/SVG download buttons = format-replacement carries, see 06-new-copy-return-table.md)",
+      "notes": "PT neutral per amend-004 补遗: zero pricing, zero Pro, no paid entry, minimal PT footer; English version link → /image-to-dxf (v1.13 §A-2 spec)"
+    },
+    {
+      "route": "/photo-to-dxf",
+      "dir": "pages/photo-to-dxf",
+      "type": "tool",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Photo to DXF Converter — Honest, Stylized Results",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/pt/foto-para-dxf",
+      "states": "same 9-state set via states.html ([PENDING-07-slider] carry)",
+      "notes": "05 v1.13 §B-1 (46 keys verbatim); honesty-boundary core page — photo-specific honesty block as full-width manifesto (replaces generic §0.3 main block, registered deviation); Proof carries photo→posterized before/after sample slot with visible SYNTHETIC SAMPLE tag (synthetic assets: photo-scene_before/after.png)"
+    },
+    {
+      "route": "/pt/foto-para-dxf",
+      "dir": "pages/pt-foto-para-dxf",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de Foto para DXF — Grátis, sem Upload",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/photo-to-dxf",
+      "states": "PT states set",
+      "notes": "PT neutral per amend-004 补遗; photo-honesty block kept (compliance register, v1.8 §B-2 precedent); English version link → /photo-to-dxf"
+    },
+    {
+      "route": "/png-to-dxf-for-laser-cutting",
+      "dir": "pages/png-to-dxf-for-laser-cutting",
+      "type": "content-scenario",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png"
+      ],
+      "h1": "PNG to DXF for Laser Cutting: From Image to LightBurn-Ready File",
+      "schema": "FAQPage only (NO SoftwareApplication — the tool lives at /png-to-dxf)",
+      "hreflang": "none (EN-only, zhongshu 2026-10-31 ruling; amend-004 补遗)",
+      "states": "no tool states; [PENDING-07-embed] tool-embed slot reserved as HTML comment + data-pending=07-embed on the mid-page CTA card (CTA-first)",
+      "notes": "05 v1.13 §C (33 keys verbatim); content page — NOT in footer Tools group (inbound links: /photo-to-dxf FAQ#2 this batch; /png-to-dxf related-reading + home = 07/zhongshu); header nav CTA omitted (no on-page #convert anchor; v1.13 §H negative sentinel guards 'Convert now — free' absence)"
+    }
   ]
 }
