@@ -144,6 +144,10 @@ SENTINELS = {
    "Will converting JFIF to JPG reduce quality?",
    "Do you upload or store my files?",
    "Is there a limit?",
+   # ---- 05g module B: FAQ#10-#12 (copy source: 05-copy-freeze-v1.10 §B) ----
+   "How to open a JFIF file",
+   "How do I open a JFIF file on a Mac or iPhone?",
+   "Is there a JFIF viewer?",
  ],
  "pt-jfif-para-jpg": [
    "Conversor de JFIF para JPG — Grátis, sem Upload",
