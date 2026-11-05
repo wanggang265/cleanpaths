@@ -19,6 +19,11 @@ if [ -d "$TRUTH" ]; then
     diff -q "$d/code.html" "$TRUTH/pages/$slug/code.html" >/dev/null \
       || fail "pages/$slug/code.html differs from design truth"
   done
+  # anti-rollback manifest (#96): truth must match the git-anchored ratified hashes —
+  # detects truth itself being overwritten by an older baseline (11-04 #94 accident class)
+  python3 design-source/build/truth_manifest.py check \
+    || fail "truth drift vs ratified manifest（真源被回退或未授权改写——见上方 mismatch 清单）"
+  ok "truth manifest anchored (anti-rollback)"
   ok "design source in sync with truth ($TRUTH)"
 else
   echo "⚠ GATE: truth dir $TRUTH not found — skipping remote diff (local-only check)"
@@ -29,21 +34,27 @@ node scripts/extract-pages.mjs >/dev/null
 git diff --quiet -- src/content/pages 2>/dev/null || true  # content is regenerated deterministically
 ok "content extraction re-ran (deterministic from design source)"
 
-# 3) all 23 routes have a page file
-for f in "src/app/page.tsx" "src/app/png-to-dxf/page.tsx" "src/app/jpg-to-dxf/page.tsx" \
-         "src/app/svg-to-dxf-converter/page.tsx" "src/app/screenshot-to-svg/page.tsx" \
-         "src/app/jfif-to-jpg/page.tsx" "src/app/pt/jfif-para-jpg/page.tsx" \
-         "src/app/vector-magic-alternative/page.tsx" "src/app/cloudconvert-alternative/page.tsx" \
-         "src/app/vectorizer-ai-alternative/page.tsx" "src/app/convertio-alternative/page.tsx" \
-         "src/app/jfif-to-png/page.tsx" "src/app/pt/jfif-para-png/page.tsx" \
-         "src/app/webp-to-svg/page.tsx" "src/app/pt/webp-para-svg/page.tsx" \
-         "src/app/samples/page.tsx" "src/app/for/cricut-sellers/page.tsx" \
-         "src/app/for/embroidery/page.tsx" "src/app/pricing/page.tsx" \
-         "src/app/privacy/page.tsx" "src/app/terms/page.tsx" \
-         "src/app/cookies/page.tsx" "src/app/refund/page.tsx"; do
-  [ -f "$f" ] || fail "missing route file: $f"
+# 3) every route in the Route Contract has a page file (data-driven, #96 —
+#    replaces the hardcoded list that silently passed when laser-batch routes were missing)
+ROUTE_FILES=$(python3 - <<'PY'
+import json, sys
+try:
+    d = json.load(open("design-source/route-mapping.json", encoding="utf-8"))
+except Exception as e:
+    sys.exit(f"route-mapping.json unreadable: {e}")
+for r in d["routes"]:
+    route = r["route"].strip("/")
+    print("src/app/page.tsx" if not route else f"src/app/{route}/page.tsx")
+PY
+) || fail "route-mapping.json parse failed (step 3 data-driven route check)"
+ROUTE_COUNT=0
+ROUTE_MISSING=""
+for f in $ROUTE_FILES; do
+  ROUTE_COUNT=$((ROUTE_COUNT + 1))
+  [ -f "$f" ] || ROUTE_MISSING="$ROUTE_MISSING $f"
 done
-ok "23 route files present"
+[ -z "$ROUTE_MISSING" ] || fail "missing route file(s):$ROUTE_MISSING"
+ok "$ROUTE_COUNT route files present (data-driven from route-mapping.json)"
 
 # 4) frozen-copy audit (verbatim strings still byte-identical)
 node scripts/audit-copy.mjs || fail "copy audit failed"
