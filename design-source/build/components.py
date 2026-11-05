@@ -39,6 +39,15 @@ def href(route, current_slug=""):
         "/terms": "../terms/code.html",
         "/cookies": "../cookies/code.html",
         "/refund": "../refund/code.html",
+        # synced from product 2026-11-05 (#90 writeback): v1.6/v1.7 routes used by footer
+        "/jfif-to-png": "../jfif-to-png/code.html",
+        "/webp-to-svg": "../webp-to-svg/code.html",
+        "/image-to-dxf": "../image-to-dxf/code.html",
+        "/photo-to-dxf": "../photo-to-dxf/code.html",
+        "/vector-magic-alternative": "../vector-magic-alternative/code.html",
+        "/cloudconvert-alternative": "../cloudconvert-alternative/code.html",
+        "/vectorizer-ai-alternative": "../vectorizer-ai-alternative/code.html",
+        "/convertio-alternative": "../convertio-alternative/code.html",
     }
     return m[route]
 
@@ -156,6 +165,23 @@ def faq(items, h2=None, klass="faq"):
     )
     return f"{head}<div class='{klass}'>{rows}</div>"
 
+# Footer tools column (EN) — synced from product 2026-11-05 (#90 writeback):
+# v1.6 added jfif-to-png/webp-to-svg, v1.7 laser batch added image/photo-to-dxf.
+FOOTER_TOOLS = TOOLS_MENU + [
+    ("/jfif-to-png", "JFIF to PNG", ""),
+    ("/webp-to-svg", "WebP to SVG", ""),
+    ("/image-to-dxf", "Image to DXF", ""),
+    ("/photo-to-dxf", "Photo to DXF", ""),
+]
+
+# Footer Compare column (EN) — synced from product 2026-11-05 (#90 writeback): 06e BOFU group.
+FOOTER_COMPARE = [
+    ("/vector-magic-alternative", "vs Vector Magic"),
+    ("/cloudconvert-alternative", "vs CloudConvert"),
+    ("/vectorizer-ai-alternative", "vs Vectorizer.ai"),
+    ("/convertio-alternative", "vs Convertio"),
+]
+
 def footer(lang="en"):
     if lang == "pt":
         return f"""<footer class="site-footer"><div class="wrap">
@@ -168,7 +194,8 @@ def footer(lang="en"):
     </span>
   </div>
 </div></footer>"""
-    tools = "".join(f'<li><a href="{href(r)}">{n}</a></li>' for r, n, _ in TOOLS_MENU)
+    tools = "".join(f'<li><a href="{href(r)}">{n}</a></li>' for r, n, _ in FOOTER_TOOLS)
+    compare = "".join(f'\n        <li><a href="{href(r)}">{n}</a></li>' for r, n in FOOTER_COMPARE)
     return f"""<footer class="site-footer"><div class="wrap">
   <div class="footer-feedback" id="footer-feedback">
     <div class="grid-2" style="align-items:start">
@@ -180,7 +207,7 @@ def footer(lang="en"):
       {feedback_block(context="footer", compact=True)}
     </div>
   </div>
-  <div class="footer-grid">
+  <div class="footer-grid footer-grid--5">
     <div>
       {logo()}
       <p style="margin-top:12px;color:var(--ink-2);font-size:14px;max-width:26em">Cut-ready DXF &amp; SVG from the images clients actually send — processed entirely in your browser.</p>
@@ -196,6 +223,11 @@ def footer(lang="en"):
         <li><a href="{href('/for/cricut-sellers')}">For Cricut sellers</a></li>
         <li><a href="{href('/for/embroidery')}">For embroidery</a></li>
         <li><a href="{href('/pricing')}">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Compare</h4>
+      <ul>{compare}
       </ul>
     </div>
     <div>
@@ -339,6 +371,23 @@ def share_block(lang="en"):
   </label>
 </div>"""
 
+def cookie_notice(lang="en"):
+    """Analytics cookie notice bar (06f #66: EN/PT verbatim from product, synced 2026-11-05 #90 writeback).
+    Rendered on every page after the feedback modal; dismissal persisted via data-storage-key."""
+    if lang == "pt":
+        return """<div class="cookie-notice" role="status" data-storage-key="cookie-notice-dismissed">
+  <div class="cookie-notice__inner">
+    <span class="cookie-notice__text">Usamos cookies de análise (Google Analytics e Microsoft Clarity) para entender como o site é usado — sem anúncios e sem rastreamento entre sites. Seus arquivos continuam 100% no seu dispositivo. <a href="../cookies/code.html">Detalhes</a></span>
+    <button class="cookie-notice__btn" type="button">Entendi</button>
+  </div>
+</div>"""
+    return """<div class="cookie-notice" role="status" data-storage-key="cookie-notice-dismissed">
+  <div class="cookie-notice__inner">
+    <span class="cookie-notice__text">We use analytics cookies (Google Analytics &amp; Microsoft Clarity) to see how the site is used — no ads, no cross-site tracking. Your files still never leave your device. <a href="../cookies/code.html">Details</a></span>
+    <button class="cookie-notice__btn" type="button">Got it</button>
+  </div>
+</div>"""
+
 def page(title, meta_desc, body_html, active_route="/", lang="en", extra_head=""):
     lang_attr = "pt-BR" if lang == "pt" else "en"
     return f"""<!doctype html>
@@ -360,6 +409,7 @@ def page(title, meta_desc, body_html, active_route="/", lang="en", extra_head=""
 {footer(lang)}
 {feedback_fab(lang)}
 {feedback_modal(lang, active_route)}
+{cookie_notice(lang)}
 </body>
 </html>"""
 

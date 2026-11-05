@@ -61,8 +61,9 @@ def build_cricut():
     <span class="spec">02 · the repair manual</span>
     <h2 style="margin-top:12px">SVG problems, diagnosed</h2>
     <div class="diag" style="margin-top:20px">{diag_html}</div>
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px;max-width:56em">Before you upload to Design Space: if a customer sends a .jfif, <a href="../jfif-to-jpg/code.html">turn .jfif into .jpg</a> first — Design Space and most tools accept the .jpg extension more reliably.</p>
   </div>
-</section>"""
+</section>"""  # synced from product 2026-11-05 (#90 writeback): diag 区 jfif 交叉引导段
     smallcut = """
 <section class="section">
   <div class="wrap">

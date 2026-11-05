@@ -56,8 +56,9 @@ def build():
       <a class="btn" href="{href('/png-to-dxf')}">PNG to DXF converter →</a>
       <a class="btn" href="{href('/jpg-to-dxf')}">JPG to DXF converter →</a>
     </div>
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px">Need a compatible JPG first? You can <a href="../jfif-to-jpg/code.html">convert JFIF to JPG</a> free, right in your browser.</p>
   </div>
-</section>"""
+</section>"""  # synced from product 2026-11-05 (#90 writeback): logos 区 jfif 交叉引导段
     shots = f"""
 <section class="section section--alt" id="screenshots">
   <div class="wrap">

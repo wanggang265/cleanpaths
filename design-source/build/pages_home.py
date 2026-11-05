@@ -128,8 +128,9 @@ def build():
       <a class="card" style="text-decoration:none" href="{href('/jfif-to-jpg')}"><span class="spec">JFIF → JPG</span><h3 style="margin-top:10px;font-size:18px">JFIF to JPG Converter — Free, No Upload</h3></a>
       <a class="card" style="text-decoration:none" href="{href('/samples')}"><span class="spec">Evidence</span><h3 style="margin-top:10px;font-size:18px">See the Difference: Before / After</h3></a>
     </div>
+    <p style="margin-top:18px;color:var(--ink-2);font-size:15px">Got a .jfif file instead of a JPG? The <a href="../jfif-to-jpg/code.html">JFIF to JPG converter</a> fixes the extension first — free, no upload.</p>
   </div>
-</section>"""
+</section>"""  # synced from product 2026-11-05 (#90 writeback): toolbox 末尾 jfif 交叉引导段
 
     personas = f"""
 <section class="section">

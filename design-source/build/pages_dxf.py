@@ -67,6 +67,7 @@ def build_png():
       <li>"Free converters stop at 'here's a vector.' Whether it cuts is your problem."</li>
       <li>"And most of them want your file on their server first."</li>
     </ul>
+    <p style="margin-top:12px;color:var(--ink-2)">Looking for photo to DXF or picture to DXF? Same tool, same rule: flat-color graphics are designed for cut-ready output — photos come out stylized.</p>
   </div>
 </section>"""
     solution = """
@@ -102,6 +103,7 @@ def build_png():
     <h2 style="margin-top:12px">Why not just use a free tracer?</h2>
     <p style="max-width:62em;color:var(--ink-2);margin-bottom:24px">{DXF_DIFF_MAIN}</p>
     {cmp_table("PNG")}
+    <p style="margin-top:20px;color:var(--ink-2);font-size:15px">Holding a .jfif instead of a PNG? Our <a href="../jfif-to-jpg/code.html">free JFIF to JPG tool</a> fixes the extension first — then trace as usual.</p>
   </div>
 </section>"""
     pricing = f"""
@@ -114,17 +116,32 @@ def build_png():
     faq_items = [
         ("What DXF version do I get — R12 or R2000?",
          "Both, your choice. R2000 is the default and embeds units (mm/inch) so files open at the right size. R12 compatibility mode is there for older CAM software that only accepts the 1992-era format."),
+        # synced from product 2026-11-05 (#90 writeback): 06e PixelToPath FAQ inserted at #2
+        ("How does CleanPaths compare to PixelToPath?",
+         "PixelToPath is a genuinely good free tracer — MIT-licensed open source, free with no usage cap — but its online version stops at SVG. CleanPaths goes the last mile: real DXF export in two versions (R2000 with units, R12 compatibility mode), closed color-separated paths, and a preprocessing pipeline that cleans noisy images before tracing. If you only need an SVG for the web, PixelToPath is a solid free choice. If the file has to cut, that's what CleanPaths is built for."),
         ("Will the DXF work in LightBurn?",
          "Yes — output is all POLYLINE with zero SPLINE entities, which is exactly what LightBurn handles best. Always run a test cut before production."),
         ("Does the conversion keep my logo's colors as separate layers?",
          "Yes — output is color-separated so you can assign different cut settings per layer. In our tests a typical flat-color logo lands in the single-digit to teens layer range, not the dozens a default trace produces."),
         ("My PNG is small and blurry — can it still work?",
          "Usually, if it's a flat-color graphic. The preprocessing pipeline upscales and denoises before tracing, which is exactly the case it's built for. There's a limit — a 50px smudge has no detail to recover — but try it: it's free and the preview shows you the result before you download."),
+        # synced from product 2026-11-05 (#90 writeback): #75 C8/C9 扩写追加尾句
         ("Can I convert a photo to DXF?",
-         "You can, but expect a stylized, posterized result — not cut-ready. This page's promise covers flat-color graphics: logos, icons, line art."),
+         "You can, but expect a stylized, posterized result — not cut-ready. This page's promise covers flat-color graphics: logos, icons, line art. And whether you call it photo to DXF or picture to DXF, the rule doesn't change: flat-color graphics are designed for cut-ready output; photographic scenes come out stylized."),
         ("Do you upload or store my PNG?", faq_std_answer()),
         ("Is there a daily limit?",
          "Free tier: 10 conversions a day, full quality. Pro removes the cap — $59, one time, no subscriptions."),
+        # synced from product 2026-11-05 (#90 writeback): 05g 模块 A FAQ#9–#13
+        ("Why does my DXF have so many nodes?",
+         "Convert the image here and check the layer preview — the preprocessing pipeline denoises before tracing, and sliding Precision down trades a little smoothness for far fewer segments. Bloated node counts usually come from the input, not the DXF format: JPEG noise and fuzzy edges get traced as hundreds of tiny path points. Cleaning the image first removes most of those false edges at the source."),
+        ("Why does my DXF open at the wrong size?",
+         "Export with the default R2000 version — it embeds units (mm/inch) in the file, so LightBurn, AutoCAD and modern CAM open the design at the size you drew it. Wrong sizes almost always trace back to R12 files: the 1992-era format has no unit field, so the importing software guesses. If you must use R12 for older CAM, set the unit manually at import."),
+        ("How do I open a DXF file in LightBurn?",
+         "In LightBurn, use File → Import (or drag the .dxf straight onto the workspace). Choose this page's default R2000 export — it embeds units, so the design lands at real size. CleanPaths output is all POLYLINE with zero SPLINE entities, which is exactly what LightBurn handles best."),
+        ("Why is my DXF the wrong scale in LightBurn?",
+         "Re-export with R2000 — it carries units in the file, so LightBurn reads the real dimensions directly. Scale errors in LightBurn usually mean the file was R12: that format stores no units, so the import falls back on a unit assumption, and a wrong guess scales the whole design. If you have to stay on R12, match LightBurn's import unit to the unit you designed in."),
+        ("Why won't my DXF file open in LightBurn?",
+         "First check where the file came from. If another converter made it, the usual culprit is SPLINE entities — smooth-curve objects that strict CAM software can't parse; re-make the file here and that whole problem class disappears, because CleanPaths writes all-POLYLINE output with zero SPLINE entities. If a CleanPaths file itself won't open, try the other DXF version (R12 compatibility mode instead of R2000, or vice versa). And if it still fails, that's a bug — tell us via the feedback form."),
     ]
     faq_sec = f"""<section class="section"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px">{faq(faq_items)}</div></div></section>"""
     final = """
@@ -183,6 +200,7 @@ def build_jpg():
       <li>"JPEG artifacts make every edge fuzzy — a raw trace turns that fuzz into hundreds of junk paths."</li>
       <li>"The usual fix is two tools and an evening: upscale in one app, trace in another, pray the settings match."</li>
     </ul>
+    <p style="margin-top:12px;color:var(--ink-2)">Whether you call it photo to DXF or picture to DXF, the job is the same: turn a pixels-only image into paths a cutter can follow — designed for cut-ready when the graphic is flat-color, stylized when it's a photo of a scene.</p>
   </div>
 </section>"""
     solution = """
@@ -239,6 +257,9 @@ def build_jpg():
         ("JPG vs PNG — does it matter which I upload?",
          "Both convert the same way. PNGs are usually cleaner (lossless), JPGs carry compression noise — which is why this page's cleanup switch exists."),
         ("Do you upload or store my JPG?", faq_std_answer()),
+        # synced from product 2026-11-05 (#90 writeback): v1.7 激光批交叉 FAQ
+        ("Can I convert a photo or picture to DXF?",
+         "If it's a photo of a flat-color graphic — a logo on a truck door, a business card, a napkin sketch — usually yes: the cleanup pipeline removes JPEG noise and upscales before tracing, and the output is designed to be cut-ready. If it's a photograph of a scene or a person, expect a stylized, posterized result, not cut-ready. Either way, the preview shows you which one you have before you download."),
     ]
     faq_sec = f"""<section class="section"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px">{faq(faq_items)}</div></div></section>"""
     final = """
