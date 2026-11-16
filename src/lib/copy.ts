@@ -238,6 +238,28 @@ export const STEPS = {
   jfif_png_pt: ['✓ Lendo o arquivo (local)', '▸ Convertendo para PNG', '○ Preparando o download'],
   // 05 v1.9 F4 (pt-webp-para-svg): first PT trace-pipeline steps
   webp_pt: ['✓ Lendo o arquivo (local)', '▸ Vetorizando — parâmetros ajustados à imagem', '○ Preparando o download'],
+  // 07 batch2 (05 v1.15 §I-P8 ruling B): family-split steps, verbatim from each
+  // page's states.html STATE 3. No ✓/▸/○ prefixes — the batch2 state board
+  // renders plain rows (conversion is near-instant, like the jfif families).
+  // EN — bitmap-transcode (webp→png, webp→jpg, bmp→jpg)
+  webp_png: ['Drop your .webp file.', 'It converts in your browser — instantly.', 'Download the .png.'],
+  webp_jpg: ['Drop your .webp file.', 'It converts in your browser — instantly.', 'Download the .jpg.'],
+  bmp_jpg: ['Drop your .bmp file.', 'It converts in your browser — instantly.', 'Download the .jpg.'],
+  // EN — svg-rasterize (svg→png, svg→jpg)
+  svg_png: ['Drop your .svg file.', 'It renders in your browser — instantly.', 'Download the .png.'],
+  svg_jpg: ['Drop your .svg file.', 'It renders in your browser — instantly.', 'Download the .jpg.'],
+  // EN — repack (jpeg→jpg, byte passthrough)
+  jpeg_jpg: ['Drop your .jpeg file.', 'It repackages in your browser — instantly.', 'Download the .jpg.'],
+  // EN — first-frame (gif→jpg)
+  gif_jpg: ['Drop your .gif file.', 'Its first frame converts in your browser — instantly.', 'Download the .jpg.'],
+  // PT — same families (states.html STATE 3, verbatim)
+  webp_png_pt: ['Arraste seu arquivo .webp.', 'A conversão acontece no seu navegador — na hora.', 'Baixe o .png.'],
+  webp_jpg_pt: ['Arraste seu arquivo .webp.', 'A conversão acontece no seu navegador — na hora.', 'Baixe o .jpg.'],
+  bmp_jpg_pt: ['Arraste seu arquivo .bmp.', 'A conversão acontece no seu navegador — na hora.', 'Baixe o .jpg.'],
+  svg_png_pt: ['Arraste seu arquivo .svg.', 'A renderização acontece no seu navegador — na hora.', 'Baixe o .png.'],
+  svg_jpg_pt: ['Arraste seu arquivo .svg.', 'A renderização acontece no seu navegador — na hora.', 'Baixe o .jpg.'],
+  jpeg_jpg_pt: ['Arraste seu arquivo .jpeg.', 'Ele é reempacotado no seu navegador — na hora.', 'Baixe o .jpg.'],
+  gif_jpg_pt: ['Arraste seu arquivo .gif.', 'O primeiro quadro converte no seu navegador — na hora.', 'Baixe o .jpg.'],
 } as const;
 
 /** Download button labels — frozen (states_common.py *_DL_BTNS) */

@@ -269,4 +269,17 @@ export const JFIF_PNG_LAYER_NOTE =
 export const JFIF_PNG_LAYER_NOTE_PT =
   '<li><span class="sw" style="background:#E0E4EA"></span>decodificado e salvo como .png sem perdas · mesmos pixels, sem nova compressão</li>';
 
+/** 07 batch2 (05 v1.16 B5): bitmap result layer note — frozen form
+ *  `1 image · .{in} → .{out} · processed locally`. PT pages carry the SAME
+ *  English string (verified verbatim in each PT states.html STATE 4). */
+export const BITMAP_LAYER_NOTES: Record<string, string> = {
+  'webp-png': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .webp → .png · processed locally</li>',
+  'webp-jpg': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .webp → .jpg · processed locally</li>',
+  'svg-png': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .svg → .png · processed locally</li>',
+  'jpeg-jpg': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .jpeg → .jpg · processed locally</li>',
+  'svg-jpg': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .svg → .jpg · processed locally</li>',
+  'gif-jpg': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .gif → .jpg · processed locally</li>',
+  'bmp-jpg': '<li><span class="sw" style="background:#E0E4EA"></span>1 image · .bmp → .jpg · processed locally</li>',
+};
+
 export const DL = DL_COPY;

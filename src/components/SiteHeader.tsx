@@ -55,6 +55,15 @@ export const PT_EN_PAIR: Record<string, string> = {
   '/pt/webp-para-svg/': '/webp-to-svg/',
   '/pt/imagem-para-dxf/': '/image-to-dxf/',
   '/pt/foto-para-dxf/': '/photo-to-dxf/',
+  // 07 batch2: 8 new PT pages — PT footer/header "English version" link target.
+  '/pt/webp-para-png/': '/webp-to-png/',
+  '/pt/webp-para-jpg/': '/webp-to-jpg/',
+  '/pt/svg-para-png/': '/svg-to-png/',
+  '/pt/jpeg-para-jpg/': '/jpeg-to-jpg/',
+  '/pt/svg-para-jpg/': '/svg-to-jpg/',
+  '/pt/gif-para-jpg/': '/gif-to-jpg/',
+  '/pt/bmp-para-jpg/': '/bmp-to-jpg/',
+  '/pt/jpeg-para-dxf/': '/jpeg-to-dxf/',
 };
 
 function nl(route: string, activeRoute: string, label: string) {

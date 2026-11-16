@@ -19,13 +19,44 @@ import { flattenSvgAsync } from '@/lib/flatten-client';
 import { guardRasterInput, MAX_INPUT_EDGE } from '@/lib/downscale';
 import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
+import { decodeRaster, encodeBitmap, rasterizeSvg } from '@/lib/bitmap';
 import { beacon } from '@/lib/beacon';
 import { wireLicenseEntry } from '@/lib/license-panel';
-import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
+import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, BITMAP_LAYER_NOTES, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
 import { openFeedbackDialog, TOOL_BUSY_EVENT } from '../feedback';
 
-export type ToolKind = 'trace-multi' | 'trace-raster' | 'screenshot' | 'svg-dxf' | 'jfif' | 'jfif-png' | 'webp-svg';
+export type ToolKind =
+  | 'trace-multi'
+  | 'trace-raster'
+  | 'screenshot'
+  | 'svg-dxf'
+  | 'jfif'
+  | 'jfif-png'
+  | 'webp-svg'
+  // 07 batch2 (05 v1.15): 7 new bitmap-family kinds; jpeg-to-dxf reuses 'trace-raster'
+  | 'webp-png'
+  | 'webp-jpg'
+  | 'svg-png'
+  | 'jpeg-jpg'
+  | 'svg-jpg'
+  | 'gif-jpg'
+  | 'bmp-jpg';
+
+/** 07 batch2: near-instant bitmap families (transcode / svg-rasterize / repack / first-frame). */
+const BITMAP_KINDS: readonly ToolKind[] = ['webp-png', 'webp-jpg', 'svg-png', 'jpeg-jpg', 'svg-jpg', 'gif-jpg', 'bmp-jpg'];
+const isBitmapKind = (k: ToolKind) => BITMAP_KINDS.includes(k);
+
+/** 07 batch2: output spec per non-repack bitmap kind (jpeg-jpg repacks separately). */
+type BitmapKind = Exclude<ToolKind, 'trace-multi' | 'trace-raster' | 'screenshot' | 'svg-dxf' | 'jfif' | 'jfif-png' | 'webp-svg' | 'jpeg-jpg'>;
+const BITMAP_OUT: Partial<Record<BitmapKind, { mime: 'image/png' | 'image/jpeg'; ext: 'png' | 'jpg' }>> = {
+  'webp-png': { mime: 'image/png', ext: 'png' },
+  'svg-png': { mime: 'image/png', ext: 'png' },
+  'webp-jpg': { mime: 'image/jpeg', ext: 'jpg' },
+  'svg-jpg': { mime: 'image/jpeg', ext: 'jpg' },
+  'gif-jpg': { mime: 'image/jpeg', ext: 'jpg' },
+  'bmp-jpg': { mime: 'image/jpeg', ext: 'jpg' },
+};
 
 export interface ToolProps {
   kind: ToolKind;
@@ -245,7 +276,7 @@ export default function ToolController(props: ToolProps) {
       // frozen static steps there; every other kind gets the live UI.
       const isSvgInput = kind === 'svg-dxf' || (kind === 'trace-multi' && ext === '.svg');
       const prog: ProgressUI | null =
-        kind === 'jfif' || kind === 'jfif-png' ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
+        kind === 'jfif' || kind === 'jfif-png' || isBitmapKind(kind) ? null : createProgressUI(dz, isSvgInput ? SVG_PHASES : TRACE_PHASES, lang);
       activeProg = prog;
       // 05 v1.6 watchdog: never leave the user on an endless processing state.
       if (watchdog) clearTimeout(watchdog);
@@ -265,7 +296,7 @@ export default function ToolController(props: ToolProps) {
       // 3) #18 big-file guard: >10MB or longest edge >2000px → auto downscale
       //    before the engine (raster inputs only; svg/jfif pass through)
       S.sizeNote = null;
-      if (kind !== 'jfif' && kind !== 'jfif-png' && ext !== '.svg') {
+      if (kind !== 'jfif' && kind !== 'jfif-png' && !isBitmapKind(kind) && ext !== '.svg') {
         try {
           const guarded = await guardRasterInput(bytes, S.lastFile.mime);
           if (guarded.downscaled) {
@@ -306,6 +337,15 @@ export default function ToolController(props: ToolProps) {
       if (k === 'jfif-png') return l === 'pt' ? STEPS.jfif_png_pt : STEPS.jfif_png;
       if (k === 'webp-svg' && l === 'pt') return STEPS.webp_pt; // v1.9 F4: first PT trace steps
       if (k === 'svg-dxf') return STEPS.svg;
+      // 07 batch2 (05 v1.15 §I-P8 ruling B): family-split frozen steps — each
+      // kind maps to its own states.html STATE 3 strings, PT variants included.
+      if (k === 'webp-png') return l === 'pt' ? STEPS.webp_png_pt : STEPS.webp_png;
+      if (k === 'webp-jpg') return l === 'pt' ? STEPS.webp_jpg_pt : STEPS.webp_jpg;
+      if (k === 'svg-png') return l === 'pt' ? STEPS.svg_png_pt : STEPS.svg_png;
+      if (k === 'jpeg-jpg') return l === 'pt' ? STEPS.jpeg_jpg_pt : STEPS.jpeg_jpg;
+      if (k === 'svg-jpg') return l === 'pt' ? STEPS.svg_jpg_pt : STEPS.svg_jpg;
+      if (k === 'gif-jpg') return l === 'pt' ? STEPS.gif_jpg_pt : STEPS.gif_jpg;
+      if (k === 'bmp-jpg') return l === 'pt' ? STEPS.bmp_jpg_pt : STEPS.bmp_jpg;
       return STEPS.trace;
     }
 
@@ -366,6 +406,62 @@ export default function ToolController(props: ToolProps) {
           layers: [],
           layersNoteHtml: lang === 'pt' ? JFIF_PNG_LAYER_NOTE_PT : JFIF_PNG_LAYER_NOTE,
           blobs: { png: { blob: pngBlob, filename: `${base}.png` } },
+        };
+      }
+
+      // ---- 07 batch2: bitmap families (05 v1.15). All local, zero upload.
+      // Steps strings are family-split (§I-P8 ruling B) and the pipelines below
+      // match them exactly: repack never decodes, first-frame decodes frame 0,
+      // svg-rasterize renders at intrinsic dims, transcode decodes + re-encodes.
+      if (kind === 'jpeg-jpg') {
+        // P4: lossless repack — zero decode, zero re-encode (jfif byte-passthrough
+        // precedent, v1.14 §0-E1/E2). SOI 0xFFD8 gate → honest frozen error state.
+        if (bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8) throw new Error('not a JPEG container');
+        const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'image/jpeg' });
+        const url = track(blob);
+        return {
+          inputUrl: url,
+          outputUrl: url,
+          svgText: null,
+          width: 0,
+          height: 0,
+          layers: [],
+          layersNoteHtml: BITMAP_LAYER_NOTES['jpeg-jpg'],
+          blobs: { jpg: { blob, filename: `${base}.jpg` } },
+        };
+      }
+
+      const bitmapOut = BITMAP_OUT[kind as BitmapKind];
+      if (bitmapOut) {
+        let outBlob: Blob;
+        let width = 0;
+        let height = 0;
+        if (kind === 'svg-png' || kind === 'svg-jpg') {
+          // svg-rasterize: render at intrinsic dims (P3: no DPI/size UI).
+          const r = await rasterizeSvg(new TextDecoder().decode(bytes), bitmapOut.mime);
+          outBlob = r.blob;
+          width = r.width;
+          height = r.height;
+        } else {
+          // bitmap-transcode + first-frame (gif→jpg decodes frame 0, P5).
+          // JPG outputs fill transparent areas white (P2: preview shows the
+          // real filled output; fill color is an unlocked impl detail).
+          const bmp = await decodeRaster(bytes, mime);
+          outBlob = await encodeBitmap(bmp, bitmapOut.mime);
+          width = bmp.width;
+          height = bmp.height;
+          bmp.close();
+        }
+        const srcBlob = new Blob([bytes.buffer as ArrayBuffer], { type: mime });
+        return {
+          inputUrl: track(srcBlob),
+          outputUrl: track(outBlob),
+          svgText: null,
+          width,
+          height,
+          layers: [],
+          layersNoteHtml: BITMAP_LAYER_NOTES[kind],
+          blobs: { [bitmapOut.ext]: { blob: outBlob, filename: `${base}.${bitmapOut.ext}` } },
         };
       }
 
@@ -519,14 +615,16 @@ export default function ToolController(props: ToolProps) {
       const out = S.out;
       if (!out) return;
       const c = STATE_COPY[lang];
-      const dxfDual = kind !== 'screenshot' && kind !== 'jfif' && kind !== 'jfif-png' && kind !== 'webp-svg';
+      const dxfDual = !isBitmapKind(kind) && kind !== 'screenshot' && kind !== 'jfif' && kind !== 'jfif-png' && kind !== 'webp-svg';
       const downloads: ResultRender['downloads'] = [];
-      if (kind === 'jfif' || kind === 'jfif-png') {
-        if (kind === 'jfif-png') {
-          downloads.push({ key: 'png', label: lang === 'pt' ? DL_COPY.png_pt : DL_COPY.png, primary: true });
-        } else {
-          downloads.push({ key: 'jpg', label: lang === 'pt' ? DL_COPY.jpg_pt : DL_COPY.jpg, primary: true });
-        }
+      // 07 batch2: bitmap kinds push a single primary button — B3 frozen label
+      // (Download PNG/JPG, Baixar PNG/JPG); jpeg-jpg repacks to .jpg (not in BITMAP_OUT).
+      const bitmapExt: 'png' | 'jpg' | null = isBitmapKind(kind) ? BITMAP_OUT[kind as BitmapKind]?.ext ?? 'jpg' : null;
+      if (kind === 'jfif' || kind === 'jfif-png' || bitmapExt) {
+        const outKey: 'png' | 'jpg' = kind === 'jfif-png' ? 'png' : bitmapExt ?? 'jpg';
+        const label =
+          outKey === 'png' ? (lang === 'pt' ? DL_COPY.png_pt : DL_COPY.png) : lang === 'pt' ? DL_COPY.jpg_pt : DL_COPY.jpg;
+        downloads.push({ key: outKey, label, primary: true });
       } else if (dxfDual) {
         const r2000First = S.segVersion === 'R2000';
         downloads.push(
@@ -545,7 +643,7 @@ export default function ToolController(props: ToolProps) {
         layersNoteHtml: out.layersNoteHtml,
         layers: out.layers.map((l) => ({ hex: l.hex, name: l.hex })),
         extraLayers: Math.max(0, out.layers.length - 2),
-        showPrecision: kind !== 'jfif' && kind !== 'jfif-png',
+        showPrecision: kind !== 'jfif' && kind !== 'jfif-png' && !isBitmapKind(kind),
         precisionValue: S.precision,
         showAiHd: kind === 'trace-multi' || kind === 'trace-raster' || kind === 'screenshot' || kind === 'webp-svg',
         hdTries: tries,
@@ -790,5 +888,8 @@ export default function ToolController(props: ToolProps) {
 function guessMime(ext: string): string {
   if (ext === '.png') return 'image/png';
   if (ext === '.svg') return 'image/svg+xml';
+  if (ext === '.webp') return 'image/webp'; // 07 batch2
+  if (ext === '.gif') return 'image/gif'; // 07 batch2
+  if (ext === '.bmp') return 'image/bmp'; // 07 batch2
   return 'image/jpeg';
 }

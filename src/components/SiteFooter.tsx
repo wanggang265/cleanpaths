@@ -14,6 +14,18 @@ const TOOLS_MENU: Array<[string, string]> = [
   // position verbatim — after WebP to SVG, before Samples gallery.
   ['/image-to-dxf/', 'Image to DXF'],
   ['/photo-to-dxf/', 'Photo to DXF'],
+  // design-handoff v1.9 (07 batch2 format pairs): EN footer Tools group +8,
+  // position verbatim — after Photo to DXF, before Samples gallery
+  // (truth footer order: WebP to PNG, WebP to JPG, SVG to PNG, JPEG to JPG,
+  // SVG to JPG, GIF to JPG, BMP to JPG, JPEG to DXF).
+  ['/webp-to-png/', 'WebP to PNG'],
+  ['/webp-to-jpg/', 'WebP to JPG'],
+  ['/svg-to-png/', 'SVG to PNG'],
+  ['/jpeg-to-jpg/', 'JPEG to JPG'],
+  ['/svg-to-jpg/', 'SVG to JPG'],
+  ['/gif-to-jpg/', 'GIF to JPG'],
+  ['/bmp-to-jpg/', 'BMP to JPG'],
+  ['/jpeg-to-dxf/', 'JPEG to DXF'],
 ];
 
 /**

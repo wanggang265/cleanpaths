@@ -195,5 +195,117 @@ export const PAGES = [
     "type": "content-scenario",
     "h1": "PNG to DXF for Laser Cutting: From Image to LightBurn-Ready File",
     "schema": "FAQPage only (NO SoftwareApplication — the tool lives at /png-to-dxf)"
+  },
+  {
+    "slug": "webp-to-png",
+    "route": "/webp-to-png",
+    "type": "tool",
+    "h1": "WebP to PNG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-webp-para-png",
+    "route": "/pt/webp-para-png",
+    "type": "tool-neutral",
+    "h1": "Conversor de WebP para PNG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "webp-to-jpg",
+    "route": "/webp-to-jpg",
+    "type": "tool",
+    "h1": "WebP to JPG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-webp-para-jpg",
+    "route": "/pt/webp-para-jpg",
+    "type": "tool-neutral",
+    "h1": "Conversor de WebP para JPG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "svg-to-png",
+    "route": "/svg-to-png",
+    "type": "tool",
+    "h1": "SVG to PNG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-svg-para-png",
+    "route": "/pt/svg-para-png",
+    "type": "tool-neutral",
+    "h1": "Conversor de SVG para PNG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "jpeg-to-jpg",
+    "route": "/jpeg-to-jpg",
+    "type": "tool",
+    "h1": "JPEG to JPG Converter — Same Image, Right Extension",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-jpeg-para-jpg",
+    "route": "/pt/jpeg-para-jpg",
+    "type": "tool-neutral",
+    "h1": "Conversor de JPEG para JPG — A mesma imagem, a extensão certa",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "svg-to-jpg",
+    "route": "/svg-to-jpg",
+    "type": "tool",
+    "h1": "SVG to JPG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-svg-para-jpg",
+    "route": "/pt/svg-para-jpg",
+    "type": "tool-neutral",
+    "h1": "Conversor de SVG para JPG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "gif-to-jpg",
+    "route": "/gif-to-jpg",
+    "type": "tool",
+    "h1": "GIF to JPG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-gif-para-jpg",
+    "route": "/pt/gif-para-jpg",
+    "type": "tool-neutral",
+    "h1": "Conversor de GIF para JPG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "bmp-to-jpg",
+    "route": "/bmp-to-jpg",
+    "type": "tool",
+    "h1": "BMP to JPG Converter — Free, No Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-bmp-para-jpg",
+    "route": "/pt/bmp-para-jpg",
+    "type": "tool-neutral",
+    "h1": "Conversor de BMP para JPG — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "jpeg-to-dxf",
+    "route": "/jpeg-to-dxf",
+    "type": "tool",
+    "h1": "JPEG to DXF Converter — Cut-Ready Output",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-jpeg-para-dxf",
+    "route": "/pt/jpeg-para-dxf",
+    "type": "tool-neutral",
+    "h1": "Conversor de JPEG para DXF — Grátis, sem Upload",
+    "schema": "SoftwareApplication + FAQPage"
   }
 ] as const;
