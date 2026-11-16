@@ -6,7 +6,14 @@ from playwright.sync_api import sync_playwright
 BASE = os.path.join(os.path.dirname(__file__), "..", "pages")
 SLUGS = ["home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg",
          "jfif-to-jpg", "pt-jfif-para-jpg", "samples", "for-cricut-sellers",
-         "for-embroidery", "pricing", "privacy", "terms", "cookies", "refund"]
+         "for-embroidery", "pricing", "privacy", "terms", "cookies", "refund",
+         "vector-magic-alternative", "cloudconvert-alternative",
+         "vectorizer-ai-alternative", "convertio-alternative",
+         "jfif-to-png", "pt-jfif-para-png", "webp-to-svg", "pt-webp-para-svg",
+         "webp-to-png", "pt-webp-para-png", "webp-to-jpg", "pt-webp-para-jpg",
+         "svg-to-png", "pt-svg-para-png", "jpeg-to-jpg", "pt-jpeg-para-jpg",
+         "svg-to-jpg", "pt-svg-para-jpg", "gif-to-jpg", "pt-gif-para-jpg",
+         "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf"]
 
 def main():
     with sync_playwright() as p:

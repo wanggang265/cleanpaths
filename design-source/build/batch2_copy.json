@@ -1,0 +1,3426 @@
+{
+ "copy": {
+  "WEBP2PNG_META_TITLE": [
+   "WebP to PNG Converter — Free, No Upload | CleanPaths"
+  ],
+  "WEBP2PNG_META_DESC": [
+   "Convert WebP to PNG free, right in your browser. Keeps transparency, works offline — no upload, no account, no watermark."
+  ],
+  "WEBP2PNG_H1": [
+   "WebP to PNG Converter — Free, No Upload"
+  ],
+  "WEBP2PNG_HERO_SUB": [
+   "Drag in a WebP, download a PNG that opens everywhere. The conversion happens entirely in your browser — there's no upload step, and nothing to sign up for."
+  ],
+  "WEBP2PNG_EYEBROW": [
+   "WEBP → PNG · decoded natively in your browser"
+  ],
+  "WEBP2PNG_DZ_TEXT": [
+   "Drop a .webp file here — or browse"
+  ],
+  "WEBP2PNG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "WEBP2PNG_DZ_FORMATS": [
+   "ACCEPTS: .WEBP · PROCESSED LOCALLY"
+  ],
+  "WEBP2PNG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "WEBP2PNG_EXPLAINER_H2": [
+   "Why convert WebP to PNG?"
+  ],
+  "WEBP2PNG_EXPLAINER_P": [
+   "WebP is Google's image format for the web — small files, supported by every modern browser, and that's exactly the problem. The rest of the world hasn't caught up: older versions of Photoshop and Office, plenty of CMS upload forms, forum software and desktop apps simply refuse .webp files. PNG is the format everything agreed on decades ago. This converter decodes your WebP in your browser and re-saves it as a PNG — the same picture, in a container nothing rejects."
+  ],
+  "WEBP2PNG_COMPAT_H2": [
+   "Where WebP still gets rejected"
+  ],
+  "WEBP2PNG_COMPAT_P": [
+   "The pattern repeats everywhere: you save an image from a website and it arrives as .webp. Then the trouble starts. Office 2019 and older won't place it in a document. Many content management systems and marketplace upload forms reject it at the file picker. Some email clients and older phones can't display it. None of these are broken — they just predate WebP. Converting to PNG side-steps the whole compatibility question, because PNG support was settled long before WebP existed."
+  ],
+  "WEBP2PNG_ALPHA_H2": [
+   "Your transparency survives the trip"
+  ],
+  "WEBP2PNG_ALPHA_P": [
+   "If your WebP has a transparent background, the PNG keeps it — both formats carry an alpha channel, so converting between them doesn't flatten anything onto a white box. That makes this page the right choice for logos, icons and stickers you saved from the web. (If you need the smallest possible file and don't care about transparency, our WebP to JPG converter trades the alpha channel for a smaller download.)"
+  ],
+  "WEBP2PNG_BATCH_H2": [
+   "Built for the whole folder, not just one image"
+  ],
+  "WEBP2PNG_BATCH_P": [
+   "Saving images off the web rarely stops at one. A product shoot, a set of reference icons, a batch of downloaded mockups — they arrive as WebP by the dozen. Server-based converters make you upload every file, wait in a queue, and download a zip. Here there's no upload at all: each file is converted on your device as fast as your machine can read it, which makes converting a whole folder of WebP images a matter of drag, drop, done — even with the Wi-Fi off."
+  ],
+  "WEBP2PNG_VERIFY": [
+   "Try it offline: load this page once, then switch off your network and convert a file. It works — because there is no server involved."
+  ],
+  "WEBP2PNG_STEPS_H2": [
+   "Convert WebP to PNG in three steps"
+  ],
+  "WEBP2PNG_STEPS": [
+   "Drop your .webp file.",
+   "It converts in your browser — instantly.",
+   "Download the .png."
+  ],
+  "WEBP2PNG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "WEBP2PNG_FAQ1_Q": [
+   "Will converting WebP to PNG reduce quality?"
+  ],
+  "WEBP2PNG_FAQ1_A": [
+   "WebP is usually saved with lossy compression, and that loss is already in the file — converting can't remove it. What this converter does is decode your WebP and re-save it in PNG's lossless format, so no new quality loss is added on top. The result looks exactly like the WebP, just in a format everything opens. The preview shows the result before you download."
+  ],
+  "WEBP2PNG_FAQ2_Q": [
+   "Does the PNG keep the transparent background?"
+  ],
+  "WEBP2PNG_FAQ2_A": [
+   "Yes, when the WebP has one. Both WebP and PNG support transparency, so the alpha channel carries over to the converted file. PNG can't add transparency that was never there, though — if the WebP has a solid background, the PNG will too."
+  ],
+  "WEBP2PNG_FAQ3_Q": [
+   "Why not just screenshot the WebP?"
+  ],
+  "WEBP2PNG_FAQ3_A": [
+   "You can — but a screenshot re-compresses the image, locks it to your screen resolution, and usually flattens transparency onto a solid background. Converting keeps the original pixels and the alpha channel. For one-off viewing a screenshot is fine; for anything you'll edit, print or upload elsewhere, convert the file itself."
+  ],
+  "WEBP2PNG_FAQ4_Q/A": [
+   "Do you upload or store my files?",
+   "No. Conversion runs entirely in your browser — there is no upload step. We never receive, see, or store your images or the files you generate. Close the tab and they're gone; we never had them. This is how the tool is built, not a marketing claim. Details in our Privacy Policy."
+  ],
+  "WEBP2PNG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "WEBP2PNG_FINAL_BTN": [
+   "Convert WebP to PNG free now"
+  ],
+  "WEBP2PNG_LINKS": [
+   "Need a smaller file instead? Try the WebP to JPG converter →",
+   "/webp-to-jpg/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_WEBP2PNG_META_TITLE": [
+   "WebP para PNG — Conversor Grátis, sem Upload"
+  ],
+  "PT_WEBP2PNG_META_DESC": [
+   "Converta WebP para PNG grátis, direto no navegador. Mantém a transparência — sem upload, sem cadastro, sem marca d'água."
+  ],
+  "PT_WEBP2PNG_H1": [
+   "Conversor de WebP para PNG — Grátis, sem Upload"
+  ],
+  "PT_WEBP2PNG_HERO_SUB": [
+   "Arraste sua imagem WebP e baixe o PNG em segundos. A conversão acontece 100% no seu navegador — não existe etapa de upload."
+  ],
+  "PT_WEBP2PNG_EYEBROW": [
+   "WEBP → PNG · decodificado nativamente no seu navegador"
+  ],
+  "PT_WEBP2PNG_DZ": [
+   "Arraste seu arquivo .webp aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .WEBP · PROCESSADO LOCALMENTE"
+  ],
+  "PT_WEBP2PNG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_WEBP2PNG_EXPLAINER_H2": [
+   "Por que converter WebP para PNG?"
+  ],
+  "PT_WEBP2PNG_EXPLAINER_P": [
+   "WebP é o formato de imagem do Google para a web — arquivos pequenos, suportado por todos os navegadores modernos. O problema é o resto do mundo: versões antigas do Photoshop e do Office, muitos formulários de upload de CMS e aplicativos de desktop simplesmente recusam arquivos .webp. PNG é o formato que tudo abre. Este conversor decodifica o seu WebP no navegador e o salva como PNG — a mesma imagem, num contêiner que nada rejeita."
+  ],
+  "PT_WEBP2PNG_COMPAT_H2": [
+   "Onde o WebP ainda é recusado"
+  ],
+  "PT_WEBP2PNG_COMPAT_P": [
+   "O padrão se repete em todo lugar: você salva uma imagem de um site e ela chega como .webp. Aí começa o problema. Versões antigas do Office não inserem o arquivo num documento. Muitos sistemas de CMS e formulários de marketplace rejeitam o arquivo na escolha. Alguns clientes de e-mail e celulares antigos não conseguem exibi-lo. Nada disso está quebrado — é só anterior ao WebP. Converter para PNG contorna toda a questão de compatibilidade, porque o suporte a PNG foi resolvido muito antes de o WebP existir."
+  ],
+  "PT_WEBP2PNG_ALPHA_H2": [
+   "Sua transparência é preservada"
+  ],
+  "PT_WEBP2PNG_ALPHA_P": [
+   "Se o seu WebP tem fundo transparente, o PNG o mantém — os dois formatos carregam um canal alfa, então converter entre eles não achata nada sobre uma caixa branca. É por isso que esta página é a escolha certa para logotipos, ícones e adesivos que você salvou da web. (Se você precisa do menor arquivo possível e a transparência não importa, o nosso conversor de WebP para JPG troca o canal alfa por um download menor.)"
+  ],
+  "PT_WEBP2PNG_BATCH_H2": [
+   "Feito para a pasta inteira, não só para uma imagem"
+  ],
+  "PT_WEBP2PNG_BATCH_P": [
+   "Salvar imagens da web raramente para na primeira. Um ensaio de produto, um conjunto de ícones de referência, um lote de mockups baixados — eles chegam como WebP às dezenas. Conversores de servidor fazem você enviar cada arquivo, esperar numa fila e baixar um zip. Aqui não existe upload: cada arquivo é convertido no seu dispositivo na velocidade da sua máquina, o que faz converter uma pasta inteira de WebP uma questão de arrastar, soltar, pronto — mesmo com o Wi-Fi desligado."
+  ],
+  "PT_WEBP2PNG_VERIFY": [
+   "Teste offline: carregue esta página uma vez, desligue a rede e converta um arquivo. Funciona — porque não existe servidor envolvido."
+  ],
+  "PT_WEBP2PNG_STEPS_H2": [
+   "Como converter WebP para PNG"
+  ],
+  "PT_WEBP2PNG_STEPS": [
+   "Arraste seu arquivo .webp.",
+   "A conversão acontece no seu navegador — na hora.",
+   "Baixe o .png.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_WEBP2PNG_FAQ1_Q/A": [
+   "A conversão de WebP para PNG reduz a qualidade?",
+   "O WebP costuma ser salvo com compressão com perda, e essa perda já está no arquivo — converter não a remove. O que este conversor faz é decodificar o seu WebP e salvá-lo no formato PNG, que é sem perdas, então nenhuma perda nova de qualidade é adicionada. O resultado fica exatamente igual ao WebP, só que num formato que tudo abre. A pré-visualização mostra o resultado antes de você baixar."
+  ],
+  "PT_WEBP2PNG_FAQ2_Q/A": [
+   "O PNG mantém o fundo transparente?",
+   "Sim, quando o WebP tem. WebP e PNG suportam transparência, então o canal alfa passa para o arquivo convertido. Mas o PNG não adiciona transparência que nunca existiu — se o WebP tem fundo sólido, o PNG também terá."
+  ],
+  "PT_WEBP2PNG_FAQ3_Q/A": [
+   "Por que não simplesmente tirar um screenshot do WebP?",
+   "Você pode — mas o screenshot recomprime a imagem, trava na resolução da sua tela e normalmente achata a transparência sobre um fundo sólido. Converter mantém os pixels originais e o canal alfa. Para uma olhada rápida, o screenshot serve; para qualquer coisa que você vai editar, imprimir ou enviar, converta o arquivo em si."
+  ],
+  "PT_WEBP2PNG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?",
+   "Não. A conversão acontece inteiramente no seu navegador — não existe etapa de upload. Nós não recebemos, não vemos e não armazenamos suas imagens. É assim que a ferramenta é construída, não é só uma frase de marketing. Detalhes na Política de Privacidade."
+  ],
+  "PT_WEBP2PNG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_WEBP2PNG_FINAL_BTN": [
+   "Converter WebP para PNG grátis"
+  ],
+  "PT_WEBP2PNG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "WEBP2JPG_META_TITLE": [
+   "WebP to JPG Converter — Free, No Upload | CleanPaths"
+  ],
+  "WEBP2JPG_META_DESC": [
+   "Convert WebP to JPG free, right in your browser. Small files that open everywhere — no upload, no account, no watermark."
+  ],
+  "WEBP2JPG_H1": [
+   "WebP to JPG Converter — Free, No Upload"
+  ],
+  "WEBP2JPG_HERO_SUB": [
+   "Drag in a WebP, download a JPG that any device, app or upload form will accept. The conversion happens entirely in your browser — there's no upload step, and nothing to sign up for."
+  ],
+  "WEBP2JPG_EYEBROW": [
+   "WEBP → JPG · decoded natively in your browser"
+  ],
+  "WEBP2JPG_DZ_TEXT": [
+   "Drop a .webp file here — or browse"
+  ],
+  "WEBP2JPG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "WEBP2JPG_DZ_FORMATS": [
+   "ACCEPTS: .WEBP · PROCESSED LOCALLY"
+  ],
+  "WEBP2JPG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "WEBP2JPG_EXPLAINER_H2": [
+   "Why convert WebP to JPG?"
+  ],
+  "WEBP2JPG_EXPLAINER_P": [
+   "WebP is built for the web — small, fast, and unreadable to half the software you actually use. Older photo apps, marketplaces, government upload forms, your aunt's phone: plenty of them still only speak JPG. Converting decodes your WebP in your browser and re-encodes it as a standard JPEG — the most widely accepted image format on earth, at a fraction of the size of a PNG."
+  ],
+  "WEBP2JPG_ALPHA_H2": [
+   "The one thing JPG gives up: transparency"
+  ],
+  "WEBP2JPG_ALPHA_P": [
+   "JPG has no alpha channel — that's a fact of the format, not of this converter. If your WebP has a transparent background, the converted JPG has to put something in its place. What fills that area is an implementation detail this copy doesn't lock down; the preview shows you the result before you download, so there are no surprises. If transparency matters, use our WebP to PNG converter instead — PNG keeps the alpha channel."
+  ],
+  "WEBP2JPG_SIZE_H2": [
+   "Small files, zero rejection"
+  ],
+  "WEBP2JPG_SIZE_P": [
+   "JPG is the format the internet settled on for photographs: much smaller than PNG at normal quality, and accepted literally everywhere — every phone, every printer, every form, every CMS. If the image is a photo or a screenshot of a photo, converting WebP to JPG usually gives you the smallest file that nothing will reject. For graphics with sharp edges and transparency, PNG is the better container — our WebP to PNG converter handles that case."
+  ],
+  "WEBP2JPG_CHOICE_H2": [
+   "WebP to JPG or WebP to PNG — which one?"
+  ],
+  "WEBP2JPG_CHOICE_P": [
+   "Pick JPG when the destination is a photo context: upload forms with size limits, email attachments, anything headed for a phone, a printer or a marketplace listing. Pick PNG when the image is a logo, icon or graphic with transparency, or text and sharp edges you plan to keep editing. Not sure? Look at the image: a photograph wants JPG, a graphic wants PNG. Both converters run on your device — no upload either way, and both are free."
+  ],
+  "WEBP2JPG_VERIFY": [
+   "Proof it's local: this page converts files with your network turned off. Load the page, go offline, drop a WebP — it still works."
+  ],
+  "WEBP2JPG_STEPS_H2": [
+   "Convert WebP to JPG in three steps"
+  ],
+  "WEBP2JPG_STEPS": [
+   "Drop your .webp file.",
+   "It converts in your browser — instantly.",
+   "Download the .jpg."
+  ],
+  "WEBP2JPG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "WEBP2JPG_FAQ1_Q": [
+   "What happens to a transparent WebP background in JPG?"
+  ],
+  "WEBP2JPG_FAQ1_A": [
+   "JPG can't store transparency, so the transparent area gets filled in the converted file. The preview shows you exactly what the result looks like before you download — check it there first. If the transparent background matters, convert to PNG instead: our WebP to PNG converter keeps the alpha channel."
+  ],
+  "WEBP2JPG_FAQ2_Q": [
+   "Will converting WebP to JPG reduce quality?"
+  ],
+  "WEBP2JPG_FAQ2_A": [
+   "A little — both formats use lossy compression, and re-encoding adds a small amount of new loss on top of what's already in the WebP. For most uses the difference is invisible, and the preview shows the result before you download. If you plan to re-edit and re-save the image several times, convert to PNG instead to avoid stacking loss on loss."
+  ],
+  "WEBP2JPG_FAQ3_Q": [
+   "Why do my downloads keep saving as WebP?"
+  ],
+  "WEBP2JPG_FAQ3_A": [
+   "Because websites serve WebP to save bandwidth, and your browser reads the format natively — so it saves whatever the site sends. The file is fine; the ecosystem around it is the problem. Converting to JPG is the fix for everything else: older apps, upload forms and devices that don't recognize .webp."
+  ],
+  "WEBP2JPG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "WEBP2JPG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "WEBP2JPG_FINAL_BTN": [
+   "Convert WebP to JPG free now"
+  ],
+  "WEBP2JPG_LINKS": [
+   "Need transparency kept? Try the WebP to PNG converter →",
+   "/webp-to-png/",
+   "Need that JPG as a cut file? JPG to DXF converter →",
+   "/jpg-to-dxf/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_WEBP2JPG_META_TITLE": [
+   "WebP para JPG — Conversor Grátis, sem Upload"
+  ],
+  "PT_WEBP2JPG_META_DESC": [
+   "Converta WebP para JPG grátis, direto no navegador. Arquivos pequenos que tudo abre — sem upload, sem cadastro."
+  ],
+  "PT_WEBP2JPG_H1": [
+   "Conversor de WebP para JPG — Grátis, sem Upload"
+  ],
+  "PT_WEBP2JPG_HERO_SUB": [
+   "Arraste sua imagem WebP e baixe um JPG que qualquer dispositivo, aplicativo ou formulário aceita. A conversão acontece 100% no seu navegador — não existe etapa de upload."
+  ],
+  "PT_WEBP2JPG_EYEBROW": [
+   "WEBP → JPG · decodificado nativamente no seu navegador"
+  ],
+  "PT_WEBP2JPG_DZ": [
+   "Arraste seu arquivo .webp aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .WEBP · PROCESSADO LOCALMENTE"
+  ],
+  "PT_WEBP2JPG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_WEBP2JPG_EXPLAINER_H2": [
+   "Por que converter WebP para JPG?"
+  ],
+  "PT_WEBP2JPG_EXPLAINER_P": [
+   "WebP é feito para a web — pequeno, rápido, e ilegível para metade do software que você realmente usa. Aplicativos de foto antigos, marketplaces, formulários do governo, o celular da sua tia: muitos deles ainda só falam JPG. A conversão decodifica o seu WebP no navegador e o recodifica como JPEG padrão — o formato de imagem mais aceito do planeta, com uma fração do tamanho de um PNG."
+  ],
+  "PT_WEBP2JPG_ALPHA_H2": [
+   "A única coisa que o JPG abre mão: a transparência"
+  ],
+  "PT_WEBP2JPG_ALPHA_P": [
+   "JPG não tem canal alfa — isso é um fato do formato, não deste conversor. Se o seu WebP tem fundo transparente, o JPG convertido precisa preencher essa área com alguma coisa. O que preenche essa área é um detalhe de implementação que este texto não trava; a pré-visualização mostra o resultado antes de você baixar, sem surpresas. Se a transparência importa, use o nosso conversor de WebP para PNG — o PNG mantém o canal alfa."
+  ],
+  "PT_WEBP2JPG_SIZE_H2": [
+   "Arquivos pequenos, zero rejeição"
+  ],
+  "PT_WEBP2JPG_SIZE_P": [
+   "JPG é o formato que a internet escolheu para fotografias: muito menor que PNG na qualidade normal e aceito literalmente em todo lugar — todo celular, toda impressora, todo formulário, todo CMS. Se a imagem é uma foto ou a captura de uma foto, converter WebP para JPG normalmente gera o menor arquivo que nada vai rejeitar. Para gráficos com bordas nítidas e transparência, o PNG é o contêiner melhor — o nosso conversor de WebP para PNG cuida desse caso."
+  ],
+  "PT_WEBP2JPG_CHOICE_H2": [
+   "WebP para JPG ou WebP para PNG — qual escolher?"
+  ],
+  "PT_WEBP2JPG_CHOICE_P": [
+   "Escolha JPG quando o destino é um contexto de foto: formulários com limite de tamanho, anexos de e-mail, qualquer coisa que vai para um celular, uma impressora ou um anúncio de marketplace. Escolha PNG quando a imagem é logotipo, ícone ou gráfico com transparência, ou texto e bordas nítidas que você ainda vai editar. Na dúvida? Olhe para a imagem: uma fotografia pede JPG, um gráfico pede PNG. Os dois conversores rodam no seu dispositivo — sem upload de qualquer jeito."
+  ],
+  "PT_WEBP2JPG_VERIFY": [
+   "Prova de que é local: esta página converte arquivos com a rede desligada. Carregue a página, fique offline, arraste um WebP — continua funcionando."
+  ],
+  "PT_WEBP2JPG_STEPS_H2": [
+   "Como converter WebP para JPG"
+  ],
+  "PT_WEBP2JPG_STEPS": [
+   "Arraste seu arquivo .webp.",
+   "A conversão acontece no seu navegador — na hora.",
+   "Baixe o .jpg.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_WEBP2JPG_FAQ1_Q/A": [
+   "O que acontece com o fundo transparente do WebP no JPG?",
+   "O JPG não armazena transparência, então a área transparente é preenchida no arquivo convertido. A pré-visualização mostra exatamente o resultado antes de você baixar — confira lá primeiro. Se o fundo transparente importa, converta para PNG: o nosso conversor de WebP para PNG mantém o canal alfa."
+  ],
+  "PT_WEBP2JPG_FAQ2_Q/A": [
+   "A conversão de WebP para JPG reduz a qualidade?",
+   "Um pouco — os dois formatos usam compressão com perda, e recodificar adiciona uma perda pequena sobre a que já existe no WebP. Na maioria dos usos, a diferença é invisível, e a pré-visualização mostra o resultado antes do download. Se você vai reeditar e re-salvar a imagem várias vezes, prefira converter para PNG para não empilhar perda sobre perda."
+  ],
+  "PT_WEBP2JPG_FAQ3_Q/A": [
+   "Por que meus downloads continuam salvando como WebP?",
+   "Porque os sites servem WebP para economizar banda, e o seu navegador lê o formato nativamente — então ele salva como veio. O arquivo está bom; o ecossistema ao redor é o problema. Converter para JPG é a correção para todo o resto: aplicativos antigos, formulários e dispositivos que não reconhecem .webp."
+  ],
+  "PT_WEBP2JPG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_WEBP2JPG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_WEBP2JPG_FINAL_BTN": [
+   "Converter WebP para JPG grátis"
+  ],
+  "PT_WEBP2JPG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "SVG2PNG_META_TITLE": [
+   "SVG to PNG Converter — Free, No Upload | CleanPaths"
+  ],
+  "SVG2PNG_META_DESC": [
+   "Convert SVG to PNG free, right in your browser. Transparent background preserved — no upload, no account, no watermark."
+  ],
+  "SVG2PNG_H1": [
+   "SVG to PNG Converter — Free, No Upload"
+  ],
+  "SVG2PNG_HERO_SUB": [
+   "Drop an SVG, download a PNG with its transparency intact. Your vector never leaves your device — the conversion runs entirely in your browser."
+  ],
+  "SVG2PNG_EYEBROW": [
+   "SVG → PNG · rendered on your device"
+  ],
+  "SVG2PNG_DZ_TEXT": [
+   "Drop an .svg file here — or browse"
+  ],
+  "SVG2PNG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "SVG2PNG_DZ_FORMATS": [
+   "ACCEPTS: .SVG · PROCESSED LOCALLY"
+  ],
+  "SVG2PNG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "SVG2PNG_EXPLAINER_H2": [
+   "Why convert SVG to PNG?"
+  ],
+  "SVG2PNG_EXPLAINER_P": [
+   "SVG is the right format for icons, logos and illustrations — until you need to put one somewhere that doesn't speak vector. Social platforms, slide decks, Word documents, most email clients and plenty of marketplaces want a plain bitmap. PNG is the bitmap that treats vector art well: sharp edges, a transparent background, and no compression smearing. This converter renders your SVG to PNG right in your browser — no upload, and the preview shows exactly what you'll get."
+  ],
+  "SVG2PNG_RES_H2": [
+   "Vectors have no pixels — so you pick the size"
+  ],
+  "SVG2PNG_RES_P": [
+   "An SVG is a set of drawing instructions, not a grid of dots, which means converting it to PNG requires a decision no vector file ever makes for you: how many pixels wide should the result be? Render small and you get a fast, lightweight image for the web. Render large and you get detail that survives printing and zooming. The exact size and resolution options live in the tool above — this copy doesn't lock numbers the implementation may refine; the preview always shows what the current settings produce before you download."
+  ],
+  "SVG2PNG_ALPHA_H2": [
+   "The transparent background stays transparent"
+  ],
+  "SVG2PNG_ALPHA_P": [
+   "Most SVG artwork floats on nothing — that's what makes it useful. Converted carelessly, or screenshotted, it comes back flattened onto white or black. PNG supports a full alpha channel, so the conversion keeps your artwork on transparency: ready to drop over any color, slide background or product photo without a box around it. JPG can't do this — if anyone suggests converting your SVG to JPG for the web, point them to our SVG to JPG page, which explains exactly what gets traded away."
+  ],
+  "SVG2PNG_DIR_H2": [
+   "This page goes vector to pixels. There's a page for the other direction."
+  ],
+  "SVG2PNG_DIR_P": [
+   "Converting SVG to PNG rasterizes your artwork — the result looks identical but no longer scales. If what you actually need is the opposite — a bitmap, like a screenshot or a photo of a logo, turned into clean editable vector paths — that's a different tool: our Screenshot to SVG converter traces bitmaps into layered vectors, and other CleanPaths converters can take it further to DXF for cutting machines. Rasterizing down is the easy direction; tracing back up is the hard problem, and it has its own pages."
+  ],
+  "SVG2PNG_VERIFY": [
+   "Everything happens on your device: load this page, disconnect from the internet, and the converter still renders your SVG to PNG. No upload means exactly that."
+  ],
+  "SVG2PNG_STEPS_H2": [
+   "Convert SVG to PNG in three steps"
+  ],
+  "SVG2PNG_STEPS": [
+   "Drop your .svg file.",
+   "It renders in your browser — instantly.",
+   "Download the .png."
+  ],
+  "SVG2PNG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "SVG2PNG_FAQ1_Q": [
+   "What resolution will the PNG be?"
+  ],
+  "SVG2PNG_FAQ1_A": [
+   "That's your choice, not the file's — a vector has no fixed pixel size, so the tool offers output size options when you convert. As a rule of thumb: web avatars and thumbnails want small, print and zoomed detail want large. The preview shows exactly what the current choice produces before you download."
+  ],
+  "SVG2PNG_FAQ2_Q": [
+   "Will the PNG have a transparent background?"
+  ],
+  "SVG2PNG_FAQ2_A": [
+   "Yes. If your SVG artwork has no background of its own, the alpha channel carries over — PNG supports full transparency. That's the main reason to pick PNG over JPG for logos and icons."
+  ],
+  "SVG2PNG_FAQ3_Q": [
+   "Why does my SVG look different in some apps?"
+  ],
+  "SVG2PNG_FAQ3_A": [
+   "SVG can reference fonts and effects that different viewers render differently — the file is an instruction set, and every app interprets it its own way. Converting to PNG freezes exactly what you see in the preview into pixels, which is one practical reason to convert before sharing the image."
+  ],
+  "SVG2PNG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "SVG2PNG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "SVG2PNG_FINAL_BTN": [
+   "Convert SVG to PNG free now"
+  ],
+  "SVG2PNG_LINKS": [
+   "Need a JPG instead? Try the SVG to JPG converter →",
+   "/svg-to-jpg/",
+   "Going the other way — bitmap to vector? Screenshot to SVG converter →",
+   "/screenshot-to-svg/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_SVG2PNG_META_TITLE": [
+   "SVG para PNG — Conversor Grátis, sem Upload"
+  ],
+  "PT_SVG2PNG_META_DESC": [
+   "Converta SVG para PNG grátis, direto no navegador. Fundo transparente preservado — sem upload, sem cadastro."
+  ],
+  "PT_SVG2PNG_H1": [
+   "Conversor de SVG para PNG — Grátis, sem Upload"
+  ],
+  "PT_SVG2PNG_HERO_SUB": [
+   "Arraste seu SVG e baixe um PNG com a transparência intacta. O seu vetor nunca sai do seu dispositivo — a conversão roda inteiramente no seu navegador."
+  ],
+  "PT_SVG2PNG_EYEBROW": [
+   "SVG → PNG · renderizado no seu dispositivo"
+  ],
+  "PT_SVG2PNG_DZ": [
+   "Arraste seu arquivo .svg aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .SVG · PROCESSADO LOCALMENTE"
+  ],
+  "PT_SVG2PNG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_SVG2PNG_EXPLAINER_H2": [
+   "Por que converter SVG para PNG?"
+  ],
+  "PT_SVG2PNG_EXPLAINER_P": [
+   "SVG é o formato certo para ícones, logotipos e ilustrações — até você precisar colocar um deles onde vetor não é falado. Redes sociais, slides, documentos do Word, a maioria dos e-mails e muitos marketplaces querem um bitmap simples. PNG é o bitmap que trata bem a arte vetorial: bordas nítidas, fundo transparente e sem borrões de compressão. Este conversor renderiza o seu SVG para PNG direto no seu navegador — sem upload, e a pré-visualização mostra exatamente o que você vai receber."
+  ],
+  "PT_SVG2PNG_RES_H2": [
+   "Vetores não têm pixels — você escolhe o tamanho"
+  ],
+  "PT_SVG2PNG_RES_P": [
+   "Um SVG é um conjunto de instruções de desenho, não uma grade de pontos — por isso, converter para PNG exige uma decisão que nenhum arquivo vetorial toma por você: quantos pixels de largura o resultado deve ter? Renderize pequeno e você tem uma imagem leve para a web. Renderize grande e você tem detalhe que sobrevive à impressão e ao zoom. As opções exatas de tamanho e resolução ficam na ferramenta acima — este texto não trava números que a implementação pode ajustar; a pré-visualização sempre mostra o que as configurações atuais produzem antes do download."
+  ],
+  "PT_SVG2PNG_ALPHA_H2": [
+   "O fundo transparente continua transparente"
+  ],
+  "PT_SVG2PNG_ALPHA_P": [
+   "A maior parte da arte SVG flutua sobre o nada — é isso que a torna útil. Convertida sem cuidado, ou capturada em screenshot, ela volta achatada sobre branco ou preto. O PNG suporta um canal alfa completo, então a conversão mantém a sua arte sobre transparência: pronta para cair sobre qualquer cor, slide ou foto de produto sem uma caixa ao redor. JPG não faz isso — se alguém sugerir converter o seu SVG para JPG para a web, aponte a nossa página de SVG para JPG, que explica exatamente o que se perde."
+  ],
+  "PT_SVG2PNG_DIR_H2": [
+   "Esta página vai de vetor para pixels. Existe uma página para o caminho inverso."
+  ],
+  "PT_SVG2PNG_DIR_P": [
+   "Converter SVG para PNG rasteriza a sua arte — o resultado parece idêntico, mas não escala mais. Se o que você precisa é o contrário — transformar um bitmap, como uma captura de tela ou a foto de um logotipo, em trajetórias vetoriais limpas e editáveis — isso é outra ferramenta: o nosso conversor de Screenshot para SVG (em inglês) traça bitmaps em vetores em camadas. Rasterizar é o caminho fácil; traçar de volta é o problema difícil, e ele tem as suas próprias páginas."
+  ],
+  "PT_SVG2PNG_VERIFY": [
+   "Tudo acontece no seu dispositivo: carregue esta página, desconecte da internet, e o conversor continua renderizando o seu SVG para PNG. Sem upload é exatamente isso."
+  ],
+  "PT_SVG2PNG_STEPS_H2": [
+   "Como converter SVG para PNG"
+  ],
+  "PT_SVG2PNG_STEPS": [
+   "Arraste seu arquivo .svg.",
+   "A renderização acontece no seu navegador — na hora.",
+   "Baixe o .png.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_SVG2PNG_FAQ1_Q/A": [
+   "Qual será a resolução do PNG?",
+   "A escolha é sua, não do arquivo — um vetor não tem tamanho fixo em pixels, então a ferramenta oferece opções de tamanho na conversão. Como regra: avatares e miniaturas para a web pedem pequeno; impressão e detalhe com zoom pedem grande. A pré-visualização mostra exatamente o que a escolha atual produz antes de você baixar."
+  ],
+  "PT_SVG2PNG_FAQ2_Q/A": [
+   "O PNG terá fundo transparente?",
+   "Sim. Se a arte SVG não tem fundo próprio, o canal alfa é preservado — o PNG suporta transparência total. É o principal motivo para escolher PNG em vez de JPG para logotipos e ícones."
+  ],
+  "PT_SVG2PNG_FAQ3_Q/A": [
+   "Por que meu SVG aparece diferente em alguns aplicativos?",
+   "O SVG pode referenciar fontes e efeitos que visualizadores diferentes renderizam de formas diferentes — o arquivo é um conjunto de instruções, e cada aplicativo o interpreta do seu jeito. Converter para PNG congela exatamente o que você vê na pré-visualização em pixels, o que é um motivo prático para converter antes de compartilhar a imagem."
+  ],
+  "PT_SVG2PNG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_SVG2PNG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_SVG2PNG_FINAL_BTN": [
+   "Converter SVG para PNG grátis"
+  ],
+  "PT_SVG2PNG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "JPEG2JPG_META_TITLE": [
+   "JPEG to JPG Converter — Lossless, Free | CleanPaths"
+  ],
+  "JPEG2JPG_META_DESC": [
+   "Convert JPEG to JPG with zero quality loss: same pixels, new extension. Free, in your browser — no upload, no account."
+  ],
+  "JPEG2JPG_H1": [
+   "JPEG to JPG Converter — Same Image, Right Extension"
+  ],
+  "JPEG2JPG_HERO_SUB": [
+   "JPEG and JPG are the same format — but some systems only accept the .jpg extension. This converter repackages your file losslessly in your browser: the pixels are never touched, never re-encoded."
+  ],
+  "JPEG2JPG_EYEBROW": [
+   "JPEG → JPG · lossless repackaging, pixels untouched"
+  ],
+  "JPEG2JPG_DZ_TEXT": [
+   "Drop a .jpeg file here — or browse"
+  ],
+  "JPEG2JPG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "JPEG2JPG_DZ_FORMATS": [
+   "ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY"
+  ],
+  "JPEG2JPG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "JPEG2JPG_EXPLAINER_H2": [
+   "JPEG and JPG are the same thing"
+  ],
+  "JPEG2JPG_EXPLAINER_P": [
+   "There is no difference between a .jpeg file and a .jpg file — none. Both extensions point to the identical image format, standardized in 1992 by the Joint Photographic Experts Group. The short version exists only because early Windows demanded three-letter extensions. So why does this page exist? Because plenty of software is still stubborn about it: upload forms, older Windows applications and embedded systems that accept .jpg and reject .jpeg outright, even though the bytes are exactly what they asked for."
+  ],
+  "JPEG2JPG_LOSSLESS_H2": [
+   "What \"lossless repackaging\" actually means"
+  ],
+  "JPEG2JPG_LOSSLESS_P": [
+   "This converter does not decode your image, does not re-encode it, and does not pass it through any compression stage. It checks that the file really is JPEG data, then hands it back with the extension your system expects — the same bytes, the same pixels, the same quality. That's why converting here takes no time and costs no quality: there is nothing to recompress. Contrast that with a \"real\" conversion (say, WebP to JPG), where the pixels are decoded and re-encoded — fine for that job, but pointless here, because a JPEG and a JPG are already the same thing."
+  ],
+  "JPEG2JPG_WHEN_H2": [
+   "When you actually need this step"
+  ],
+  "JPEG2JPG_WHEN_P": [
+   "Renaming the file yourself works — .jpeg to .jpg is a text edit on the filename. So when is a converter worth it? When you're not sure the file really is JPEG inside: an HTML error page saved with an image extension won't survive this converter's check. When a form or device rejected your file and you want a clean, verified copy rather than a renamed mystery. And when you'd rather drag, drop and download than rename files one by one — especially on a phone, where extensions are hidden from you anyway."
+  ],
+  "JPEG2JPG_LEGACY_H2": [
+   "Why the three-letter world never died"
+  ],
+  "JPEG2JPG_LEGACY_P": [
+   "The .jpg extension is a fossil of DOS-era 8.3 filenames, and it outlived the era that created it. Embedded device firmware, kiosk software, legacy CMS installations, older scanners and cameras — a long tail of systems still pattern-matches .jpg literally. Meanwhile macOS and many cameras happily save .jpeg by default. The result is a silly but real incompatibility: your file is fine, the receiving system is fine, and the only broken thing is four characters versus three. This page fixes exactly that — nothing more, nothing less."
+  ],
+  "JPEG2JPG_VERIFY": [
+   "Prove the losslessness yourself: convert a file, then compare the two versions — same dimensions, same file size, same pixels. The preview shows the result before you download."
+  ],
+  "JPEG2JPG_STEPS_H2": [
+   "Convert JPEG to JPG in three steps"
+  ],
+  "JPEG2JPG_STEPS": [
+   "Drop your .jpeg file.",
+   "It repackages in your browser — instantly.",
+   "Download the .jpg."
+  ],
+  "JPEG2JPG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "JPEG2JPG_FAQ1_Q": [
+   "Is JPEG the same as JPG?"
+  ],
+  "JPEG2JPG_FAQ1_A": [
+   "Yes — completely. The two extensions point to the identical image format; the short one is a leftover from the era of three-letter filename limits. Converting between them changes nothing about the image itself, which is exactly what this page's lossless repackaging does: new extension, same file."
+  ],
+  "JPEG2JPG_FAQ2_Q": [
+   "Does converting JPEG to JPG lose quality?"
+  ],
+  "JPEG2JPG_FAQ2_A": [
+   "No. This converter repackages your file without re-encoding it — the image data passes through untouched, so there is no new compression and no quality loss. Same pixels in, same pixels out. The preview shows the result before you download."
+  ],
+  "JPEG2JPG_FAQ3_Q": [
+   "Can't I just rename the file?"
+  ],
+  "JPEG2JPG_FAQ3_A": [
+   "Usually, yes — renaming .jpeg to .jpg changes nothing but the name, and most systems will accept it. This converter adds two things on top: it verifies the file really is JPEG data before handing it back (a webpage saved with an image extension won't pass), and it gives you a preview so you can see what you have. When the image matters — a listing, a client file, a print job or an upload form — a verified copy beats a renamed hope."
+  ],
+  "JPEG2JPG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "JPEG2JPG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "JPEG2JPG_FINAL_BTN": [
+   "Convert JPEG to JPG free now"
+  ],
+  "JPEG2JPG_FINAL_H2": [
+   "Four letters or three — your system has an opinion. Now your file matches it."
+  ],
+  "JPEG2JPG_LINKS": [
+   "Have a .jfif file instead? Try the JFIF to JPG converter →",
+   "/jfif-to-jpg/",
+   "Need this image as a cut file? JPG to DXF converter →",
+   "/jpg-to-dxf/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_JPEG2JPG_META_TITLE": [
+   "JPEG para JPG — Conversor Grátis, sem Upload"
+  ],
+  "PT_JPEG2JPG_META_DESC": [
+   "Converta JPEG para JPG sem perda de qualidade: mesmos pixels, nova extensão. Grátis, no navegador — sem upload."
+  ],
+  "PT_JPEG2JPG_H1": [
+   "Conversor de JPEG para JPG — A mesma imagem, a extensão certa"
+  ],
+  "PT_JPEG2JPG_HERO_SUB": [
+   "JPEG e JPG são o mesmo formato — mas alguns sistemas só aceitam a extensão .jpg. Este conversor reempacota o seu arquivo sem perdas, no seu navegador: os pixels nunca são tocados, nunca recodificados."
+  ],
+  "PT_JPEG2JPG_EYEBROW": [
+   "JPEG → JPG · reempacotamento sem perdas, pixels intactos"
+  ],
+  "PT_JPEG2JPG_DZ": [
+   "Arraste seu arquivo .jpeg aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE"
+  ],
+  "PT_JPEG2JPG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_JPEG2JPG_EXPLAINER_H2": [
+   "JPEG e JPG são a mesma coisa"
+  ],
+  "PT_JPEG2JPG_EXPLAINER_P": [
+   "Não existe diferença entre um arquivo .jpeg e um .jpg — nenhuma. As duas extensões apontam para o formato de imagem idêntico, padronizado em 1992 pelo Joint Photographic Experts Group. A versão curta existe apenas porque o Windows antigo exigia extensões de três letras. Então por que esta página existe? Porque muito software continua teimoso: formulários de upload, aplicativos antigos do Windows e sistemas embarcados que aceitam .jpg e rejeitam .jpeg, mesmo sendo exatamente os bytes que pediram."
+  ],
+  "PT_JPEG2JPG_LOSSLESS_H2": [
+   "O que significa \"reempacotamento sem perda\""
+  ],
+  "PT_JPEG2JPG_LOSSLESS_P": [
+   "Este conversor não decodifica a sua imagem, não a recodifica e não a passa por nenhuma etapa de compressão. Ele verifica se o arquivo é realmente dados JPEG e o devolve com a extensão que o seu sistema espera — os mesmos bytes, os mesmos pixels, a mesma qualidade. É por isso que converter aqui não leva tempo nem custa qualidade: não há nada para recomprimir. Compare com uma conversão \"de verdade\" (digamos, WebP para JPG), em que os pixels são decodificados e recodificados — legítimo naquele caso, mas desnecessário aqui, porque um JPEG e um JPG já são a mesma coisa."
+  ],
+  "PT_JPEG2JPG_WHEN_H2": [
+   "Quando você realmente precisa desta etapa"
+  ],
+  "PT_JPEG2JPG_WHEN_P": [
+   "Renomear o arquivo por conta própria funciona — .jpeg para .jpg é uma edição de texto no nome do arquivo. Então quando vale um conversor? Quando você não tem certeza de que o arquivo é realmente JPEG por dentro: uma página de erro HTML salva com extensão de imagem não passa na verificação deste conversor. Quando um formulário ou dispositivo rejeitou o seu arquivo e você quer uma cópia limpa e verificada, em vez de um mistério renomeado. E quando você prefere arrastar, soltar e baixar em vez de renomear arquivos um a um — principalmente no celular, onde as extensões ficam escondidas."
+  ],
+  "PT_JPEG2JPG_LEGACY_H2": [
+   "Por que o mundo de três letras nunca morreu"
+  ],
+  "PT_JPEG2JPG_LEGACY_P": [
+   "A extensão .jpg é um fóssil da era DOS, dos nomes de arquivo 8.3 — e sobreviveu à era que a criou. Firmware de dispositivos embarcados, software de quiosque, instalações antigas de CMS, scanners e câmeras mais velhos: uma cauda longa de sistemas ainda procura literalmente por .jpg. Enquanto isso, o macOS e muitas câmeras salvam .jpeg por padrão. O resultado é uma incompatibilidade boba, mas real: o seu arquivo está bom, o sistema de destino está bom, e a única coisa quebrada são quatro letras contra três. Esta página conserta exatamente isso — nada mais, nada menos."
+  ],
+  "PT_JPEG2JPG_VERIFY": [
+   "Prove a ausência de perdas você mesmo: converta um arquivo e compare as duas versões — mesmas dimensões, mesmo tamanho, mesmos pixels. A pré-visualização mostra o resultado antes de você baixar."
+  ],
+  "PT_JPEG2JPG_STEPS_H2": [
+   "Como converter JPEG para JPG"
+  ],
+  "PT_JPEG2JPG_STEPS": [
+   "Arraste seu arquivo .jpeg.",
+   "Ele é reempacotado no seu navegador — na hora.",
+   "Baixe o .jpg.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_JPEG2JPG_FAQ1_Q/A": [
+   "JPEG é a mesma coisa que JPG?",
+   "Sim — completamente. As duas extensões apontam para o formato de imagem idêntico; a curta é uma herança da era dos nomes de arquivo de três letras. Converter entre elas não muda nada na imagem em si, que é exatamente o que o reempacotamento sem perdas desta página faz: extensão nova, mesmo arquivo."
+  ],
+  "PT_JPEG2JPG_FAQ2_Q/A": [
+   "Converter JPEG para JPG perde qualidade?",
+   "Não. Este conversor reempacota o seu arquivo sem recodificá-lo — os dados da imagem passam intactos, então não há nova compressão nem perda de qualidade. Os mesmos pixels entram, os mesmos pixels saem. A pré-visualização mostra o resultado antes de você baixar."
+  ],
+  "PT_JPEG2JPG_FAQ3_Q/A": [
+   "Não posso simplesmente renomear o arquivo?",
+   "Normalmente, sim — renomear .jpeg para .jpg não muda nada além do nome, e a maioria dos sistemas aceita. Este conversor adiciona duas coisas: ele verifica se o arquivo é realmente dados JPEG antes de devolvê-lo (uma página web salva com extensão de imagem não passa) e mostra uma pré-visualização para você ver o que tem em mãos. Quando a imagem importa — um anúncio, um arquivo de cliente, um trabalho de impressão ou um formulário — uma cópia verificada vale mais que uma esperança renomeada."
+  ],
+  "PT_JPEG2JPG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_JPEG2JPG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_JPEG2JPG_FINAL_BTN": [
+   "Converter JPEG para JPG grátis"
+  ],
+  "PT_JPEG2JPG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "SVG2JPG_META_TITLE": [
+   "SVG to JPG Converter — Free, No Upload | CleanPaths"
+  ],
+  "SVG2JPG_META_DESC": [
+   "Convert SVG to JPG free, right in your browser. Ready for print and documents — no upload, no account, no watermark."
+  ],
+  "SVG2JPG_H1": [
+   "SVG to JPG Converter — Free, No Upload"
+  ],
+  "SVG2JPG_HERO_SUB": [
+   "Drop an SVG, download a JPG that any document, printer or upload form will take. Your vector is rendered on your device — no upload, nothing to sign up for."
+  ],
+  "SVG2JPG_EYEBROW": [
+   "SVG → JPG · rendered on your device"
+  ],
+  "SVG2JPG_DZ_TEXT": [
+   "Drop an .svg file here — or browse"
+  ],
+  "SVG2JPG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "SVG2JPG_DZ_FORMATS": [
+   "ACCEPTS: .SVG · PROCESSED LOCALLY"
+  ],
+  "SVG2JPG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "SVG2JPG_EXPLAINER_H2": [
+   "Why convert SVG to JPG?"
+  ],
+  "SVG2JPG_EXPLAINER_P": [
+   "SVG is ideal for keeping artwork scalable — but the world of documents, print shops and photo workflows runs on JPG. A logo that looks razor-sharp in a design tool can be refused outright by a print order form, an email signature, or the image field of a CMS. Converting renders your SVG into a standard JPEG at the size you need, right in your browser: no upload step, and the preview shows the result before you download."
+  ],
+  "SVG2JPG_ALPHA_H2": [
+   "Read this if your SVG has a transparent background"
+  ],
+  "SVG2JPG_ALPHA_P": [
+   "JPG cannot store transparency — that's a property of the format itself, not a limitation of this tool. When your SVG floats on transparency, the converted JPG has to fill that area with a solid color. What fills it is an implementation detail this copy doesn't lock down; the preview shows you exactly what you'll get before anything downloads. If the transparent background is the point — for a logo or icon you'll place over other content — use our SVG to PNG converter instead. PNG keeps the alpha channel; JPG never will."
+  ],
+  "SVG2JPG_PRINT_H2": [
+   "Where a JPG beats the original SVG"
+  ],
+  "SVG2JPG_PRINT_P": [
+   "Print order forms and photo labs: JPG is their native tongue, and many reject vector files at the door. Office documents and slide decks: a JPG embeds and travels with the file — no missing-font surprises, no app-dependent rendering. Email signatures and messaging apps, where an SVG often shows up as a broken icon or a downloadable attachment. And any upload form with a size limit: a JPG render of your artwork is usually far smaller than a PNG at the same dimensions."
+  ],
+  "SVG2JPG_CHOICE_H2": [
+   "SVG to JPG or SVG to PNG — which one?"
+  ],
+  "SVG2JPG_CHOICE_P": [
+   "Pick JPG when the destination is print, a photo workflow, a document, an email, or a form with an upload cap — anywhere that lives on photographs and expects small files. Pick PNG when transparency matters, or when the artwork has sharp text and edges you'll keep editing. Still unsure? Our SVG to PNG converter is the safer default for graphics; come back here when the destination turns out to be a print form. Both run on your device, so checking both costs you nothing."
+  ],
+  "SVG2JPG_VERIFY": [
+   "This page is self-contained: once loaded, it renders your SVG to JPG with no network at all. Disconnect and try it — that is what \"no upload\" means in practice."
+  ],
+  "SVG2JPG_STEPS_H2": [
+   "Convert SVG to JPG in three steps"
+  ],
+  "SVG2JPG_STEPS": [
+   "Drop your .svg file.",
+   "It renders in your browser — instantly.",
+   "Download the .jpg."
+  ],
+  "SVG2JPG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "SVG2JPG_FAQ1_Q": [
+   "What happens to my SVG's transparent background?"
+  ],
+  "SVG2JPG_FAQ1_A": [
+   "It gets filled, because JPG has no alpha channel. The preview shows you exactly what the filled result looks like before you download, so check it there. If the transparency is important to you, don't settle for the fill — our SVG to PNG converter keeps the alpha channel intact."
+  ],
+  "SVG2JPG_FAQ2_Q": [
+   "What size will the JPG be?"
+  ],
+  "SVG2JPG_FAQ2_A": [
+   "A vector file has no fixed pixel size, so the tool offers output size options when you convert. For print, render larger — a bigger render gives the printer more detail to work with. For email and documents, a moderate size keeps the file light. The preview shows what the current choice produces before you download."
+  ],
+  "SVG2JPG_FAQ3_Q": [
+   "Is JPG or PNG better for my logo?"
+  ],
+  "SVG2JPG_FAQ3_A": [
+   "PNG, for most logo jobs: it keeps the transparent background and the razor-sharp edges that logos live on. JPG earns its place when the destination demands it — print order forms, documents, email signatures — or when file size is the constraint. If you can only keep one, keep the PNG; it converts to JPG later without losing anything that matters for a graphic."
+  ],
+  "SVG2JPG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "SVG2JPG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "SVG2JPG_FINAL_BTN": [
+   "Convert SVG to JPG free now"
+  ],
+  "SVG2JPG_LINKS": [
+   "Need the transparent background? Try the SVG to PNG converter →",
+   "/svg-to-png/",
+   "Need this artwork as a cut file instead? SVG to DXF converter →",
+   "/svg-to-dxf-converter/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_SVG2JPG_META_TITLE": [
+   "SVG para JPG — Conversor Grátis, sem Upload"
+  ],
+  "PT_SVG2JPG_META_DESC": [
+   "Converta SVG para JPG grátis, direto no navegador. Pronto para impressão e documentos — sem upload, sem cadastro."
+  ],
+  "PT_SVG2JPG_H1": [
+   "Conversor de SVG para JPG — Grátis, sem Upload"
+  ],
+  "PT_SVG2JPG_HERO_SUB": [
+   "Arraste seu SVG e baixe um JPG que qualquer documento, impressora ou formulário aceita. O seu vetor é renderizado no seu dispositivo — sem upload, sem cadastro."
+  ],
+  "PT_SVG2JPG_EYEBROW": [
+   "SVG → JPG · renderizado no seu dispositivo"
+  ],
+  "PT_SVG2JPG_DZ": [
+   "Arraste seu arquivo .svg aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .SVG · PROCESSADO LOCALMENTE"
+  ],
+  "PT_SVG2JPG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_SVG2JPG_EXPLAINER_H2": [
+   "Por que converter SVG para JPG?"
+  ],
+  "PT_SVG2JPG_EXPLAINER_P": [
+   "SVG é ideal para manter a arte escalável — mas o mundo dos documentos, gráficas e fluxos de foto roda em JPG. Um logotipo que parece afiado numa ferramenta de design pode ser recusado por um formulário de impressão, uma assinatura de e-mail ou o campo de imagem de um CMS. A conversão renderiza o seu SVG num JPEG padrão, no tamanho que você precisa, direto no seu navegador: sem etapa de upload, e a pré-visualização mostra o resultado antes de você baixar."
+  ],
+  "PT_SVG2JPG_ALPHA_H2": [
+   "Leia isto se o seu SVG tem fundo transparente"
+  ],
+  "PT_SVG2JPG_ALPHA_P": [
+   "JPG não armazena transparência — isso é uma propriedade do formato, não uma limitação desta ferramenta. Quando o seu SVG flutua sobre transparência, o JPG convertido precisa preencher essa área com uma cor sólida. O que preenche é um detalhe de implementação que este texto não trava; a pré-visualização mostra exatamente o que você vai receber antes de qualquer download. Se o fundo transparente é o ponto — para um logotipo ou ícone que você vai sobrepor a outro conteúdo — use o nosso conversor de SVG para PNG. O PNG mantém o canal alfa; o JPG, nunca."
+  ],
+  "PT_SVG2JPG_PRINT_H2": [
+   "Onde um JPG vence o SVG original"
+  ],
+  "PT_SVG2JPG_PRINT_P": [
+   "Formulários de impressão e laboratórios de foto: JPG é a língua nativa deles, e muitos rejeitam arquivos vetoriais na porta. Documentos do Office e apresentações: um JPG embute e viaja com o arquivo — sem surpresas de fonte faltando, sem renderização dependente de aplicativo. Assinaturas de e-mail e aplicativos de mensagem, onde um SVG costuma aparecer como ícone quebrado ou anexo baixável. E qualquer formulário com limite de tamanho: um JPG da sua arte costuma ser bem menor que um PNG nas mesmas dimensões."
+  ],
+  "PT_SVG2JPG_CHOICE_H2": [
+   "SVG para JPG ou SVG para PNG — qual escolher?"
+  ],
+  "PT_SVG2JPG_CHOICE_P": [
+   "Escolha JPG quando o destino é impressão, um fluxo de foto, um documento, um e-mail ou um formulário com limite de upload — qualquer lugar que vive de fotografias e espera arquivos pequenos. Escolha PNG quando a transparência importa, ou quando a arte tem texto e bordas nítidas que você ainda vai editar. Ainda na dúvida? O nosso conversor de SVG para PNG é o padrão mais seguro para gráficos; volte aqui quando o destino se revelar um formulário de impressão. Os dois rodam no seu dispositivo, então testar os dois não custa nada."
+  ],
+  "PT_SVG2JPG_VERIFY": [
+   "Esta página é autocontida: depois de carregada, ela renderiza o seu SVG para JPG sem rede nenhuma. Desconecte e teste — é isso que \"sem upload\" significa na prática."
+  ],
+  "PT_SVG2JPG_STEPS_H2": [
+   "Como converter SVG para JPG"
+  ],
+  "PT_SVG2JPG_STEPS": [
+   "Arraste seu arquivo .svg.",
+   "A renderização acontece no seu navegador — na hora.",
+   "Baixe o .jpg.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_SVG2JPG_FAQ1_Q/A": [
+   "O que acontece com o fundo transparente do meu SVG?",
+   "Ele é preenchido, porque o JPG não tem canal alfa. A pré-visualização mostra exatamente como fica o resultado preenchido antes de você baixar, então confira lá. Se a transparência é importante para você, não se contente com o preenchimento — o nosso conversor de SVG para PNG mantém o canal alfa intacto."
+  ],
+  "PT_SVG2JPG_FAQ2_Q/A": [
+   "Qual será o tamanho do JPG?",
+   "Um arquivo vetorial não tem tamanho fixo em pixels, então a ferramenta oferece opções de tamanho na conversão. Para impressão, renderize maior — uma renderização maior dá à gráfica mais detalhe para trabalhar. Para e-mail e documentos, um tamanho moderado mantém o arquivo leve. A pré-visualização mostra o que a escolha atual produz antes de você baixar."
+  ],
+  "PT_SVG2JPG_FAQ3_Q/A": [
+   "JPG ou PNG é melhor para o meu logotipo?",
+   "PNG, para a maioria dos trabalhos com logotipo: ele mantém o fundo transparente e as bordas afiadas de que os logotipos vivem. O JPG ganha o seu lugar quando o destino o exige — formulários de impressão, documentos, assinaturas de e-mail — ou quando o tamanho do arquivo é a restrição. Se você só puder guardar um, guarde o PNG; ele converte para JPG depois sem perder nada que importe para um gráfico."
+  ],
+  "PT_SVG2JPG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_SVG2JPG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_SVG2JPG_FINAL_BTN": [
+   "Converter SVG para JPG grátis"
+  ],
+  "PT_SVG2JPG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "GIF2JPG_META_TITLE": [
+   "GIF to JPG Converter — First Frame, Free | CleanPaths"
+  ],
+  "GIF2JPG_META_DESC": [
+   "Convert GIF to JPG free, in your browser. Animated GIFs are converted using their first frame — no upload, no account."
+  ],
+  "GIF2JPG_H1": [
+   "GIF to JPG Converter — Free, No Upload"
+  ],
+  "GIF2JPG_HERO_SUB": [
+   "Drag in a GIF, download a still JPG. Animated GIFs are converted using their first frame — if you need the animation, keep the GIF. Conversion happens on your device, never uploaded."
+  ],
+  "GIF2JPG_EYEBROW": [
+   "GIF → JPG · first frame only, no upload"
+  ],
+  "GIF2JPG_DZ_TEXT": [
+   "Drop a .gif file here — or browse"
+  ],
+  "GIF2JPG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "GIF2JPG_DZ_FORMATS": [
+   "ACCEPTS: .GIF · PROCESSED LOCALLY"
+  ],
+  "GIF2JPG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "GIF2JPG_EXPLAINER_H2": [
+   "Why convert GIF to JPG?"
+  ],
+  "GIF2JPG_EXPLAINER_P": [
+   "Sometimes you don't want the animation — you want the picture. A meme saved as GIF that you need in a document, a frame of a product clip for a listing, a sticker that works just as well as a still. GIF is also an elderly format with a 256-color ceiling, so converting to JPG often looks better than the original for photographic content. This converter takes the first frame of your GIF and saves it as a clean, universally accepted JPG — right in your browser, no upload."
+  ],
+  "GIF2JPG_FIRSTFRAME_H2": [
+   "First frame only — said twice, on purpose"
+  ],
+  "GIF2JPG_FIRSTFRAME_P": [
+   "This converter extracts a single still image from your GIF: the first frame. It does not merge frames, it does not pick the \"best\" frame, and it does not preserve any animation — JPG is a still-image format, so there is nowhere for motion to go. If the frame you need isn't the first one, pause your GIF on that frame and take a screenshot. And if the animation is the point, don't convert at all: keep the GIF."
+  ],
+  "GIF2JPG_DONT_H2": [
+   "When not to convert your GIF"
+  ],
+  "GIF2JPG_DONT_P": [
+   "Keep the GIF when the motion is the message: reaction images, product demos, animated stickers, looping clips for social posts. Keep it too when the file is headed somewhere that displays GIF natively — most chat apps and social platforms do. Convert when you need a still: print, documents, photo libraries, upload forms that reject GIF, or when you specifically want that first frame as an image file. One honest note on quality: JPG uses lossy compression tuned for photos, so flat cartoon-style GIF frames can soften slightly at the edges — the preview shows you the result before you download, so judge with your own eyes."
+  ],
+  "GIF2JPG_SCENES_H2": [
+   "What people use a GIF's first frame for"
+  ],
+  "GIF2JPG_SCENES_P": [
+   "Product photos lifted from a supplier's animated GIF for a marketplace listing. A still from a meme for a presentation slide. The cover frame of an animation for a video thumbnail or an article header. A frame of a scanned animation for an archive or a report. In every case the workflow is the same: drop the GIF, get the first frame as a JPG, done — and since the conversion runs on your device, even a folder of GIFs converts without a queue."
+  ],
+  "GIF2JPG_VERIFY": [
+   "No upload, provable: load this page, turn off your connection, and convert a GIF. The first frame still comes out as a JPG — because the work happens on your device."
+  ],
+  "GIF2JPG_STEPS_H2": [
+   "Convert GIF to JPG in three steps"
+  ],
+  "GIF2JPG_STEPS": [
+   "Drop your .gif file.",
+   "Its first frame converts in your browser — instantly.",
+   "Download the .jpg."
+  ],
+  "GIF2JPG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "GIF2JPG_FAQ1_Q": [
+   "Does this converter keep the animation?"
+  ],
+  "GIF2JPG_FAQ1_A": [
+   "No — animated GIFs are converted using their first frame, full stop. JPG is a still-image format; there is no way to carry animation into it. If you need the motion, keep the original GIF."
+  ],
+  "GIF2JPG_FAQ2_Q": [
+   "Which frame does it extract?"
+  ],
+  "GIF2JPG_FAQ2_A": [
+   "The first frame, always. It doesn't scan for the sharpest or the most representative frame. If you need a different frame, pause the GIF on it and take a screenshot, then convert that image instead."
+  ],
+  "GIF2JPG_FAQ3_Q": [
+   "Will the JPG look as good as the GIF?"
+  ],
+  "GIF2JPG_FAQ3_A": [
+   "For photographic content, usually better — GIF is limited to 256 colors per frame, while JPG handles millions. For flat cartoon frames, JPG's compression can soften hard edges slightly; the preview shows exactly what you'll get before you download."
+  ],
+  "GIF2JPG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "GIF2JPG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "GIF2JPG_FINAL_BTN": [
+   "Convert GIF to JPG free now"
+  ],
+  "GIF2JPG_FINAL_H2": [
+   "The first frame is already there. One drag, and it's a JPG."
+  ],
+  "GIF2JPG_LINKS": [
+   "Working with old BMP files too? BMP to JPG converter →",
+   "/bmp-to-jpg/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_GIF2JPG_META_TITLE": [
+   "GIF para JPG — Conversor Grátis, sem Upload"
+  ],
+  "PT_GIF2JPG_META_DESC": [
+   "Converta GIF para JPG grátis, no navegador. GIFs animados são convertidos usando o primeiro quadro — sem upload."
+  ],
+  "PT_GIF2JPG_H1": [
+   "Conversor de GIF para JPG — Grátis, sem Upload"
+  ],
+  "PT_GIF2JPG_HERO_SUB": [
+   "Arraste seu GIF e baixe um JPG estático. GIFs animados são convertidos usando o primeiro quadro — se você precisa da animação, mantenha o GIF. A conversão acontece no seu navegador, sem upload."
+  ],
+  "PT_GIF2JPG_EYEBROW": [
+   "GIF → JPG · só o primeiro quadro, sem upload"
+  ],
+  "PT_GIF2JPG_DZ": [
+   "Arraste seu arquivo .gif aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .GIF · PROCESSADO LOCALMENTE"
+  ],
+  "PT_GIF2JPG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_GIF2JPG_EXPLAINER_H2": [
+   "Por que converter GIF para JPG?"
+  ],
+  "PT_GIF2JPG_EXPLAINER_P": [
+   "Às vezes você não quer a animação — quer a imagem. Um meme salvo como GIF que precisa entrar num documento, um quadro de um clipe de produto para um anúncio, um adesivo que funciona igualmente bem parado. O GIF também é um formato antigo, com teto de 256 cores, então converter para JPG muitas vezes fica melhor que o original em conteúdo fotográfico. Este conversor pega o primeiro quadro do seu GIF e o salva como um JPG limpo e aceito em todo lugar — direto no seu navegador, sem upload."
+  ],
+  "PT_GIF2JPG_FIRSTFRAME_H2": [
+   "Só o primeiro quadro — dito duas vezes, de propósito"
+  ],
+  "PT_GIF2JPG_FIRSTFRAME_P": [
+   "Este conversor extrai uma única imagem parada do seu GIF: o primeiro quadro. Ele não mescla quadros, não escolhe o \"melhor\" quadro e não preserva animação nenhuma — JPG é um formato de imagem estática, não há onde colocar movimento. Se o quadro que você precisa não é o primeiro, pause o GIF nesse quadro e tire uma captura de tela. E se a animação é o ponto, não converta: fique com o GIF."
+  ],
+  "PT_GIF2JPG_DONT_H2": [
+   "Quando não converter o seu GIF"
+  ],
+  "PT_GIF2JPG_DONT_P": [
+   "Fique com o GIF quando o movimento é a mensagem: imagens de reação, demonstrações de produto, adesivos animados, clipes em loop para redes sociais. Fique com ele também quando o destino exibe GIF nativamente — a maioria dos aplicativos de conversa e redes sociais exibe. Converta quando você precisa de uma imagem parada: impressão, documentos, bibliotecas de fotos, formulários que rejeitam GIF, ou quando você quer justamente aquele primeiro quadro como arquivo. Uma nota honesta sobre qualidade: JPG usa compressão com perda afinada para fotos, então quadros de GIF em estilo cartoon podem suavizar levemente nas bordas — a pré-visualização mostra o resultado antes de você baixar, então julgue com os próprios olhos."
+  ],
+  "PT_GIF2JPG_SCENES_H2": [
+   "Para que as pessoas usam o primeiro quadro de um GIF"
+  ],
+  "PT_GIF2JPG_SCENES_P": [
+   "Fotos de produto extraídas do GIF animado de um fornecedor para um anúncio em marketplace. Um quadro de meme para um slide de apresentação. O quadro de capa de uma animação para uma miniatura de vídeo ou cabeçalho de artigo. Um quadro de uma animação escaneada para um arquivo ou relatório. Em todos os casos o fluxo é o mesmo: arraste o GIF, receba o primeiro quadro em JPG, pronto — e como a conversão roda no seu dispositivo, até uma pasta inteira de GIFs converte sem fila."
+  ],
+  "PT_GIF2JPG_VERIFY": [
+   "Sem upload, comprovável: carregue esta página, desligue a conexão e converta um GIF. O primeiro quadro continua saindo como JPG — porque o trabalho acontece no seu dispositivo."
+  ],
+  "PT_GIF2JPG_STEPS_H2": [
+   "Como converter GIF para JPG"
+  ],
+  "PT_GIF2JPG_STEPS": [
+   "Arraste seu arquivo .gif.",
+   "O primeiro quadro converte no seu navegador — na hora.",
+   "Baixe o .jpg.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_GIF2JPG_FAQ1_Q/A": [
+   "Este conversor mantém a animação?",
+   "Não — GIFs animados são convertidos usando o primeiro quadro, e ponto final. JPG é um formato de imagem estática; não há como carregar animação para dentro dele. Se você precisa do movimento, fique com o GIF original."
+  ],
+  "PT_GIF2JPG_FAQ2_Q/A": [
+   "Qual quadro ele extrai?",
+   "O primeiro quadro, sempre. Ele não procura o quadro mais nítido nem o mais representativo. Se você precisa de outro quadro, pause o GIF nele e tire uma captura de tela, e converta essa imagem em vez disso."
+  ],
+  "PT_GIF2JPG_FAQ3_Q/A": [
+   "O JPG vai ficar tão bom quanto o GIF?",
+   "Para conteúdo fotográfico, geralmente melhor — o GIF é limitado a 256 cores por quadro, enquanto o JPG lida com milhões. Para quadros de cartoon com cores chapadas, a compressão do JPG pode suavizar levemente as bordas duras; a pré-visualização mostra exatamente o que você vai receber antes de baixar."
+  ],
+  "PT_GIF2JPG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_GIF2JPG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_GIF2JPG_FINAL_BTN": [
+   "Converter GIF para JPG grátis"
+  ],
+  "PT_GIF2JPG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "BMP2JPG_META_TITLE": [
+   "BMP to JPG Converter — Free, No Upload | CleanPaths"
+  ],
+  "BMP2JPG_META_DESC": [
+   "Convert BMP to JPG free, right in your browser. Shrink bulky Windows bitmaps into files anything opens — no upload."
+  ],
+  "BMP2JPG_H1": [
+   "BMP to JPG Converter — Free, No Upload"
+  ],
+  "BMP2JPG_HERO_SUB": [
+   "Drag in a BMP, download a JPG that's a fraction of the size and opens everywhere. The conversion happens entirely in your browser — there's no upload step, and nothing to sign up for."
+  ],
+  "BMP2JPG_EYEBROW": [
+   "BMP → JPG · decoded natively in your browser"
+  ],
+  "BMP2JPG_DZ_TEXT": [
+   "Drop a .bmp file here — or browse"
+  ],
+  "BMP2JPG_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "BMP2JPG_DZ_FORMATS": [
+   "ACCEPTS: .BMP · PROCESSED LOCALLY"
+  ],
+  "BMP2JPG_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "BMP2JPG_EXPLAINER_H2": [
+   "Why convert BMP to JPG?"
+  ],
+  "BMP2JPG_EXPLAINER_P": [
+   "BMP is one of the oldest image formats still in circulation — the native bitmap of Windows since the beginning, and the default output of plenty of legacy software, scanners, lab instruments and industrial tools. It's also huge: BMP stores pixels with little or no compression, which made sense in its era and makes email attachments cry today. Converting to JPG keeps the picture and sheds the bulk — right in your browser, no upload."
+  ],
+  "BMP2JPG_SOURCE_H2": [
+   "Where BMP files keep coming from"
+  ],
+  "BMP2JPG_SOURCE_P": [
+   "If you have a BMP today, it almost certainly came from a system that never learned anything newer: old Windows applications and their \"Save as image\" dialogs, scanner and fax software from the XP era, medical and lab equipment exports, point-of-sale and industrial terminals, screen captures from legacy tools, or a digital camera's uncompressed mode. The files are usually perfectly good images wrapped in an inconvenient container — too big to email, rejected by most upload forms, and slow to open on phones."
+  ],
+  "BMP2JPG_SIZE_H2": [
+   "Same picture, a fraction of the size"
+  ],
+  "BMP2JPG_SIZE_P": [
+   "BMP's bulk comes from storing every pixel almost raw; JPG was designed from day one to compress photographs efficiently. Converting typically shrinks the file dramatically — the exact saving depends on the image, and we won't quote a made-up number. What doesn't change is the direction: from one of the largest common image formats to one of the smallest, with quality the preview lets you judge before you download. Smaller files mean faster uploads, email-friendly attachments, and photo libraries that stop eating your disk."
+  ],
+  "BMP2JPG_WIN_H2": [
+   "A Windows fossil that still works hard"
+  ],
+  "BMP2JPG_WIN_P": [
+   "BMP survived because Windows never dropped it: it's still the clipboard's native tongue, still the fallback format of Paint, still what a lot of enterprise and industrial software spits out. None of that is going away — so the practical move isn't to fight the format, it's to convert on demand. Drop the BMP, take the JPG, and the file becomes something every phone, browser, printer and form on earth understands. And because the conversion runs locally, even confidential exports — medical, industrial, internal — never leave your device."
+  ],
+  "BMP2JPG_VERIFY": [
+   "Proof there's no server: this page converts BMP files with your internet switched off. Load it, disconnect, convert — it just works."
+  ],
+  "BMP2JPG_STEPS_H2": [
+   "Convert BMP to JPG in three steps"
+  ],
+  "BMP2JPG_STEPS": [
+   "Drop your .bmp file.",
+   "It converts in your browser — instantly.",
+   "Download the .jpg."
+  ],
+  "BMP2JPG_STEPS_AUX": [
+   "No upload. No account. No watermark. Free, 10 conversions a day."
+  ],
+  "BMP2JPG_FAQ1_Q": [
+   "Will converting BMP to JPG reduce quality?"
+  ],
+  "BMP2JPG_FAQ1_A": [
+   "BMP is uncompressed, and JPG uses lossy compression — so there is a quality trade by design. For photographs and scans at normal viewing sizes the difference is hard to spot, and the file-size win is large. The preview shows you the result before you download. If you need a mathematically identical copy, keep the BMP as your archive and use the JPG for sharing."
+  ],
+  "BMP2JPG_FAQ2_Q": [
+   "Why is my BMP file so big?"
+  ],
+  "BMP2JPG_FAQ2_A": [
+   "Because BMP stores pixels with little or no compression — every dot of the image is written out almost raw. That's what makes the format simple and universal, and also what makes a single photo many times heavier than the same picture saved as a JPG."
+  ],
+  "BMP2JPG_FAQ3_Q": [
+   "Do BMP files have transparency?"
+  ],
+  "BMP2JPG_FAQ3_A": [
+   "Almost never. Standard BMP has no alpha channel in the form most software writes it, so converting to JPG loses nothing in that respect — neither format carries real transparency. If your image needs a transparent background, that's a job for PNG."
+  ],
+  "BMP2JPG_FAQ4_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "BMP2JPG_FAQ5_Q/A": [
+   "Is there a limit?",
+   "Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $59, one time — via the pricing page."
+  ],
+  "BMP2JPG_FINAL_BTN": [
+   "Convert BMP to JPG free now"
+  ],
+  "BMP2JPG_LINKS": [
+   "Have a GIF to flatten instead? GIF to JPG converter →",
+   "/gif-to-jpg/",
+   "Extension problems of a different kind — .jpeg vs .jpg? JPEG to JPG converter →",
+   "/jpeg-to-jpg/",
+   "All converters live on the CleanPaths home page →",
+   "/"
+  ],
+  "PT_BMP2JPG_META_TITLE": [
+   "BMP para JPG — Conversor Grátis, sem Upload"
+  ],
+  "PT_BMP2JPG_META_DESC": [
+   "Converta BMP para JPG grátis, direto no navegador. Diminua bitmaps pesados do Windows — sem upload, sem cadastro."
+  ],
+  "PT_BMP2JPG_H1": [
+   "Conversor de BMP para JPG — Grátis, sem Upload"
+  ],
+  "PT_BMP2JPG_HERO_SUB": [
+   "Arraste seu BMP e baixe um JPG com uma fração do tamanho, que abre em tudo. A conversão acontece 100% no seu navegador — não existe etapa de upload."
+  ],
+  "PT_BMP2JPG_EYEBROW": [
+   "BMP → JPG · decodificado nativamente no seu navegador"
+  ],
+  "PT_BMP2JPG_DZ": [
+   "Arraste seu arquivo .bmp aqui — ou clique para escolher",
+   "Converter agora — grátis",
+   "ACEITA: .BMP · PROCESSADO LOCALMENTE"
+  ],
+  "PT_BMP2JPG_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_BMP2JPG_EXPLAINER_H2": [
+   "Por que converter BMP para JPG?"
+  ],
+  "PT_BMP2JPG_EXPLAINER_P": [
+   "BMP é um dos formatos de imagem mais antigos ainda em circulação — o bitmap nativo do Windows desde o começo, e a saída padrão de muito software legado, scanners, instrumentos de laboratório e ferramentas industriais. Também é enorme: o BMP guarda pixels com pouca ou nenhuma compressão, o que fazia sentido na sua época e hoje faz anexos de e-mail chorarem. Converter para JPG mantém a imagem e elimina o volume — direto no seu navegador, sem upload."
+  ],
+  "PT_BMP2JPG_SOURCE_H2": [
+   "De onde os arquivos BMP continuam vindo"
+  ],
+  "PT_BMP2JPG_SOURCE_P": [
+   "Se você tem um BMP hoje, ele quase certamente veio de um sistema que nunca aprendeu nada mais novo: aplicativos antigos do Windows e seus diálogos de \"Salvar como imagem\", softwares de scanner e fax da era do XP, exportações de equipamentos médicos e de laboratório, terminais de ponto de venda e industriais, capturas de tela de ferramentas legadas, ou o modo sem compressão de uma câmera digital. Os arquivos costumam ser imagens perfeitamente boas dentro de um contêiner inconveniente — grandes demais para e-mail, rejeitados pela maioria dos formulários e lentos para abrir no celular."
+  ],
+  "PT_BMP2JPG_SIZE_H2": [
+   "A mesma imagem, uma fração do tamanho"
+  ],
+  "PT_BMP2JPG_SIZE_P": [
+   "O volume do BMP vem de guardar cada pixel quase cru; o JPG foi desenhado desde o primeiro dia para comprimir fotografias com eficiência. A conversão normalmente encolhe o arquivo de forma dramática — a economia exata depende da imagem, e não vamos citar um número inventado. O que não muda é a direção: de um dos maiores formatos de imagem comuns para um dos menores, com a qualidade que a pré-visualização deixa você julgar antes de baixar. Arquivos menores significam uploads mais rápidos, anexos que cabem no e-mail e bibliotecas de fotos que param de comer o seu disco."
+  ],
+  "PT_BMP2JPG_WIN_H2": [
+   "Um fóssil do Windows que ainda trabalha duro"
+  ],
+  "PT_BMP2JPG_WIN_P": [
+   "O BMP sobreviveu porque o Windows nunca o abandonou: ainda é a língua nativa da área de transferência, ainda é o formato de reserva do Paint, ainda é o que muito software corporativo e industrial produz. Nada disso vai embora — então a jogada prática não é lutar contra o formato, é converter sob demanda. Arraste o BMP, pegue o JPG, e o arquivo vira algo que todo celular, navegador, impressora e formulário do planeta entende. E como a conversão roda localmente, até exportações confidenciais — médicas, industriais, internas — nunca saem do seu dispositivo."
+  ],
+  "PT_BMP2JPG_VERIFY": [
+   "Prova de que não há servidor: esta página converte arquivos BMP com a internet desligada. Carregue, desconecte, converta — simplesmente funciona."
+  ],
+  "PT_BMP2JPG_STEPS_H2": [
+   "Como converter BMP para JPG"
+  ],
+  "PT_BMP2JPG_STEPS": [
+   "Arraste seu arquivo .bmp.",
+   "A conversão acontece no seu navegador — na hora.",
+   "Baixe o .jpg.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_BMP2JPG_FAQ1_Q/A": [
+   "Converter BMP para JPG reduz a qualidade?",
+   "O BMP é sem compressão e o JPG usa compressão com perda — então há uma troca de qualidade por desenho. Para fotografias e digitalizações em tamanhos normais de visualização, a diferença é difícil de notar, e o ganho de tamanho é grande. A pré-visualização mostra o resultado antes de você baixar. Se você precisa de uma cópia matematicamente idêntica, guarde o BMP como arquivo morto e use o JPG para compartilhar."
+  ],
+  "PT_BMP2JPG_FAQ2_Q/A": [
+   "Por que meu arquivo BMP é tão grande?",
+   "Porque o BMP armazena pixels com pouca ou nenhuma compressão — cada ponto da imagem é escrito quase cru. É isso que torna o formato simples e universal, e também o que faz uma única foto pesar muitas vezes mais que a mesma imagem salva como JPG."
+  ],
+  "PT_BMP2JPG_FAQ3_Q/A": [
+   "Arquivos BMP têm transparência?",
+   "Quase nunca. O BMP padrão não tem canal alfa na forma como a maioria dos softwares o grava, então converter para JPG não perde nada nesse aspecto — nenhum dos dois formatos carrega transparência de verdade. Se a sua imagem precisa de fundo transparente, o trabalho é para o PNG."
+  ],
+  "PT_BMP2JPG_FAQ4_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_BMP2JPG_FAQ5_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_BMP2JPG_FINAL_BTN": [
+   "Converter BMP para JPG grátis"
+  ],
+  "PT_BMP2JPG_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ],
+  "JPEG2DXF_META_TITLE": [
+   "JPEG to DXF Converter — Cut-Ready & Free | CleanPaths"
+  ],
+  "JPEG2DXF_META_DESC": [
+   "Convert JPEG to DXF with closed paths, color-separated layers and units embedded — in your browser. No upload, no account."
+  ],
+  "JPEG2DXF_H1": [
+   "JPEG to DXF Converter — Cut-Ready Output"
+  ],
+  "JPEG2DXF_HERO_SUB": [
+   "Drop a JPEG, get a DXF your laser, CNC or plotter can actually use — closed paths, color-separated layers, units embedded. Processed on your device, never uploaded."
+  ],
+  "JPEG2DXF_EYEBROW": [
+   "JPEG → DXF · traced on your device"
+  ],
+  "JPEG2DXF_DZ_TEXT": [
+   "Drop a .jpeg file here — or browse"
+  ],
+  "JPEG2DXF_DZ_BTN": [
+   "Convert now — free"
+  ],
+  "JPEG2DXF_DZ_FORMATS": [
+   "ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY"
+  ],
+  "JPEG2DXF_MICROCOPY": [
+   "Flat-color graphics → cut-ready · Photos → stylized result"
+  ],
+  "JPEG2DXF_BADGES": [
+   "🔒 Files stay on your device · No account · No watermark · 10 free conversions a day"
+  ],
+  "JPEG2DXF_PROOF": [
+   "JPEG compression rings every edge with noise — and a naive tracer faithfully converts that noise into junk geometry. The pipeline here cleans the image first, then traces it, so the DXF carries the shape of your artwork instead of the shape of the artifacts."
+  ],
+  "JPEG2DXF_VERIFY": [
+   "Verify it yourself: open the downloaded .dxf in any text editor. The R2000 header declares its units, and every curve is a POLYLINE — no SPLINE entities, the curve type that strict CAM software chokes on."
+  ],
+  "JPEG2DXF_PROBLEM_H2": [
+   "A JPEG is a grid of pixels. Your machine speaks paths."
+  ],
+  "JPEG2DXF_PROBLEM_B1": [
+   "Your plotter, laser or CNC can't read pixels — it follows paths. A raw auto-trace gives you thousands of loose segments."
+  ],
+  "JPEG2DXF_PROBLEM_B2": [
+   "JPEGs arrive compressed and noisy — and noise traces just as faithfully as artwork, straight into your cut file."
+  ],
+  "JPEG2DXF_PROBLEM_B3": [
+   "And most converters want your file on their server before you see a single path."
+  ],
+  "JPEG2DXF_SOLUTION_H2": [
+   "Cleanup, tracing and real DXF — one pass, on your device"
+  ],
+  "JPEG2DXF_SOLUTION_S1": [
+   "Clean the image first: denoise and upscale before a single path is traced — the step default tracers skip."
+  ],
+  "JPEG2DXF_SOLUTION_S2": [
+   "Trace with parameters that adapt to your image — tuned automatically, not one global preset."
+  ],
+  "JPEG2DXF_SOLUTION_S3": [
+   "Export real DXF: R2000 with units embedded by default, R12 compatibility mode for older CAM — plus SVG when your machine prefers it."
+  ],
+  "JPEG2DXF_HONEST_H2": [
+   "An honest note before you convert"
+  ],
+  "JPEG2DXF_HONEST_P": [
+   "Best on flat-color graphics — logos, icons, screenshots, line art: output is designed to be cut-ready. Photos come out stylized (posterized), not cut-ready — we'll tell you which one you have before you convert."
+  ],
+  "JPEG2DXF_SAMEFMT_H2": [
+   "JPEG or JPG? Same format — and yes, there's a page for that spelling too"
+  ],
+  "JPEG2DXF_SAMEFMT_P": [
+   "JPEG and JPG are the same format. The two extensions exist because early Windows filenames allowed only three letters — the image data inside is identical, byte for byte. If you arrived here searching for \"jpg to dxf\", you're in the right place too: this converter accepts both spellings and treats them the same way. We also keep a dedicated JPG to DXF page written around the .jpg spelling — same engine, same output standard, different signpost. Use whichever one you found first; the DXF doesn't care."
+  ],
+  "JPEG2DXF_SCENES_H2": [
+   "What a DXF from this page gets used for"
+  ],
+  "JPEG2DXF_SCENES_B1": [
+   "Laser-cut signs and layered art from flat-color logos and graphics saved as JPEGs."
+  ],
+  "JPEG2DXF_SCENES_B2": [
+   "CNC plasma, router and milling work where DXF is the only language the CAM software accepts."
+  ],
+  "JPEG2DXF_SCENES_B3": [
+   "Vinyl cutting and plotter workflows, alongside the SVG output for machines and software that prefer it."
+  ],
+  "JPEG2DXF_SCENES_CLOSE": [
+   "Whatever the machine, the output standard doesn't change: closed paths, color-separated layers, units embedded — and a test cut before production."
+  ],
+  "JPEG2DXF_PHOTO_H2": [
+   "If your JPEG is a photograph, read this first"
+  ],
+  "JPEG2DXF_PHOTO_P": [
+   "There's a difference between a JPEG of a graphic and a JPEG of a scene. A logo saved as JPEG, a scan of a drawing, a screenshot of artwork — flat colors underneath the compression noise — is exactly what the cleanup-and-trace pipeline is built for; the output is designed to be cut-ready. A photograph of a person, a pet or a landscape has no flat colors to recover: it converts to a stylized, posterized result — bold shapes, sometimes striking, not cut-ready detail. High contrast and simple backgrounds make strong poster art; fine photographic detail does not become fine vector detail, and no converter can change that. The preview shows you which result you'll get before you download."
+  ],
+  "JPEG2DXF_HOW_H2": [
+   "How to convert JPEG to DXF (and get a file that cuts)"
+  ],
+  "JPEG2DXF_HOW_S1": [
+   "Drop your JPEG."
+  ],
+  "JPEG2DXF_HOW_S2": [
+   "Check the layer preview; slide precision if you want a smaller or smoother file."
+  ],
+  "JPEG2DXF_HOW_S3": [
+   "Download DXF (R2000 or R12) — done."
+  ],
+  "JPEG2DXF_HOW_AUX": [
+   "No sign-up. No watermark. Your JPEG never left your machine."
+  ],
+  "JPEG2DXF_PRICING_ANCHOR": [
+   "Free for 10 conversions a day — every feature above included. Heavy day? Pro lifts the cap: $59, one time.",
+   "Get CleanPaths Pro — $59, one time"
+  ],
+  "JPEG2DXF_FAQ1_Q": [
+   "Is JPEG the same as JPG — will my .jpeg file work here?"
+  ],
+  "JPEG2DXF_FAQ1_A": [
+   "Yes on both counts. JPEG and JPG are the same image format — the extensions differ, the data doesn't — and this converter accepts both spellings identically. If you'd rather read the version of this page written around the .jpg spelling, our JPG to DXF page covers the same engine and output standard."
+  ],
+  "JPEG2DXF_FAQ2_Q": [
+   "What's the difference between the R2000 and R12 downloads?"
+  ],
+  "JPEG2DXF_FAQ2_A": [
+   "Both are real DXF — the difference is compatibility, not quality. R2000 embeds units so the design opens at the right size in modern software; R12 is the compatibility mode for older CAM that can't read units. Our JPG to DXF page's FAQ covers the sizing question in detail, and it applies identically to files from this page."
+  ],
+  "JPEG2DXF_FAQ3_Q": [
+   "My JPEG is a photograph — what will I get?"
+  ],
+  "JPEG2DXF_FAQ3_A": [
+   "A stylized, posterized version of it — flat color regions with clean edges, not a photographic reproduction. High-contrast photos make striking poster art that can cut well as decorative pieces; fine detail doesn't survive any auto-tracer. If the JPEG is a photo OF a graphic — a logo, a sign, a drawing — the output is designed to be cut-ready instead. The preview tells you which one you have before you download. For the full photographic rundown, see our photo to DXF converter."
+  ],
+  "JPEG2DXF_FAQ4_Q": [
+   "Why does JPEG quality matter for tracing?"
+  ],
+  "JPEG2DXF_FAQ4_A": [
+   "Because compression artifacts are the tracer's worst enemy. Every JPEG saves space by blurring fine detail, and a tracer reads that blur as real edges — so a noisy JPEG becomes a noisy cut file. That's why this converter cleans and upscales before tracing. The cleaner your source, the cleaner your DXF: if you have the same image as a PNG, convert that instead — our PNG to DXF converter is built for it."
+  ],
+  "JPEG2DXF_FAQ5_Q/A": [
+   "Do you upload or store my files?"
+  ],
+  "JPEG2DXF_FAQ6_Q/A": [
+   "Is there a daily limit?",
+   "Free tier: 10 conversions a day, full quality. Pro removes the cap — $59, one time, no subscriptions."
+  ],
+  "JPEG2DXF_FINAL_H2": [
+   "That JPEG on your desktop is closer to a cut file than you think."
+  ],
+  "JPEG2DXF_FINAL_BTN": [
+   "Convert JPEG to DXF free now"
+  ],
+  "JPEG2DXF_LINKS": [
+   "Using .jpg files? Same format — the JPG to DXF page is here →",
+   "/jpg-to-dxf/",
+   "Have PNGs instead? PNG to DXF converter →",
+   "/png-to-dxf/",
+   "Not sure what format you're holding? Image to DXF converter →",
+   "/image-to-dxf/"
+  ],
+  "PT_JPEG2DXF_META_TITLE": [
+   "JPEG para DXF — Conversor Grátis, sem Upload"
+  ],
+  "PT_JPEG2DXF_META_DESC": [
+   "Converta JPEG para DXF grátis, direto no navegador. Trajetórias fechadas e camadas por cor — sem upload, sem cadastro."
+  ],
+  "PT_JPEG2DXF_H1": [
+   "Conversor de JPEG para DXF — Grátis, sem Upload"
+  ],
+  "PT_JPEG2DXF_HERO_SUB": [
+   "Arraste seu JPEG e baixe um DXF com camadas separadas por cor em segundos. A conversão acontece 100% no seu navegador — não existe etapa de upload."
+  ],
+  "PT_JPEG2DXF_EYEBROW": [
+   "JPEG → DXF · processado no seu navegador"
+  ],
+  "PT_JPEG2DXF_DZ_TEXT": [
+   "Arraste seu arquivo .jpeg aqui — ou clique para escolher"
+  ],
+  "PT_JPEG2DXF_DZ_BTN": [
+   "Converter agora — grátis"
+  ],
+  "PT_JPEG2DXF_DZ_FORMATS": [
+   "ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE"
+  ],
+  "PT_JPEG2DXF_MICROCOPY": [
+   "Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado"
+  ],
+  "PT_JPEG2DXF_BADGES": [
+   "🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água"
+  ],
+  "PT_JPEG2DXF_HONEST_H2": [
+   "Um aviso honesto antes de converter"
+  ],
+  "PT_JPEG2DXF_HONEST_P": [
+   "Funciona melhor com gráficos de cores chapadas — logos, ícones, capturas de tela, line art: o resultado é projetado para corte. Fotos saem estilizadas (posterizadas), não prontas para corte — avisamos qual dos dois você tem antes de converter."
+  ],
+  "PT_JPEG2DXF_EXPLAINER_H2": [
+   "Por que converter JPEG para DXF?"
+  ],
+  "PT_JPEG2DXF_EXPLAINER_P": [
+   "JPEG e JPG são o mesmo formato de imagem — as duas extensões existem por causa dos nomes de arquivo de três letras do Windows antigo. Plotters, lasers e CNC não leem pixels — eles seguem trajetórias. Um DXF bem gerado traz trajetórias fechadas, camadas separadas por cor e unidades embutidas (R2000), ou modo de compatibilidade R12 para CAM antigo. Este conversor faz todo o trabalho no seu navegador: seus arquivos nunca saem do seu dispositivo."
+  ],
+  "PT_JPEG2DXF_SAMEFMT_H2": [
+   "JPEG ou JPG? O mesmo formato"
+  ],
+  "PT_JPEG2DXF_SAMEFMT_P": [
+   "JPEG e JPG são o mesmo formato de imagem — não existe diferença nos dados. Este conversor aceita as duas extensões e trata os arquivos de forma idêntica. Temos também uma página dedicada à grafia .jpg (em inglês): mesmo motor, mesmo padrão de saída, outra sinalização. Use a que você encontrou primeiro — o DXF não se importa."
+  ],
+  "PT_JPEG2DXF_PHOTO_H2": [
+   "Se o seu JPEG é uma fotografia, leia isto antes"
+  ],
+  "PT_JPEG2DXF_PHOTO_P": [
+   "Há uma diferença entre um JPEG de um gráfico e um JPEG de uma cena. Um logotipo salvo como JPEG, a digitalização de um desenho, a captura de uma arte — cores chapadas sob o ruído de compressão — é exatamente para o que o fluxo de limpeza e traçado foi feito; o resultado é projetado para corte. Uma fotografia de pessoa, pet ou paisagem não tem cores chapadas para recuperar: ela converte num resultado estilizado e posterizado — formas fortes, às vezes bonitas, não detalhe pronto para corte. A pré-visualização mostra qual resultado você vai ter antes de baixar."
+  ],
+  "PT_JPEG2DXF_STEPS_H2": [
+   "Como converter JPEG para DXF"
+  ],
+  "PT_JPEG2DXF_STEPS": [
+   "Arraste seu arquivo .jpeg.",
+   "A conversão acontece no seu navegador — na hora.",
+   "Baixe o .dxf.",
+   "Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia."
+  ],
+  "PT_JPEG2DXF_FAQ1_Q/A": [
+   "JPEG e JPG são a mesma coisa?",
+   "Sim — as duas extensões apontam para o mesmo formato de imagem, e este conversor aceita as duas de forma idêntica. Se você prefere ler a versão desta página escrita em torno da grafia .jpg (em inglês), a nossa página de JPG para DXF cobre o mesmo motor e o mesmo padrão de saída."
+  ],
+  "PT_JPEG2DXF_FAQ2_Q/A": [
+   "O DXF funciona na minha máquina de corte?",
+   "O resultado é DXF totalmente POLYLINE com trajetórias fechadas e camadas por cor — o formato que softwares de corte esperam. O Cricut Design Space importa SVG; LightBurn, AutoCAD e a maioria dos CAM de CNC falam DXF. A exportação padrão R2000 embute unidades, então o desenho abre no tamanho certo. Sempre faça um corte de teste antes da produção."
+  ],
+  "PT_JPEG2DXF_FAQ3_Q/A": [
+   "Meu arquivo é enviado para algum servidor?"
+  ],
+  "PT_JPEG2DXF_FAQ4_Q/A": [
+   "Tem limite de uso?",
+   "Grátis, 10 conversões por dia, sem cadastro."
+  ],
+  "PT_JPEG2DXF_FINAL_BTN": [
+   "Converter JPEG para DXF grátis"
+  ],
+  "PT_JPEG2DXF_FOOTER": [
+   "🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro"
+  ]
+ },
+ "slot": {
+  "WEBP2PNG_META_TITLE": [
+   "1A",
+   "Meta Title（52 字符 ✅）"
+  ],
+  "WEBP2PNG_META_DESC": [
+   "1A",
+   "Meta Description（121 字符 ✅）"
+  ],
+  "WEBP2PNG_H1": [
+   "1A",
+   "H1"
+  ],
+  "WEBP2PNG_HERO_SUB": [
+   "1A",
+   "首屏副标题"
+  ],
+  "WEBP2PNG_EYEBROW": [
+   "1A",
+   "Hero eyebrow spec 注"
+  ],
+  "WEBP2PNG_DZ_TEXT": [
+   "1A",
+   "dropzone 提示"
+  ],
+  "WEBP2PNG_DZ_BTN": [
+   "1A",
+   "dropzone 主按钮"
+  ],
+  "WEBP2PNG_DZ_FORMATS": [
+   "1A",
+   "dropzone 格式行"
+  ],
+  "WEBP2PNG_BADGES": [
+   "1A",
+   "徽章行"
+  ],
+  "WEBP2PNG_EXPLAINER_H2": [
+   "1A",
+   "Explainer H2"
+  ],
+  "WEBP2PNG_EXPLAINER_P": [
+   "1A",
+   "Explainer 正文"
+  ],
+  "WEBP2PNG_COMPAT_H2": [
+   "1A",
+   "专属模块① H2（webp 兼容性语境）"
+  ],
+  "WEBP2PNG_COMPAT_P": [
+   "1A",
+   "专属模块① 正文"
+  ],
+  "WEBP2PNG_ALPHA_H2": [
+   "1A",
+   "专属模块② H2（透明度保留）"
+  ],
+  "WEBP2PNG_ALPHA_P": [
+   "1A",
+   "专属模块② 正文（内链位①）"
+  ],
+  "WEBP2PNG_BATCH_H2": [
+   "1A",
+   "专属模块③ H2（本地处理对大批量图的意义）"
+  ],
+  "WEBP2PNG_BATCH_P": [
+   "1A",
+   "专属模块③ 正文"
+  ],
+  "WEBP2PNG_VERIFY": [
+   "1A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "WEBP2PNG_STEPS_H2": [
+   "1A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "WEBP2PNG_STEPS": [
+   "1A",
+   "三步"
+  ],
+  "WEBP2PNG_STEPS_AUX": [
+   "1A",
+   "步骤辅助行"
+  ],
+  "WEBP2PNG_FAQ1_Q": [
+   "1A",
+   "FAQ#1 问"
+  ],
+  "WEBP2PNG_FAQ1_A": [
+   "1A",
+   "FAQ#1 答"
+  ],
+  "WEBP2PNG_FAQ2_Q": [
+   "1A",
+   "FAQ#2 问"
+  ],
+  "WEBP2PNG_FAQ2_A": [
+   "1A",
+   "FAQ#2 答"
+  ],
+  "WEBP2PNG_FAQ3_Q": [
+   "1A",
+   "FAQ#3 问"
+  ],
+  "WEBP2PNG_FAQ3_A": [
+   "1A",
+   "FAQ#3 答"
+  ],
+  "WEBP2PNG_FAQ4_Q/A": [
+   "1A",
+   "FAQ#4"
+  ],
+  "WEBP2PNG_FAQ5_Q/A": [
+   "1A",
+   "FAQ#5"
+  ],
+  "WEBP2PNG_FINAL_BTN": [
+   "1A",
+   "Final CTA 按钮"
+  ],
+  "WEBP2PNG_LINKS": [
+   "1A",
+   "页尾内链块（Final CTA 上方）"
+  ],
+  "PT_WEBP2PNG_META_TITLE": [
+   "1B",
+   "Meta Title（44 字符 ✅）"
+  ],
+  "PT_WEBP2PNG_META_DESC": [
+   "1B",
+   "Meta Description（120 字符 ✅）"
+  ],
+  "PT_WEBP2PNG_H1": [
+   "1B",
+   "H1"
+  ],
+  "PT_WEBP2PNG_HERO_SUB": [
+   "1B",
+   "首屏副标题"
+  ],
+  "PT_WEBP2PNG_EYEBROW": [
+   "1B",
+   "eyebrow spec 注"
+  ],
+  "PT_WEBP2PNG_DZ": [
+   "1B",
+   "dropzone 三串"
+  ],
+  "PT_WEBP2PNG_BADGES": [
+   "1B",
+   "徽章行"
+  ],
+  "PT_WEBP2PNG_EXPLAINER_H2": [
+   "1B",
+   "Explainer H2"
+  ],
+  "PT_WEBP2PNG_EXPLAINER_P": [
+   "1B",
+   "Explainer 正文"
+  ],
+  "PT_WEBP2PNG_COMPAT_H2": [
+   "1B",
+   "专属模块① H2"
+  ],
+  "PT_WEBP2PNG_COMPAT_P": [
+   "1B",
+   "专属模块① 正文"
+  ],
+  "PT_WEBP2PNG_ALPHA_H2": [
+   "1B",
+   "专属模块② H2"
+  ],
+  "PT_WEBP2PNG_ALPHA_P": [
+   "1B",
+   "专属模块② 正文（内链位①，PT→PT）"
+  ],
+  "PT_WEBP2PNG_BATCH_H2": [
+   "1B",
+   "专属模块③ H2"
+  ],
+  "PT_WEBP2PNG_BATCH_P": [
+   "1B",
+   "专属模块③ 正文"
+  ],
+  "PT_WEBP2PNG_VERIFY": [
+   "1B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_WEBP2PNG_STEPS_H2": [
+   "1B",
+   "步骤区 H2"
+  ],
+  "PT_WEBP2PNG_STEPS": [
+   "1B",
+   "三步 + 辅助行"
+  ],
+  "PT_WEBP2PNG_FAQ1_Q/A": [
+   "1B",
+   "FAQ#1"
+  ],
+  "PT_WEBP2PNG_FAQ2_Q/A": [
+   "1B",
+   "FAQ#2"
+  ],
+  "PT_WEBP2PNG_FAQ3_Q/A": [
+   "1B",
+   "FAQ#3"
+  ],
+  "PT_WEBP2PNG_FAQ4_Q/A": [
+   "1B",
+   "FAQ#4"
+  ],
+  "PT_WEBP2PNG_FAQ5_Q/A": [
+   "1B",
+   "FAQ#5"
+  ],
+  "PT_WEBP2PNG_FINAL_BTN": [
+   "1B",
+   "Final CTA 按钮"
+  ],
+  "PT_WEBP2PNG_FOOTER": [
+   "1B",
+   "页脚"
+  ],
+  "WEBP2JPG_META_TITLE": [
+   "2A",
+   "Meta Title（52 字符 ✅）"
+  ],
+  "WEBP2JPG_META_DESC": [
+   "2A",
+   "Meta Description（120 字符 ✅）"
+  ],
+  "WEBP2JPG_H1": [
+   "2A",
+   "H1"
+  ],
+  "WEBP2JPG_HERO_SUB": [
+   "2A",
+   "首屏副标题"
+  ],
+  "WEBP2JPG_EYEBROW": [
+   "2A",
+   "Hero eyebrow spec 注"
+  ],
+  "WEBP2JPG_DZ_TEXT": [
+   "2A",
+   "dropzone 提示"
+  ],
+  "WEBP2JPG_DZ_BTN": [
+   "2A",
+   "dropzone 主按钮"
+  ],
+  "WEBP2JPG_DZ_FORMATS": [
+   "2A",
+   "dropzone 格式行"
+  ],
+  "WEBP2JPG_BADGES": [
+   "2A",
+   "徽章行"
+  ],
+  "WEBP2JPG_EXPLAINER_H2": [
+   "2A",
+   "Explainer H2"
+  ],
+  "WEBP2JPG_EXPLAINER_P": [
+   "2A",
+   "Explainer 正文"
+  ],
+  "WEBP2JPG_ALPHA_H2": [
+   "2A",
+   "专属模块① H2（jpg 无透明诚实处理）"
+  ],
+  "WEBP2JPG_ALPHA_P": [
+   "2A",
+   "专属模块① 正文（内链位①）"
+  ],
+  "WEBP2JPG_SIZE_H2": [
+   "2A",
+   "专属模块② H2（体积 vs 兼容取舍）"
+  ],
+  "WEBP2JPG_SIZE_P": [
+   "2A",
+   "专属模块② 正文（内链位②）"
+  ],
+  "WEBP2JPG_CHOICE_H2": [
+   "2A",
+   "专属模块③ H2（与 /webp-to-png 选择引导）"
+  ],
+  "WEBP2JPG_CHOICE_P": [
+   "2A",
+   "专属模块③ 正文"
+  ],
+  "WEBP2JPG_VERIFY": [
+   "2A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "WEBP2JPG_STEPS_H2": [
+   "2A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "WEBP2JPG_STEPS": [
+   "2A",
+   "三步"
+  ],
+  "WEBP2JPG_STEPS_AUX": [
+   "2A",
+   "步骤辅助行"
+  ],
+  "WEBP2JPG_FAQ1_Q": [
+   "2A",
+   "FAQ#1 问"
+  ],
+  "WEBP2JPG_FAQ1_A": [
+   "2A",
+   "FAQ#1 答（内链位③）"
+  ],
+  "WEBP2JPG_FAQ2_Q": [
+   "2A",
+   "FAQ#2 问"
+  ],
+  "WEBP2JPG_FAQ2_A": [
+   "2A",
+   "FAQ#2 答"
+  ],
+  "WEBP2JPG_FAQ3_Q": [
+   "2A",
+   "FAQ#3 问"
+  ],
+  "WEBP2JPG_FAQ3_A": [
+   "2A",
+   "FAQ#3 答"
+  ],
+  "WEBP2JPG_FAQ4_Q/A": [
+   "2A",
+   "FAQ#4"
+  ],
+  "WEBP2JPG_FAQ5_Q/A": [
+   "2A",
+   "FAQ#5"
+  ],
+  "WEBP2JPG_FINAL_BTN": [
+   "2A",
+   "Final CTA 按钮"
+  ],
+  "WEBP2JPG_LINKS": [
+   "2A",
+   "页尾内链块"
+  ],
+  "PT_WEBP2JPG_META_TITLE": [
+   "2B",
+   "Meta Title（44 字符 ✅）"
+  ],
+  "PT_WEBP2JPG_META_DESC": [
+   "2B",
+   "Meta Description（111 字符 ✅）"
+  ],
+  "PT_WEBP2JPG_H1": [
+   "2B",
+   "H1"
+  ],
+  "PT_WEBP2JPG_HERO_SUB": [
+   "2B",
+   "首屏副标题"
+  ],
+  "PT_WEBP2JPG_EYEBROW": [
+   "2B",
+   "eyebrow spec 注"
+  ],
+  "PT_WEBP2JPG_DZ": [
+   "2B",
+   "dropzone 三串"
+  ],
+  "PT_WEBP2JPG_BADGES": [
+   "2B",
+   "徽章行"
+  ],
+  "PT_WEBP2JPG_EXPLAINER_H2": [
+   "2B",
+   "Explainer H2"
+  ],
+  "PT_WEBP2JPG_EXPLAINER_P": [
+   "2B",
+   "Explainer 正文"
+  ],
+  "PT_WEBP2JPG_ALPHA_H2": [
+   "2B",
+   "专属模块① H2"
+  ],
+  "PT_WEBP2JPG_ALPHA_P": [
+   "2B",
+   "专属模块① 正文（内链位①，PT→PT）"
+  ],
+  "PT_WEBP2JPG_SIZE_H2": [
+   "2B",
+   "专属模块② H2"
+  ],
+  "PT_WEBP2JPG_SIZE_P": [
+   "2B",
+   "专属模块② 正文"
+  ],
+  "PT_WEBP2JPG_CHOICE_H2": [
+   "2B",
+   "专属模块③ H2"
+  ],
+  "PT_WEBP2JPG_CHOICE_P": [
+   "2B",
+   "专属模块③ 正文"
+  ],
+  "PT_WEBP2JPG_VERIFY": [
+   "2B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_WEBP2JPG_STEPS_H2": [
+   "2B",
+   "步骤区 H2"
+  ],
+  "PT_WEBP2JPG_STEPS": [
+   "2B",
+   "三步 + 辅助行"
+  ],
+  "PT_WEBP2JPG_FAQ1_Q/A": [
+   "2B",
+   "FAQ#1"
+  ],
+  "PT_WEBP2JPG_FAQ2_Q/A": [
+   "2B",
+   "FAQ#2"
+  ],
+  "PT_WEBP2JPG_FAQ3_Q/A": [
+   "2B",
+   "FAQ#3"
+  ],
+  "PT_WEBP2JPG_FAQ4_Q/A": [
+   "2B",
+   "FAQ#4"
+  ],
+  "PT_WEBP2JPG_FAQ5_Q/A": [
+   "2B",
+   "FAQ#5"
+  ],
+  "PT_WEBP2JPG_FINAL_BTN": [
+   "2B",
+   "Final CTA 按钮"
+  ],
+  "PT_WEBP2JPG_FOOTER": [
+   "2B",
+   "页脚"
+  ],
+  "SVG2PNG_META_TITLE": [
+   "3A",
+   "Meta Title（51 字符 ✅）"
+  ],
+  "SVG2PNG_META_DESC": [
+   "3A",
+   "Meta Description（119 字符 ✅）"
+  ],
+  "SVG2PNG_H1": [
+   "3A",
+   "H1"
+  ],
+  "SVG2PNG_HERO_SUB": [
+   "3A",
+   "首屏副标题"
+  ],
+  "SVG2PNG_EYEBROW": [
+   "3A",
+   "Hero eyebrow spec 注"
+  ],
+  "SVG2PNG_DZ_TEXT": [
+   "3A",
+   "dropzone 提示"
+  ],
+  "SVG2PNG_DZ_BTN": [
+   "3A",
+   "dropzone 主按钮"
+  ],
+  "SVG2PNG_DZ_FORMATS": [
+   "3A",
+   "dropzone 格式行"
+  ],
+  "SVG2PNG_BADGES": [
+   "3A",
+   "徽章行"
+  ],
+  "SVG2PNG_EXPLAINER_H2": [
+   "3A",
+   "Explainer H2"
+  ],
+  "SVG2PNG_EXPLAINER_P": [
+   "3A",
+   "Explainer 正文"
+  ],
+  "SVG2PNG_RES_H2": [
+   "3A",
+   "专属模块① H2（分辨率选择语境，不锁 DPI/尺寸）"
+  ],
+  "SVG2PNG_RES_P": [
+   "3A",
+   "专属模块① 正文"
+  ],
+  "SVG2PNG_ALPHA_H2": [
+   "3A",
+   "专属模块② H2（透明背景保留）"
+  ],
+  "SVG2PNG_ALPHA_P": [
+   "3A",
+   "专属模块② 正文（内链位①）"
+  ],
+  "SVG2PNG_DIR_H2": [
+   "3A",
+   "专属模块③ H2（与 /screenshot-to-svg/ 方向区隔）"
+  ],
+  "SVG2PNG_DIR_P": [
+   "3A",
+   "专属模块③ 正文（内链位②）"
+  ],
+  "SVG2PNG_VERIFY": [
+   "3A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "SVG2PNG_STEPS_H2": [
+   "3A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "SVG2PNG_STEPS": [
+   "3A",
+   "三步"
+  ],
+  "SVG2PNG_STEPS_AUX": [
+   "3A",
+   "步骤辅助行"
+  ],
+  "SVG2PNG_FAQ1_Q": [
+   "3A",
+   "FAQ#1 问"
+  ],
+  "SVG2PNG_FAQ1_A": [
+   "3A",
+   "FAQ#1 答"
+  ],
+  "SVG2PNG_FAQ2_Q": [
+   "3A",
+   "FAQ#2 问"
+  ],
+  "SVG2PNG_FAQ2_A": [
+   "3A",
+   "FAQ#2 答"
+  ],
+  "SVG2PNG_FAQ3_Q": [
+   "3A",
+   "FAQ#3 问"
+  ],
+  "SVG2PNG_FAQ3_A": [
+   "3A",
+   "FAQ#3 答"
+  ],
+  "SVG2PNG_FAQ4_Q/A": [
+   "3A",
+   "FAQ#4"
+  ],
+  "SVG2PNG_FAQ5_Q/A": [
+   "3A",
+   "FAQ#5"
+  ],
+  "SVG2PNG_FINAL_BTN": [
+   "3A",
+   "Final CTA 按钮"
+  ],
+  "SVG2PNG_LINKS": [
+   "3A",
+   "页尾内链块"
+  ],
+  "PT_SVG2PNG_META_TITLE": [
+   "3B",
+   "Meta Title（43 字符 ✅）"
+  ],
+  "PT_SVG2PNG_META_DESC": [
+   "3B",
+   "Meta Description（108 字符 ✅）"
+  ],
+  "PT_SVG2PNG_H1": [
+   "3B",
+   "H1"
+  ],
+  "PT_SVG2PNG_HERO_SUB": [
+   "3B",
+   "首屏副标题"
+  ],
+  "PT_SVG2PNG_EYEBROW": [
+   "3B",
+   "eyebrow spec 注"
+  ],
+  "PT_SVG2PNG_DZ": [
+   "3B",
+   "dropzone 三串"
+  ],
+  "PT_SVG2PNG_BADGES": [
+   "3B",
+   "徽章行"
+  ],
+  "PT_SVG2PNG_EXPLAINER_H2": [
+   "3B",
+   "Explainer H2"
+  ],
+  "PT_SVG2PNG_EXPLAINER_P": [
+   "3B",
+   "Explainer 正文"
+  ],
+  "PT_SVG2PNG_RES_H2": [
+   "3B",
+   "专属模块① H2"
+  ],
+  "PT_SVG2PNG_RES_P": [
+   "3B",
+   "专属模块① 正文"
+  ],
+  "PT_SVG2PNG_ALPHA_H2": [
+   "3B",
+   "专属模块② H2"
+  ],
+  "PT_SVG2PNG_ALPHA_P": [
+   "3B",
+   "专属模块② 正文（内链位①，PT→PT）"
+  ],
+  "PT_SVG2PNG_DIR_H2": [
+   "3B",
+   "专属模块③ H2"
+  ],
+  "PT_SVG2PNG_DIR_P": [
+   "3B",
+   "专属模块③ 正文（内链位②）"
+  ],
+  "PT_SVG2PNG_VERIFY": [
+   "3B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_SVG2PNG_STEPS_H2": [
+   "3B",
+   "步骤区 H2"
+  ],
+  "PT_SVG2PNG_STEPS": [
+   "3B",
+   "三步 + 辅助行"
+  ],
+  "PT_SVG2PNG_FAQ1_Q/A": [
+   "3B",
+   "FAQ#1"
+  ],
+  "PT_SVG2PNG_FAQ2_Q/A": [
+   "3B",
+   "FAQ#2"
+  ],
+  "PT_SVG2PNG_FAQ3_Q/A": [
+   "3B",
+   "FAQ#3"
+  ],
+  "PT_SVG2PNG_FAQ4_Q/A": [
+   "3B",
+   "FAQ#4"
+  ],
+  "PT_SVG2PNG_FAQ5_Q/A": [
+   "3B",
+   "FAQ#5"
+  ],
+  "PT_SVG2PNG_FINAL_BTN": [
+   "3B",
+   "Final CTA 按钮"
+  ],
+  "PT_SVG2PNG_FOOTER": [
+   "3B",
+   "页脚"
+  ],
+  "JPEG2JPG_META_TITLE": [
+   "4A",
+   "Meta Title（51 字符 ✅）"
+  ],
+  "JPEG2JPG_META_DESC": [
+   "4A",
+   "Meta Description（118 字符 ✅）"
+  ],
+  "JPEG2JPG_H1": [
+   "4A",
+   "H1"
+  ],
+  "JPEG2JPG_HERO_SUB": [
+   "4A",
+   "首屏副标题"
+  ],
+  "JPEG2JPG_EYEBROW": [
+   "4A",
+   "Hero eyebrow spec 注"
+  ],
+  "JPEG2JPG_DZ_TEXT": [
+   "4A",
+   "dropzone 提示"
+  ],
+  "JPEG2JPG_DZ_BTN": [
+   "4A",
+   "dropzone 主按钮"
+  ],
+  "JPEG2JPG_DZ_FORMATS": [
+   "4A",
+   "dropzone 格式行"
+  ],
+  "JPEG2JPG_BADGES": [
+   "4A",
+   "徽章行"
+  ],
+  "JPEG2JPG_EXPLAINER_H2": [
+   "4A",
+   "Explainer H2"
+  ],
+  "JPEG2JPG_EXPLAINER_P": [
+   "4A",
+   "Explainer 正文"
+  ],
+  "JPEG2JPG_LOSSLESS_H2": [
+   "4A",
+   "专属模块① H2（重打包零损失机理）"
+  ],
+  "JPEG2JPG_LOSSLESS_P": [
+   "4A",
+   "专属模块① 正文"
+  ],
+  "JPEG2JPG_WHEN_H2": [
+   "4A",
+   "专属模块② H2（什么场景真的需要这步）"
+  ],
+  "JPEG2JPG_WHEN_P": [
+   "4A",
+   "专属模块② 正文"
+  ],
+  "JPEG2JPG_LEGACY_H2": [
+   "4A",
+   "专属模块③ H2（老系统只认 .jpg 后缀语境）"
+  ],
+  "JPEG2JPG_LEGACY_P": [
+   "4A",
+   "专属模块③ 正文"
+  ],
+  "JPEG2JPG_VERIFY": [
+   "4A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "JPEG2JPG_STEPS_H2": [
+   "4A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "JPEG2JPG_STEPS": [
+   "4A",
+   "三步"
+  ],
+  "JPEG2JPG_STEPS_AUX": [
+   "4A",
+   "步骤辅助行"
+  ],
+  "JPEG2JPG_FAQ1_Q": [
+   "4A",
+   "FAQ#1 问"
+  ],
+  "JPEG2JPG_FAQ1_A": [
+   "4A",
+   "FAQ#1 答"
+  ],
+  "JPEG2JPG_FAQ2_Q": [
+   "4A",
+   "FAQ#2 问"
+  ],
+  "JPEG2JPG_FAQ2_A": [
+   "4A",
+   "FAQ#2 答"
+  ],
+  "JPEG2JPG_FAQ3_Q": [
+   "4A",
+   "FAQ#3 问"
+  ],
+  "JPEG2JPG_FAQ3_A": [
+   "4A",
+   "FAQ#3 答"
+  ],
+  "JPEG2JPG_FAQ4_Q/A": [
+   "4A",
+   "FAQ#4"
+  ],
+  "JPEG2JPG_FAQ5_Q/A": [
+   "4A",
+   "FAQ#5"
+  ],
+  "JPEG2JPG_FINAL_BTN": [
+   "4A",
+   "Final CTA 按钮"
+  ],
+  "JPEG2JPG_FINAL_H2": [
+   "4A",
+   "Final CTA H2"
+  ],
+  "JPEG2JPG_LINKS": [
+   "4A",
+   "页尾内链块"
+  ],
+  "PT_JPEG2JPG_META_TITLE": [
+   "4B",
+   "Meta Title（44 字符 ✅）"
+  ],
+  "PT_JPEG2JPG_META_DESC": [
+   "4B",
+   "Meta Description（111 字符 ✅）"
+  ],
+  "PT_JPEG2JPG_H1": [
+   "4B",
+   "H1"
+  ],
+  "PT_JPEG2JPG_HERO_SUB": [
+   "4B",
+   "首屏副标题"
+  ],
+  "PT_JPEG2JPG_EYEBROW": [
+   "4B",
+   "eyebrow spec 注"
+  ],
+  "PT_JPEG2JPG_DZ": [
+   "4B",
+   "dropzone 三串"
+  ],
+  "PT_JPEG2JPG_BADGES": [
+   "4B",
+   "徽章行"
+  ],
+  "PT_JPEG2JPG_EXPLAINER_H2": [
+   "4B",
+   "Explainer H2"
+  ],
+  "PT_JPEG2JPG_EXPLAINER_P": [
+   "4B",
+   "Explainer 正文"
+  ],
+  "PT_JPEG2JPG_LOSSLESS_H2": [
+   "4B",
+   "专属模块① H2"
+  ],
+  "PT_JPEG2JPG_LOSSLESS_P": [
+   "4B",
+   "专属模块① 正文"
+  ],
+  "PT_JPEG2JPG_WHEN_H2": [
+   "4B",
+   "专属模块② H2"
+  ],
+  "PT_JPEG2JPG_WHEN_P": [
+   "4B",
+   "专属模块② 正文"
+  ],
+  "PT_JPEG2JPG_LEGACY_H2": [
+   "4B",
+   "专属模块③ H2"
+  ],
+  "PT_JPEG2JPG_LEGACY_P": [
+   "4B",
+   "专属模块③ 正文"
+  ],
+  "PT_JPEG2JPG_VERIFY": [
+   "4B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_JPEG2JPG_STEPS_H2": [
+   "4B",
+   "步骤区 H2"
+  ],
+  "PT_JPEG2JPG_STEPS": [
+   "4B",
+   "三步 + 辅助行"
+  ],
+  "PT_JPEG2JPG_FAQ1_Q/A": [
+   "4B",
+   "FAQ#1"
+  ],
+  "PT_JPEG2JPG_FAQ2_Q/A": [
+   "4B",
+   "FAQ#2"
+  ],
+  "PT_JPEG2JPG_FAQ3_Q/A": [
+   "4B",
+   "FAQ#3"
+  ],
+  "PT_JPEG2JPG_FAQ4_Q/A": [
+   "4B",
+   "FAQ#4"
+  ],
+  "PT_JPEG2JPG_FAQ5_Q/A": [
+   "4B",
+   "FAQ#5"
+  ],
+  "PT_JPEG2JPG_FINAL_BTN": [
+   "4B",
+   "Final CTA 按钮"
+  ],
+  "PT_JPEG2JPG_FOOTER": [
+   "4B",
+   "页脚"
+  ],
+  "SVG2JPG_META_TITLE": [
+   "5A",
+   "Meta Title（51 字符 ✅）"
+  ],
+  "SVG2JPG_META_DESC": [
+   "5A",
+   "Meta Description（116 字符 ✅）"
+  ],
+  "SVG2JPG_H1": [
+   "5A",
+   "H1"
+  ],
+  "SVG2JPG_HERO_SUB": [
+   "5A",
+   "首屏副标题"
+  ],
+  "SVG2JPG_EYEBROW": [
+   "5A",
+   "Hero eyebrow spec 注"
+  ],
+  "SVG2JPG_DZ_TEXT": [
+   "5A",
+   "dropzone 提示"
+  ],
+  "SVG2JPG_DZ_BTN": [
+   "5A",
+   "dropzone 主按钮"
+  ],
+  "SVG2JPG_DZ_FORMATS": [
+   "5A",
+   "dropzone 格式行"
+  ],
+  "SVG2JPG_BADGES": [
+   "5A",
+   "徽章行"
+  ],
+  "SVG2JPG_EXPLAINER_H2": [
+   "5A",
+   "Explainer H2"
+  ],
+  "SVG2JPG_EXPLAINER_P": [
+   "5A",
+   "Explainer 正文"
+  ],
+  "SVG2JPG_ALPHA_H2": [
+   "5A",
+   "专属模块① H2（jpg 无透明诚实处理）"
+  ],
+  "SVG2JPG_ALPHA_P": [
+   "5A",
+   "专属模块① 正文（内链位①）"
+  ],
+  "SVG2JPG_PRINT_H2": [
+   "5A",
+   "专属模块② H2（打印/文档嵌图场景）"
+  ],
+  "SVG2JPG_PRINT_P": [
+   "5A",
+   "专属模块② 正文"
+  ],
+  "SVG2JPG_CHOICE_H2": [
+   "5A",
+   "专属模块③ H2（与 /svg-to-png 选择引导）"
+  ],
+  "SVG2JPG_CHOICE_P": [
+   "5A",
+   "专属模块③ 正文（内链位②）"
+  ],
+  "SVG2JPG_VERIFY": [
+   "5A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "SVG2JPG_STEPS_H2": [
+   "5A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "SVG2JPG_STEPS": [
+   "5A",
+   "三步"
+  ],
+  "SVG2JPG_STEPS_AUX": [
+   "5A",
+   "步骤辅助行"
+  ],
+  "SVG2JPG_FAQ1_Q": [
+   "5A",
+   "FAQ#1 问"
+  ],
+  "SVG2JPG_FAQ1_A": [
+   "5A",
+   "FAQ#1 答（内链位③）"
+  ],
+  "SVG2JPG_FAQ2_Q": [
+   "5A",
+   "FAQ#2 问"
+  ],
+  "SVG2JPG_FAQ2_A": [
+   "5A",
+   "FAQ#2 答"
+  ],
+  "SVG2JPG_FAQ3_Q": [
+   "5A",
+   "FAQ#3 问"
+  ],
+  "SVG2JPG_FAQ3_A": [
+   "5A",
+   "FAQ#3 答"
+  ],
+  "SVG2JPG_FAQ4_Q/A": [
+   "5A",
+   "FAQ#4"
+  ],
+  "SVG2JPG_FAQ5_Q/A": [
+   "5A",
+   "FAQ#5"
+  ],
+  "SVG2JPG_FINAL_BTN": [
+   "5A",
+   "Final CTA 按钮"
+  ],
+  "SVG2JPG_LINKS": [
+   "5A",
+   "页尾内链块"
+  ],
+  "PT_SVG2JPG_META_TITLE": [
+   "5B",
+   "Meta Title（43 字符 ✅）"
+  ],
+  "PT_SVG2JPG_META_DESC": [
+   "5B",
+   "Meta Description（113 字符 ✅）"
+  ],
+  "PT_SVG2JPG_H1": [
+   "5B",
+   "H1"
+  ],
+  "PT_SVG2JPG_HERO_SUB": [
+   "5B",
+   "首屏副标题"
+  ],
+  "PT_SVG2JPG_EYEBROW": [
+   "5B",
+   "eyebrow spec 注"
+  ],
+  "PT_SVG2JPG_DZ": [
+   "5B",
+   "dropzone 三串"
+  ],
+  "PT_SVG2JPG_BADGES": [
+   "5B",
+   "徽章行"
+  ],
+  "PT_SVG2JPG_EXPLAINER_H2": [
+   "5B",
+   "Explainer H2"
+  ],
+  "PT_SVG2JPG_EXPLAINER_P": [
+   "5B",
+   "Explainer 正文"
+  ],
+  "PT_SVG2JPG_ALPHA_H2": [
+   "5B",
+   "专属模块① H2"
+  ],
+  "PT_SVG2JPG_ALPHA_P": [
+   "5B",
+   "专属模块① 正文（内链位①，PT→PT）"
+  ],
+  "PT_SVG2JPG_PRINT_H2": [
+   "5B",
+   "专属模块② H2"
+  ],
+  "PT_SVG2JPG_PRINT_P": [
+   "5B",
+   "专属模块② 正文"
+  ],
+  "PT_SVG2JPG_CHOICE_H2": [
+   "5B",
+   "专属模块③ H2"
+  ],
+  "PT_SVG2JPG_CHOICE_P": [
+   "5B",
+   "专属模块③ 正文（内链位②）"
+  ],
+  "PT_SVG2JPG_VERIFY": [
+   "5B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_SVG2JPG_STEPS_H2": [
+   "5B",
+   "步骤区 H2"
+  ],
+  "PT_SVG2JPG_STEPS": [
+   "5B",
+   "三步 + 辅助行"
+  ],
+  "PT_SVG2JPG_FAQ1_Q/A": [
+   "5B",
+   "FAQ#1"
+  ],
+  "PT_SVG2JPG_FAQ2_Q/A": [
+   "5B",
+   "FAQ#2"
+  ],
+  "PT_SVG2JPG_FAQ3_Q/A": [
+   "5B",
+   "FAQ#3"
+  ],
+  "PT_SVG2JPG_FAQ4_Q/A": [
+   "5B",
+   "FAQ#4"
+  ],
+  "PT_SVG2JPG_FAQ5_Q/A": [
+   "5B",
+   "FAQ#5"
+  ],
+  "PT_SVG2JPG_FINAL_BTN": [
+   "5B",
+   "Final CTA 按钮"
+  ],
+  "PT_SVG2JPG_FOOTER": [
+   "5B",
+   "页脚"
+  ],
+  "GIF2JPG_META_TITLE": [
+   "6A",
+   "Meta Title（53 字符 ✅）"
+  ],
+  "GIF2JPG_META_DESC": [
+   "6A",
+   "Meta Description（118 字符 ✅）"
+  ],
+  "GIF2JPG_H1": [
+   "6A",
+   "H1"
+  ],
+  "GIF2JPG_HERO_SUB": [
+   "6A",
+   "首屏副标题（**约束①首屏声明位**）"
+  ],
+  "GIF2JPG_EYEBROW": [
+   "6A",
+   "Hero eyebrow spec 注"
+  ],
+  "GIF2JPG_DZ_TEXT": [
+   "6A",
+   "dropzone 提示"
+  ],
+  "GIF2JPG_DZ_BTN": [
+   "6A",
+   "dropzone 主按钮"
+  ],
+  "GIF2JPG_DZ_FORMATS": [
+   "6A",
+   "dropzone 格式行"
+  ],
+  "GIF2JPG_BADGES": [
+   "6A",
+   "徽章行"
+  ],
+  "GIF2JPG_EXPLAINER_H2": [
+   "6A",
+   "Explainer H2"
+  ],
+  "GIF2JPG_EXPLAINER_P": [
+   "6A",
+   "Explainer 正文"
+  ],
+  "GIF2JPG_FIRSTFRAME_H2": [
+   "6A",
+   "专属模块① H2（首帧声明扩展）"
+  ],
+  "GIF2JPG_FIRSTFRAME_P": [
+   "6A",
+   "专属模块① 正文"
+  ],
+  "GIF2JPG_DONT_H2": [
+   "6A",
+   "专属模块② H2（何时不该转）"
+  ],
+  "GIF2JPG_DONT_P": [
+   "6A",
+   "专属模块② 正文"
+  ],
+  "GIF2JPG_SCENES_H2": [
+   "6A",
+   "专属模块③ H2（静态图提取场景）"
+  ],
+  "GIF2JPG_SCENES_P": [
+   "6A",
+   "专属模块③ 正文"
+  ],
+  "GIF2JPG_VERIFY": [
+   "6A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "GIF2JPG_STEPS_H2": [
+   "6A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "GIF2JPG_STEPS": [
+   "6A",
+   "三步"
+  ],
+  "GIF2JPG_STEPS_AUX": [
+   "6A",
+   "步骤辅助行"
+  ],
+  "GIF2JPG_FAQ1_Q": [
+   "6A",
+   "FAQ#1 问（**约束① FAQ 级**）"
+  ],
+  "GIF2JPG_FAQ1_A": [
+   "6A",
+   "FAQ#1 答"
+  ],
+  "GIF2JPG_FAQ2_Q": [
+   "6A",
+   "FAQ#2 问"
+  ],
+  "GIF2JPG_FAQ2_A": [
+   "6A",
+   "FAQ#2 答"
+  ],
+  "GIF2JPG_FAQ3_Q": [
+   "6A",
+   "FAQ#3 问"
+  ],
+  "GIF2JPG_FAQ3_A": [
+   "6A",
+   "FAQ#3 答"
+  ],
+  "GIF2JPG_FAQ4_Q/A": [
+   "6A",
+   "FAQ#4"
+  ],
+  "GIF2JPG_FAQ5_Q/A": [
+   "6A",
+   "FAQ#5"
+  ],
+  "GIF2JPG_FINAL_BTN": [
+   "6A",
+   "Final CTA 按钮"
+  ],
+  "GIF2JPG_FINAL_H2": [
+   "6A",
+   "Final CTA H2"
+  ],
+  "GIF2JPG_LINKS": [
+   "6A",
+   "页尾内链块"
+  ],
+  "PT_GIF2JPG_META_TITLE": [
+   "6B",
+   "Meta Title（43 字符 ✅）"
+  ],
+  "PT_GIF2JPG_META_DESC": [
+   "6B",
+   "Meta Description（112 字符 ✅）"
+  ],
+  "PT_GIF2JPG_H1": [
+   "6B",
+   "H1"
+  ],
+  "PT_GIF2JPG_HERO_SUB": [
+   "6B",
+   "首屏副标题（约束①首屏声明位）"
+  ],
+  "PT_GIF2JPG_EYEBROW": [
+   "6B",
+   "eyebrow spec 注"
+  ],
+  "PT_GIF2JPG_DZ": [
+   "6B",
+   "dropzone 三串"
+  ],
+  "PT_GIF2JPG_BADGES": [
+   "6B",
+   "徽章行"
+  ],
+  "PT_GIF2JPG_EXPLAINER_H2": [
+   "6B",
+   "Explainer H2"
+  ],
+  "PT_GIF2JPG_EXPLAINER_P": [
+   "6B",
+   "Explainer 正文"
+  ],
+  "PT_GIF2JPG_FIRSTFRAME_H2": [
+   "6B",
+   "专属模块① H2"
+  ],
+  "PT_GIF2JPG_FIRSTFRAME_P": [
+   "6B",
+   "专属模块① 正文"
+  ],
+  "PT_GIF2JPG_DONT_H2": [
+   "6B",
+   "专属模块② H2"
+  ],
+  "PT_GIF2JPG_DONT_P": [
+   "6B",
+   "专属模块② 正文"
+  ],
+  "PT_GIF2JPG_SCENES_H2": [
+   "6B",
+   "专属模块③ H2"
+  ],
+  "PT_GIF2JPG_SCENES_P": [
+   "6B",
+   "专属模块③ 正文"
+  ],
+  "PT_GIF2JPG_VERIFY": [
+   "6B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_GIF2JPG_STEPS_H2": [
+   "6B",
+   "步骤区 H2"
+  ],
+  "PT_GIF2JPG_STEPS": [
+   "6B",
+   "三步 + 辅助行"
+  ],
+  "PT_GIF2JPG_FAQ1_Q/A": [
+   "6B",
+   "FAQ#1（约束① FAQ 级）"
+  ],
+  "PT_GIF2JPG_FAQ2_Q/A": [
+   "6B",
+   "FAQ#2"
+  ],
+  "PT_GIF2JPG_FAQ3_Q/A": [
+   "6B",
+   "FAQ#3"
+  ],
+  "PT_GIF2JPG_FAQ4_Q/A": [
+   "6B",
+   "FAQ#4"
+  ],
+  "PT_GIF2JPG_FAQ5_Q/A": [
+   "6B",
+   "FAQ#5"
+  ],
+  "PT_GIF2JPG_FINAL_BTN": [
+   "6B",
+   "Final CTA 按钮"
+  ],
+  "PT_GIF2JPG_FOOTER": [
+   "6B",
+   "页脚"
+  ],
+  "BMP2JPG_META_TITLE": [
+   "7A",
+   "Meta Title（51 字符 ✅）"
+  ],
+  "BMP2JPG_META_DESC": [
+   "7A",
+   "Meta Description（115 字符 ✅）"
+  ],
+  "BMP2JPG_H1": [
+   "7A",
+   "H1"
+  ],
+  "BMP2JPG_HERO_SUB": [
+   "7A",
+   "首屏副标题"
+  ],
+  "BMP2JPG_EYEBROW": [
+   "7A",
+   "Hero eyebrow spec 注"
+  ],
+  "BMP2JPG_DZ_TEXT": [
+   "7A",
+   "dropzone 提示"
+  ],
+  "BMP2JPG_DZ_BTN": [
+   "7A",
+   "dropzone 主按钮"
+  ],
+  "BMP2JPG_DZ_FORMATS": [
+   "7A",
+   "dropzone 格式行"
+  ],
+  "BMP2JPG_BADGES": [
+   "7A",
+   "徽章行"
+  ],
+  "BMP2JPG_EXPLAINER_H2": [
+   "7A",
+   "Explainer H2"
+  ],
+  "BMP2JPG_EXPLAINER_P": [
+   "7A",
+   "Explainer 正文"
+  ],
+  "BMP2JPG_SOURCE_H2": [
+   "7A",
+   "专属模块① H2（遗留格式/老设备老软件导出语境）"
+  ],
+  "BMP2JPG_SOURCE_P": [
+   "7A",
+   "专属模块① 正文"
+  ],
+  "BMP2JPG_SIZE_H2": [
+   "7A",
+   "专属模块② H2（体积压缩收益，泛化表述）"
+  ],
+  "BMP2JPG_SIZE_P": [
+   "7A",
+   "专属模块② 正文"
+  ],
+  "BMP2JPG_WIN_H2": [
+   "7A",
+   "专属模块③ H2（Windows 生态来源说明）"
+  ],
+  "BMP2JPG_WIN_P": [
+   "7A",
+   "专属模块③ 正文"
+  ],
+  "BMP2JPG_VERIFY": [
+   "7A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "BMP2JPG_STEPS_H2": [
+   "7A",
+   "步骤区 H2（承接 convert 族）"
+  ],
+  "BMP2JPG_STEPS": [
+   "7A",
+   "三步"
+  ],
+  "BMP2JPG_STEPS_AUX": [
+   "7A",
+   "步骤辅助行"
+  ],
+  "BMP2JPG_FAQ1_Q": [
+   "7A",
+   "FAQ#1 问"
+  ],
+  "BMP2JPG_FAQ1_A": [
+   "7A",
+   "FAQ#1 答"
+  ],
+  "BMP2JPG_FAQ2_Q": [
+   "7A",
+   "FAQ#2 问"
+  ],
+  "BMP2JPG_FAQ2_A": [
+   "7A",
+   "FAQ#2 答"
+  ],
+  "BMP2JPG_FAQ3_Q": [
+   "7A",
+   "FAQ#3 问"
+  ],
+  "BMP2JPG_FAQ3_A": [
+   "7A",
+   "FAQ#3 答"
+  ],
+  "BMP2JPG_FAQ4_Q/A": [
+   "7A",
+   "FAQ#4"
+  ],
+  "BMP2JPG_FAQ5_Q/A": [
+   "7A",
+   "FAQ#5"
+  ],
+  "BMP2JPG_FINAL_BTN": [
+   "7A",
+   "Final CTA 按钮"
+  ],
+  "BMP2JPG_LINKS": [
+   "7A",
+   "页尾内链块"
+  ],
+  "PT_BMP2JPG_META_TITLE": [
+   "7B",
+   "Meta Title（43 字符 ✅）"
+  ],
+  "PT_BMP2JPG_META_DESC": [
+   "7B",
+   "Meta Description（113 字符 ✅）"
+  ],
+  "PT_BMP2JPG_H1": [
+   "7B",
+   "H1"
+  ],
+  "PT_BMP2JPG_HERO_SUB": [
+   "7B",
+   "首屏副标题"
+  ],
+  "PT_BMP2JPG_EYEBROW": [
+   "7B",
+   "eyebrow spec 注"
+  ],
+  "PT_BMP2JPG_DZ": [
+   "7B",
+   "dropzone 三串"
+  ],
+  "PT_BMP2JPG_BADGES": [
+   "7B",
+   "徽章行"
+  ],
+  "PT_BMP2JPG_EXPLAINER_H2": [
+   "7B",
+   "Explainer H2"
+  ],
+  "PT_BMP2JPG_EXPLAINER_P": [
+   "7B",
+   "Explainer 正文"
+  ],
+  "PT_BMP2JPG_SOURCE_H2": [
+   "7B",
+   "专属模块① H2"
+  ],
+  "PT_BMP2JPG_SOURCE_P": [
+   "7B",
+   "专属模块① 正文"
+  ],
+  "PT_BMP2JPG_SIZE_H2": [
+   "7B",
+   "专属模块② H2"
+  ],
+  "PT_BMP2JPG_SIZE_P": [
+   "7B",
+   "专属模块② 正文"
+  ],
+  "PT_BMP2JPG_WIN_H2": [
+   "7B",
+   "专属模块③ H2"
+  ],
+  "PT_BMP2JPG_WIN_P": [
+   "7B",
+   "专属模块③ 正文"
+  ],
+  "PT_BMP2JPG_VERIFY": [
+   "7B",
+   "可验证差异点（mono 注）"
+  ],
+  "PT_BMP2JPG_STEPS_H2": [
+   "7B",
+   "步骤区 H2"
+  ],
+  "PT_BMP2JPG_STEPS": [
+   "7B",
+   "三步 + 辅助行"
+  ],
+  "PT_BMP2JPG_FAQ1_Q/A": [
+   "7B",
+   "FAQ#1"
+  ],
+  "PT_BMP2JPG_FAQ2_Q/A": [
+   "7B",
+   "FAQ#2"
+  ],
+  "PT_BMP2JPG_FAQ3_Q/A": [
+   "7B",
+   "FAQ#3"
+  ],
+  "PT_BMP2JPG_FAQ4_Q/A": [
+   "7B",
+   "FAQ#4"
+  ],
+  "PT_BMP2JPG_FAQ5_Q/A": [
+   "7B",
+   "FAQ#5"
+  ],
+  "PT_BMP2JPG_FINAL_BTN": [
+   "7B",
+   "Final CTA 按钮"
+  ],
+  "PT_BMP2JPG_FOOTER": [
+   "7B",
+   "页脚"
+  ],
+  "JPEG2DXF_META_TITLE": [
+   "8A",
+   "Meta Title（53 字符 ✅）"
+  ],
+  "JPEG2DXF_META_DESC": [
+   "8A",
+   "Meta Description（122 字符 ✅）"
+  ],
+  "JPEG2DXF_H1": [
+   "8A",
+   "H1"
+  ],
+  "JPEG2DXF_HERO_SUB": [
+   "8A",
+   "首屏副标题"
+  ],
+  "JPEG2DXF_EYEBROW": [
+   "8A",
+   "Hero eyebrow spec 注"
+  ],
+  "JPEG2DXF_DZ_TEXT": [
+   "8A",
+   "dropzone 提示"
+  ],
+  "JPEG2DXF_DZ_BTN": [
+   "8A",
+   "dropzone 主按钮"
+  ],
+  "JPEG2DXF_DZ_FORMATS": [
+   "8A",
+   "dropzone 格式行"
+  ],
+  "JPEG2DXF_MICROCOPY": [
+   "8A",
+   "dropzone 内嵌 microcopy"
+  ],
+  "JPEG2DXF_BADGES": [
+   "8A",
+   "徽章行"
+  ],
+  "JPEG2DXF_PROOF": [
+   "8A",
+   "Proof 块"
+  ],
+  "JPEG2DXF_VERIFY": [
+   "8A",
+   "可验证差异点（mono 注，及格线 #8）"
+  ],
+  "JPEG2DXF_PROBLEM_H2": [
+   "8A",
+   "Problem H2"
+  ],
+  "JPEG2DXF_PROBLEM_B1": [
+   "8A",
+   "Problem 子弹 1"
+  ],
+  "JPEG2DXF_PROBLEM_B2": [
+   "8A",
+   "Problem 子弹 2"
+  ],
+  "JPEG2DXF_PROBLEM_B3": [
+   "8A",
+   "Problem 子弹 3"
+  ],
+  "JPEG2DXF_SOLUTION_H2": [
+   "8A",
+   "Solution H2"
+  ],
+  "JPEG2DXF_SOLUTION_S1": [
+   "8A",
+   "Solution 步 1"
+  ],
+  "JPEG2DXF_SOLUTION_S2": [
+   "8A",
+   "Solution 步 2"
+  ],
+  "JPEG2DXF_SOLUTION_S3": [
+   "8A",
+   "Solution 步 3"
+  ],
+  "JPEG2DXF_HONEST_H2": [
+   "8A",
+   "质量诚实块 H2"
+  ],
+  "JPEG2DXF_HONEST_P": [
+   "8A",
+   "质量诚实块正文"
+  ],
+  "JPEG2DXF_SAMEFMT_H2": [
+   "8A",
+   "专属模块① H2（jpeg/jpg 同格式说明，约束③-2）"
+  ],
+  "JPEG2DXF_SAMEFMT_P": [
+   "8A",
+   "专属模块① 正文（内链位①，**约束③-2 交叉链接位**）"
+  ],
+  "JPEG2DXF_SCENES_H2": [
+   "8A",
+   "专属模块② H2（CNC/激光加工场景）"
+  ],
+  "JPEG2DXF_SCENES_B1": [
+   "8A",
+   "场景样例 1"
+  ],
+  "JPEG2DXF_SCENES_B2": [
+   "8A",
+   "场景样例 2"
+  ],
+  "JPEG2DXF_SCENES_B3": [
+   "8A",
+   "场景样例 3"
+  ],
+  "JPEG2DXF_SCENES_CLOSE": [
+   "8A",
+   "场景收尾"
+  ],
+  "JPEG2DXF_PHOTO_H2": [
+   "8A",
+   "专属模块③ H2（照片类 jpeg 描摹适用边界）"
+  ],
+  "JPEG2DXF_PHOTO_P": [
+   "8A",
+   "专属模块③ 正文"
+  ],
+  "JPEG2DXF_HOW_H2": [
+   "8A",
+   "How it works H2"
+  ],
+  "JPEG2DXF_HOW_S1": [
+   "8A",
+   "步骤 1"
+  ],
+  "JPEG2DXF_HOW_S2": [
+   "8A",
+   "步骤 2"
+  ],
+  "JPEG2DXF_HOW_S3": [
+   "8A",
+   "步骤 3"
+  ],
+  "JPEG2DXF_HOW_AUX": [
+   "8A",
+   "步骤辅助行"
+  ],
+  "JPEG2DXF_PRICING_ANCHOR": [
+   "8A",
+   "定价锚点"
+  ],
+  "JPEG2DXF_FAQ1_Q": [
+   "8A",
+   "FAQ#1 问"
+  ],
+  "JPEG2DXF_FAQ1_A": [
+   "8A",
+   "FAQ#1 答（内链位②，约束③-2）"
+  ],
+  "JPEG2DXF_FAQ2_Q": [
+   "8A",
+   "FAQ#2 问"
+  ],
+  "JPEG2DXF_FAQ2_A": [
+   "8A",
+   "FAQ#2 答（内链位③）"
+  ],
+  "JPEG2DXF_FAQ3_Q": [
+   "8A",
+   "FAQ#3 问"
+  ],
+  "JPEG2DXF_FAQ3_A": [
+   "8A",
+   "FAQ#3 答（内链位④）"
+  ],
+  "JPEG2DXF_FAQ4_Q": [
+   "8A",
+   "FAQ#4 问"
+  ],
+  "JPEG2DXF_FAQ4_A": [
+   "8A",
+   "FAQ#4 答"
+  ],
+  "JPEG2DXF_FAQ5_Q/A": [
+   "8A",
+   "FAQ#5"
+  ],
+  "JPEG2DXF_FAQ6_Q/A": [
+   "8A",
+   "FAQ#6"
+  ],
+  "JPEG2DXF_FINAL_H2": [
+   "8A",
+   "Final CTA H2"
+  ],
+  "JPEG2DXF_FINAL_BTN": [
+   "8A",
+   "Final CTA 按钮"
+  ],
+  "JPEG2DXF_LINKS": [
+   "8A",
+   "页尾内链块"
+  ],
+  "PT_JPEG2DXF_META_TITLE": [
+   "8B",
+   "Meta Title（44 字符 ✅）"
+  ],
+  "PT_JPEG2DXF_META_DESC": [
+   "8B",
+   "Meta Description（118 字符 ✅）"
+  ],
+  "PT_JPEG2DXF_H1": [
+   "8B",
+   "H1"
+  ],
+  "PT_JPEG2DXF_HERO_SUB": [
+   "8B",
+   "首屏副标题"
+  ],
+  "PT_JPEG2DXF_EYEBROW": [
+   "8B",
+   "eyebrow spec 注"
+  ],
+  "PT_JPEG2DXF_DZ_TEXT": [
+   "8B",
+   "dropzone 提示"
+  ],
+  "PT_JPEG2DXF_DZ_BTN": [
+   "8B",
+   "dropzone 主按钮"
+  ],
+  "PT_JPEG2DXF_DZ_FORMATS": [
+   "8B",
+   "dropzone 格式行"
+  ],
+  "PT_JPEG2DXF_MICROCOPY": [
+   "8B",
+   "dropzone 内嵌 microcopy"
+  ],
+  "PT_JPEG2DXF_BADGES": [
+   "8B",
+   "徽章行"
+  ],
+  "PT_JPEG2DXF_HONEST_H2": [
+   "8B",
+   "质量诚实块 H2"
+  ],
+  "PT_JPEG2DXF_HONEST_P": [
+   "8B",
+   "质量诚实块正文"
+  ],
+  "PT_JPEG2DXF_EXPLAINER_H2": [
+   "8B",
+   "Explainer H2"
+  ],
+  "PT_JPEG2DXF_EXPLAINER_P": [
+   "8B",
+   "Explainer 正文"
+  ],
+  "PT_JPEG2DXF_SAMEFMT_H2": [
+   "8B",
+   "专属模块① H2（同格式说明，约束③-2）"
+  ],
+  "PT_JPEG2DXF_SAMEFMT_P": [
+   "8B",
+   "专属模块① 正文（内链位①）"
+  ],
+  "PT_JPEG2DXF_PHOTO_H2": [
+   "8B",
+   "专属模块② H2（照片边界，双语同义）"
+  ],
+  "PT_JPEG2DXF_PHOTO_P": [
+   "8B",
+   "专属模块② 正文"
+  ],
+  "PT_JPEG2DXF_STEPS_H2": [
+   "8B",
+   "步骤区 H2"
+  ],
+  "PT_JPEG2DXF_STEPS": [
+   "8B",
+   "三步 + 辅助行"
+  ],
+  "PT_JPEG2DXF_FAQ1_Q/A": [
+   "8B",
+   "FAQ#1（内链位②）"
+  ],
+  "PT_JPEG2DXF_FAQ2_Q/A": [
+   "8B",
+   "FAQ#2"
+  ],
+  "PT_JPEG2DXF_FAQ3_Q/A": [
+   "8B",
+   "FAQ#3"
+  ],
+  "PT_JPEG2DXF_FAQ4_Q/A": [
+   "8B",
+   "FAQ#4"
+  ],
+  "PT_JPEG2DXF_FINAL_BTN": [
+   "8B",
+   "Final CTA 按钮"
+  ],
+  "PT_JPEG2DXF_FOOTER": [
+   "8B",
+   "页脚"
+  ]
+ }
+}

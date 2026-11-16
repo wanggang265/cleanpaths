@@ -62,7 +62,8 @@ def generic_states(page_name, accept, sample_before, sample_after, layers_html,
     steps = steps or STEPS_TRACE
     error_ext = error_ext or accept.split(",")[0].strip()
     if lang == "pt":
-        dz_drop, dz_or = "Arraste seu arquivo .jfif aqui — ou clique para escolher", "SOLTE PARA COMEÇAR"
+        dz_drop = f"Arraste seu arquivo {error_ext.lower()} aqui — ou clique para escolher"
+        dz_or = "SOLTE PARA COMEÇAR"
         proc_main = "Convertendo — no seu navegador, nada foi enviado"
         err_main = f"<b>Este arquivo não pode ser convertido aqui.</b> Esta página aceita {error_ext}. Nada foi enviado, então nada foi armazenado."
         err_btn = "Escolher outro arquivo"

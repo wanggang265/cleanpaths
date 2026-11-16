@@ -1,0 +1,1070 @@
+WEBP2PNG_META_TITLE	[1A]	Meta Title（52 字符 ✅）	n=1
+    0: WebP to PNG Converter — Free, No Upload | CleanPaths
+WEBP2PNG_META_DESC	[1A]	Meta Description（121 字符 ✅）	n=1
+    0: Convert WebP to PNG free, right in your browser. Keeps transparency, works offline — no up...
+WEBP2PNG_H1	[1A]	H1	n=1
+    0: WebP to PNG Converter — Free, No Upload
+WEBP2PNG_HERO_SUB	[1A]	首屏副标题	n=1
+    0: Drag in a WebP, download a PNG that opens everywhere. The conversion happens entirely in y...
+WEBP2PNG_EYEBROW	[1A]	Hero eyebrow spec 注	n=1
+    0: WEBP → PNG · decoded natively in your browser
+WEBP2PNG_DZ_TEXT	[1A]	dropzone 提示	n=1
+    0: Drop a .webp file here — or browse
+WEBP2PNG_DZ_BTN	[1A]	dropzone 主按钮	n=1
+    0: Convert now — free
+WEBP2PNG_DZ_FORMATS	[1A]	dropzone 格式行	n=1
+    0: ACCEPTS: .WEBP · PROCESSED LOCALLY
+WEBP2PNG_BADGES	[1A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+WEBP2PNG_EXPLAINER_H2	[1A]	Explainer H2	n=1
+    0: Why convert WebP to PNG?
+WEBP2PNG_EXPLAINER_P	[1A]	Explainer 正文	n=1
+    0: WebP is Google's image format for the web — small files, supported by every modern browser...
+WEBP2PNG_COMPAT_H2	[1A]	专属模块① H2（webp 兼容性语境）	n=1
+    0: Where WebP still gets rejected
+WEBP2PNG_COMPAT_P	[1A]	专属模块① 正文	n=1
+    0: The pattern repeats everywhere: you save an image from a website and it arrives as .webp. ...
+WEBP2PNG_ALPHA_H2	[1A]	专属模块② H2（透明度保留）	n=1
+    0: Your transparency survives the trip
+WEBP2PNG_ALPHA_P	[1A]	专属模块② 正文（内链位①）	n=1
+    0: If your WebP has a transparent background, the PNG keeps it — both formats carry an alpha ...
+WEBP2PNG_BATCH_H2	[1A]	专属模块③ H2（本地处理对大批量图的意义）	n=1
+    0: Built for the whole folder, not just one image
+WEBP2PNG_BATCH_P	[1A]	专属模块③ 正文	n=1
+    0: Saving images off the web rarely stops at one. A product shoot, a set of reference icons, ...
+WEBP2PNG_VERIFY	[1A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Try it offline: load this page once, then switch off your network and convert a file. It w...
+WEBP2PNG_STEPS_H2	[1A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert WebP to PNG in three steps
+WEBP2PNG_STEPS	[1A]	三步	n=3
+    0: Drop your .webp file.
+    1: It converts in your browser — instantly.
+    2: Download the .png.
+WEBP2PNG_STEPS_AUX	[1A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+WEBP2PNG_FAQ1_Q	[1A]	FAQ#1 问	n=1
+    0: Will converting WebP to PNG reduce quality?
+WEBP2PNG_FAQ1_A	[1A]	FAQ#1 答	n=1
+    0: WebP is usually saved with lossy compression, and that loss is already in the file — conve...
+WEBP2PNG_FAQ2_Q	[1A]	FAQ#2 问	n=1
+    0: Does the PNG keep the transparent background?
+WEBP2PNG_FAQ2_A	[1A]	FAQ#2 答	n=1
+    0: Yes, when the WebP has one. Both WebP and PNG support transparency, so the alpha channel c...
+WEBP2PNG_FAQ3_Q	[1A]	FAQ#3 问	n=1
+    0: Why not just screenshot the WebP?
+WEBP2PNG_FAQ3_A	[1A]	FAQ#3 答	n=1
+    0: You can — but a screenshot re-compresses the image, locks it to your screen resolution, an...
+WEBP2PNG_FAQ4_Q/A	[1A]	FAQ#4	n=2
+    0: Do you upload or store my files?
+    1: No. Conversion runs entirely in your browser — there is no upload step. We never receive, ...
+WEBP2PNG_FAQ5_Q/A	[1A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+WEBP2PNG_FINAL_BTN	[1A]	Final CTA 按钮	n=1
+    0: Convert WebP to PNG free now
+WEBP2PNG_LINKS	[1A]	页尾内链块（Final CTA 上方）	n=4
+    0: Need a smaller file instead? Try the WebP to JPG converter →
+    1: /webp-to-jpg/
+    2: All converters live on the CleanPaths home page →
+    3: /
+PT_WEBP2PNG_META_TITLE	[1B]	Meta Title（44 字符 ✅）	n=1
+    0: WebP para PNG — Conversor Grátis, sem Upload
+PT_WEBP2PNG_META_DESC	[1B]	Meta Description（120 字符 ✅）	n=1
+    0: Converta WebP para PNG grátis, direto no navegador. Mantém a transparência — sem upload, s...
+PT_WEBP2PNG_H1	[1B]	H1	n=1
+    0: Conversor de WebP para PNG — Grátis, sem Upload
+PT_WEBP2PNG_HERO_SUB	[1B]	首屏副标题	n=1
+    0: Arraste sua imagem WebP e baixe o PNG em segundos. A conversão acontece 100% no seu navega...
+PT_WEBP2PNG_EYEBROW	[1B]	eyebrow spec 注	n=1
+    0: WEBP → PNG · decodificado nativamente no seu navegador
+PT_WEBP2PNG_DZ	[1B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .webp aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .WEBP · PROCESSADO LOCALMENTE
+PT_WEBP2PNG_BADGES	[1B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_WEBP2PNG_EXPLAINER_H2	[1B]	Explainer H2	n=1
+    0: Por que converter WebP para PNG?
+PT_WEBP2PNG_EXPLAINER_P	[1B]	Explainer 正文	n=1
+    0: WebP é o formato de imagem do Google para a web — arquivos pequenos, suportado por todos o...
+PT_WEBP2PNG_COMPAT_H2	[1B]	专属模块① H2	n=1
+    0: Onde o WebP ainda é recusado
+PT_WEBP2PNG_COMPAT_P	[1B]	专属模块① 正文	n=1
+    0: O padrão se repete em todo lugar: você salva uma imagem de um site e ela chega como .webp....
+PT_WEBP2PNG_ALPHA_H2	[1B]	专属模块② H2	n=1
+    0: Sua transparência é preservada
+PT_WEBP2PNG_ALPHA_P	[1B]	专属模块② 正文（内链位①，PT→PT）	n=1
+    0: Se o seu WebP tem fundo transparente, o PNG o mantém — os dois formatos carregam um canal ...
+PT_WEBP2PNG_BATCH_H2	[1B]	专属模块③ H2	n=1
+    0: Feito para a pasta inteira, não só para uma imagem
+PT_WEBP2PNG_BATCH_P	[1B]	专属模块③ 正文	n=1
+    0: Salvar imagens da web raramente para na primeira. Um ensaio de produto, um conjunto de íco...
+PT_WEBP2PNG_VERIFY	[1B]	可验证差异点（mono 注）	n=1
+    0: Teste offline: carregue esta página uma vez, desligue a rede e converta um arquivo. Funcio...
+PT_WEBP2PNG_STEPS_H2	[1B]	步骤区 H2	n=1
+    0: Como converter WebP para PNG
+PT_WEBP2PNG_STEPS	[1B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .webp.
+    1: A conversão acontece no seu navegador — na hora.
+    2: Baixe o .png.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_WEBP2PNG_FAQ1_Q/A	[1B]	FAQ#1	n=2
+    0: A conversão de WebP para PNG reduz a qualidade?
+    1: O WebP costuma ser salvo com compressão com perda, e essa perda já está no arquivo — conve...
+PT_WEBP2PNG_FAQ2_Q/A	[1B]	FAQ#2	n=2
+    0: O PNG mantém o fundo transparente?
+    1: Sim, quando o WebP tem. WebP e PNG suportam transparência, então o canal alfa passa para o...
+PT_WEBP2PNG_FAQ3_Q/A	[1B]	FAQ#3	n=2
+    0: Por que não simplesmente tirar um screenshot do WebP?
+    1: Você pode — mas o screenshot recomprime a imagem, trava na resolução da sua tela e normalm...
+PT_WEBP2PNG_FAQ4_Q/A	[1B]	FAQ#4	n=2
+    0: Meu arquivo é enviado para algum servidor?
+    1: Não. A conversão acontece inteiramente no seu navegador — não existe etapa de upload. Nós ...
+PT_WEBP2PNG_FAQ5_Q/A	[1B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_WEBP2PNG_FINAL_BTN	[1B]	Final CTA 按钮	n=1
+    0: Converter WebP para PNG grátis
+PT_WEBP2PNG_FOOTER	[1B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+WEBP2JPG_META_TITLE	[2A]	Meta Title（52 字符 ✅）	n=1
+    0: WebP to JPG Converter — Free, No Upload | CleanPaths
+WEBP2JPG_META_DESC	[2A]	Meta Description（120 字符 ✅）	n=1
+    0: Convert WebP to JPG free, right in your browser. Small files that open everywhere — no upl...
+WEBP2JPG_H1	[2A]	H1	n=1
+    0: WebP to JPG Converter — Free, No Upload
+WEBP2JPG_HERO_SUB	[2A]	首屏副标题	n=1
+    0: Drag in a WebP, download a JPG that any device, app or upload form will accept. The conver...
+WEBP2JPG_EYEBROW	[2A]	Hero eyebrow spec 注	n=1
+    0: WEBP → JPG · decoded natively in your browser
+WEBP2JPG_DZ_TEXT	[2A]	dropzone 提示	n=1
+    0: Drop a .webp file here — or browse
+WEBP2JPG_DZ_BTN	[2A]	dropzone 主按钮	n=1
+    0: Convert now — free
+WEBP2JPG_DZ_FORMATS	[2A]	dropzone 格式行	n=1
+    0: ACCEPTS: .WEBP · PROCESSED LOCALLY
+WEBP2JPG_BADGES	[2A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+WEBP2JPG_EXPLAINER_H2	[2A]	Explainer H2	n=1
+    0: Why convert WebP to JPG?
+WEBP2JPG_EXPLAINER_P	[2A]	Explainer 正文	n=1
+    0: WebP is built for the web — small, fast, and unreadable to half the software you actually ...
+WEBP2JPG_ALPHA_H2	[2A]	专属模块① H2（jpg 无透明诚实处理）	n=1
+    0: The one thing JPG gives up: transparency
+WEBP2JPG_ALPHA_P	[2A]	专属模块① 正文（内链位①）	n=1
+    0: JPG has no alpha channel — that's a fact of the format, not of this converter. If your Web...
+WEBP2JPG_SIZE_H2	[2A]	专属模块② H2（体积 vs 兼容取舍）	n=1
+    0: Small files, zero rejection
+WEBP2JPG_SIZE_P	[2A]	专属模块② 正文（内链位②）	n=1
+    0: JPG is the format the internet settled on for photographs: much smaller than PNG at normal...
+WEBP2JPG_CHOICE_H2	[2A]	专属模块③ H2（与 /webp-to-png 选择引导）	n=1
+    0: WebP to JPG or WebP to PNG — which one?
+WEBP2JPG_CHOICE_P	[2A]	专属模块③ 正文	n=1
+    0: Pick JPG when the destination is a photo context: upload forms with size limits, email att...
+WEBP2JPG_VERIFY	[2A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Proof it's local: this page converts files with your network turned off. Load the page, go...
+WEBP2JPG_STEPS_H2	[2A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert WebP to JPG in three steps
+WEBP2JPG_STEPS	[2A]	三步	n=3
+    0: Drop your .webp file.
+    1: It converts in your browser — instantly.
+    2: Download the .jpg.
+WEBP2JPG_STEPS_AUX	[2A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+WEBP2JPG_FAQ1_Q	[2A]	FAQ#1 问	n=1
+    0: What happens to a transparent WebP background in JPG?
+WEBP2JPG_FAQ1_A	[2A]	FAQ#1 答（内链位③）	n=1
+    0: JPG can't store transparency, so the transparent area gets filled in the converted file. T...
+WEBP2JPG_FAQ2_Q	[2A]	FAQ#2 问	n=1
+    0: Will converting WebP to JPG reduce quality?
+WEBP2JPG_FAQ2_A	[2A]	FAQ#2 答	n=1
+    0: A little — both formats use lossy compression, and re-encoding adds a small amount of new ...
+WEBP2JPG_FAQ3_Q	[2A]	FAQ#3 问	n=1
+    0: Why do my downloads keep saving as WebP?
+WEBP2JPG_FAQ3_A	[2A]	FAQ#3 答	n=1
+    0: Because websites serve WebP to save bandwidth, and your browser reads the format natively ...
+WEBP2JPG_FAQ4_Q/A	[2A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+WEBP2JPG_FAQ5_Q/A	[2A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+WEBP2JPG_FINAL_BTN	[2A]	Final CTA 按钮	n=1
+    0: Convert WebP to JPG free now
+WEBP2JPG_LINKS	[2A]	页尾内链块	n=6
+    0: Need transparency kept? Try the WebP to PNG converter →
+    1: /webp-to-png/
+    2: Need that JPG as a cut file? JPG to DXF converter →
+    3: /jpg-to-dxf/
+    4: All converters live on the CleanPaths home page →
+    5: /
+PT_WEBP2JPG_META_TITLE	[2B]	Meta Title（44 字符 ✅）	n=1
+    0: WebP para JPG — Conversor Grátis, sem Upload
+PT_WEBP2JPG_META_DESC	[2B]	Meta Description（111 字符 ✅）	n=1
+    0: Converta WebP para JPG grátis, direto no navegador. Arquivos pequenos que tudo abre — sem ...
+PT_WEBP2JPG_H1	[2B]	H1	n=1
+    0: Conversor de WebP para JPG — Grátis, sem Upload
+PT_WEBP2JPG_HERO_SUB	[2B]	首屏副标题	n=1
+    0: Arraste sua imagem WebP e baixe um JPG que qualquer dispositivo, aplicativo ou formulário ...
+PT_WEBP2JPG_EYEBROW	[2B]	eyebrow spec 注	n=1
+    0: WEBP → JPG · decodificado nativamente no seu navegador
+PT_WEBP2JPG_DZ	[2B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .webp aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .WEBP · PROCESSADO LOCALMENTE
+PT_WEBP2JPG_BADGES	[2B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_WEBP2JPG_EXPLAINER_H2	[2B]	Explainer H2	n=1
+    0: Por que converter WebP para JPG?
+PT_WEBP2JPG_EXPLAINER_P	[2B]	Explainer 正文	n=1
+    0: WebP é feito para a web — pequeno, rápido, e ilegível para metade do software que você rea...
+PT_WEBP2JPG_ALPHA_H2	[2B]	专属模块① H2	n=1
+    0: A única coisa que o JPG abre mão: a transparência
+PT_WEBP2JPG_ALPHA_P	[2B]	专属模块① 正文（内链位①，PT→PT）	n=1
+    0: JPG não tem canal alfa — isso é um fato do formato, não deste conversor. Se o seu WebP tem...
+PT_WEBP2JPG_SIZE_H2	[2B]	专属模块② H2	n=1
+    0: Arquivos pequenos, zero rejeição
+PT_WEBP2JPG_SIZE_P	[2B]	专属模块② 正文	n=1
+    0: JPG é o formato que a internet escolheu para fotografias: muito menor que PNG na qualidade...
+PT_WEBP2JPG_CHOICE_H2	[2B]	专属模块③ H2	n=1
+    0: WebP para JPG ou WebP para PNG — qual escolher?
+PT_WEBP2JPG_CHOICE_P	[2B]	专属模块③ 正文	n=1
+    0: Escolha JPG quando o destino é um contexto de foto: formulários com limite de tamanho, ane...
+PT_WEBP2JPG_VERIFY	[2B]	可验证差异点（mono 注）	n=1
+    0: Prova de que é local: esta página converte arquivos com a rede desligada. Carregue a págin...
+PT_WEBP2JPG_STEPS_H2	[2B]	步骤区 H2	n=1
+    0: Como converter WebP para JPG
+PT_WEBP2JPG_STEPS	[2B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .webp.
+    1: A conversão acontece no seu navegador — na hora.
+    2: Baixe o .jpg.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_WEBP2JPG_FAQ1_Q/A	[2B]	FAQ#1	n=2
+    0: O que acontece com o fundo transparente do WebP no JPG?
+    1: O JPG não armazena transparência, então a área transparente é preenchida no arquivo conver...
+PT_WEBP2JPG_FAQ2_Q/A	[2B]	FAQ#2	n=2
+    0: A conversão de WebP para JPG reduz a qualidade?
+    1: Um pouco — os dois formatos usam compressão com perda, e recodificar adiciona uma perda pe...
+PT_WEBP2JPG_FAQ3_Q/A	[2B]	FAQ#3	n=2
+    0: Por que meus downloads continuam salvando como WebP?
+    1: Porque os sites servem WebP para economizar banda, e o seu navegador lê o formato nativame...
+PT_WEBP2JPG_FAQ4_Q/A	[2B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_WEBP2JPG_FAQ5_Q/A	[2B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_WEBP2JPG_FINAL_BTN	[2B]	Final CTA 按钮	n=1
+    0: Converter WebP para JPG grátis
+PT_WEBP2JPG_FOOTER	[2B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+SVG2PNG_META_TITLE	[3A]	Meta Title（51 字符 ✅）	n=1
+    0: SVG to PNG Converter — Free, No Upload | CleanPaths
+SVG2PNG_META_DESC	[3A]	Meta Description（119 字符 ✅）	n=1
+    0: Convert SVG to PNG free, right in your browser. Transparent background preserved — no uplo...
+SVG2PNG_H1	[3A]	H1	n=1
+    0: SVG to PNG Converter — Free, No Upload
+SVG2PNG_HERO_SUB	[3A]	首屏副标题	n=1
+    0: Drop an SVG, download a PNG with its transparency intact. Your vector never leaves your de...
+SVG2PNG_EYEBROW	[3A]	Hero eyebrow spec 注	n=1
+    0: SVG → PNG · rendered on your device
+SVG2PNG_DZ_TEXT	[3A]	dropzone 提示	n=1
+    0: Drop an .svg file here — or browse
+SVG2PNG_DZ_BTN	[3A]	dropzone 主按钮	n=1
+    0: Convert now — free
+SVG2PNG_DZ_FORMATS	[3A]	dropzone 格式行	n=1
+    0: ACCEPTS: .SVG · PROCESSED LOCALLY
+SVG2PNG_BADGES	[3A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+SVG2PNG_EXPLAINER_H2	[3A]	Explainer H2	n=1
+    0: Why convert SVG to PNG?
+SVG2PNG_EXPLAINER_P	[3A]	Explainer 正文	n=1
+    0: SVG is the right format for icons, logos and illustrations — until you need to put one som...
+SVG2PNG_RES_H2	[3A]	专属模块① H2（分辨率选择语境，不锁 DPI/尺寸）	n=1
+    0: Vectors have no pixels — so you pick the size
+SVG2PNG_RES_P	[3A]	专属模块① 正文	n=1
+    0: An SVG is a set of drawing instructions, not a grid of dots, which means converting it to ...
+SVG2PNG_ALPHA_H2	[3A]	专属模块② H2（透明背景保留）	n=1
+    0: The transparent background stays transparent
+SVG2PNG_ALPHA_P	[3A]	专属模块② 正文（内链位①）	n=1
+    0: Most SVG artwork floats on nothing — that's what makes it useful. Converted carelessly, or...
+SVG2PNG_DIR_H2	[3A]	专属模块③ H2（与 /screenshot-to-svg/ 方向区隔）	n=1
+    0: This page goes vector to pixels. There's a page for the other direction.
+SVG2PNG_DIR_P	[3A]	专属模块③ 正文（内链位②）	n=1
+    0: Converting SVG to PNG rasterizes your artwork — the result looks identical but no longer s...
+SVG2PNG_VERIFY	[3A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Everything happens on your device: load this page, disconnect from the internet, and the c...
+SVG2PNG_STEPS_H2	[3A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert SVG to PNG in three steps
+SVG2PNG_STEPS	[3A]	三步	n=3
+    0: Drop your .svg file.
+    1: It renders in your browser — instantly.
+    2: Download the .png.
+SVG2PNG_STEPS_AUX	[3A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+SVG2PNG_FAQ1_Q	[3A]	FAQ#1 问	n=1
+    0: What resolution will the PNG be?
+SVG2PNG_FAQ1_A	[3A]	FAQ#1 答	n=1
+    0: That's your choice, not the file's — a vector has no fixed pixel size, so the tool offers ...
+SVG2PNG_FAQ2_Q	[3A]	FAQ#2 问	n=1
+    0: Will the PNG have a transparent background?
+SVG2PNG_FAQ2_A	[3A]	FAQ#2 答	n=1
+    0: Yes. If your SVG artwork has no background of its own, the alpha channel carries over — PN...
+SVG2PNG_FAQ3_Q	[3A]	FAQ#3 问	n=1
+    0: Why does my SVG look different in some apps?
+SVG2PNG_FAQ3_A	[3A]	FAQ#3 答	n=1
+    0: SVG can reference fonts and effects that different viewers render differently — the file i...
+SVG2PNG_FAQ4_Q/A	[3A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+SVG2PNG_FAQ5_Q/A	[3A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+SVG2PNG_FINAL_BTN	[3A]	Final CTA 按钮	n=1
+    0: Convert SVG to PNG free now
+SVG2PNG_LINKS	[3A]	页尾内链块	n=6
+    0: Need a JPG instead? Try the SVG to JPG converter →
+    1: /svg-to-jpg/
+    2: Going the other way — bitmap to vector? Screenshot to SVG converter →
+    3: /screenshot-to-svg/
+    4: All converters live on the CleanPaths home page →
+    5: /
+PT_SVG2PNG_META_TITLE	[3B]	Meta Title（43 字符 ✅）	n=1
+    0: SVG para PNG — Conversor Grátis, sem Upload
+PT_SVG2PNG_META_DESC	[3B]	Meta Description（108 字符 ✅）	n=1
+    0: Converta SVG para PNG grátis, direto no navegador. Fundo transparente preservado — sem upl...
+PT_SVG2PNG_H1	[3B]	H1	n=1
+    0: Conversor de SVG para PNG — Grátis, sem Upload
+PT_SVG2PNG_HERO_SUB	[3B]	首屏副标题	n=1
+    0: Arraste seu SVG e baixe um PNG com a transparência intacta. O seu vetor nunca sai do seu d...
+PT_SVG2PNG_EYEBROW	[3B]	eyebrow spec 注	n=1
+    0: SVG → PNG · renderizado no seu dispositivo
+PT_SVG2PNG_DZ	[3B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .svg aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .SVG · PROCESSADO LOCALMENTE
+PT_SVG2PNG_BADGES	[3B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_SVG2PNG_EXPLAINER_H2	[3B]	Explainer H2	n=1
+    0: Por que converter SVG para PNG?
+PT_SVG2PNG_EXPLAINER_P	[3B]	Explainer 正文	n=1
+    0: SVG é o formato certo para ícones, logotipos e ilustrações — até você precisar colocar um ...
+PT_SVG2PNG_RES_H2	[3B]	专属模块① H2	n=1
+    0: Vetores não têm pixels — você escolhe o tamanho
+PT_SVG2PNG_RES_P	[3B]	专属模块① 正文	n=1
+    0: Um SVG é um conjunto de instruções de desenho, não uma grade de pontos — por isso, convert...
+PT_SVG2PNG_ALPHA_H2	[3B]	专属模块② H2	n=1
+    0: O fundo transparente continua transparente
+PT_SVG2PNG_ALPHA_P	[3B]	专属模块② 正文（内链位①，PT→PT）	n=1
+    0: A maior parte da arte SVG flutua sobre o nada — é isso que a torna útil. Convertida sem cu...
+PT_SVG2PNG_DIR_H2	[3B]	专属模块③ H2	n=1
+    0: Esta página vai de vetor para pixels. Existe uma página para o caminho inverso.
+PT_SVG2PNG_DIR_P	[3B]	专属模块③ 正文（内链位②）	n=1
+    0: Converter SVG para PNG rasteriza a sua arte — o resultado parece idêntico, mas não escala ...
+PT_SVG2PNG_VERIFY	[3B]	可验证差异点（mono 注）	n=1
+    0: Tudo acontece no seu dispositivo: carregue esta página, desconecte da internet, e o conver...
+PT_SVG2PNG_STEPS_H2	[3B]	步骤区 H2	n=1
+    0: Como converter SVG para PNG
+PT_SVG2PNG_STEPS	[3B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .svg.
+    1: A renderização acontece no seu navegador — na hora.
+    2: Baixe o .png.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_SVG2PNG_FAQ1_Q/A	[3B]	FAQ#1	n=2
+    0: Qual será a resolução do PNG?
+    1: A escolha é sua, não do arquivo — um vetor não tem tamanho fixo em pixels, então a ferrame...
+PT_SVG2PNG_FAQ2_Q/A	[3B]	FAQ#2	n=2
+    0: O PNG terá fundo transparente?
+    1: Sim. Se a arte SVG não tem fundo próprio, o canal alfa é preservado — o PNG suporta transp...
+PT_SVG2PNG_FAQ3_Q/A	[3B]	FAQ#3	n=2
+    0: Por que meu SVG aparece diferente em alguns aplicativos?
+    1: O SVG pode referenciar fontes e efeitos que visualizadores diferentes renderizam de formas...
+PT_SVG2PNG_FAQ4_Q/A	[3B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_SVG2PNG_FAQ5_Q/A	[3B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_SVG2PNG_FINAL_BTN	[3B]	Final CTA 按钮	n=1
+    0: Converter SVG para PNG grátis
+PT_SVG2PNG_FOOTER	[3B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+JPEG2JPG_META_TITLE	[4A]	Meta Title（51 字符 ✅）	n=1
+    0: JPEG to JPG Converter — Lossless, Free | CleanPaths
+JPEG2JPG_META_DESC	[4A]	Meta Description（118 字符 ✅）	n=1
+    0: Convert JPEG to JPG with zero quality loss: same pixels, new extension. Free, in your brow...
+JPEG2JPG_H1	[4A]	H1	n=1
+    0: JPEG to JPG Converter — Same Image, Right Extension
+JPEG2JPG_HERO_SUB	[4A]	首屏副标题	n=1
+    0: JPEG and JPG are the same format — but some systems only accept the .jpg extension. This c...
+JPEG2JPG_EYEBROW	[4A]	Hero eyebrow spec 注	n=1
+    0: JPEG → JPG · lossless repackaging, pixels untouched
+JPEG2JPG_DZ_TEXT	[4A]	dropzone 提示	n=1
+    0: Drop a .jpeg file here — or browse
+JPEG2JPG_DZ_BTN	[4A]	dropzone 主按钮	n=1
+    0: Convert now — free
+JPEG2JPG_DZ_FORMATS	[4A]	dropzone 格式行	n=1
+    0: ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY
+JPEG2JPG_BADGES	[4A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+JPEG2JPG_EXPLAINER_H2	[4A]	Explainer H2	n=1
+    0: JPEG and JPG are the same thing
+JPEG2JPG_EXPLAINER_P	[4A]	Explainer 正文	n=1
+    0: There is no difference between a .jpeg file and a .jpg file — none. Both extensions point ...
+JPEG2JPG_LOSSLESS_H2	[4A]	专属模块① H2（重打包零损失机理）	n=1
+    0: What "lossless repackaging" actually means
+JPEG2JPG_LOSSLESS_P	[4A]	专属模块① 正文	n=1
+    0: This converter does not decode your image, does not re-encode it, and does not pass it thr...
+JPEG2JPG_WHEN_H2	[4A]	专属模块② H2（什么场景真的需要这步）	n=1
+    0: When you actually need this step
+JPEG2JPG_WHEN_P	[4A]	专属模块② 正文	n=1
+    0: Renaming the file yourself works — .jpeg to .jpg is a text edit on the filename. So when i...
+JPEG2JPG_LEGACY_H2	[4A]	专属模块③ H2（老系统只认 .jpg 后缀语境）	n=1
+    0: Why the three-letter world never died
+JPEG2JPG_LEGACY_P	[4A]	专属模块③ 正文	n=1
+    0: The .jpg extension is a fossil of DOS-era 8.3 filenames, and it outlived the era that crea...
+JPEG2JPG_VERIFY	[4A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Prove the losslessness yourself: convert a file, then compare the two versions — same dime...
+JPEG2JPG_STEPS_H2	[4A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert JPEG to JPG in three steps
+JPEG2JPG_STEPS	[4A]	三步	n=3
+    0: Drop your .jpeg file.
+    1: It repackages in your browser — instantly.
+    2: Download the .jpg.
+JPEG2JPG_STEPS_AUX	[4A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+JPEG2JPG_FAQ1_Q	[4A]	FAQ#1 问	n=1
+    0: Is JPEG the same as JPG?
+JPEG2JPG_FAQ1_A	[4A]	FAQ#1 答	n=1
+    0: Yes — completely. The two extensions point to the identical image format; the short one is...
+JPEG2JPG_FAQ2_Q	[4A]	FAQ#2 问	n=1
+    0: Does converting JPEG to JPG lose quality?
+JPEG2JPG_FAQ2_A	[4A]	FAQ#2 答	n=1
+    0: No. This converter repackages your file without re-encoding it — the image data passes thr...
+JPEG2JPG_FAQ3_Q	[4A]	FAQ#3 问	n=1
+    0: Can't I just rename the file?
+JPEG2JPG_FAQ3_A	[4A]	FAQ#3 答	n=1
+    0: Usually, yes — renaming .jpeg to .jpg changes nothing but the name, and most systems will ...
+JPEG2JPG_FAQ4_Q/A	[4A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+JPEG2JPG_FAQ5_Q/A	[4A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+JPEG2JPG_FINAL_BTN	[4A]	Final CTA 按钮	n=1
+    0: Convert JPEG to JPG free now
+JPEG2JPG_FINAL_H2	[4A]	Final CTA H2	n=1
+    0: Four letters or three — your system has an opinion. Now your file matches it.
+JPEG2JPG_LINKS	[4A]	页尾内链块	n=6
+    0: Have a .jfif file instead? Try the JFIF to JPG converter →
+    1: /jfif-to-jpg/
+    2: Need this image as a cut file? JPG to DXF converter →
+    3: /jpg-to-dxf/
+    4: All converters live on the CleanPaths home page →
+    5: /
+PT_JPEG2JPG_META_TITLE	[4B]	Meta Title（44 字符 ✅）	n=1
+    0: JPEG para JPG — Conversor Grátis, sem Upload
+PT_JPEG2JPG_META_DESC	[4B]	Meta Description（111 字符 ✅）	n=1
+    0: Converta JPEG para JPG sem perda de qualidade: mesmos pixels, nova extensão. Grátis, no na...
+PT_JPEG2JPG_H1	[4B]	H1	n=1
+    0: Conversor de JPEG para JPG — A mesma imagem, a extensão certa
+PT_JPEG2JPG_HERO_SUB	[4B]	首屏副标题	n=1
+    0: JPEG e JPG são o mesmo formato — mas alguns sistemas só aceitam a extensão .jpg. Este conv...
+PT_JPEG2JPG_EYEBROW	[4B]	eyebrow spec 注	n=1
+    0: JPEG → JPG · reempacotamento sem perdas, pixels intactos
+PT_JPEG2JPG_DZ	[4B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .jpeg aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE
+PT_JPEG2JPG_BADGES	[4B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_JPEG2JPG_EXPLAINER_H2	[4B]	Explainer H2	n=1
+    0: JPEG e JPG são a mesma coisa
+PT_JPEG2JPG_EXPLAINER_P	[4B]	Explainer 正文	n=1
+    0: Não existe diferença entre um arquivo .jpeg e um .jpg — nenhuma. As duas extensões apontam...
+PT_JPEG2JPG_LOSSLESS_H2	[4B]	专属模块① H2	n=1
+    0: O que significa "reempacotamento sem perda"
+PT_JPEG2JPG_LOSSLESS_P	[4B]	专属模块① 正文	n=1
+    0: Este conversor não decodifica a sua imagem, não a recodifica e não a passa por nenhuma eta...
+PT_JPEG2JPG_WHEN_H2	[4B]	专属模块② H2	n=1
+    0: Quando você realmente precisa desta etapa
+PT_JPEG2JPG_WHEN_P	[4B]	专属模块② 正文	n=1
+    0: Renomear o arquivo por conta própria funciona — .jpeg para .jpg é uma edição de texto no n...
+PT_JPEG2JPG_LEGACY_H2	[4B]	专属模块③ H2	n=1
+    0: Por que o mundo de três letras nunca morreu
+PT_JPEG2JPG_LEGACY_P	[4B]	专属模块③ 正文	n=1
+    0: A extensão .jpg é um fóssil da era DOS, dos nomes de arquivo 8.3 — e sobreviveu à era que ...
+PT_JPEG2JPG_VERIFY	[4B]	可验证差异点（mono 注）	n=1
+    0: Prove a ausência de perdas você mesmo: converta um arquivo e compare as duas versões — mes...
+PT_JPEG2JPG_STEPS_H2	[4B]	步骤区 H2	n=1
+    0: Como converter JPEG para JPG
+PT_JPEG2JPG_STEPS	[4B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .jpeg.
+    1: Ele é reempacotado no seu navegador — na hora.
+    2: Baixe o .jpg.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_JPEG2JPG_FAQ1_Q/A	[4B]	FAQ#1	n=2
+    0: JPEG é a mesma coisa que JPG?
+    1: Sim — completamente. As duas extensões apontam para o formato de imagem idêntico; a curta ...
+PT_JPEG2JPG_FAQ2_Q/A	[4B]	FAQ#2	n=2
+    0: Converter JPEG para JPG perde qualidade?
+    1: Não. Este conversor reempacota o seu arquivo sem recodificá-lo — os dados da imagem passam...
+PT_JPEG2JPG_FAQ3_Q/A	[4B]	FAQ#3	n=2
+    0: Não posso simplesmente renomear o arquivo?
+    1: Normalmente, sim — renomear .jpeg para .jpg não muda nada além do nome, e a maioria dos si...
+PT_JPEG2JPG_FAQ4_Q/A	[4B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_JPEG2JPG_FAQ5_Q/A	[4B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_JPEG2JPG_FINAL_BTN	[4B]	Final CTA 按钮	n=1
+    0: Converter JPEG para JPG grátis
+PT_JPEG2JPG_FOOTER	[4B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+SVG2JPG_META_TITLE	[5A]	Meta Title（51 字符 ✅）	n=1
+    0: SVG to JPG Converter — Free, No Upload | CleanPaths
+SVG2JPG_META_DESC	[5A]	Meta Description（116 字符 ✅）	n=1
+    0: Convert SVG to JPG free, right in your browser. Ready for print and documents — no upload,...
+SVG2JPG_H1	[5A]	H1	n=1
+    0: SVG to JPG Converter — Free, No Upload
+SVG2JPG_HERO_SUB	[5A]	首屏副标题	n=1
+    0: Drop an SVG, download a JPG that any document, printer or upload form will take. Your vect...
+SVG2JPG_EYEBROW	[5A]	Hero eyebrow spec 注	n=1
+    0: SVG → JPG · rendered on your device
+SVG2JPG_DZ_TEXT	[5A]	dropzone 提示	n=1
+    0: Drop an .svg file here — or browse
+SVG2JPG_DZ_BTN	[5A]	dropzone 主按钮	n=1
+    0: Convert now — free
+SVG2JPG_DZ_FORMATS	[5A]	dropzone 格式行	n=1
+    0: ACCEPTS: .SVG · PROCESSED LOCALLY
+SVG2JPG_BADGES	[5A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+SVG2JPG_EXPLAINER_H2	[5A]	Explainer H2	n=1
+    0: Why convert SVG to JPG?
+SVG2JPG_EXPLAINER_P	[5A]	Explainer 正文	n=1
+    0: SVG is ideal for keeping artwork scalable — but the world of documents, print shops and ph...
+SVG2JPG_ALPHA_H2	[5A]	专属模块① H2（jpg 无透明诚实处理）	n=1
+    0: Read this if your SVG has a transparent background
+SVG2JPG_ALPHA_P	[5A]	专属模块① 正文（内链位①）	n=1
+    0: JPG cannot store transparency — that's a property of the format itself, not a limitation o...
+SVG2JPG_PRINT_H2	[5A]	专属模块② H2（打印/文档嵌图场景）	n=1
+    0: Where a JPG beats the original SVG
+SVG2JPG_PRINT_P	[5A]	专属模块② 正文	n=1
+    0: Print order forms and photo labs: JPG is their native tongue, and many reject vector files...
+SVG2JPG_CHOICE_H2	[5A]	专属模块③ H2（与 /svg-to-png 选择引导）	n=1
+    0: SVG to JPG or SVG to PNG — which one?
+SVG2JPG_CHOICE_P	[5A]	专属模块③ 正文（内链位②）	n=1
+    0: Pick JPG when the destination is print, a photo workflow, a document, an email, or a form ...
+SVG2JPG_VERIFY	[5A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: This page is self-contained: once loaded, it renders your SVG to JPG with no network at al...
+SVG2JPG_STEPS_H2	[5A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert SVG to JPG in three steps
+SVG2JPG_STEPS	[5A]	三步	n=3
+    0: Drop your .svg file.
+    1: It renders in your browser — instantly.
+    2: Download the .jpg.
+SVG2JPG_STEPS_AUX	[5A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+SVG2JPG_FAQ1_Q	[5A]	FAQ#1 问	n=1
+    0: What happens to my SVG's transparent background?
+SVG2JPG_FAQ1_A	[5A]	FAQ#1 答（内链位③）	n=1
+    0: It gets filled, because JPG has no alpha channel. The preview shows you exactly what the f...
+SVG2JPG_FAQ2_Q	[5A]	FAQ#2 问	n=1
+    0: What size will the JPG be?
+SVG2JPG_FAQ2_A	[5A]	FAQ#2 答	n=1
+    0: A vector file has no fixed pixel size, so the tool offers output size options when you con...
+SVG2JPG_FAQ3_Q	[5A]	FAQ#3 问	n=1
+    0: Is JPG or PNG better for my logo?
+SVG2JPG_FAQ3_A	[5A]	FAQ#3 答	n=1
+    0: PNG, for most logo jobs: it keeps the transparent background and the razor-sharp edges tha...
+SVG2JPG_FAQ4_Q/A	[5A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+SVG2JPG_FAQ5_Q/A	[5A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+SVG2JPG_FINAL_BTN	[5A]	Final CTA 按钮	n=1
+    0: Convert SVG to JPG free now
+SVG2JPG_LINKS	[5A]	页尾内链块	n=6
+    0: Need the transparent background? Try the SVG to PNG converter →
+    1: /svg-to-png/
+    2: Need this artwork as a cut file instead? SVG to DXF converter →
+    3: /svg-to-dxf-converter/
+    4: All converters live on the CleanPaths home page →
+    5: /
+PT_SVG2JPG_META_TITLE	[5B]	Meta Title（43 字符 ✅）	n=1
+    0: SVG para JPG — Conversor Grátis, sem Upload
+PT_SVG2JPG_META_DESC	[5B]	Meta Description（113 字符 ✅）	n=1
+    0: Converta SVG para JPG grátis, direto no navegador. Pronto para impressão e documentos — se...
+PT_SVG2JPG_H1	[5B]	H1	n=1
+    0: Conversor de SVG para JPG — Grátis, sem Upload
+PT_SVG2JPG_HERO_SUB	[5B]	首屏副标题	n=1
+    0: Arraste seu SVG e baixe um JPG que qualquer documento, impressora ou formulário aceita. O ...
+PT_SVG2JPG_EYEBROW	[5B]	eyebrow spec 注	n=1
+    0: SVG → JPG · renderizado no seu dispositivo
+PT_SVG2JPG_DZ	[5B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .svg aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .SVG · PROCESSADO LOCALMENTE
+PT_SVG2JPG_BADGES	[5B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_SVG2JPG_EXPLAINER_H2	[5B]	Explainer H2	n=1
+    0: Por que converter SVG para JPG?
+PT_SVG2JPG_EXPLAINER_P	[5B]	Explainer 正文	n=1
+    0: SVG é ideal para manter a arte escalável — mas o mundo dos documentos, gráficas e fluxos d...
+PT_SVG2JPG_ALPHA_H2	[5B]	专属模块① H2	n=1
+    0: Leia isto se o seu SVG tem fundo transparente
+PT_SVG2JPG_ALPHA_P	[5B]	专属模块① 正文（内链位①，PT→PT）	n=1
+    0: JPG não armazena transparência — isso é uma propriedade do formato, não uma limitação dest...
+PT_SVG2JPG_PRINT_H2	[5B]	专属模块② H2	n=1
+    0: Onde um JPG vence o SVG original
+PT_SVG2JPG_PRINT_P	[5B]	专属模块② 正文	n=1
+    0: Formulários de impressão e laboratórios de foto: JPG é a língua nativa deles, e muitos rej...
+PT_SVG2JPG_CHOICE_H2	[5B]	专属模块③ H2	n=1
+    0: SVG para JPG ou SVG para PNG — qual escolher?
+PT_SVG2JPG_CHOICE_P	[5B]	专属模块③ 正文（内链位②）	n=1
+    0: Escolha JPG quando o destino é impressão, um fluxo de foto, um documento, um e-mail ou um ...
+PT_SVG2JPG_VERIFY	[5B]	可验证差异点（mono 注）	n=1
+    0: Esta página é autocontida: depois de carregada, ela renderiza o seu SVG para JPG sem rede ...
+PT_SVG2JPG_STEPS_H2	[5B]	步骤区 H2	n=1
+    0: Como converter SVG para JPG
+PT_SVG2JPG_STEPS	[5B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .svg.
+    1: A renderização acontece no seu navegador — na hora.
+    2: Baixe o .jpg.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_SVG2JPG_FAQ1_Q/A	[5B]	FAQ#1	n=2
+    0: O que acontece com o fundo transparente do meu SVG?
+    1: Ele é preenchido, porque o JPG não tem canal alfa. A pré-visualização mostra exatamente co...
+PT_SVG2JPG_FAQ2_Q/A	[5B]	FAQ#2	n=2
+    0: Qual será o tamanho do JPG?
+    1: Um arquivo vetorial não tem tamanho fixo em pixels, então a ferramenta oferece opções de t...
+PT_SVG2JPG_FAQ3_Q/A	[5B]	FAQ#3	n=2
+    0: JPG ou PNG é melhor para o meu logotipo?
+    1: PNG, para a maioria dos trabalhos com logotipo: ele mantém o fundo transparente e as borda...
+PT_SVG2JPG_FAQ4_Q/A	[5B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_SVG2JPG_FAQ5_Q/A	[5B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_SVG2JPG_FINAL_BTN	[5B]	Final CTA 按钮	n=1
+    0: Converter SVG para JPG grátis
+PT_SVG2JPG_FOOTER	[5B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+GIF2JPG_META_TITLE	[6A]	Meta Title（53 字符 ✅）	n=1
+    0: GIF to JPG Converter — First Frame, Free | CleanPaths
+GIF2JPG_META_DESC	[6A]	Meta Description（118 字符 ✅）	n=1
+    0: Convert GIF to JPG free, in your browser. Animated GIFs are converted using their first fr...
+GIF2JPG_H1	[6A]	H1	n=1
+    0: GIF to JPG Converter — Free, No Upload
+GIF2JPG_HERO_SUB	[6A]	首屏副标题（**约束①首屏声明位**）	n=1
+    0: Drag in a GIF, download a still JPG. Animated GIFs are converted using their first frame —...
+GIF2JPG_EYEBROW	[6A]	Hero eyebrow spec 注	n=1
+    0: GIF → JPG · first frame only, no upload
+GIF2JPG_DZ_TEXT	[6A]	dropzone 提示	n=1
+    0: Drop a .gif file here — or browse
+GIF2JPG_DZ_BTN	[6A]	dropzone 主按钮	n=1
+    0: Convert now — free
+GIF2JPG_DZ_FORMATS	[6A]	dropzone 格式行	n=1
+    0: ACCEPTS: .GIF · PROCESSED LOCALLY
+GIF2JPG_BADGES	[6A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+GIF2JPG_EXPLAINER_H2	[6A]	Explainer H2	n=1
+    0: Why convert GIF to JPG?
+GIF2JPG_EXPLAINER_P	[6A]	Explainer 正文	n=1
+    0: Sometimes you don't want the animation — you want the picture. A meme saved as GIF that yo...
+GIF2JPG_FIRSTFRAME_H2	[6A]	专属模块① H2（首帧声明扩展）	n=1
+    0: First frame only — said twice, on purpose
+GIF2JPG_FIRSTFRAME_P	[6A]	专属模块① 正文	n=1
+    0: This converter extracts a single still image from your GIF: the first frame. It does not m...
+GIF2JPG_DONT_H2	[6A]	专属模块② H2（何时不该转）	n=1
+    0: When not to convert your GIF
+GIF2JPG_DONT_P	[6A]	专属模块② 正文	n=1
+    0: Keep the GIF when the motion is the message: reaction images, product demos, animated stic...
+GIF2JPG_SCENES_H2	[6A]	专属模块③ H2（静态图提取场景）	n=1
+    0: What people use a GIF's first frame for
+GIF2JPG_SCENES_P	[6A]	专属模块③ 正文	n=1
+    0: Product photos lifted from a supplier's animated GIF for a marketplace listing. A still fr...
+GIF2JPG_VERIFY	[6A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: No upload, provable: load this page, turn off your connection, and convert a GIF. The firs...
+GIF2JPG_STEPS_H2	[6A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert GIF to JPG in three steps
+GIF2JPG_STEPS	[6A]	三步	n=3
+    0: Drop your .gif file.
+    1: Its first frame converts in your browser — instantly.
+    2: Download the .jpg.
+GIF2JPG_STEPS_AUX	[6A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+GIF2JPG_FAQ1_Q	[6A]	FAQ#1 问（**约束① FAQ 级**）	n=1
+    0: Does this converter keep the animation?
+GIF2JPG_FAQ1_A	[6A]	FAQ#1 答	n=1
+    0: No — animated GIFs are converted using their first frame, full stop. JPG is a still-image ...
+GIF2JPG_FAQ2_Q	[6A]	FAQ#2 问	n=1
+    0: Which frame does it extract?
+GIF2JPG_FAQ2_A	[6A]	FAQ#2 答	n=1
+    0: The first frame, always. It doesn't scan for the sharpest or the most representative frame...
+GIF2JPG_FAQ3_Q	[6A]	FAQ#3 问	n=1
+    0: Will the JPG look as good as the GIF?
+GIF2JPG_FAQ3_A	[6A]	FAQ#3 答	n=1
+    0: For photographic content, usually better — GIF is limited to 256 colors per frame, while J...
+GIF2JPG_FAQ4_Q/A	[6A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+GIF2JPG_FAQ5_Q/A	[6A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+GIF2JPG_FINAL_BTN	[6A]	Final CTA 按钮	n=1
+    0: Convert GIF to JPG free now
+GIF2JPG_FINAL_H2	[6A]	Final CTA H2	n=1
+    0: The first frame is already there. One drag, and it's a JPG.
+GIF2JPG_LINKS	[6A]	页尾内链块	n=4
+    0: Working with old BMP files too? BMP to JPG converter →
+    1: /bmp-to-jpg/
+    2: All converters live on the CleanPaths home page →
+    3: /
+PT_GIF2JPG_META_TITLE	[6B]	Meta Title（43 字符 ✅）	n=1
+    0: GIF para JPG — Conversor Grátis, sem Upload
+PT_GIF2JPG_META_DESC	[6B]	Meta Description（112 字符 ✅）	n=1
+    0: Converta GIF para JPG grátis, no navegador. GIFs animados são convertidos usando o primeir...
+PT_GIF2JPG_H1	[6B]	H1	n=1
+    0: Conversor de GIF para JPG — Grátis, sem Upload
+PT_GIF2JPG_HERO_SUB	[6B]	首屏副标题（约束①首屏声明位）	n=1
+    0: Arraste seu GIF e baixe um JPG estático. GIFs animados são convertidos usando o primeiro q...
+PT_GIF2JPG_EYEBROW	[6B]	eyebrow spec 注	n=1
+    0: GIF → JPG · só o primeiro quadro, sem upload
+PT_GIF2JPG_DZ	[6B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .gif aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .GIF · PROCESSADO LOCALMENTE
+PT_GIF2JPG_BADGES	[6B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_GIF2JPG_EXPLAINER_H2	[6B]	Explainer H2	n=1
+    0: Por que converter GIF para JPG?
+PT_GIF2JPG_EXPLAINER_P	[6B]	Explainer 正文	n=1
+    0: Às vezes você não quer a animação — quer a imagem. Um meme salvo como GIF que precisa entr...
+PT_GIF2JPG_FIRSTFRAME_H2	[6B]	专属模块① H2	n=1
+    0: Só o primeiro quadro — dito duas vezes, de propósito
+PT_GIF2JPG_FIRSTFRAME_P	[6B]	专属模块① 正文	n=1
+    0: Este conversor extrai uma única imagem parada do seu GIF: o primeiro quadro. Ele não mescl...
+PT_GIF2JPG_DONT_H2	[6B]	专属模块② H2	n=1
+    0: Quando não converter o seu GIF
+PT_GIF2JPG_DONT_P	[6B]	专属模块② 正文	n=1
+    0: Fique com o GIF quando o movimento é a mensagem: imagens de reação, demonstrações de produ...
+PT_GIF2JPG_SCENES_H2	[6B]	专属模块③ H2	n=1
+    0: Para que as pessoas usam o primeiro quadro de um GIF
+PT_GIF2JPG_SCENES_P	[6B]	专属模块③ 正文	n=1
+    0: Fotos de produto extraídas do GIF animado de um fornecedor para um anúncio em marketplace....
+PT_GIF2JPG_VERIFY	[6B]	可验证差异点（mono 注）	n=1
+    0: Sem upload, comprovável: carregue esta página, desligue a conexão e converta um GIF. O pri...
+PT_GIF2JPG_STEPS_H2	[6B]	步骤区 H2	n=1
+    0: Como converter GIF para JPG
+PT_GIF2JPG_STEPS	[6B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .gif.
+    1: O primeiro quadro converte no seu navegador — na hora.
+    2: Baixe o .jpg.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_GIF2JPG_FAQ1_Q/A	[6B]	FAQ#1（约束① FAQ 级）	n=2
+    0: Este conversor mantém a animação?
+    1: Não — GIFs animados são convertidos usando o primeiro quadro, e ponto final. JPG é um form...
+PT_GIF2JPG_FAQ2_Q/A	[6B]	FAQ#2	n=2
+    0: Qual quadro ele extrai?
+    1: O primeiro quadro, sempre. Ele não procura o quadro mais nítido nem o mais representativo....
+PT_GIF2JPG_FAQ3_Q/A	[6B]	FAQ#3	n=2
+    0: O JPG vai ficar tão bom quanto o GIF?
+    1: Para conteúdo fotográfico, geralmente melhor — o GIF é limitado a 256 cores por quadro, en...
+PT_GIF2JPG_FAQ4_Q/A	[6B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_GIF2JPG_FAQ5_Q/A	[6B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_GIF2JPG_FINAL_BTN	[6B]	Final CTA 按钮	n=1
+    0: Converter GIF para JPG grátis
+PT_GIF2JPG_FOOTER	[6B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+BMP2JPG_META_TITLE	[7A]	Meta Title（51 字符 ✅）	n=1
+    0: BMP to JPG Converter — Free, No Upload | CleanPaths
+BMP2JPG_META_DESC	[7A]	Meta Description（115 字符 ✅）	n=1
+    0: Convert BMP to JPG free, right in your browser. Shrink bulky Windows bitmaps into files an...
+BMP2JPG_H1	[7A]	H1	n=1
+    0: BMP to JPG Converter — Free, No Upload
+BMP2JPG_HERO_SUB	[7A]	首屏副标题	n=1
+    0: Drag in a BMP, download a JPG that's a fraction of the size and opens everywhere. The conv...
+BMP2JPG_EYEBROW	[7A]	Hero eyebrow spec 注	n=1
+    0: BMP → JPG · decoded natively in your browser
+BMP2JPG_DZ_TEXT	[7A]	dropzone 提示	n=1
+    0: Drop a .bmp file here — or browse
+BMP2JPG_DZ_BTN	[7A]	dropzone 主按钮	n=1
+    0: Convert now — free
+BMP2JPG_DZ_FORMATS	[7A]	dropzone 格式行	n=1
+    0: ACCEPTS: .BMP · PROCESSED LOCALLY
+BMP2JPG_BADGES	[7A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+BMP2JPG_EXPLAINER_H2	[7A]	Explainer H2	n=1
+    0: Why convert BMP to JPG?
+BMP2JPG_EXPLAINER_P	[7A]	Explainer 正文	n=1
+    0: BMP is one of the oldest image formats still in circulation — the native bitmap of Windows...
+BMP2JPG_SOURCE_H2	[7A]	专属模块① H2（遗留格式/老设备老软件导出语境）	n=1
+    0: Where BMP files keep coming from
+BMP2JPG_SOURCE_P	[7A]	专属模块① 正文	n=1
+    0: If you have a BMP today, it almost certainly came from a system that never learned anythin...
+BMP2JPG_SIZE_H2	[7A]	专属模块② H2（体积压缩收益，泛化表述）	n=1
+    0: Same picture, a fraction of the size
+BMP2JPG_SIZE_P	[7A]	专属模块② 正文	n=1
+    0: BMP's bulk comes from storing every pixel almost raw; JPG was designed from day one to com...
+BMP2JPG_WIN_H2	[7A]	专属模块③ H2（Windows 生态来源说明）	n=1
+    0: A Windows fossil that still works hard
+BMP2JPG_WIN_P	[7A]	专属模块③ 正文	n=1
+    0: BMP survived because Windows never dropped it: it's still the clipboard's native tongue, s...
+BMP2JPG_VERIFY	[7A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Proof there's no server: this page converts BMP files with your internet switched off. Loa...
+BMP2JPG_STEPS_H2	[7A]	步骤区 H2（承接 convert 族）	n=1
+    0: Convert BMP to JPG in three steps
+BMP2JPG_STEPS	[7A]	三步	n=3
+    0: Drop your .bmp file.
+    1: It converts in your browser — instantly.
+    2: Download the .jpg.
+BMP2JPG_STEPS_AUX	[7A]	步骤辅助行	n=1
+    0: No upload. No account. No watermark. Free, 10 conversions a day.
+BMP2JPG_FAQ1_Q	[7A]	FAQ#1 问	n=1
+    0: Will converting BMP to JPG reduce quality?
+BMP2JPG_FAQ1_A	[7A]	FAQ#1 答	n=1
+    0: BMP is uncompressed, and JPG uses lossy compression — so there is a quality trade by desig...
+BMP2JPG_FAQ2_Q	[7A]	FAQ#2 问	n=1
+    0: Why is my BMP file so big?
+BMP2JPG_FAQ2_A	[7A]	FAQ#2 答	n=1
+    0: Because BMP stores pixels with little or no compression — every dot of the image is writte...
+BMP2JPG_FAQ3_Q	[7A]	FAQ#3 问	n=1
+    0: Do BMP files have transparency?
+BMP2JPG_FAQ3_A	[7A]	FAQ#3 答	n=1
+    0: Almost never. Standard BMP has no alpha channel in the form most software writes it, so co...
+BMP2JPG_FAQ4_Q/A	[7A]	FAQ#4	n=1
+    0: Do you upload or store my files?
+BMP2JPG_FAQ5_Q/A	[7A]	FAQ#5	n=2
+    0: Is there a limit?
+    1: Free, 10 conversions a day, no account needed. Heavy users can remove the cap with Pro — $...
+BMP2JPG_FINAL_BTN	[7A]	Final CTA 按钮	n=1
+    0: Convert BMP to JPG free now
+BMP2JPG_LINKS	[7A]	页尾内链块	n=6
+    0: Have a GIF to flatten instead? GIF to JPG converter →
+    1: /gif-to-jpg/
+    2: Extension problems of a different kind — .jpeg vs .jpg? JPEG to JPG converter →
+    3: /jpeg-to-jpg/
+    4: All converters live on the CleanPaths home page →
+    5: /
+PT_BMP2JPG_META_TITLE	[7B]	Meta Title（43 字符 ✅）	n=1
+    0: BMP para JPG — Conversor Grátis, sem Upload
+PT_BMP2JPG_META_DESC	[7B]	Meta Description（113 字符 ✅）	n=1
+    0: Converta BMP para JPG grátis, direto no navegador. Diminua bitmaps pesados do Windows — se...
+PT_BMP2JPG_H1	[7B]	H1	n=1
+    0: Conversor de BMP para JPG — Grátis, sem Upload
+PT_BMP2JPG_HERO_SUB	[7B]	首屏副标题	n=1
+    0: Arraste seu BMP e baixe um JPG com uma fração do tamanho, que abre em tudo. A conversão ac...
+PT_BMP2JPG_EYEBROW	[7B]	eyebrow spec 注	n=1
+    0: BMP → JPG · decodificado nativamente no seu navegador
+PT_BMP2JPG_DZ	[7B]	dropzone 三串	n=3
+    0: Arraste seu arquivo .bmp aqui — ou clique para escolher
+    1: Converter agora — grátis
+    2: ACEITA: .BMP · PROCESSADO LOCALMENTE
+PT_BMP2JPG_BADGES	[7B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_BMP2JPG_EXPLAINER_H2	[7B]	Explainer H2	n=1
+    0: Por que converter BMP para JPG?
+PT_BMP2JPG_EXPLAINER_P	[7B]	Explainer 正文	n=1
+    0: BMP é um dos formatos de imagem mais antigos ainda em circulação — o bitmap nativo do Wind...
+PT_BMP2JPG_SOURCE_H2	[7B]	专属模块① H2	n=1
+    0: De onde os arquivos BMP continuam vindo
+PT_BMP2JPG_SOURCE_P	[7B]	专属模块① 正文	n=1
+    0: Se você tem um BMP hoje, ele quase certamente veio de um sistema que nunca aprendeu nada m...
+PT_BMP2JPG_SIZE_H2	[7B]	专属模块② H2	n=1
+    0: A mesma imagem, uma fração do tamanho
+PT_BMP2JPG_SIZE_P	[7B]	专属模块② 正文	n=1
+    0: O volume do BMP vem de guardar cada pixel quase cru; o JPG foi desenhado desde o primeiro ...
+PT_BMP2JPG_WIN_H2	[7B]	专属模块③ H2	n=1
+    0: Um fóssil do Windows que ainda trabalha duro
+PT_BMP2JPG_WIN_P	[7B]	专属模块③ 正文	n=1
+    0: O BMP sobreviveu porque o Windows nunca o abandonou: ainda é a língua nativa da área de tr...
+PT_BMP2JPG_VERIFY	[7B]	可验证差异点（mono 注）	n=1
+    0: Prova de que não há servidor: esta página converte arquivos BMP com a internet desligada. ...
+PT_BMP2JPG_STEPS_H2	[7B]	步骤区 H2	n=1
+    0: Como converter BMP para JPG
+PT_BMP2JPG_STEPS	[7B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .bmp.
+    1: A conversão acontece no seu navegador — na hora.
+    2: Baixe o .jpg.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_BMP2JPG_FAQ1_Q/A	[7B]	FAQ#1	n=2
+    0: Converter BMP para JPG reduz a qualidade?
+    1: O BMP é sem compressão e o JPG usa compressão com perda — então há uma troca de qualidade ...
+PT_BMP2JPG_FAQ2_Q/A	[7B]	FAQ#2	n=2
+    0: Por que meu arquivo BMP é tão grande?
+    1: Porque o BMP armazena pixels com pouca ou nenhuma compressão — cada ponto da imagem é escr...
+PT_BMP2JPG_FAQ3_Q/A	[7B]	FAQ#3	n=2
+    0: Arquivos BMP têm transparência?
+    1: Quase nunca. O BMP padrão não tem canal alfa na forma como a maioria dos softwares o grava...
+PT_BMP2JPG_FAQ4_Q/A	[7B]	FAQ#4	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_BMP2JPG_FAQ5_Q/A	[7B]	FAQ#5	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_BMP2JPG_FINAL_BTN	[7B]	Final CTA 按钮	n=1
+    0: Converter BMP para JPG grátis
+PT_BMP2JPG_FOOTER	[7B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro
+JPEG2DXF_META_TITLE	[8A]	Meta Title（53 字符 ✅）	n=1
+    0: JPEG to DXF Converter — Cut-Ready & Free | CleanPaths
+JPEG2DXF_META_DESC	[8A]	Meta Description（122 字符 ✅）	n=1
+    0: Convert JPEG to DXF with closed paths, color-separated layers and units embedded — in your...
+JPEG2DXF_H1	[8A]	H1	n=1
+    0: JPEG to DXF Converter — Cut-Ready Output
+JPEG2DXF_HERO_SUB	[8A]	首屏副标题	n=1
+    0: Drop a JPEG, get a DXF your laser, CNC or plotter can actually use — closed paths, color-s...
+JPEG2DXF_EYEBROW	[8A]	Hero eyebrow spec 注	n=1
+    0: JPEG → DXF · traced on your device
+JPEG2DXF_DZ_TEXT	[8A]	dropzone 提示	n=1
+    0: Drop a .jpeg file here — or browse
+JPEG2DXF_DZ_BTN	[8A]	dropzone 主按钮	n=1
+    0: Convert now — free
+JPEG2DXF_DZ_FORMATS	[8A]	dropzone 格式行	n=1
+    0: ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY
+JPEG2DXF_MICROCOPY	[8A]	dropzone 内嵌 microcopy	n=1
+    0: Flat-color graphics → cut-ready · Photos → stylized result
+JPEG2DXF_BADGES	[8A]	徽章行	n=1
+    0: 🔒 Files stay on your device · No account · No watermark · 10 free conversions a day
+JPEG2DXF_PROOF	[8A]	Proof 块	n=1
+    0: JPEG compression rings every edge with noise — and a naive tracer faithfully converts that...
+JPEG2DXF_VERIFY	[8A]	可验证差异点（mono 注，及格线 #8）	n=1
+    0: Verify it yourself: open the downloaded .dxf in any text editor. The R2000 header declares...
+JPEG2DXF_PROBLEM_H2	[8A]	Problem H2	n=1
+    0: A JPEG is a grid of pixels. Your machine speaks paths.
+JPEG2DXF_PROBLEM_B1	[8A]	Problem 子弹 1	n=1
+    0: Your plotter, laser or CNC can't read pixels — it follows paths. A raw auto-trace gives yo...
+JPEG2DXF_PROBLEM_B2	[8A]	Problem 子弹 2	n=1
+    0: JPEGs arrive compressed and noisy — and noise traces just as faithfully as artwork, straig...
+JPEG2DXF_PROBLEM_B3	[8A]	Problem 子弹 3	n=1
+    0: And most converters want your file on their server before you see a single path.
+JPEG2DXF_SOLUTION_H2	[8A]	Solution H2	n=1
+    0: Cleanup, tracing and real DXF — one pass, on your device
+JPEG2DXF_SOLUTION_S1	[8A]	Solution 步 1	n=1
+    0: Clean the image first: denoise and upscale before a single path is traced — the step defau...
+JPEG2DXF_SOLUTION_S2	[8A]	Solution 步 2	n=1
+    0: Trace with parameters that adapt to your image — tuned automatically, not one global prese...
+JPEG2DXF_SOLUTION_S3	[8A]	Solution 步 3	n=1
+    0: Export real DXF: R2000 with units embedded by default, R12 compatibility mode for older CA...
+JPEG2DXF_HONEST_H2	[8A]	质量诚实块 H2	n=1
+    0: An honest note before you convert
+JPEG2DXF_HONEST_P	[8A]	质量诚实块正文	n=1
+    0: Best on flat-color graphics — logos, icons, screenshots, line art: output is designed to b...
+JPEG2DXF_SAMEFMT_H2	[8A]	专属模块① H2（jpeg/jpg 同格式说明，约束③-2）	n=1
+    0: JPEG or JPG? Same format — and yes, there's a page for that spelling too
+JPEG2DXF_SAMEFMT_P	[8A]	专属模块① 正文（内链位①，**约束③-2 交叉链接位**）	n=1
+    0: JPEG and JPG are the same format. The two extensions exist because early Windows filenames...
+JPEG2DXF_SCENES_H2	[8A]	专属模块② H2（CNC/激光加工场景）	n=1
+    0: What a DXF from this page gets used for
+JPEG2DXF_SCENES_B1	[8A]	场景样例 1	n=1
+    0: Laser-cut signs and layered art from flat-color logos and graphics saved as JPEGs.
+JPEG2DXF_SCENES_B2	[8A]	场景样例 2	n=1
+    0: CNC plasma, router and milling work where DXF is the only language the CAM software accept...
+JPEG2DXF_SCENES_B3	[8A]	场景样例 3	n=1
+    0: Vinyl cutting and plotter workflows, alongside the SVG output for machines and software th...
+JPEG2DXF_SCENES_CLOSE	[8A]	场景收尾	n=1
+    0: Whatever the machine, the output standard doesn't change: closed paths, color-separated la...
+JPEG2DXF_PHOTO_H2	[8A]	专属模块③ H2（照片类 jpeg 描摹适用边界）	n=1
+    0: If your JPEG is a photograph, read this first
+JPEG2DXF_PHOTO_P	[8A]	专属模块③ 正文	n=1
+    0: There's a difference between a JPEG of a graphic and a JPEG of a scene. A logo saved as JP...
+JPEG2DXF_HOW_H2	[8A]	How it works H2	n=1
+    0: How to convert JPEG to DXF (and get a file that cuts)
+JPEG2DXF_HOW_S1	[8A]	步骤 1	n=1
+    0: Drop your JPEG.
+JPEG2DXF_HOW_S2	[8A]	步骤 2	n=1
+    0: Check the layer preview; slide precision if you want a smaller or smoother file.
+JPEG2DXF_HOW_S3	[8A]	步骤 3	n=1
+    0: Download DXF (R2000 or R12) — done.
+JPEG2DXF_HOW_AUX	[8A]	步骤辅助行	n=1
+    0: No sign-up. No watermark. Your JPEG never left your machine.
+JPEG2DXF_PRICING_ANCHOR	[8A]	定价锚点	n=2
+    0: Free for 10 conversions a day — every feature above included. Heavy day? Pro lifts the cap...
+    1: Get CleanPaths Pro — $59, one time
+JPEG2DXF_FAQ1_Q	[8A]	FAQ#1 问	n=1
+    0: Is JPEG the same as JPG — will my .jpeg file work here?
+JPEG2DXF_FAQ1_A	[8A]	FAQ#1 答（内链位②，约束③-2）	n=1
+    0: Yes on both counts. JPEG and JPG are the same image format — the extensions differ, the da...
+JPEG2DXF_FAQ2_Q	[8A]	FAQ#2 问	n=1
+    0: What's the difference between the R2000 and R12 downloads?
+JPEG2DXF_FAQ2_A	[8A]	FAQ#2 答（内链位③）	n=1
+    0: Both are real DXF — the difference is compatibility, not quality. R2000 embeds units so th...
+JPEG2DXF_FAQ3_Q	[8A]	FAQ#3 问	n=1
+    0: My JPEG is a photograph — what will I get?
+JPEG2DXF_FAQ3_A	[8A]	FAQ#3 答（内链位④）	n=1
+    0: A stylized, posterized version of it — flat color regions with clean edges, not a photogra...
+JPEG2DXF_FAQ4_Q	[8A]	FAQ#4 问	n=1
+    0: Why does JPEG quality matter for tracing?
+JPEG2DXF_FAQ4_A	[8A]	FAQ#4 答	n=1
+    0: Because compression artifacts are the tracer's worst enemy. Every JPEG saves space by blur...
+JPEG2DXF_FAQ5_Q/A	[8A]	FAQ#5	n=1
+    0: Do you upload or store my files?
+JPEG2DXF_FAQ6_Q/A	[8A]	FAQ#6	n=2
+    0: Is there a daily limit?
+    1: Free tier: 10 conversions a day, full quality. Pro removes the cap — $59, one time, no sub...
+JPEG2DXF_FINAL_H2	[8A]	Final CTA H2	n=1
+    0: That JPEG on your desktop is closer to a cut file than you think.
+JPEG2DXF_FINAL_BTN	[8A]	Final CTA 按钮	n=1
+    0: Convert JPEG to DXF free now
+JPEG2DXF_LINKS	[8A]	页尾内链块	n=6
+    0: Using .jpg files? Same format — the JPG to DXF page is here →
+    1: /jpg-to-dxf/
+    2: Have PNGs instead? PNG to DXF converter →
+    3: /png-to-dxf/
+    4: Not sure what format you're holding? Image to DXF converter →
+    5: /image-to-dxf/
+PT_JPEG2DXF_META_TITLE	[8B]	Meta Title（44 字符 ✅）	n=1
+    0: JPEG para DXF — Conversor Grátis, sem Upload
+PT_JPEG2DXF_META_DESC	[8B]	Meta Description（118 字符 ✅）	n=1
+    0: Converta JPEG para DXF grátis, direto no navegador. Trajetórias fechadas e camadas por cor...
+PT_JPEG2DXF_H1	[8B]	H1	n=1
+    0: Conversor de JPEG para DXF — Grátis, sem Upload
+PT_JPEG2DXF_HERO_SUB	[8B]	首屏副标题	n=1
+    0: Arraste seu JPEG e baixe um DXF com camadas separadas por cor em segundos. A conversão aco...
+PT_JPEG2DXF_EYEBROW	[8B]	eyebrow spec 注	n=1
+    0: JPEG → DXF · processado no seu navegador
+PT_JPEG2DXF_DZ_TEXT	[8B]	dropzone 提示	n=1
+    0: Arraste seu arquivo .jpeg aqui — ou clique para escolher
+PT_JPEG2DXF_DZ_BTN	[8B]	dropzone 主按钮	n=1
+    0: Converter agora — grátis
+PT_JPEG2DXF_DZ_FORMATS	[8B]	dropzone 格式行	n=1
+    0: ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE
+PT_JPEG2DXF_MICROCOPY	[8B]	dropzone 内嵌 microcopy	n=1
+    0: Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado
+PT_JPEG2DXF_BADGES	[8B]	徽章行	n=1
+    0: 🔒 Seus arquivos não saem do seu dispositivo · Sem cadastro · Sem marca d'água
+PT_JPEG2DXF_HONEST_H2	[8B]	质量诚实块 H2	n=1
+    0: Um aviso honesto antes de converter
+PT_JPEG2DXF_HONEST_P	[8B]	质量诚实块正文	n=1
+    0: Funciona melhor com gráficos de cores chapadas — logos, ícones, capturas de tela, line art...
+PT_JPEG2DXF_EXPLAINER_H2	[8B]	Explainer H2	n=1
+    0: Por que converter JPEG para DXF?
+PT_JPEG2DXF_EXPLAINER_P	[8B]	Explainer 正文	n=1
+    0: JPEG e JPG são o mesmo formato de imagem — as duas extensões existem por causa dos nomes d...
+PT_JPEG2DXF_SAMEFMT_H2	[8B]	专属模块① H2（同格式说明，约束③-2）	n=1
+    0: JPEG ou JPG? O mesmo formato
+PT_JPEG2DXF_SAMEFMT_P	[8B]	专属模块① 正文（内链位①）	n=1
+    0: JPEG e JPG são o mesmo formato de imagem — não existe diferença nos dados. Este conversor ...
+PT_JPEG2DXF_PHOTO_H2	[8B]	专属模块② H2（照片边界，双语同义）	n=1
+    0: Se o seu JPEG é uma fotografia, leia isto antes
+PT_JPEG2DXF_PHOTO_P	[8B]	专属模块② 正文	n=1
+    0: Há uma diferença entre um JPEG de um gráfico e um JPEG de uma cena. Um logotipo salvo como...
+PT_JPEG2DXF_STEPS_H2	[8B]	步骤区 H2	n=1
+    0: Como converter JPEG para DXF
+PT_JPEG2DXF_STEPS	[8B]	三步 + 辅助行	n=4
+    0: Arraste seu arquivo .jpeg.
+    1: A conversão acontece no seu navegador — na hora.
+    2: Baixe o .dxf.
+    3: Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.
+PT_JPEG2DXF_FAQ1_Q/A	[8B]	FAQ#1（内链位②）	n=2
+    0: JPEG e JPG são a mesma coisa?
+    1: Sim — as duas extensões apontam para o mesmo formato de imagem, e este conversor aceita as...
+PT_JPEG2DXF_FAQ2_Q/A	[8B]	FAQ#2	n=2
+    0: O DXF funciona na minha máquina de corte?
+    1: O resultado é DXF totalmente POLYLINE com trajetórias fechadas e camadas por cor — o forma...
+PT_JPEG2DXF_FAQ3_Q/A	[8B]	FAQ#3	n=1
+    0: Meu arquivo é enviado para algum servidor?
+PT_JPEG2DXF_FAQ4_Q/A	[8B]	FAQ#4	n=2
+    0: Tem limite de uso?
+    1: Grátis, 10 conversões por dia, sem cadastro.
+PT_JPEG2DXF_FINAL_BTN	[8B]	Final CTA 按钮	n=1
+    0: Converter JPEG para DXF grátis
+PT_JPEG2DXF_FOOTER	[8B]	页脚	n=1
+    0: 🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro

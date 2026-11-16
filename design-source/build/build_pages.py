@@ -2,7 +2,7 @@
 """Build all 15 routes of the CleanPaths design handoff."""
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
-import pages_home, pages_dxf, pages_light, pages_samples, pages_people, pages_legal
+import pages_home, pages_dxf, pages_light, pages_samples, pages_people, pages_legal, pages_bofu, pages_new
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "pages")
 
@@ -22,6 +22,14 @@ PAGES = [
     ("terms", lambda: pages_legal.build_legal("/terms"), None, "/terms"),
     ("cookies", lambda: pages_legal.build_legal("/cookies"), None, "/cookies"),
     ("refund", lambda: pages_legal.build_legal("/refund"), None, "/refund"),
+    ("vector-magic-alternative", pages_bofu.build_vm, None, "/vector-magic-alternative"),
+    ("cloudconvert-alternative", pages_bofu.build_cc, None, "/cloudconvert-alternative"),
+    ("vectorizer-ai-alternative", pages_bofu.build_vai, None, "/vectorizer-ai-alternative"),
+    ("convertio-alternative", pages_bofu.build_cv, None, "/convertio-alternative"),
+    ("jfif-to-png", pages_new.build_jfif_png, pages_new.build_jfif_png_states, "/jfif-to-png"),
+    ("pt-jfif-para-png", pages_new.build_pt_jfif_png, pages_new.build_pt_jfif_png_states, "/pt/jfif-para-png"),
+    ("webp-to-svg", pages_new.build_webp, pages_new.build_webp_states, "/webp-to-svg"),
+    ("pt-webp-para-svg", pages_new.build_pt_webp, pages_new.build_pt_webp_states, "/pt/webp-para-svg"),
 ]
 
 def main():

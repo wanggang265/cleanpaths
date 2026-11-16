@@ -28,7 +28,8 @@
 #             3) emit new manifest draft build/truth-manifest.sha256.new
 #                (downstream sync ticket MUST copy it into the repo in the same commit)
 #             4) append one receipt line to build/truth-receipts.log
-#                (ISO time / actor=$TRUTH_ACTOR / note=$TRUTH_NOTE / changed files / ZIP sha256)
+#                (ISO time / actor=$TRUTH_ACTOR / note=$TRUTH_NOTE (REQUIRED — #108)
+#                 / authorized_drift=N / changed files / ZIP sha256)
 #
 # Snapshot coverage: the FULL truth tree (sha256sum-format lines, same format as
 # truth-manifest — 同构), excluding __pycache__ / *.pyc. Full-tree (not just the
@@ -160,7 +161,13 @@ cmd_precheck() {
 
 cmd_seal() {
   local actor="${TRUTH_ACTOR:-unknown}"
-  local note="${TRUTH_NOTE:-(no note)}"
+  local note="${TRUTH_NOTE:-}"
+  # #108: v1.9 'note=(no note)' incident — a seal receipt without a real note is forbidden.
+  if [ -z "${note//[[:space:]]/}" ]; then
+    echo "SEAL REFUSED — TRUTH_NOTE is empty. A seal receipt without a note is forbidden (#108)." >&2
+    echo "  Re-run with: TRUTH_ACTOR=<who> TRUTH_NOTE='<what changed and why>' truth_write_guard.sh seal" >&2
+    exit 1
+  fi
   echo "seal: step 1/4 — drift check vs pre-write snapshot (refuse to seal undeclared drift)"
   if [ ! -f "$SNAPSHOT" ]; then
     echo "SEAL REFUSED — no pre-write snapshot at $SNAPSHOT." >&2
@@ -278,9 +285,9 @@ keys = set(old) | set(new)
 print(sum(1 for k in keys if old.get(k) != new.get(k)))
 PY
 )
-  printf '%s | actor=%s | note=%s | changed_files=%s | zip_sha256=%s\n' \
-    "$(date -Iseconds)" "$actor" "$note" "$changed" "$zip_sha" >> "$RECEIPTS"
-  echo "SEALED: changed_files=$changed zip_sha256=$zip_sha"
+  printf '%s | actor=%s | note=%s | authorized_drift=%s | changed_files=%s | zip_sha256=%s\n' \
+    "$(date -Iseconds)" "$actor" "$note" "$drift" "$changed" "$zip_sha" >> "$RECEIPTS"
+  echo "SEALED: changed_files=$changed authorized_drift=$drift zip_sha256=$zip_sha"
   echo "  receipt appended: $RECEIPTS"
   echo "  REMINDER: sync $NEW_MANIFEST into repo design-source/build/truth-manifest.sha256 (same commit as design-source sync) or the gate goes red — that is a feature, not a bug."
 }

@@ -474,8 +474,17 @@ BANNED = ["unlimited", "infinite", "lifetime", "guaranteed", "100% accurate", "o
 def main():
     fails = []
     texts = {}
-    PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"}
+    PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
+                "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
+                "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"}
     LASER5 = {"image-to-dxf", "pt-imagem-para-dxf", "photo-to-dxf", "pt-foto-para-dxf", "png-to-dxf-for-laser-cutting"}
+    # ---- v1.8 batch2: 16 new pages join every SENTINELS-driven matrix check (06c/E2/ROUTE-LINK/banned/footer) ----
+    BATCH2_EN = ["webp-to-png", "webp-to-jpg", "svg-to-png", "jpeg-to-jpg",
+                 "svg-to-jpg", "gif-to-jpg", "bmp-to-jpg", "jpeg-to-dxf"]
+    BATCH2_PT = ["pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
+                 "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"]
+    for _s in BATCH2_EN + BATCH2_PT:
+        SENTINELS.setdefault(_s, [])
     for slug, sents in SENTINELS.items():
         t = strip(read(slug))
         texts[slug] = t
@@ -483,6 +492,38 @@ def main():
         for s in sents:
             if s not in t and s not in raw5:  # v1.7: raw fallback only for laser-batch slugs (meta-desc attr pins)
                 fails.append(f"[MISSING] {slug}: {s[:90]}")
+
+    # ---------- v1.8 batch2 full-copy sentinels (05-copy-freeze-v1.15 §I) ----------
+    # Source of truth: batch2_copy.json — the verbatim programmatic parse of the freeze
+    # (see batch2_build.py; META_DESC keys are attribute-only pins, covered by parse-count).
+    import json as _json
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "batch2_copy.json"), encoding="utf-8") as _f:
+        B2COPY = _json.load(_f)["copy"]
+    B2_EXPECT = {
+        "WEBP2PNG_": 31, "PT_WEBP2PNG_": 25, "WEBP2JPG_": 31, "PT_WEBP2JPG_": 25,
+        "SVG2PNG_": 31, "PT_SVG2PNG_": 25, "JPEG2JPG_": 32, "PT_JPEG2JPG_": 25,
+        "SVG2JPG_": 31, "PT_SVG2JPG_": 25, "GIF2JPG_": 32, "PT_GIF2JPG_": 25,
+        "BMP2JPG_": 31, "PT_BMP2JPG_": 25, "JPEG2DXF_": 50, "PT_JPEG2DXF_": 26,
+    }
+    B2_PAGE2PREF = dict(zip(BATCH2_EN + BATCH2_PT,
+                            ["WEBP2PNG", "WEBP2JPG", "SVG2PNG", "JPEG2JPG", "SVG2JPG", "GIF2JPG", "BMP2JPG", "JPEG2DXF",
+                             "PT_WEBP2PNG", "PT_WEBP2JPG", "PT_SVG2PNG", "PT_JPEG2JPG", "PT_SVG2JPG", "PT_GIF2JPG",
+                             "PT_BMP2JPG", "PT_JPEG2DXF"]))
+    for _pref, _n in B2_EXPECT.items():
+        _got = sum(1 for _k in B2COPY if _k.startswith(_pref))
+        if _got != _n:
+            fails.append(f"[B2-PARSE] {_pref}: expected {_n} frozen strings, got {_got}")
+    for _slug, _pref in B2_PAGE2PREF.items():
+        _t = texts[_slug]
+        for _k in sorted(_k for _k in B2COPY if _k.startswith(_pref)):
+            if _k.endswith("_META_DESC"):
+                continue  # lives in <meta> attribute; parse-count pin above
+            _vals = B2COPY[_k]
+            if _k.endswith("_LINKS"):
+                _vals = [v for v in _vals if not v.startswith("/")]
+            for _s in _vals:
+                if _s not in _t:
+                    fails.append(f"[MISSING] {_slug}: {_s[:90]}")
 
     # cookies meta description lives in <head> (attribute, invisible to strip()) — raw-side pin:
     # 06f pages_legal regen reverted it once; must stay on the GA4/Clarity wording (amend-002 + HEAD d7eff62).
@@ -568,6 +609,45 @@ def main():
                 "Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.",
                 "Ver opções →", "CONTADOR GRATUITO REINICIA TODO DIA"],
     }
+    # ---- v1.8 batch2 states sentinels (steps = frozen 05 §I copy, verbatim) ----
+    _PT_COMMONS = ["SOLTE PARA COMEÇAR", "Convertendo — no seu navegador, nada foi enviado",
+                   "Escolher outro arquivo",
+                   "Você usou as 10 conversões grátis de hoje — o contador reinicia amanhã.",
+                   "Ver opções →", "CONTADOR GRATUITO REINICIA TODO DIA"]
+    _B2_EN = {
+        "webp-to-png": (["Drop your .webp file.", "It converts in your browser — instantly.", "Download the .png."], "PNG", "WEBP"),
+        "webp-to-jpg": (["Drop your .webp file.", "It converts in your browser — instantly.", "Download the .jpg."], "JPG", "WEBP"),
+        "svg-to-png": (["Drop your .svg file.", "It renders in your browser — instantly.", "Download the .png."], "PNG", "SVG"),
+        "jpeg-to-jpg": (["Drop your .jpeg file.", "It repackages in your browser — instantly.", "Download the .jpg."], "JPG", "JPEG"),
+        "svg-to-jpg": (["Drop your .svg file.", "It renders in your browser — instantly.", "Download the .jpg."], "JPG", "SVG"),
+        "gif-to-jpg": (["Drop your .gif file.", "Its first frame converts in your browser — instantly.", "Download the .jpg."], "JPG", "GIF"),
+        "bmp-to-jpg": (["Drop your .bmp file.", "It converts in your browser — instantly.", "Download the .jpg."], "JPG", "BMP"),
+    }
+    for _slug, (_steps, _out, _ext) in _B2_EN.items():
+        STATES[_slug] = CAP_EN + COMMON + _steps + [
+            f"Download {_out}", f"This page accepts .{_ext}.",
+            # #108 B5: layers line positive pin (frozen form, lowercase dotted exts)
+            f"1 image · .{_ext.lower()} → .{_out.lower()} · processed locally"]
+    _B2_PT = {
+        "pt-webp-para-png": (["Arraste seu arquivo .webp.", "A conversão acontece no seu navegador — na hora.", "Baixe o .png."], "PNG", "WEBP"),
+        "pt-webp-para-jpg": (["Arraste seu arquivo .webp.", "A conversão acontece no seu navegador — na hora.", "Baixe o .jpg."], "JPG", "WEBP"),
+        "pt-svg-para-png": (["Arraste seu arquivo .svg.", "A renderização acontece no seu navegador — na hora.", "Baixe o .png."], "PNG", "SVG"),
+        "pt-jpeg-para-jpg": (["Arraste seu arquivo .jpeg.", "Ele é reempacotado no seu navegador — na hora.", "Baixe o .jpg."], "JPG", "JPEG"),
+        "pt-svg-para-jpg": (["Arraste seu arquivo .svg.", "A renderização acontece no seu navegador — na hora.", "Baixe o .jpg."], "JPG", "SVG"),
+        "pt-gif-para-jpg": (["Arraste seu arquivo .gif.", "O primeiro quadro converte no seu navegador — na hora.", "Baixe o .jpg."], "JPG", "GIF"),
+        "pt-bmp-para-jpg": (["Arraste seu arquivo .bmp.", "A conversão acontece no seu navegador — na hora.", "Baixe o .jpg."], "JPG", "BMP"),
+    }
+    for _slug, (_steps, _out, _ext) in _B2_PT.items():
+        STATES[_slug] = _PT_COMMONS + _steps + [
+            f"Baixar {_out}", f"Esta página aceita .{_ext}.",
+            # #108 B5: PT pages carry the identical English layers line (measured verbatim)
+            f"1 image · .{_ext.lower()} → .{_out.lower()} · processed locally"]
+    STATES["jpeg-to-dxf"] = CAP_EN + COMMON + LAYERS_TPL + TRACE_STEPS + [
+        "Download DXF (R2000)", "Download DXF (R12)", "Download SVG", "Precision",
+        "2 / 3 FREE TRIES LEFT", "This page accepts .JPEG."]
+    STATES["pt-jpeg-para-dxf"] = _PT_COMMONS + [
+        "Arraste seu arquivo .jpeg.", "A conversão acontece no seu navegador — na hora.", "Baixe o .dxf.",
+        "Baixar DXF", "Esta página aceita .JPEG."]
     NEGATIVE = {
         "svg-to-dxf-converter": ["Tracing paths"],
         # (Phase-2 cap-conversion line legitimately mentions "AI HD rescue" as a Pro
@@ -581,6 +661,29 @@ def main():
         ],
         "pt-jfif-para-jpg": ["$59", "Precision", "AI HD rescue", "Download DXF", "Tracing paths"],
     }
+    # ---- v1.8 batch2 negative assertions ----
+    # bitmap→bitmap states must NOT leak vector-tracing vocabulary
+    for _s in _B2_EN:
+        NEGATIVE[_s] = ["Download DXF", "Precision", "Tracing paths"]
+    for _s in _B2_PT:
+        NEGATIVE[_s] = ["$59", "Download DXF", "Precision", "AI HD rescue"]
+    NEGATIVE["pt-jpeg-para-dxf"] = ["$59"]  # PT neutral: no price string anywhere in states
+    # ---- #108 B2: lowercase error-sentence reverse assertions ----
+    # 06b2 注释声称已存在、实测缺失。正向针为大写扩展名（This page accepts .WEBP.）；
+    # 小写变体是判删形——任何 batch2 状态板出现即回归。覆盖 8 EN + 8 PT。
+    _B2_ERR = {
+        "webp-to-png": ("This page accepts .webp.", "Esta página aceita .webp.", "pt-webp-para-png"),
+        "webp-to-jpg": ("This page accepts .webp.", "Esta página aceita .webp.", "pt-webp-para-jpg"),
+        "svg-to-png": ("This page accepts .svg.", "Esta página aceita .svg.", "pt-svg-para-png"),
+        "jpeg-to-jpg": ("This page accepts .jpeg.", "Esta página aceita .jpeg.", "pt-jpeg-para-jpg"),
+        "svg-to-jpg": ("This page accepts .svg.", "Esta página aceita .svg.", "pt-svg-para-jpg"),
+        "gif-to-jpg": ("This page accepts .gif.", "Esta página aceita .gif.", "pt-gif-para-jpg"),
+        "bmp-to-jpg": ("This page accepts .bmp.", "Esta página aceita .bmp.", "pt-bmp-para-jpg"),
+        "jpeg-to-dxf": ("This page accepts .jpeg.", "Esta página aceita .jpeg.", "pt-jpeg-para-dxf"),
+    }
+    for _s, (_en_neg, _pt_neg, _pt_slug) in _B2_ERR.items():
+        NEGATIVE.setdefault(_s, []).append(_en_neg)
+        NEGATIVE.setdefault(_pt_slug, []).append(_pt_neg)
     for slug, sents in STATES.items():
         t = read_states(slug)
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
@@ -595,6 +698,15 @@ def main():
         for n in NEGATIVE.get(slug, []):
             if n in t:
                 fails.append(f"[STATES-SHOULD-NOT-CONTAIN] {slug}: {n}")
+
+    # ---------- #108 B4: jpeg-to-dxf truncated spec label pin (structural, on code.html raw) ----------
+    # v1.16 追认: jpeg-to-dxf carries the truncated spec label '>Proof<'
+    # (jpg-to-dxf carries '>Proof — in our tests<'); the other 15 batch2 pages carry none.
+    if ">Proof<" not in read("jpeg-to-dxf"):
+        fails.append("[108-B4] jpeg-to-dxf missing truncated spec label '>Proof<'")
+    for _s in list(_B2_EN) + list(_B2_PT) + ["pt-jpeg-para-dxf"]:
+        if ">Proof<" in read(_s):
+            fails.append(f"[108-B4] {_s} unexpectedly contains '>Proof<'")
 
     # /samples: visible SYNTHETIC SAMPLE tag per card (9) + cricut embeds (3)
     raw_samples = read("samples")
@@ -627,7 +739,11 @@ def main():
                 fails.append(f"[06C] {slug} missing footer social slots")
     for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg", "pt-jfif-para-jpg",
                  "jfif-to-png", "pt-jfif-para-png", "webp-to-svg", "pt-webp-para-svg",
-                 "image-to-dxf", "photo-to-dxf", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
+                 "image-to-dxf", "photo-to-dxf", "pt-imagem-para-dxf", "pt-foto-para-dxf",
+                 "webp-to-png", "pt-webp-para-png", "webp-to-jpg", "pt-webp-para-jpg",
+                 "svg-to-png", "pt-svg-para-png", "jpeg-to-jpg", "pt-jpeg-para-jpg",
+                 "svg-to-jpg", "pt-svg-para-jpg", "gif-to-jpg", "pt-gif-para-jpg",
+                 "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf"):
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
             rs = f.read()
         for needle in ("share-block", "feedback FAB — 4 states", "feedback modal — 4 states"):
@@ -741,7 +857,9 @@ def main():
         "Abrir feedback", "Fechar feedback", "Enviar feedback",
     ]
     pt_t, pt_r = strip(raw("pt-jfif-para-jpg")), raw("pt-jfif-para-jpg")
-    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
+                    "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
+                    "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"):
         pt_t, pt_r = strip(raw(pt_slug)), raw(pt_slug)
         for s in PT_PAGE:
             if s not in pt_t and s not in pt_r:
@@ -766,13 +884,18 @@ def main():
         "Obrigado — vai direto para a pessoa que está construindo o CleanPaths.",
         "Enviar feedback",
     ]
-    for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg"):
+    for slug in ("home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot-to-svg", "jfif-to-jpg",
+                 "jfif-to-png", "webp-to-svg", "image-to-dxf", "photo-to-dxf",
+                 "webp-to-png", "webp-to-jpg", "svg-to-png", "jpeg-to-jpg",
+                 "svg-to-jpg", "gif-to-jpg", "bmp-to-jpg", "jpeg-to-dxf"):
         t = strip(raw(slug, "states.html")); r = raw(slug, "states.html")
         for s in EN_STATES_S12:
             if s not in t and s not in r:
                 fails.append(f"[S12-EN-STATES] {slug}: {s[:70]}")
     t = strip(raw("pt-jfif-para-jpg", "states.html")); r = raw("pt-jfif-para-jpg", "states.html")
-    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
+    for pt_slug in ("pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
+                    "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
+                    "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"):
         t, r = strip(raw(pt_slug, "states.html")), raw(pt_slug, "states.html")
         for s in PT_STATES_S12:
             if s not in t and s not in r:
@@ -854,7 +977,9 @@ def main():
         fails.append("[06F-NEG] webp-to-svg main contains 'Download DXF' (SVG-only page)")
     if 'class="seg"' in read("webp-to-svg"):
         fails.append("[06F-NEG] webp-to-svg contains DXF version segmented control")
-    for slug in ("pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf"):
+    for slug in ("pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
+                 "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
+                 "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"):
         if "$59" in read(slug):
             fails.append(f"[06F-NEG] {slug} contains $59 (PT neutral page)")
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
@@ -875,6 +1000,24 @@ def main():
         for lbl in ('>Image to DXF<', '>Photo to DXF<'):
             if lbl not in rawp:
                 fails.append(f"[V17] {slug} footer missing Tools link {lbl}")
+    # v1.9 (06h): footer +8 route links synced beyond the 8 new EN batch2 pages.
+    # EN: every EN page. PT: the five pre-v1.8 PT pages; v1.8 new PT pages stay untouched per 06h boundary.
+    _B2_FOOTER_EN = ('>WebP to PNG<', '>WebP to JPG<', '>SVG to PNG<', '>JPEG to JPG<',
+                     '>SVG to JPG<', '>GIF to JPG<', '>BMP to JPG<', '>JPEG to DXF<')
+    _B2_FOOTER_PT = ('>WebP para PNG<', '>WebP para JPG<', '>SVG para PNG<', '>JPEG para JPG<',
+                     '>SVG para JPG<', '>GIF para JPG<', '>BMP para JPG<', '>JPEG para DXF<')
+    for slug in SENTINELS:
+        if slug in PT_PAGES:
+            continue
+        rawp = read(slug)
+        for lbl in _B2_FOOTER_EN:
+            if lbl not in rawp:
+                fails.append(f"[V18-ROUTE-LINK] EN {slug} footer missing Tools link {lbl}")
+    for slug in ("pt-foto-para-dxf", "pt-imagem-para-dxf", "pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg"):
+        rawp = read(slug)
+        for lbl in _B2_FOOTER_PT:
+            if lbl not in rawp:
+                fails.append(f"[V18-ROUTE-LINK] PT {slug} footer missing link {lbl}")
     # ---------- v1.7 laser batch negative assertions (05 v1.13 §H: param-panel zero-reference + content-page CTA guard) ----------
     def raw17(slug, fn="code.html"):  # 'raw' name is shadowed by the ROUTE-LINK loop above
         with open(os.path.join(BASE, slug, fn), encoding="utf-8") as f:

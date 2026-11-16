@@ -1,7 +1,9 @@
-# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.7）
+# 06 视觉设计真源 — cleanpaths.io（design-handoff-v1 · v1.8）
 
-- 执行：moyun ｜ 日期：2026-10-22 ｜ Skill：site-design-student v2.3.0
+- 执行：moyun ｜ 日期：2026-11-11 ｜ Skill：site-design-student v2.3.0
 - **Changelog**：
+  - v1.9（2026-11-12）——06h 全站 footer 同步批（工单 PROMPT_sheji_06h_v19_footer_sync.md + 06b2 B1 裁决）：既有 23 个 EN 页 Converters 组与既有 5 个 PT 页页脚各补 8 条 v1.8 路由链接，audit.py [V18-ROUTE-LINK] 扩为 EN 全量 + 既有 PT 断言（尖牙 2 组 FAIL→还原→PASS），不动 v1.8 新页正文/head/states。
+  - v1.8（2026-11-11）——06 batch2 格式摩擦批增量（工单：16 页补全 + 哨兵扩充）：16 新路由（7 组 bitmap→bitmap EN/PT 对：webp-to-png / webp-to-jpg / svg-to-png / jpeg-to-jpg / svg-to-jpg / gif-to-jpg / bmp-to-jpg；1 组 trace 对：jpeg-to-dxf），文案全部经 `build/extract_batch2_copy.py` 从 05-copy-freeze-v1.15 §I **程序化解析**进 `build/batch2_copy.json`（16 前缀、计数断言），生成器 `build/batch2_build.py` 零手抄；states 错误态扩展名统一大写（`.WEBP`/`.JPEG`，对齐 v1.7 `{FORMATS}` 惯例）；audit.py 扩充：全量文案哨兵（JSON 驱动逐条断言）+ STATES/NEGATIVE +16、PT_PAGES +8、S12/06c/$59 循环扩员、新增 [V18-ROUTE-LINK]（8 个新 EN 页 footer Tools +8 断言）；**尖牙测试 4 组全部 FAIL→还原→PASS**（H1 变异 / states 串变异 / PT 页注入 $59 / bitmap 页注入 Precision）。路由 28→44。新增设计侧串走 [PENDING-06-batch2] 回传表 `06b2-new-copy-return-table.md`。
   - v1.7（2026-11-03）——06 激光批增量：5 新路由（image-to-dxf EN+PT / photo-to-dxf EN+PT / png-to-dxf-for-laser-cutting 场景页）+ footer Tools +2 + audit.py 哨兵扩充（v1.13 §H）。（工单 PROMPT_sheji_06_laser_batch 原文日期写 2026-10-31，实际执行日落盘为 2026-11-03，此处按实际日期登记，偏差已上报。新增设计侧串走 [PENDING-06] 回传表 `06-new-copy-return-table.md`。）
   - v1.6（2026-10-22）——06f 增量（工单 PROMPT_sheji_06f_newpages）：4 新路由（/jfif-to-png + /pt/jfif-para-png + /webp-to-svg + /pt/webp-para-svg，含 4 状态板）+ CookieNotice 真源补位（#66，镜像线上 CookieNotice.tsx，零行为改动）+ footer Tools 槽位加两条 + **v1.6 商用授权附录回填进 builders**（pricing hero/权益行/FAQ#9、cricut 支撑句+FAQ#7、cap 态转化行——修 audit 漂移）。注：工单写 v1.4→v1.5，但 v1.5 已被 05e 落位占用，本批实际升 v1.6。新增设计侧串走 [PENDING-06f] 回传表（`06f-new-copy-return-table.md`）。
   - v1.5（2026-10-20）——05e 冻结落位（v1.7 附录 E1-E10）+ [PENDING-05e] 清零 + audit.py 哨兵扩充（E5 落位条件为自动断言）。
@@ -179,6 +181,17 @@ Hero 上传组件转换完成后的流向（停留本页 vs 跳 /png-to-dxf 结�
 - **footer Tools（Converters 组）EN +2**：`Image to DXF` / `Photo to DXF` 插入 Samples gallery 前，全站 20 个既有 EN 页脚 + 3 个新 EN 页同批落位（audit.py [V17] 逐页断言）；场景页不进 footer（工单 §4.4）；PT 页脚不动。
 - **audit.py 扩充**：SENTINELS 逐条入 v1.13 §H 五 slug 清单（meta-desc 片段走 raw 回退双检，仅限本批 5 slug）；STATES +4（错误态 `{FORMATS}` 占位串入哨兵防静默锁清单）；负向哨兵 = 面板词 6 枚（cut settings / width (mm) / color threshold / node smoothing / engrave / threshold，code+states 双文件小写扫描）+ 场景页 CTA 零命中；PT_PAGES / S12-PT / 状态板结构断言 / $59 守卫同步扩员。
 - **改动既有页清单**：仅 20 个 EN 页脚各 +2 链接（工单 §4.4 强制，06f 先例）；v1.6 及以前任何正文串零改动。
+
+## 7f. 06 batch2 格式摩擦批增量（16 路由，05 v1.15 §I 逐字）
+
+文案管线：`build/extract_batch2_copy.py` 从 05-copy-freeze-v1.15 §I **程序化解析**（键名计数断言，防手写漂移）→ `build/batch2_copy.json`（16 前缀：`WEBP2PNG_ / WEBP2JPG_ / SVG2PNG_ / JPEG2JPG_ / SVG2JPG_ / GIF2JPG_ / BMP2JPG_ / JPEG2DXF_` + `PT_*` 对应 8 组）→ `build/batch2_build.py` 生成（chrome 组件从既有页逐字提取，零手抄）。
+
+- **8 个 EN 页**（`/webp-to-png` `/webp-to-jpg` `/svg-to-png` `/jpeg-to-jpg` `/svg-to-jpg` `/gif-to-jpg` `/bmp-to-jpg` `/jpeg-to-dxf`）：工具页骨架，footer Tools（Converters 组）各 +8 链接（[V18-ROUTE-LINK] 断言）。
+- **8 个 PT 页**（`/pt/*-para-*`）：中性约束——零价格零 Pro 零付费入口（$59 负向断言扩至 16 个新页 code+states）、PT 极简 footer、无 Compare 组无社媒槽；hreflang 与 EN 互链。
+- **bitmap→bitmap 7 对**：无 DXF 版本选择器、无 Precision 滑杆（尖牙测试注入 `Precision` 立即 FAIL）；`jpeg-to-dxf` 为 trace 页（DXF R2000/R12/SVG 下载按钮 + Precision 槽 + AI-HD 3-try 块）。
+- **states 板**：错误态扩展名统一大写（`.WEBP` `.JPEG` 等，对齐 v1.7 `{FORMATS}` 大写惯例）；NEGATIVE 哨兵 +16 条（`webp`/`jpeg` 小写错误态零命中）。
+- **audit.py 扩充**：SENTINELS 改为 JSON 驱动（`batch2_copy.json` 全量键逐页逐字断言）+ STATES +16 + PT_PAGES +8 + S12/06c/$59 守卫循环扩员 + [V18-ROUTE-LINK]；尖牙测试 4 组（H1 变异 / states 串变异 / PT 页注入 `$59` / bitmap 页注入 `Precision`）全部 FAIL→还原→PASS，证据见 `build/batch2_digest.txt`。
+- **[PENDING-07]**：16 页 head 区 hreflang/canonical 落位归 07（页面层互链已就位）。
 
 ## 8. 前端实现注意事项（交 07）
 
