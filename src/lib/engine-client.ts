@@ -40,6 +40,7 @@ function getWorker(): Worker {
       const err = new Error(`engine worker crashed: ${e.message}`);
       pending.forEach((entry) => entry.reject(err));
       pending.clear();
+      worker = null; // 塌掉的 worker 必须丢弃，下次 getWorker() 重建
     };
   }
   return worker;

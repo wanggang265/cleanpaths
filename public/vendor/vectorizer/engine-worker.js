@@ -17,12 +17,18 @@
  */
 
 let enginePromise = null;
+let engineLoadAttempt = 0;
 
 function loadEngine(id) {
   if (!enginePromise) {
     // 07d: real phase event — first-run WASM fetch+compile is seconds-long
     self.postMessage({ id, phase: 'engine-loading' });
-    enginePromise = import('./vectorizer.bundle.js');
+    // Rejected module evaluations stay in the worker's module map; a fresh query
+    // lets the user's next manual retry re-run the bundle after a transient fetch failure.
+    engineLoadAttempt += 1;
+    enginePromise = import(`./vectorizer.bundle.js?engine-attempt=${engineLoadAttempt}`);
+    // 拒绝态不得入缓存：瞬时网络失败不得毒化后续全部尝试
+    enginePromise.catch(() => { enginePromise = null; });
   }
   return enginePromise;
 }
