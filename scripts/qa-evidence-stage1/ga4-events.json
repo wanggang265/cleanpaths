@@ -1,0 +1,19 @@
+[
+  [
+    "event",
+    "upload_start",
+    null
+  ],
+  [
+    "event",
+    "convert_success",
+    null
+  ],
+  [
+    "event",
+    "download",
+    {
+      "file_type": "dxf_r2000"
+    }
+  ]
+]

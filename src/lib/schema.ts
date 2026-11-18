@@ -3,8 +3,8 @@
  *
  * Rules enforced here:
  * - Product/SoftwareApplication always carry `image` as ABSOLUTE URL.
- * - Every pricing Offer carries hasMerchantReturnPolicy (30 days, matches
- *   03-compliance Refund Policy) + shippingDetails ($0 digital delivery).
+ * - Digital download product: Offers carry NO hasMerchantReturnPolicy /
+ *   shippingDetails logistics fields (audit ruling 2026-11, stage-1 purefix).
  * - No review / aggregateRating anywhere — no real data (03 / open-items).
  * - FAQPage is generated from the page's own frozen FAQ markup.
  */
@@ -109,26 +109,6 @@ export function webPage(opts: { name: string; url: string; description: string }
 
 /* ---------------- Product + Offers (pricing, open-items #6) ---------------- */
 
-const RETURN_POLICY = {
-  '@type': 'MerchantReturnPolicy',
-  applicableCountry: 'WW',
-  returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-  merchantReturnDays: 30,
-  returnMethod: 'https://schema.org/ReturnByMail',
-  returnFees: 'https://schema.org/FreeReturn',
-} as const;
-
-const DIGITAL_SHIPPING = {
-  '@type': 'OfferShippingDetails',
-  shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'USD' },
-  shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'WW' },
-  deliveryTime: {
-    '@type': 'ShippingDeliveryTime',
-    handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 0, unitCode: 'DAY' },
-    transitTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 0, unitCode: 'DAY' },
-  },
-} as const;
-
 function offer(name: string, price: string, summary: string): Record<string, unknown> {
   return {
     '@type': 'Offer',
@@ -139,8 +119,6 @@ function offer(name: string, price: string, summary: string): Record<string, unk
     url: `${SITE_URL}/pricing/`,
     itemCondition: 'https://schema.org/NewCondition',
     description: summary,
-    hasMerchantReturnPolicy: RETURN_POLICY,
-    shippingDetails: DIGITAL_SHIPPING,
   };
 }
 

@@ -778,9 +778,18 @@ body:has(.cookie-notice) .fab-feedback { bottom: 84px; }
   .proof { grid-template-columns: 1fr; }
   .main-nav .navlink--desktop { display: none; }
 }
+/* stage-1 purefix (#10 Task 1): 621–960px mid-range — multi-column tables
+   degrade to horizontal scroll (.table-scroll) instead of squeezing cells
+   below readability. Grids already drop to ≤2 columns at this band. */
+@media (min-width: 621px) and (max-width: 960px) {
+  .table-scroll th, .table-scroll td { min-width: 120px; }
+}
 @media (max-width: 620px) {
   body { font-size: 16px; }
   .wrap { padding: 0 var(--s4); }
+  /* stage-1 purefix (#10 Task 2): tool (dropzone) first on mobile —
+     DOM order stays copy-first for no-JS/SEO, visual order only. */
+  .hero__grid > div:has(.dropzone) { order: -1; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .section { padding: var(--s7) 0; }
   .hero { padding: var(--s6) 0; }

@@ -92,6 +92,14 @@ function setBusy(b: boolean) {
   window.dispatchEvent(new CustomEvent(TOOL_BUSY_EVENT, { detail: b }));
 }
 
+/** stage-1 purefix (#10 Task 6): GA4 custom events via the layout's gtag.
+ *  Existence-guarded, fire-and-forget — never blocks the conversion flow and
+ *  no-ops when gtag is absent (script blocked / no-JS). */
+function gtagEvent(name: string, params?: Record<string, unknown>) {
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag === 'function') w.gtag('event', name, params);
+}
+
 function extOf(name: string): string {
   const i = name.lastIndexOf('.');
   return i === -1 ? '' : name.slice(i).toLowerCase();
@@ -185,6 +193,16 @@ export default function ToolController(props: ToolProps) {
     root.appendChild(picker);
 
     const wireStatic = () => {
+      // stage-1 purefix (#10 Task 5): honest empty-state label — the primary
+      // button opens the file picker, it does not convert anything yet.
+      // EN only: PT pages keep their frozen copy (red line). Runs on mount
+      // and on reset() (initialHtml restores the frozen label first).
+      if (lang === 'en') {
+        dz.querySelectorAll<HTMLButtonElement>('.btn--primary').forEach((b) => {
+          if (b.dataset.toolDl) return;
+          if (b.textContent?.includes('Convert now')) b.textContent = 'Choose a file';
+        });
+      }
       // primary CTA → picker
       dz.querySelectorAll<HTMLButtonElement>('.btn--primary').forEach((b) => {
         if (b.dataset.toolDl) return;
@@ -249,6 +267,7 @@ export default function ToolController(props: ToolProps) {
 
     async function run(file: File) {
       const myRun = ++runSeq; // 05 v1.6: cancel token — stale runs discard their outcome
+      gtagEvent('upload_start'); // #10 Task 6: file selected (any path: picker/drop)
       // 1) format gate (frozen error)
       const ext = extOf(file.name);
       if (!accept.includes(ext)) {
@@ -319,6 +338,7 @@ export default function ToolController(props: ToolProps) {
         S.out = out;
         recordConversion();
         beacon('tool_complete'); // #54 preregistered: conversion completed
+        gtagEvent('convert_success'); // #10 Task 6
         renderResult();
       } catch (err) {
         if (myRun !== runSeq) return; // 05 v1.6: cancelled/reset mid-run — discard
@@ -684,6 +704,9 @@ export default function ToolController(props: ToolProps) {
           const key = btn.dataset.toolDl!;
           const entry = S.out?.blobs[key];
           if (!entry) return;
+          // #10 Task 6: GA4 download event — file_type dxf_r2000/dxf_r12/svg
+          // (bitmap kinds pass their png/jpg key through the same shape).
+          gtagEvent('download', { file_type: key.replace(/-/g, '_') });
           const a = document.createElement('a');
           a.href = URL.createObjectURL(entry.blob);
           a.download = entry.filename;
