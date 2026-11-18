@@ -1,0 +1,52 @@
+# 44×200 regression (local out/, BASE=https://cleanpaths.io)
+
+Run: 2026-11-18T08:30:35.331Z
+
+| # | URL | Status |
+|---|---|---|
+| 1 | / | 200 |
+| 2 | /png-to-dxf/ | 200 |
+| 3 | /jpg-to-dxf/ | 200 |
+| 4 | /svg-to-dxf-converter/ | 200 |
+| 5 | /screenshot-to-svg/ | 200 |
+| 6 | /jfif-to-jpg/ | 200 |
+| 7 | /pt/jfif-para-jpg/ | 200 |
+| 8 | /vector-magic-alternative/ | 200 |
+| 9 | /cloudconvert-alternative/ | 200 |
+| 10 | /vectorizer-ai-alternative/ | 200 |
+| 11 | /convertio-alternative/ | 200 |
+| 12 | /jfif-to-png/ | 200 |
+| 13 | /pt/jfif-para-png/ | 200 |
+| 14 | /webp-to-svg/ | 200 |
+| 15 | /pt/webp-para-svg/ | 200 |
+| 16 | /image-to-dxf/ | 200 |
+| 17 | /pt/imagem-para-dxf/ | 200 |
+| 18 | /photo-to-dxf/ | 200 |
+| 19 | /pt/foto-para-dxf/ | 200 |
+| 20 | /png-to-dxf-for-laser-cutting/ | 200 |
+| 21 | /webp-to-png/ | 200 |
+| 22 | /webp-to-jpg/ | 200 |
+| 23 | /svg-to-png/ | 200 |
+| 24 | /jpeg-to-jpg/ | 200 |
+| 25 | /svg-to-jpg/ | 200 |
+| 26 | /gif-to-jpg/ | 200 |
+| 27 | /bmp-to-jpg/ | 200 |
+| 28 | /jpeg-to-dxf/ | 200 |
+| 29 | /pt/webp-para-png/ | 200 |
+| 30 | /pt/webp-para-jpg/ | 200 |
+| 31 | /pt/svg-para-png/ | 200 |
+| 32 | /pt/jpeg-para-jpg/ | 200 |
+| 33 | /pt/svg-para-jpg/ | 200 |
+| 34 | /pt/gif-para-jpg/ | 200 |
+| 35 | /pt/bmp-para-jpg/ | 200 |
+| 36 | /pt/jpeg-para-dxf/ | 200 |
+| 37 | /samples/ | 200 |
+| 38 | /for/cricut-sellers/ | 200 |
+| 39 | /for/embroidery/ | 200 |
+| 40 | /pricing/ | 200 |
+| 41 | /privacy/ | 200 |
+| 42 | /terms/ | 200 |
+| 43 | /cookies/ | 200 |
+| 44 | /refund/ | 200 |
+
+**44/44 → 200**

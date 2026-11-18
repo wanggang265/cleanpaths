@@ -1,0 +1,12 @@
+bmp-to-jpg → Versão em português: BMP para JPG →
+gif-to-jpg → Versão em português: GIF para JPG →
+image-to-dxf → Versão em português: Imagem para DXF →
+jfif-to-png → Versão em português: JFIF para PNG →
+jpeg-to-dxf → Versão em português: JPEG para DXF →
+jpeg-to-jpg → Versão em português: JPEG para JPG →
+photo-to-dxf → Versão em português: Foto para DXF →
+svg-to-jpg → Versão em português: SVG para JPG →
+svg-to-png → Versão em português: SVG para PNG →
+webp-to-jpg → Versão em português: WebP para JPG →
+webp-to-png → Versão em português: WebP para PNG →
+webp-to-svg → Versão em português: WebP para SVG →
