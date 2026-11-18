@@ -48,5 +48,6 @@ export const mainHtml = `<section class="hero matgrid">
 <section class="section section--alt cta-band">
   <div class="wrap">
     <a class="btn btn--primary btn--lg" href="#convert">Convert JFIF to PNG free now</a>
+    <p class="sub" style="margin-top:16px"><a href="/pt/jfif-para-png/">Versão em português: JFIF para PNG →</a></p>
   </div>
 </section>`;

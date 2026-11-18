@@ -122,6 +122,6 @@ export const mainHtml = `<section class="hero matgrid">
 <section class="section section--alt cta-band">
   <div class="wrap">
     <!-- PHOTO2DXF_FINAL_H2 --><h2>The preview is free. The surprise is not included.</h2>
-    <!-- PHOTO2DXF_FINAL_BTN --><a class="btn btn--primary btn--lg" href="#convert">Convert photo to DXF free now</a>
+    <!-- PHOTO2DXF_FINAL_BTN --><a class="btn btn--primary btn--lg" href="#convert">Convert photo to DXF free now</a><p class="sub" style="margin-top:16px"><a href="/pt/foto-para-dxf/">Versão em português: Foto para DXF →</a></p>
   </div>
 </section>`;

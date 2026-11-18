@@ -12,13 +12,8 @@ export const metadata: Metadata = {
 
 const ERROR_MESSAGE = `<b>That file can't be converted here.</b> This page accepts .PNG. Nothing was uploaded, so nothing was stored.`;
 
-// Stage-1 ticket T4: one inbound link to /png-to-dxf-for-laser-cutting/, hung on the
-// existing word "laser" (no sentence-structure change, frozen copy untouched).
-// Injected here because src/content/pages/*.ts is gate-regenerated (extract-pages.mjs).
-const mainWithLaserLink = mainHtml.replace(
-  '"Your plotter, laser or CNC',
-  '"Your plotter, <a href="/png-to-dxf-for-laser-cutting/">laser</a> or CNC'
-);
+// 2a L5: laser-cutting 内链已上移冻结真源（design-source bullet 锚=laser cutting machine），
+// 原 Stage-1 T4 注入（mainWithLaserLink）随真源带锚落地后拆除。
 
 export default function PngToDxfPage() {
   return (
@@ -26,7 +21,7 @@ export default function PngToDxfPage() {
       route="/png-to-dxf/"
       name="PNG to DXF Converter — Cut-Ready Output"
       description={description}
-      mainHtml={mainWithLaserLink}
+      mainHtml={mainHtml}
       kind="trace-raster"
       accept={['.png']}
       errorMessage={ERROR_MESSAGE}

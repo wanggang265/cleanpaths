@@ -52,7 +52,7 @@ export const mainHtml = `<section class="hero matgrid">
     <span class="spec">The problem</span>
     <h2 style="margin-top:12px">A PNG is a picture. Your cutter needs paths.</h2>
     <ul class="plist" style="margin-top:12px">
-      <li>"Your plotter, laser or CNC can't read pixels — it follows paths. A raw auto-trace gives you thousands of loose segments."</li>
+      <li>"Your plotter, <a href="/png-to-dxf-for-laser-cutting/">laser cutting machine</a> or CNC can't read pixels — it follows paths. A raw auto-trace gives you thousands of loose segments."</li>
       <li>"Free converters stop at 'here's a vector.' Whether it cuts is your problem."</li>
       <li>"And most of them want your file on their server first."</li>
     </ul>

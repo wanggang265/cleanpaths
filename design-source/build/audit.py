@@ -37,9 +37,7 @@ SENTINELS = {
    "Made for makers who ship",
    "Client mess in, cut-ready file out. Keep the order moving.",
    "See how sellers use it →",
-   "Honest prep for digitizing — and a human digitizer when you need one.",
-   "See embroidery prep →",
-   "Free for 10 conversions a day — full quality, no watermark. Need more? CleanPaths Pro is $59, one time. No subscriptions. 30-day money-back guarantee.",
+   "Free for 10 conversions a day — full quality, no watermark, for personal use. Selling what you make? CleanPaths Pro includes the commercial license — $59, one time, no daily cap. 30-day money-back guarantee.",
    "See pricing →",
    "Questions makers actually ask",
    "Do you upload or store my files?",
@@ -367,6 +365,7 @@ SENTINELS = {
    "Convert JFIF to PNG free now",
    "JFIF to JPG converter",
    "All converters live on the CleanPaths home page",
+   "Versão em português: JFIF para PNG →",
  ],
  "pt-jfif-para-png": [
    "Conversor de JFIF para PNG — Grátis, sem Upload",
@@ -390,6 +389,7 @@ SENTINELS = {
    "This page outputs SVG.",
    "Convert WebP to SVG free now",
    "In our tests, a heavily compressed logo that default auto-tracing explodes into 88 messy color layers comes out with as few as 9",
+   "Versão em português: WebP para SVG →",
  ],
  "pt-webp-para-svg": [
    "Conversor de WebP para SVG — Grátis, sem Upload",
@@ -418,6 +418,7 @@ SENTINELS = {
    "Which image formats can I convert here?",
    "How is this different from the PNG to DXF and JPG to DXF converters?",
    "Convert image to DXF free now",
+   "Versão em português: Imagem para DXF →",
  ],
  "pt-imagem-para-dxf": [
    "Imagem para DXF — Conversor Grátis, sem Upload",
@@ -442,6 +443,7 @@ SENTINELS = {
    "Will my photo come out as a detailed vector?",
    "Can I convert a photo to DXF for laser cutting?",
    "Convert photo to DXF free now",
+   "Versão em português: Foto para DXF →",
  ],
  "pt-foto-para-dxf": [
    "Foto para DXF — Conversor Grátis, sem Upload",
@@ -485,6 +487,12 @@ def main():
                  "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"]
     for _s in BATCH2_EN + BATCH2_PT:
         SENTINELS.setdefault(_s, [])
+    # ---- 2a (05-copy-freeze-v1.17 §L7): EN→PT pair-link pins — jfif-to-jpg 先例推广至 12 EN 页 ----
+    for _s, _short in {"bmp-to-jpg": "BMP para JPG", "gif-to-jpg": "GIF para JPG",
+                       "jpeg-to-dxf": "JPEG para DXF", "jpeg-to-jpg": "JPEG para JPG",
+                       "svg-to-jpg": "SVG para JPG", "svg-to-png": "SVG para PNG",
+                       "webp-to-jpg": "WebP para JPG", "webp-to-png": "WebP para PNG"}.items():
+        SENTINELS[_s].append(f"Versão em português: {_short} →")
     for slug, sents in SENTINELS.items():
         t = strip(read(slug))
         texts[slug] = t

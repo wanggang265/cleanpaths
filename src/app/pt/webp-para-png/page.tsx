@@ -7,12 +7,15 @@ import { openGraphFor } from '@/lib/schema';
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: '/pt/webp-para-png/' },
+  alternates: {
+    canonical: '/pt/webp-para-png/',
+    languages: { en: '/webp-to-png/', 'pt-BR': '/pt/webp-para-png/', 'x-default': '/webp-to-png/' },
+  },
   openGraph: openGraphFor({ title, description, url: '/pt/webp-para-png/', locale: 'pt_BR' }),
 };
 
 // 07 batch2: frozen verbatim from this page's states.html STATE 5 (05 v1.15 §B2 —
-// 扩展名大写). 无 hreflang/languages 交替（PROMPT 硬性要求 3）。
+// 扩展名大写). hreflang/languages 已接线（2a 批 L7）。
 const ERROR_MESSAGE = `<b>Este arquivo não pode ser convertido aqui.</b> Esta página aceita .WEBP. Nada foi enviado, então nada foi armazenado.`;
 
 export default function PtWebpParaPngPage() {

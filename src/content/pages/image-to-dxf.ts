@@ -129,6 +129,6 @@ export const mainHtml = `<section class="hero matgrid">
 <section class="section section--alt cta-band">
   <div class="wrap">
     <!-- IMG2DXF_FINAL_H2 --><h2>That image on your desktop? It's a cut file waiting to happen.</h2>
-    <!-- IMG2DXF_FINAL_BTN --><a class="btn btn--primary btn--lg" href="#convert">Convert image to DXF free now</a>
+    <!-- IMG2DXF_FINAL_BTN --><a class="btn btn--primary btn--lg" href="#convert">Convert image to DXF free now</a><p class="sub" style="margin-top:16px"><a href="/pt/imagem-para-dxf/">Versão em português: Imagem para DXF →</a></p>
   </div>
 </section>`;

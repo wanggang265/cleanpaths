@@ -110,5 +110,6 @@ export const mainHtml = `<section class="hero matgrid">
   <div class="wrap">
     <h2>That WebP you just saved? Convert it before the tab gets cold.</h2>
     <a class="btn btn--primary btn--lg" href="#convert">Convert WebP to SVG free now</a>
+    <p class="sub" style="margin-top:16px"><a href="/pt/webp-para-svg/">Versão em português: WebP para SVG →</a></p>
   </div>
 </section>`;
