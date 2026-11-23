@@ -13,7 +13,8 @@ SLUGS = ["home", "png-to-dxf", "jpg-to-dxf", "svg-to-dxf-converter", "screenshot
          "webp-to-png", "pt-webp-para-png", "webp-to-jpg", "pt-webp-para-jpg",
          "svg-to-png", "pt-svg-para-png", "jpeg-to-jpg", "pt-jpeg-para-jpg",
          "svg-to-jpg", "pt-svg-para-jpg", "gif-to-jpg", "pt-gif-para-jpg",
-         "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf"]
+         "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf",
+         "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"]
 
 def main():
     with sync_playwright() as p:

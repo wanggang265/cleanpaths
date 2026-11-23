@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- PT_META_T --><title>SVG para DXF — R12 e R2000, Unidades Incluídas</title>
+<!-- PT_META_D --><meta name="description" content="Converta SVG para DXF com compatibilidade CAD real: R2000 com unidades ou modo R12, tudo POLYLINE, sem SPLINE. Grátis, no navegador.">
+<link rel="stylesheet" href="../../assets/design-system.css">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="logo" href="../home/code.html"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+<rect x="1" y="1" width="28" height="28" rx="6" fill="#1E2430"/>
+<path d="M7 21 C7 12, 13 9, 17 9 S 24 12, 23 17" stroke="#E4572E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+<circle cx="7" cy="21" r="2.6" fill="#FAF6EE"/>
+<circle cx="17" cy="9" r="2.6" fill="#FAF6EE"/>
+<circle cx="23" cy="17" r="2.6" fill="#E4572E"/>
+</svg><span class="word">Clean<em>Paths</em></span></a>
+  <nav class="main-nav" aria-label="Main">
+    <a class="navlink" href="../svg-to-dxf-converter/code.html">English version →</a>
+  </nav>
+  <details class="nav-mobile"><summary aria-label="Menu">☰</summary><div class="menu">
+    <a href="../svg-to-dxf-converter/code.html">English version →</a>
+    <a href="../privacy/code.html">Política de Privacidade</a>
+  </div></details>
+</div></header>
+<main>
+
+<section class="hero matgrid">
+  <div class="wrap" style="max-width:860px">
+    <!-- PT_H1 --><h1>Conversor de SVG para DXF — R12 e R2000, Unidades Incluídas</h1>
+    <!-- PT_SUB --><p class="hero__sub">DXF de verdade, não um SVG renomeado: tudo POLYLINE, zero entidades SPLINE, unidades embutidas no R2000 para o arquivo abrir no tamanho que você desenhou. Escolha o modo de compatibilidade R12 para CAM antigo.</p>
+    <div class="dropzone matgrid" id="convert" style="margin-top:26px">
+      
+      <!-- PT_HERO_DZ_LABEL --><div class="dz-text">Arraste seu arquivo .svg aqui — ou clique para escolher</div>
+      <div class="dz-or">— ou —</div>
+      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Converter agora — grátis</button>
+      <div class="dz-formats">ACEITA: .SVG · PROCESSADO LOCALMENTE</div>
+      <div style="margin-top:16px">
+        <div class="seg" role="group" aria-label="DXF version">
+        <button aria-pressed="true">R2000 · units included</button>
+        <button aria-pressed="false">R12 · compatibility mode</button>
+      </div>
+      <!-- PT_HERO_VER_NOTE --><div class="seg-note">R2000 (padrão, unidades incluídas) · R12 (CAM antigo)</div>
+    </div>
+    </div>
+    <div style="margin-top:14px"><!-- PT_HERO_BADGES --><div class="badges"><span class="badge">🔒 Seus arquivos não saem do seu dispositivo</span> · <span class="badge">Sem cadastro</span> · <span class="badge">Sem marca d'água</span></div></div>
+  </div>
+</section>
+<div class="wrap" style="margin-top:24px">
+  <div class="info-strip"><span class="i">i</span><!-- PT_HOW_AUX --><span>Usuário de Glowforge? O Glowforge importa SVG/PDF, não DXF — baixe o SVG limpo do nosso <a href="../pt-png-para-dxf/code.html">conversor de PNG</a> ou do <a href="../pt-jpg-para-dxf/code.html">conversor de JPG</a>.</span></div>
+</div>
+<section class="section section--alt">
+  <div class="wrap">
+    <span class="spec">The problem</span>
+    <!-- PT_PROB_H2 --><h2 style="margin-top:12px">SVG fala web. Sua máquina fala DXF.</h2>
+    <ul class="plist" style="margin-top:12px">
+      <!-- PT_PROB_P1 --><li>Design Space, Illustrator e a web vivem de SVG. LightBurn, AutoCAD e CAM de CNC vivem de DXF.</li>
+      <!-- PT_PROB_P2 --><li>Conversores ingênuos despejam entidades SPLINE que engasgam CAM antigo — ou perdem as unidades, e seu desenho de 4 polegadas importa com 4 milímetros.</li>
+      <!-- PT_PROB_P3 --><li>E os online querem seu arquivo no servidor deles primeiro.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <span class="spec">The converter</span>
+    <!-- PT_SOL_H2 --><h2 style="margin-top:12px">Um conversor que respeita os dois formatos</h2>
+    <ol class="steps" style="margin-top:20px">
+      <!-- PT_SOL_P1 --><li><h3>Dois sabores reais de DXF. R2000 (padrão) embute unidades e abre em tudo que é moderno. O modo de compatibilidade R12 conversa com CAM de 30 anos.</h3></li>
+      <!-- PT_SOL_P2 --><li><h3>Tudo POLYLINE, zero SPLINE. Curvas viram polylines limpas na densidade que você define — sem surpresas em software rigoroso.</h3></li>
+      <!-- PT_SOL_P3 --><li><h3>Controle de precisão. Troque tamanho de arquivo por suavidade você mesmo; veja o resultado antes de baixar.</h3></li>
+      <!-- PT_SOL_P4 --><li><h3>Roda no seu dispositivo. Seu SVG nunca sai do navegador.</h3></li>
+    </ol>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <span class="spec">Workflow</span>
+    <!-- PT_HOW_H2 --><h2 style="margin-top:12px">Como converter SVG para DXF</h2>
+    <ol class="steps" style="margin-top:20px">
+      <!-- PT_HOW_S1 --><li><h3>Arraste seu SVG.</h3></li>
+      <!-- PT_HOW_S2 --><li><h3>Escolha R2000 (unidades incluídas) ou R12 (CAM antigo).</h3></li>
+      <!-- PT_HOW_S3 --><li><h3>Ajuste a precisão, confira a prévia, baixe.</h3></li>
+    </ol>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <span class="spec">What you get</span>
+    <!-- PT_WHY_H2 --><h2 style="margin-top:12px">O que "DXF de verdade" significa aqui</h2>
+    <!-- PT_WHY_FACTS --><div class="badges" style="margin-top:16px"><span class="badge">Tudo POLYLINE</span> · <span class="badge">unidades no R2000</span> · <span class="badge">trajetórias fechadas preservadas</span></div>
+    <div style="overflow-x:auto;margin-top:24px"><table class="cmp"><thead><tr><th></th><th>Conversores online grátis</th><th class="us">CleanPaths</th></tr></thead><tbody>
+<tr><td>Exportação DXF</td><td class="no">❌ Só SVG</td><td class="yes">✅ R2000 + R12</td></tr>
+<tr><td>Unidades no arquivo</td><td class="no">❌</td><td class="yes">✅ (R2000)</td></tr>
+<tr><td>Pré-processamento de imagem ruim</td><td class="no">❌</td><td class="yes">✅ remoção de ruído + upscale + ajuste automático</td></tr>
+<tr><td>Trajetórias fechadas, separadas por cor</td><td class="part">Limitado</td><td class="yes">✅</td></tr>
+<tr><td>Arquivos ficam no seu dispositivo</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+</tbody></table></div>
+  </div>
+</section>
+<section class="section"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px"><div class="faq">
+<details><summary><!-- PT_FAQ1_Q -->R12 ou R2000 — qual escolher?</summary><div class='a'><!-- PT_FAQ1_A -->Mantenha o padrão R2000, a menos que seu software o rejeite. R2000 embute unidades e abre corretamente no LightBurn, AutoCAD e tudo que é moderno. R12 existe para CAM legado que só aceita o formato de 1992 — note que arquivos R12 não têm campo de unidade, então defina mm/polegada na importação.</div></details>
+<details><summary><!-- PT_FAQ2_Q -->Por que alguns arquivos DXF travam meu software de CAM?</summary><div class='a'><!-- PT_FAQ2_A -->Geralmente entidades SPLINE — objetos de curva suave que muitos conversores emitem e CAM rigoroso não consegue interpretar. O CleanPaths escreve saída toda em POLYLINE, então essa classe de travamento não ocorre.</div></details>
+<details><summary><!-- PT_FAQ3_Q -->Meu DXF abre no tamanho certo?</summary><div class='a'><!-- PT_FAQ3_A -->Sim no modo R2000 — as unidades são embutidas. No modo R12, as unidades não são armazenadas no formato; escolha a unidade na importação.</div></details>
+<details><summary><!-- PT_FAQ4_Q -->Funciona com LightBurn?</summary><div class='a'><!-- PT_FAQ4_A -->Sim — saída toda POLYLINE em R2000/R12 é exatamente a zona de conforto do LightBurn. Como em qualquer arquivo de corte, faça um corte de teste antes da produção.</div></details>
+<details><summary><!-- PT_FAQ5_Q -->E o Glowforge?</summary><div class='a'><!-- PT_FAQ5_A -->O Glowforge não aceita DXF — importa SVG ou PDF. Use a saída SVG limpa do nosso <a href="../pt-png-para-dxf/code.html">conversor de PNG</a> ou do <a href="../pt-jpg-para-dxf/code.html">conversor de JPG</a>.</div></details>
+<details><summary><!-- PT_FAQ6_Q -->Meu SVG tem detalhes pequenos — eles sobrevivem?</summary><div class='a'><!-- PT_FAQ6_A -->O controle de precisão controla a densidade das curvas: maior para suavidade, menor para arquivos pequenos. A prévia mostra exatamente o que baixa.</div></details>
+<details><summary><!-- PT_FAQ7_Q -->Vocês enviam ou armazenam meu SVG?</summary><div class='a'><!-- PT_FAQ7_A -->Não. A conversão acontece inteiramente no seu navegador — não existe etapa de upload. Nós não recebemos, não vemos e não armazenamos suas imagens. É assim que a ferramenta é construída, não é só uma frase de marketing. Detalhes na Política de Privacidade.</div></details>
+<details><summary><!-- PT_FAQ8_Q -->Tem limite de uso?</summary><div class='a'><!-- PT_FAQ8_A -->Grátis, 10 conversões por dia, sem cadastro.</div></details>
+</div></div></div></section>
+<section class="section section--alt cta-band"><div class="wrap">
+  <!-- PT_CTA_H2 --><h2>Seu software de CAM ligou. Ele quer POLYLINEs.</h2>
+  <!-- PT_CTA_BTN --><a class="btn btn--primary btn--lg" href="#convert">Converter SVG grátis agora</a>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-trust" style="border-top:0">
+    <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro</span>
+    <span class="links">
+      <a href="../privacy/code.html">Política de Privacidade</a><span>·</span>
+      <a href="../svg-to-dxf-converter/code.html">English version</a><span>·</span>
+      Suporte: support [at] cleanpaths.io
+    </span>
+  </div>
+</div></footer>
+<a class="fab-feedback" href="#feedback-modal" aria-label="Abrir feedback"><span class="dot"></span><span class="fab-label">FEEDBACK</span></a>
+<div class="fb-modal" id="feedback-modal" role="dialog" aria-modal="true" aria-label="Feedback">
+  <div class="fb-modal__card" data-page-context="/pt-svg-para-dxf">
+    <a class="fb-modal__close" href="#" aria-label="Fechar feedback">✕</a>
+    <h3>Feedback</h3>
+    <p class="sub">Bugs, ideias, elogios — cai direto na minha bancada, não numa fila de tickets.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Ideia</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Elogio</button><button type="button" aria-pressed="false">Outro</button></div>
+    <textarea placeholder="O que funcionou, o que não funcionou…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="E-mail ou usuário (opcional — só se quiser resposta)" aria-label="Contact (optional)">
+    <div class="fb-trust">Não é preciso deixar contato — não inclua dados pessoais que você não quer compartilhar. Anexamos esta página e seu idioma automaticamente, nunca seus arquivos. <b>Nós nunca vemos seus arquivos.</b></div>
+    <div class="actions"><button class="btn btn--primary" type="button">Enviar feedback</button></div>
+  </div>
+</div>
+<div class="cookie-notice" role="status" data-storage-key="cookie-notice-dismissed">
+  <div class="cookie-notice__inner">
+    <span class="cookie-notice__text">Usamos cookies de análise (Google Analytics e Microsoft Clarity) para entender como o site é usado — sem anúncios e sem rastreamento entre sites. Seus arquivos continuam 100% no seu dispositivo. <a href="../cookies/code.html">Detalhes</a></span>
+    <button class="cookie-notice__btn" type="button">Entendi</button>
+  </div>
+</div>
+</body>
+</html>

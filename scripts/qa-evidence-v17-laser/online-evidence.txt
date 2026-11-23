@@ -1,0 +1,38 @@
+# v1.7 laser batch + #94 module B — 线上实证 2026-11-04 07:34 UTC
+deploy commit: 4ce7a05 (+ #94 28886f5)  pages deployment: c57e6a9a.cleanpaths.pages.dev
+
+## 1. 五新路由状态码
+https://cleanpaths.io/image-to-dxf/ -> 200
+https://cleanpaths.io/photo-to-dxf/ -> 200
+https://cleanpaths.io/png-to-dxf-for-laser-cutting/ -> 200
+https://cleanpaths.io/pt/imagem-para-dxf/ -> 200
+https://cleanpaths.io/pt/foto-para-dxf/ -> 200
+
+## 2. footer +2（首页 / pricing）链接与可达性
+      1 href="/image-to-dxf/"
+      1 href="/photo-to-dxf/"
+      1 href="/image-to-dxf/"
+      1 href="/photo-to-dxf/"
+/image-to-dxf/ -> 200 ; /photo-to-dxf/ -> 200
+
+## 3. #94 jfif FAQ #10-#12 在线
+      4 How do I open a JFIF file on a Mac or iPhone?
+      4 How to open a JFIF file
+      4 Is there a JFIF viewer?
+
+## 4. 附加项
+hreflang image-to-dxf:
+<link rel="alternate" hrefLang="en" href="https://cleanpaths.io/image-to-dxf/"/>
+<link rel="alternate" hrefLang="pt-BR" href="https://cleanpaths.io/pt/imagem-para-dxf/"/>
+<link rel="alternate" hrefLang="x-default" href="https://cleanpaths.io/image-to-dxf/"/>
+pt html lang: <html lang="pt-BR"
+scenario rendered CTA count: 0 (0 = omitted ✓); SoftwareApplication schema: 0 (0 ✓); FAQPage present ✓
+ACCEPTS backfill: .PNG, .JPG, .SVG
+sitemap new routes: 5 url entries
+
+## 5. 截图证据（browser 捕获）
+- image-to-dxf_live.png — 新工具页整页渲染
+- laser-cutting-scenario_live.png — 场景页（header CTA 缺席 + CTA-first 卡片）
+
+## 6. 线上 footer 序（快照实证）
+Converters: PNG to DXF → JPG to DXF → SVG to DXF → Screenshot to SVG → JFIF to JPG → JFIF to PNG → WebP to SVG → Image to DXF → Photo to DXF → Samples gallery（与真源 v1.7 逐字一致）

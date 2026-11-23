@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- PT_META_T --><title>PNG para DXF — Conversor Grátis, sem Upload</title>
+<!-- PT_META_D --><meta name="description" content="Converta PNG para DXF com trajetórias fechadas, camadas por cor e unidades incluídas. Grátis — sem upload, sem cadastro, sem marca d'água.">
+<link rel="stylesheet" href="../../assets/design-system.css">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+
+<header class="site-header"><div class="wrap bar">
+  <a class="logo" href="../home/code.html"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+<rect x="1" y="1" width="28" height="28" rx="6" fill="#1E2430"/>
+<path d="M7 21 C7 12, 13 9, 17 9 S 24 12, 23 17" stroke="#E4572E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+<circle cx="7" cy="21" r="2.6" fill="#FAF6EE"/>
+<circle cx="17" cy="9" r="2.6" fill="#FAF6EE"/>
+<circle cx="23" cy="17" r="2.6" fill="#E4572E"/>
+</svg><span class="word">Clean<em>Paths</em></span></a>
+  <nav class="main-nav" aria-label="Main">
+    <a class="navlink" href="../png-to-dxf/code.html">English version →</a>
+  </nav>
+  <details class="nav-mobile"><summary aria-label="Menu">☰</summary><div class="menu">
+    <a href="../png-to-dxf/code.html">English version →</a>
+    <a href="../privacy/code.html">Política de Privacidade</a>
+  </div></details>
+</div></header>
+<main>
+
+<section class="hero matgrid">
+  <div class="wrap" style="max-width:860px">
+    <!-- PT_H1 --><h1>PNG para DXF — Arquivo Pronto para Corte</h1>
+    <!-- PT_SUB --><p class="hero__sub">Arraste um PNG e receba um DXF que realmente corta — trajetórias fechadas, camadas por cor, unidades embutidas. Processado no seu dispositivo, nunca enviado.</p>
+    <div class="dropzone matgrid" id="convert" style="margin-top:26px">
+      
+      <!-- PT_HERO_DZ_LABEL --><div class="dz-text">Arraste seu arquivo .png aqui — ou clique para escolher</div>
+      <div class="dz-or">— ou —</div>
+      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Converter agora — grátis</button>
+      <div class="dz-formats">ACEITA: .PNG · PROCESSADO LOCALMENTE</div>
+      <div style="margin-top:16px">
+        <div class="seg" role="group" aria-label="DXF version">
+        <button aria-pressed="true">R2000 · units included</button>
+        <button aria-pressed="false">R12 · compatibility mode</button>
+      </div>
+      <!-- PT_HERO_VER_NOTE --><div class="seg-note">Modo de compatibilidade R12 disponível</div>
+    </div>
+      <!-- PT_MICROCOPY --><div style="margin-top:12px"><span class="microcopy">Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado</span></div>
+    </div>
+    <div style="margin-top:14px"><!-- PT_HERO_BADGES --><div class="badges"><span class="badge">🔒 Seus arquivos não saem do seu dispositivo</span> · <span class="badge">Sem cadastro</span> · <span class="badge">Sem marca d'água</span></div></div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <!-- PT_HONEST_H2 --><h2>Um aviso honesto antes de converter</h2>
+    <div class="info-strip" style="margin-top:12px;border-color:var(--caution);background:var(--caution-soft)">
+      <span class="i" style="background:var(--caution)">!</span>
+      <!-- PT_HONEST_P --><span>Funciona melhor com gráficos de cores chapadas — logos, ícones, capturas de tela, line art: o resultado é projetado para corte. Fotos saem estilizadas (posterizadas), não prontas para corte — avisamos qual dos dois você tem antes de converter.</span>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <span class="spec">The problem</span>
+    <!-- PT_PROB_H2 --><h2 style="margin-top:12px">PNG é imagem. Sua máquina de corte precisa de trajetórias.</h2>
+    <ul class="plist" style="margin-top:12px">
+      <!-- PT_PROB_P1 --><li>Seu plotter, laser ou CNC não lê pixels — ele segue trajetórias. Um traçado automático cru entrega milhares de segmentos soltos.</li>
+      <!-- PT_PROB_P2 --><li>Conversores grátis param no "aqui está seu vetor". Se ele corta ou não, o problema é seu.</li>
+      <!-- PT_PROB_P3 --><li>E a maioria quer seu arquivo no servidor deles primeiro.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <span class="spec">The pipeline</span>
+    <!-- PT_SOL_H2 --><h2 style="margin-top:12px">Do PNG ao DXF pronto para corte, no seu navegador</h2>
+    <ol class="steps" style="margin-top:20px">
+      <!-- PT_SOL_P1 --><li><h3>Limpe a imagem primeiro: remoção de ruído e upscale antes de qualquer trajetória ser traçada.</h3></li>
+      <!-- PT_SOL_P2 --><li><h3>Traçado com parâmetros ajustados à sua imagem — não padrões únicos para tudo.</h3></li>
+      <!-- PT_SOL_P3 --><li><h3>Exporte DXF de verdade: R2000 com unidades por padrão, modo de compatibilidade R12 para CAM antigo, SVG se a sua máquina preferir.</h3></li>
+    </ol>
+    <div class="info-strip" style="margin-top:24px"><span class="i">i</span><!-- PT_SOL_NOTE --><span>Em dúvida? Mantenha R2000 — ele embute unidades e abre corretamente no LightBurn, AutoCAD e CAM modernos. Escolha R12 apenas quando o seu software for mais antigo que o formato.</span></div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <span class="spec">Workflow</span>
+    <!-- PT_HOW_H2 --><h2 style="margin-top:12px">Como converter PNG para DXF (e obter um arquivo que corta)</h2>
+    <ol class="steps" style="margin-top:20px">
+      <!-- PT_HOW_S1 --><li><h3>Arraste seu PNG.</h3></li>
+      <!-- PT_HOW_S2 --><li><h3>Confira a prévia das camadas; ajuste a precisão se quiser um arquivo menor ou mais suave.</h3></li>
+      <!-- PT_HOW_S3 --><li><h3>Baixe o DXF (R2000 ou R12) — pronto.</h3></li>
+    </ol>
+    <!-- PT_HOW_AUX --><p style="margin-top:20px;font-family:var(--font-mono);font-size:13px;color:var(--ink-2)">Sem upload. Sem cadastro. Sem marca d'água. Grátis, 10 conversões por dia.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <span class="spec">Honest comparison</span>
+    <!-- PT_WHY_H2 --><h2 style="margin-top:12px">Por que não usar um traçador grátis qualquer?</h2>
+    <div style="overflow-x:auto;margin-top:24px"><table class="cmp"><thead><tr><th></th><th>Conversores online grátis</th><th class="us">CleanPaths</th></tr></thead><tbody>
+<tr><td>Exportação DXF</td><td class="no">❌ Só SVG</td><td class="yes">✅ R2000 + R12</td></tr>
+<tr><td>Unidades no arquivo</td><td class="no">❌</td><td class="yes">✅ (R2000)</td></tr>
+<tr><td>Pré-processamento de imagem ruim</td><td class="no">❌</td><td class="yes">✅ remoção de ruído + upscale + ajuste automático</td></tr>
+<tr><td>Trajetórias fechadas, separadas por cor</td><td class="part">Limitado</td><td class="yes">✅</td></tr>
+<tr><td>Arquivos ficam no seu dispositivo</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+</tbody></table></div>
+  </div>
+</section>
+<section class="section"><div class="wrap"><span class="spec">FAQ</span><div style="margin-top:12px"><div class="faq">
+<details><summary><!-- PT_FAQ1_Q -->Que versão do DXF eu recebo — R12 ou R2000?</summary><div class='a'><!-- PT_FAQ1_A -->As duas, à sua escolha. R2000 é o padrão e embute unidades (mm/polegada), então o arquivo abre no tamanho certo. O modo de compatibilidade R12 existe para softwares de CAM antigos que só aceitam o formato de 1992.</div></details>
+<details><summary><!-- PT_FAQ2_Q -->O DXF funciona no LightBurn?</summary><div class='a'><!-- PT_FAQ2_A -->Sim — a saída é toda POLYLINE, sem entidades SPLINE, exatamente o que o LightBurn processa melhor. Sempre faça um corte de teste antes da produção.</div></details>
+<details><summary><!-- PT_FAQ3_Q -->A conversão mantém as cores do meu logo em camadas separadas?</summary><div class='a'><!-- PT_FAQ3_A -->Sim — a saída é separada por cor, para você atribuir configurações de corte diferentes por camada. Em nossos testes, um logo típico de cores chapadas fica na faixa de um dígito a menos de vinte camadas — não nas dezenas que um traçado padrão produz.</div></details>
+<details><summary><!-- PT_FAQ4_Q -->Meu PNG é pequeno e borrado — ainda funciona?</summary><div class='a'><!-- PT_FAQ4_A -->Geralmente sim, se for um gráfico de cores chapadas. O pré-processamento faz upscale e remove ruído antes do traçado — é exatamente o caso para o qual ele foi feito. Há um limite — uma mancha de 50px não tem detalhe para recuperar — mas tente: é grátis e a prévia mostra o resultado antes de você baixar.</div></details>
+<details><summary><!-- PT_FAQ5_Q -->Posso converter uma foto para DXF?</summary><div class='a'><!-- PT_FAQ5_A -->Pode, mas espere um resultado estilizado, posterizado — não pronto para corte. A promessa desta página cobre gráficos de cores chapadas: logos, ícones, line art. Se o seu arquivo é uma foto de logo, o <a href="../pt-jpg-para-dxf/code.html">conversor de JPG para DXF</a> tem limpeza embutida.</div></details>
+<details><summary><!-- PT_FAQ6_Q -->Vocês enviam ou armazenam meu PNG?</summary><div class='a'><!-- PT_FAQ6_A -->Não. A conversão acontece inteiramente no seu navegador — não existe etapa de upload. Nós não recebemos, não vemos e não armazenamos suas imagens. É assim que a ferramenta é construída, não é só uma frase de marketing. Detalhes na Política de Privacidade.</div></details>
+<details><summary><!-- PT_FAQ7_Q -->Tem limite de uso?</summary><div class='a'><!-- PT_FAQ7_A -->Grátis, 10 conversões por dia, sem cadastro.</div></details>
+</div></div></div></section>
+<section class="section section--alt cta-band"><div class="wrap">
+  <!-- PT_CTA_H2 --><h2>Aquele PNG de logo parado na sua caixa de entrada? Converta antes que a aba esfrie.</h2>
+  <!-- PT_CTA_BTN --><a class="btn btn--primary btn--lg" href="#convert">Converter PNG grátis agora</a>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-trust" style="border-top:0">
+    <span>🔒 Seus arquivos nunca saem do seu dispositivo · Sem cadastro</span>
+    <span class="links">
+      <a href="../privacy/code.html">Política de Privacidade</a><span>·</span>
+      <a href="../png-to-dxf/code.html">English version</a><span>·</span>
+      Suporte: support [at] cleanpaths.io
+    </span>
+  </div>
+</div></footer>
+<a class="fab-feedback" href="#feedback-modal" aria-label="Abrir feedback"><span class="dot"></span><span class="fab-label">FEEDBACK</span></a>
+<div class="fb-modal" id="feedback-modal" role="dialog" aria-modal="true" aria-label="Feedback">
+  <div class="fb-modal__card" data-page-context="/pt-png-para-dxf">
+    <a class="fb-modal__close" href="#" aria-label="Fechar feedback">✕</a>
+    <h3>Feedback</h3>
+    <p class="sub">Bugs, ideias, elogios — cai direto na minha bancada, não numa fila de tickets.</p>
+    <div class="fb-types" role="group" aria-label="Feedback type"><button type="button" aria-pressed="false">Ideia</button><button type="button" aria-pressed="false">Bug</button><button type="button" aria-pressed="false">Elogio</button><button type="button" aria-pressed="false">Outro</button></div>
+    <textarea placeholder="O que funcionou, o que não funcionou…" aria-label="Feedback"></textarea>
+    <input type="text" placeholder="E-mail ou usuário (opcional — só se quiser resposta)" aria-label="Contact (optional)">
+    <div class="fb-trust">Não é preciso deixar contato — não inclua dados pessoais que você não quer compartilhar. Anexamos esta página e seu idioma automaticamente, nunca seus arquivos. <b>Nós nunca vemos seus arquivos.</b></div>
+    <div class="actions"><button class="btn btn--primary" type="button">Enviar feedback</button></div>
+  </div>
+</div>
+<div class="cookie-notice" role="status" data-storage-key="cookie-notice-dismissed">
+  <div class="cookie-notice__inner">
+    <span class="cookie-notice__text">Usamos cookies de análise (Google Analytics e Microsoft Clarity) para entender como o site é usado — sem anúncios e sem rastreamento entre sites. Seus arquivos continuam 100% no seu dispositivo. <a href="../cookies/code.html">Detalhes</a></span>
+    <button class="cookie-notice__btn" type="button">Entendi</button>
+  </div>
+</div>
+</body>
+</html>

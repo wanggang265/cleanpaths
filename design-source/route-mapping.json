@@ -1,10 +1,11 @@
 {
   "project": "cleanpaths.io",
   "stage": "06-design",
-  "version": "design-handoff-v1.8",
-  "generated": "2026-11-11",
-  "copy_source": "05-copy-freeze-v1.md v1.2 (+v1.6/v1.7/v1.8/v1.13/v1.15 appendices) + 05-bofu-comparison-copy-v1.md (verbatim, zero rewrites)",
+  "version": "design-handoff-v1.9",
+  "generated": "2026-11-23",
+  "copy_source": "05-copy-freeze-v1.md v1.2 (+v1.6/v1.7/v1.8/v1.13/v1.15 appendices) + 05-bofu-comparison-copy-v1.md (verbatim, zero rewrites) + 05-copy-freeze-v1.18-pt-dxf-batch3-addendum.md (verbatim, zero rewrites)",
   "changelog": [
+    "v1.9 (2026-11-23): 06 batch3 PT DXF increment — 3 new PT routes (/pt/png-para-dxf, /pt/jpg-para-dxf, /pt/svg-para-dxf) per 05 v1.18 §A; copy parsed verbatim into build/batch3_copy.json (45 slots x3 pages, char-count asserted); FAQ 7/7/8 per §A (work-order table's '8 each' superseded by freeze); audit.py expanded per v1.18 §H (positive + negative + ANCHOR_SET + site-wide FOOT_SUPPORT/mailto); footer mailto -> support [at] swap site-wide per §C; EN twins' PT language rows per v1.17 §7 rows 14-16; Route count 44->47 = design-truth delivered scope",
     "v1.8 (2026-11-11): 06 batch2 format-friction increment — 16 new routes (7 bitmap→bitmap pairs + jpeg-to-dxf pair, EN+PT) per 05 v1.15 §I; copy parsed verbatim into build/batch2_copy.json (16 prefixes, EXPECT-count pinned); audit.py expanded: full-copy sentinels via JSON, states/negative sentinels, PT_PAGES +8, [V18-ROUTE-LINK] footer Tools +8 on new EN pages; fang-tooth tested (H1/states/$59/Precision mutations all FAIL→restore→PASS). Route count 28→44 = design-truth delivered scope",
     "v1.7 (2026-11-03): 06 laser-batch increment — 5 new routes (/image-to-dxf + /pt/imagem-para-dxf + /photo-to-dxf + /pt/foto-para-dxf + /png-to-dxf-for-laser-cutting scenario page) + footer Tools group +2 (EN) + audit.py sentinel expansion per 05 v1.13 §H (incl. negative param-panel sentinels). Route count 23→28 = design-truth delivered scope; PRD §6 contract-scope count (36) is a separate ledger, not synced by design",
     "v1.6 (2026-10-22): 06f increment — 4 new routes (/jfif-to-png, /pt/jfif-para-png, /webp-to-svg, /pt/webp-para-svg) + CookieNotice design truth backfill (mirrors production, open-items #66) + footer Tools slots + v1.6 commercial-rights addendum landed in builders (pricing/cricut/cap-state) to close audit drift",
@@ -724,6 +725,57 @@
       "hreflang": "/jpeg-to-dxf",
       "states": "PT states set (DXF download buttons)",
       "notes": "PT neutral per amend-004 补遗: zero pricing ($59 absent), minimal PT footer, no Compare group; 26 keys verbatim"
+    },
+    {
+      "route": "/pt/png-para-dxf",
+      "dir": "pages/pt-png-para-dxf",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "PNG para DXF — Arquivo Pronto para Corte",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/png-to-dxf",
+      "states": "PT states set (DXF R2000/R12/SVG download buttons, v1.13 PT trace steps)",
+      "notes": "2b batch3 per 05-copy-freeze-v1.18 §A: 45 slots verbatim (char-count asserted at parse), PT batch2 precedent structure (pt-jpeg-para-dxf), zero pricing per §H negative sentinels; DXF version selector (R2000 default, PT seg-note), 7 FAQs per §A (work-order table said 8 — §A is authority)"
+    },
+    {
+      "route": "/pt/jpg-para-dxf",
+      "dir": "pages/pt-jpg-para-dxf",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "JPG para DXF — Transforme Fotos de Logos em Arquivos de Corte",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/jpg-to-dxf",
+      "states": "PT states set (DXF R2000/R12/SVG download buttons, v1.13 PT trace steps)",
+      "notes": "2b batch3 per 05-copy-freeze-v1.18 §A: 45 slots verbatim (char-count asserted at parse), PT batch2 precedent structure (pt-jpeg-para-dxf), zero pricing per §H negative sentinels; cleanup switch (PT_HERO_TOGGLE, default on), 4-step solution, 7 FAQs per §A"
+    },
+    {
+      "route": "/pt/svg-para-dxf",
+      "dir": "pages/pt-svg-para-dxf",
+      "type": "tool-neutral",
+      "files": [
+        "code.html",
+        "screen.png",
+        "screen-mobile.png",
+        "states.html",
+        "states.png"
+      ],
+      "h1": "Conversor de SVG para DXF — R12 e R2000, Unidades Incluídas",
+      "schema": "SoftwareApplication + FAQPage",
+      "hreflang": "/svg-to-dxf-converter",
+      "states": "PT states set (DXF R2000/R12/SVG download buttons, EN svg POLYLINE layers, v1.13 PT trace steps)",
+      "notes": "2b batch3 per 05-copy-freeze-v1.18 §A: 45 slots verbatim (char-count asserted at parse), PT batch2 precedent structure (pt-jpeg-para-dxf), zero pricing per §H negative sentinels; no HONEST/MICROCOPY per §A.3; Glowforge hint strip after hero with 2 PT in-family links; WHY_FACTS chips + WHY_TAB; 8 FAQs per §A"
     }
   ]
 }

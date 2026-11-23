@@ -103,5 +103,6 @@ export const mainHtml = `<section class="hero matgrid">
   <div class="wrap">
     <h2>The blurry JPG is not the problem. Waiting to fix it is.</h2>
     <a class="btn btn--primary btn--lg" href="#convert">Convert JPG free now</a>
+    <p class="sub" style="margin-top:16px"><a href="/pt/jpg-para-dxf/">Versão em português: JPG para DXF →</a></p>
   </div>
 </section>`;

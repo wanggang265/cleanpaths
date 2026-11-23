@@ -6,7 +6,10 @@ import { openGraphFor } from '@/lib/schema';
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: '/svg-to-dxf-converter/' },
+  alternates: {
+    canonical: '/svg-to-dxf-converter/',
+    languages: { en: '/svg-to-dxf-converter/', 'pt-BR': '/pt/svg-para-dxf/', 'x-default': '/svg-to-dxf-converter/' },
+  },
   openGraph: openGraphFor({ title, description, url: '/svg-to-dxf-converter/' }),
 };
 

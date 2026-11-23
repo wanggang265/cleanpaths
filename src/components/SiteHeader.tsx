@@ -64,6 +64,10 @@ export const PT_EN_PAIR: Record<string, string> = {
   '/pt/gif-para-jpg/': '/gif-to-jpg/',
   '/pt/bmp-para-jpg/': '/bmp-to-jpg/',
   '/pt/jpeg-para-dxf/': '/jpeg-to-dxf/',
+  // 2b batch3 (05-copy-freeze-v1.18): 3 new PT DXF pages — PT footer/header "English version" link target.
+  '/pt/png-para-dxf/': '/png-to-dxf/',
+  '/pt/jpg-para-dxf/': '/jpg-to-dxf/',
+  '/pt/svg-para-dxf/': '/svg-to-dxf-converter/',
 };
 
 function nl(route: string, activeRoute: string, label: string) {

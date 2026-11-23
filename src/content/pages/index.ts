@@ -307,5 +307,26 @@ export const PAGES = [
     "type": "tool-neutral",
     "h1": "Conversor de JPEG para DXF — Grátis, sem Upload",
     "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-png-para-dxf",
+    "route": "/pt/png-para-dxf",
+    "type": "tool-neutral",
+    "h1": "PNG para DXF — Arquivo Pronto para Corte",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-jpg-para-dxf",
+    "route": "/pt/jpg-para-dxf",
+    "type": "tool-neutral",
+    "h1": "JPG para DXF — Transforme Fotos de Logos em Arquivos de Corte",
+    "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-svg-para-dxf",
+    "route": "/pt/svg-para-dxf",
+    "type": "tool-neutral",
+    "h1": "Conversor de SVG para DXF — R12 e R2000, Unidades Incluídas",
+    "schema": "SoftwareApplication + FAQPage"
   }
 ] as const;

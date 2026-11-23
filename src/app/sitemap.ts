@@ -39,6 +39,10 @@ const ROUTES = [
   '/pt/gif-para-jpg/',
   '/pt/bmp-para-jpg/',
   '/pt/jpeg-para-dxf/',
+  // 2b batch3 (05-copy-freeze-v1.18): 3 new PT DXF landing pages
+  '/pt/png-para-dxf/',
+  '/pt/jpg-para-dxf/',
+  '/pt/svg-para-dxf/',
   '/samples/',
   '/for/cricut-sellers/',
   '/for/embroidery/',

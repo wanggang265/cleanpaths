@@ -47,7 +47,7 @@ export default function SiteFooter({ lang = 'en', route = '/' }: { lang?: 'en' |
               <span>·</span>
               <Link href={enPair}>English version</Link>
               <span>·</span>
-              <a href="mailto:support@cleanpaths.io">Suporte: support@cleanpaths.io</a>
+              <span>Suporte: support [at] cleanpaths.io</span>
             </span>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function SiteFooter({ lang = 'en', route = '/' }: { lang?: 'en' |
             <span>·</span>
             <a href="#feedback-modal">Feedback</a>
             <span>·</span>
-            <a href="mailto:support@cleanpaths.io">Support: support@cleanpaths.io</a>
+            <span>Support: support [at] cleanpaths.io</span>
           </span>
         </div>
       </div>

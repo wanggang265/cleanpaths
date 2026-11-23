@@ -110,5 +110,6 @@ export const mainHtml = `<section class="hero matgrid">
   <div class="wrap">
     <h2>That logo PNG sitting in your inbox? Convert it before the tab gets cold.</h2>
     <a class="btn btn--primary btn--lg" href="#convert">Convert PNG free now</a>
+    <p class="sub" style="margin-top:16px"><a href="/pt/png-para-dxf/">Versão em português: PNG para DXF →</a></p>
   </div>
 </section>`;

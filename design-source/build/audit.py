@@ -478,7 +478,8 @@ def main():
     texts = {}
     PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
                 "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
-                "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"}
+                "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf",
+                "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"}
     LASER5 = {"image-to-dxf", "pt-imagem-para-dxf", "photo-to-dxf", "pt-foto-para-dxf", "png-to-dxf-for-laser-cutting"}
     # ---- v1.8 batch2: 16 new pages join every SENTINELS-driven matrix check (06c/E2/ROUTE-LINK/banned/footer) ----
     BATCH2_EN = ["webp-to-png", "webp-to-jpg", "svg-to-png", "jpeg-to-jpg",
@@ -487,12 +488,19 @@ def main():
                  "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"]
     for _s in BATCH2_EN + BATCH2_PT:
         SENTINELS.setdefault(_s, [])
+    # ---- v1.9 batch3: 3 new PT DXF pages join every SENTINELS-driven matrix check ----
+    for _s in ("pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"):
+        SENTINELS.setdefault(_s, [])
     # ---- 2a (05-copy-freeze-v1.17 §L7): EN→PT pair-link pins — jfif-to-jpg 先例推广至 12 EN 页 ----
     for _s, _short in {"bmp-to-jpg": "BMP para JPG", "gif-to-jpg": "GIF para JPG",
                        "jpeg-to-dxf": "JPEG para DXF", "jpeg-to-jpg": "JPEG para JPG",
                        "svg-to-jpg": "SVG para JPG", "svg-to-png": "SVG para PNG",
                        "webp-to-jpg": "WebP para JPG", "webp-to-png": "WebP para PNG"}.items():
         SENTINELS[_s].append(f"Versão em português: {_short} →")
+    # ---- 2b (v1.17 §7 rows 14-16): EN DXF twins gain PT language rows → 3 new PT routes ----
+    for _s, _short in {"png-to-dxf": "PNG para DXF", "jpg-to-dxf": "JPG para DXF",
+                       "svg-to-dxf-converter": "SVG para DXF"}.items():
+        SENTINELS.setdefault(_s, []).append(f"Versão em português: {_short} →")
     for slug, sents in SENTINELS.items():
         t = strip(read(slug))
         texts[slug] = t
@@ -656,6 +664,12 @@ def main():
     STATES["pt-jpeg-para-dxf"] = _PT_COMMONS + [
         "Arraste seu arquivo .jpeg.", "A conversão acontece no seu navegador — na hora.", "Baixe o .dxf.",
         "Baixar DXF", "Esta página aceita .JPEG."]
+    # ---- v1.9 batch3: 3 new PT DXF pages — v1.13 PT trace steps + 3-button DXF form (§H STATES pins) ----
+    _B3_TRACE = ["✓ Lendo o arquivo (local)", "▸ Vetorizando — parâmetros ajustados à imagem", "○ Preparando o download"]
+    _B3_DL = ["Baixar DXF (R2000)", "Baixar DXF (R12)", "Baixar SVG"]
+    STATES["pt-png-para-dxf"] = _PT_COMMONS + _B3_TRACE + _B3_DL + ["Esta página aceita .PNG."]
+    STATES["pt-jpg-para-dxf"] = _PT_COMMONS + _B3_TRACE + _B3_DL + ["Esta página aceita .JPG."]
+    STATES["pt-svg-para-dxf"] = _PT_COMMONS + _B3_TRACE + _B3_DL + ["Esta página aceita .SVG."]
     NEGATIVE = {
         "svg-to-dxf-converter": ["Tracing paths"],
         # (Phase-2 cap-conversion line legitimately mentions "AI HD rescue" as a Pro
@@ -676,6 +690,10 @@ def main():
     for _s in _B2_PT:
         NEGATIVE[_s] = ["$59", "Download DXF", "Precision", "AI HD rescue"]
     NEGATIVE["pt-jpeg-para-dxf"] = ["$59"]  # PT neutral: no price string anywhere in states
+    # ---- v1.9 batch3: lowercase error forms are judged-deleted on the new PT DXF pages ----
+    NEGATIVE["pt-png-para-dxf"] = ["Esta página aceita .png."]
+    NEGATIVE["pt-jpg-para-dxf"] = ["Esta página aceita .jpg."]
+    NEGATIVE["pt-svg-para-dxf"] = ["Esta página aceita .svg."]
     # ---- #108 B2: lowercase error-sentence reverse assertions ----
     # 06b2 注释声称已存在、实测缺失。正向针为大写扩展名（This page accepts .WEBP.）；
     # 小写变体是判删形——任何 batch2 状态板出现即回归。覆盖 8 EN + 8 PT。
@@ -707,12 +725,86 @@ def main():
             if n in t:
                 fails.append(f"[STATES-SHOULD-NOT-CONTAIN] {slug}: {n}")
 
+    # ---------- v1.9 batch3 full-copy + §H sentinels (05-copy-freeze-v1.18 §A/§H/§J) ----------
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "batch3_copy.json"), encoding="utf-8") as _f:
+        B3COPY = _json.load(_f)
+    B3_PAGES = ["pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"]
+    B3_SKIP = {"PT_META_D", "PT_FOOT_LINKS"}  # attribute-only pin / registration notation row
+    for _slug in B3_PAGES:
+        _slots = B3COPY["pages"].get(_slug, {})
+        if len(_slots) != 45:
+            fails.append(f"[B3-PARSE] {_slug}: expected 45 frozen slots, got {len(_slots)}")
+        _t = texts[_slug]
+        for _k in sorted(_slots):
+            if _k in B3_SKIP:
+                continue
+            _s = _slots[_k]
+            if _k == "PT_ERR":
+                # PT_ERR carries inline <b> markup — compare tag-stripped form (builder precedent)
+                if re.sub(r"<[^>]+>", "", _s) not in read_states(_slug):
+                    fails.append(f"[B3-STATES] {_slug}: PT_ERR missing in states board")
+                continue
+            if _s not in _t:
+                fails.append(f"[MISSING] {_slug}: {_s[:90]}")
+        # WHY_TAB shared table lands on all three pages (v1.18 §A.1)
+        _tab = B3COPY["why_tab"]
+        _cells = [*_tab["col"]] + [c for row in _tab["rows"] for c in row]
+        for _c in _cells:
+            if _c not in _t:
+                fails.append(f"[MISSING] {_slug}: WHY_TAB cell '{_c[:60]}'")
+    # §H ANCHOR_SET: §J registered outlinks — exact anchor text + href, count-pinned
+    _B3_ANCHORS = [
+        ("pt-png-para-dxf", "conversor de JPG para DXF", "../pt-jpg-para-dxf/code.html", 1),
+        ("pt-jpg-para-dxf", "conversor de JPEG para DXF", "../pt-jpeg-para-dxf/code.html", 1),
+        ("pt-svg-para-dxf", "conversor de PNG", "../pt-png-para-dxf/code.html", 2),
+        ("pt-svg-para-dxf", "conversor de JPG", "../pt-jpg-para-dxf/code.html", 2),
+    ]
+    for _slug, _text, _href, _n in _B3_ANCHORS:
+        if _text not in texts[_slug]:
+            fails.append(f"[B3-ANCHOR] {_slug}: anchor text '{_text}' missing")
+        _got = read(_slug).count(f'href="{_href}"')
+        if _got != _n:
+            fails.append(f"[B3-ANCHOR] {_slug}: href {_href} count {_got} != {_n}")
+    # 3 new PT pages: footer English-version + Política (§J rows 1-6) — text + href pairs
+    _B3_FOOT = {"pt-png-para-dxf": "png-to-dxf", "pt-jpg-para-dxf": "jpg-to-dxf",
+                "pt-svg-para-dxf": "svg-to-dxf-converter"}
+    for _slug, _en in _B3_FOOT.items():
+        if "English version" not in texts[_slug]:
+            fails.append(f"[B3-FOOT] {_slug}: 'English version' missing")
+        if f'href="../{_en}/code.html"' not in read(_slug):
+            fails.append(f"[B3-FOOT] {_slug}: English-version href missing")
+        if "Política de Privacidade" not in texts[_slug] or 'href="../privacy/code.html"' not in read(_slug):
+            fails.append(f"[B3-FOOT] {_slug}: Política footer link missing")
+    # EN twins: language-row href pins (v1.17 §7 rows 14-16)
+    for _en, _pt in {"png-to-dxf": "pt-png-para-dxf", "jpg-to-dxf": "pt-jpg-para-dxf",
+                     "svg-to-dxf-converter": "pt-svg-para-dxf"}.items():
+        if f'href="../{_pt}/code.html"' not in read(_en):
+            fails.append(f"[B3-FOOT] {_en}: Versão href to {_pt} missing")
+    # §H page-level negatives on the 3 new PT pages — page copy (code.html) only:
+    # states.html is a design-doc artifact (EN state headers like 'Pro active' pre-exist there).
+    # 'Pro' is word-boundary anchored: H1 frozen copy 'Arquivo Pronto' must not false-positive.
+    for _slug in B3_PAGES:
+        _t_page = strip(read(_slug))
+        if re.search(r"\bPro\b", _t_page):
+            fails.append(f"[B3-NEG] {_slug}: 'Pro' present (PT neutral)")
+        for _n in ("$", "Assinatura", "R$"):
+            if _n in _t_page:
+                fails.append(f"[B3-NEG] {_slug}: '{_n}' present (PT neutral)")
+    # §C site-wide footer swap: FOOT_SUPPORT_EN/PT positive + mailto negative (Task C anti-regression gate)
+    for _slug, _t in texts.items():
+        _need = "Suporte: support [at] cleanpaths.io" if _slug in PT_PAGES else "Support: support [at] cleanpaths.io"
+        if _need not in _t:
+            fails.append(f"[FOOT-SUPPORT] {_slug}: missing '{_need}'")
+    for _slug in list(SENTINELS):
+        if "mailto:support@cleanpaths.io" in read(_slug):
+            fails.append(f"[FOOT-SUPPORT-NEG] {_slug}: mailto still present")
+
     # ---------- #108 B4: jpeg-to-dxf truncated spec label pin (structural, on code.html raw) ----------
     # v1.16 追认: jpeg-to-dxf carries the truncated spec label '>Proof<'
     # (jpg-to-dxf carries '>Proof — in our tests<'); the other 15 batch2 pages carry none.
     if ">Proof<" not in read("jpeg-to-dxf"):
         fails.append("[108-B4] jpeg-to-dxf missing truncated spec label '>Proof<'")
-    for _s in list(_B2_EN) + list(_B2_PT) + ["pt-jpeg-para-dxf"]:
+    for _s in list(_B2_EN) + list(_B2_PT) + ["pt-jpeg-para-dxf", "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"]:
         if ">Proof<" in read(_s):
             fails.append(f"[108-B4] {_s} unexpectedly contains '>Proof<'")
 
@@ -751,7 +843,8 @@ def main():
                  "webp-to-png", "pt-webp-para-png", "webp-to-jpg", "pt-webp-para-jpg",
                  "svg-to-png", "pt-svg-para-png", "jpeg-to-jpg", "pt-jpeg-para-jpg",
                  "svg-to-jpg", "pt-svg-para-jpg", "gif-to-jpg", "pt-gif-para-jpg",
-                 "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf"):
+                 "bmp-to-jpg", "pt-bmp-para-jpg", "jpeg-to-dxf", "pt-jpeg-para-dxf",
+                 "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"):
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:
             rs = f.read()
         for needle in ("share-block", "feedback FAB — 4 states", "feedback modal — 4 states"):
@@ -987,7 +1080,8 @@ def main():
         fails.append("[06F-NEG] webp-to-svg contains DXF version segmented control")
     for slug in ("pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
                  "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
-                 "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf"):
+                 "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf",
+                 "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"):
         if "$59" in read(slug):
             fails.append(f"[06F-NEG] {slug} contains $59 (PT neutral page)")
         with open(os.path.join(BASE, slug, "states.html"), encoding="utf-8") as f:

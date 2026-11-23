@@ -111,5 +111,6 @@ export const mainHtml = `<section class="hero matgrid">
   <div class="wrap">
     <h2>Your CAM software called. It wants POLYLINEs.</h2>
     <a class="btn btn--primary btn--lg" href="#convert">Convert SVG free now</a>
+    <p class="sub" style="margin-top:16px"><a href="/pt/svg-para-dxf/">Versão em português: SVG para DXF →</a></p>
   </div>
 </section>`;
