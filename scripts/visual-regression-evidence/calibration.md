@@ -70,11 +70,12 @@
 注入经 `VR_INJECT` env（CI/日常不设）；断言前注入（水合后），注入元素无像素输出 →
 trip 独立性成立。恢复 = 不设 env 重跑 → 22/22 全绿（recovery-run-after-trips.log）。
 
-## 8. CI 环境差异风险与重校准程序（预案，非本次改动）
+## 8. CI 环境差异实测（2026-11-24 run 45306950102，预案已关闭）
 
-GitHub ubuntu-latest 与本机同为 Ubuntu + node22 + playwright^1.63 锁定同一 chromium-1243，
-但 fontconfig 字体集可能不同 → 文本渲染或产生 0.1–1% 级差异。处置程序：
-1. 首次 CI run 若 C 闸因均匀分布的小比率差异 FAIL（无局部聚集 = 无布局位移），记录各图比率；
-2. 在本文件追加 CI 比率实测数据，将 RATIO_TOL 上调至 max(CI jitter)×2 且必须
-   **低于 D1 的 1/10（2.1%）**，并重跑三闸 trip 验证捕获余量未失效；
+GitHub ubuntu-latest + node22 + playwright^1.63（锁定 chromium-1243）实测：
+**9 图 C 断言全部 0.0000%**（见 ci-run.md）——同浏览器构建下跨环境渲染逐像素一致，
+RATIO_TOL=0.4% 余量未被消耗。重校准触发条件（若未来 runner/浏览器版本变化引入差异）：
+1. CI 若因均匀分布小比率差异 FAIL（无局部聚集 = 无布局位移），记录各图比率；
+2. 在本文件追加数据，将 RATIO_TOL 上调至 max(CI jitter)×2 且必须 **低于 D1 的 1/10（2.1%）**，
+   并重跑三闸 trip 验证捕获余量未失效；
 3. 若差异呈局部聚集（=真布局差异），不得调容差，按回归排查。
