@@ -1,0 +1,14 @@
+chip: Convert PASS
+convert→Download: PASS
+reset→Choose a file: PASS
+PT 390 dz<h1: PASS {"dz":129,"h1":593.328125}
+PROD SMOKE: ALL PASS
+
+--- PSI note (2026-11-24) ---
+PSI mobile API: HTTP 429 daily-quota exceeded — recheck pending [待确认].
+Substitute local evidence: CLS after max 0.00025 (before 0.000529 @768,
+cls-after.json vs before/cls-baseline.json, same method/routes/widths).
+--- notes ---
+PT pages carry 1× 'Try it free' in RSC payload = shared sitewide EN header
+CTA (pre-existing design; pre-change value was 'Convert now — free' EN).
+Header CTA is EN sitewide incl. PT routes — unchanged behavior, R1 scope.
