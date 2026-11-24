@@ -1,0 +1,27 @@
+# P0-3b 生产验收（终版） 2026-11-24T23:03:14+08:00 — cleanpaths.io
+
+== 1. /pt/ 200 ==
+HTTP 200  48324B
+== 2. 301 ==
+HTTP 301  Location: https://cleanpaths.io/svg-to-dxf-converter/
+== 3. sitemap /pt/ + lastmod ==
+  url 总数: 48
+  <loc>https://cleanpaths.io/pt/</loc>
+  <lastmod>2026-11-24</lastmod>
+  未来时间检查:
+  （无输出=零未来时间）
+== 4. EN 首页入口 ==
+href="/pt/">Versão em português: Todos os conversores →
+<link rel="alternate" hrefLang="pt-BR" href="https://cleanpaths.io/pt/"
+== 5. PT 页脚互链 16/16 ==
+  互链总数: 16/16
+== 6. hub hreflang ==
+  <link rel="alternate" hrefLang="en" href="https://cleanpaths.io/"
+  <link rel="alternate" hrefLang="pt-BR" href="https://cleanpaths.io/pt/"
+  <link rel="alternate" hrefLang="x-default" href="https://cleanpaths.io/"
+== hub canonical + lang + 出链 ==
+<link rel="canonical" href="https://cleanpaths.io/pt/"
+<html lang="pt-BR"
+  /pt/ 去重出链: 16
+== hub FAQPage schema ==
+  FAQPage JSON-LD: 1
