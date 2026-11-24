@@ -1,0 +1,37 @@
+== visual-regression gate (open-items #111) ==
+BASE=http://localhost:8899 MODE=diff INJECT=wrong-baseline CH_TOL=24 RATIO_TOL=0.004
+server reuse: http://localhost:8899
+  PASS A overflow home@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot home-360.png
+  PASS A overflow home@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze home@768 kids>=160px (all grids healthy)
+  shot home-768.png
+  PASS A overflow home@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot home-1024.png
+  PASS A overflow p2d@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot p2d-360.png
+  PASS A overflow p2d@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze p2d@768 kids>=160px (all grids healthy)
+  shot p2d-768.png
+  PASS A overflow p2d@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot p2d-1024.png
+  PASS A overflow laser@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot laser-360.png
+  PASS A overflow laser@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze laser@768 kids>=160px (all grids healthy)
+  shot laser-768.png
+  PASS A overflow laser@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot laser-1024.png
+  PASS baseline set complete (9 images)
+  FAIL C pixel home-360.png (vs wrong baseline home-768.png) [inject] dimensions differ: cur=360x9498 base=768x7518
+  FAIL C pixel home-768.png (vs wrong baseline home-1024.png) [inject] dimensions differ: cur=768x7518 base=1024x5929
+  FAIL C pixel home-1024.png (vs wrong baseline p2d-360.png) [inject] dimensions differ: cur=1024x5929 base=360x8528
+  FAIL C pixel p2d-360.png (vs wrong baseline p2d-768.png) [inject] dimensions differ: cur=360x8528 base=768x6791
+  FAIL C pixel p2d-768.png (vs wrong baseline p2d-1024.png) [inject] dimensions differ: cur=768x6791 base=1024x5756
+  FAIL C pixel p2d-1024.png (vs wrong baseline laser-360.png) [inject] dimensions differ: cur=1024x5756 base=360x7534
+  FAIL C pixel laser-360.png (vs wrong baseline laser-768.png) [inject] dimensions differ: cur=360x7534 base=768x5324
+  FAIL C pixel laser-768.png (vs wrong baseline laser-1024.png) [inject] dimensions differ: cur=768x5324 base=1024x4820
+  FAIL C pixel laser-1024.png (vs wrong baseline home-360.png) [inject] dimensions differ: cur=1024x4820 base=360x9498
+
+RESULT: 13 pass, 9 fail  (A=9 overflow, B=3 squeeze, C=9 pixel, +1 baseline-set)
+GATE: FAIL — see FAIL lines above; diff artifacts in scripts/visual-regression-evidence/ (if pixel)

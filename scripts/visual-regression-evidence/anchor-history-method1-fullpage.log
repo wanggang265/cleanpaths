@@ -1,0 +1,27 @@
+== visual-regression gate (open-items #111) ==
+BASE=http://localhost:8899 MODE=update-baseline INJECT=none CH_TOL=24 RATIO_TOL=0.004
+qa-server.cjs spawned (:8899, out/ + COOP/COEP)
+  PASS A overflow home@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot home-360.png
+  PASS A overflow home@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze home@768 kids>=160px (all grids healthy)
+  shot home-768.png
+  PASS A overflow home@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot home-1024.png
+  PASS A overflow p2d@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot p2d-360.png
+  PASS A overflow p2d@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze p2d@768 kids>=160px (all grids healthy)
+  shot p2d-768.png
+  PASS A overflow p2d@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot p2d-1024.png
+  PASS A overflow laser@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot laser-360.png
+  PASS A overflow laser@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  PASS B grid-squeeze laser@768 kids>=160px (all grids healthy)
+  shot laser-768.png
+  PASS A overflow laser@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot laser-1024.png
+
+BASELINE UPDATED: 9 images -> scripts/visual-baseline/
+RESULT: 12 pass, 0 fail (A/B assertions informational in update mode)

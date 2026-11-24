@@ -10,6 +10,8 @@
     "audit:copy": "node scripts/audit-copy.mjs",
     "gate": "bash scripts/deploy-gate.sh",
     "build": "npm run gate && npm run build:flatten && next build && node scripts/postbuild.mjs",
+    "visual:regression": "node scripts/visual-regression.cjs",
+    "visual:update-baseline": "node scripts/visual-regression.cjs --update-baseline",
     "build:vendor": "esbuild .vendor-src/vectorizer.js --bundle --format=esm --platform=browser --target=es2022 --external:./worker.js --outfile=public/vendor/vectorizer/vectorizer.bundle.js",
     "build:flatten": "esbuild src/workers/flatten-worker.ts --bundle --format=iife --platform=browser --target=es2020 --outfile=public/vendor/flatten/flatten-worker.js",
     "deploy": "bash deploy.sh"

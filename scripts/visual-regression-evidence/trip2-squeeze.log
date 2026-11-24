@@ -1,0 +1,37 @@
+== visual-regression gate (open-items #111) ==
+BASE=http://localhost:8899 MODE=diff INJECT=squeeze CH_TOL=24 RATIO_TOL=0.004
+server reuse: http://localhost:8899
+  PASS A overflow home@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot home-360.png
+  PASS A overflow home@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  FAIL B grid-squeeze home@768 kids>=160px [" tracks=3 minKid=100"] [inject]
+  shot home-768.png
+  PASS A overflow home@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot home-1024.png
+  PASS A overflow p2d@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot p2d-360.png
+  PASS A overflow p2d@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  FAIL B grid-squeeze p2d@768 kids>=160px [" tracks=3 minKid=100"] [inject]
+  shot p2d-768.png
+  PASS A overflow p2d@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot p2d-1024.png
+  PASS A overflow laser@360 scrollWidth<=clientWidth (scrollWidth=360 clientWidth=360)
+  shot laser-360.png
+  PASS A overflow laser@768 scrollWidth<=clientWidth (scrollWidth=768 clientWidth=768)
+  FAIL B grid-squeeze laser@768 kids>=160px [" tracks=3 minKid=100"] [inject]
+  shot laser-768.png
+  PASS A overflow laser@1024 scrollWidth<=clientWidth (scrollWidth=1024 clientWidth=1024)
+  shot laser-1024.png
+  PASS baseline set complete (9 images)
+  PASS C pixel home-360.png ratio=0.0046% (156/3419280 px, tol ch>24 ratio>0.40%)
+  PASS C pixel home-768.png ratio=0.2690% (15529/5773824 px, tol ch>24 ratio>0.40%)
+  PASS C pixel home-1024.png ratio=0.3303% (20054/6071296 px, tol ch>24 ratio>0.40%)
+  PASS C pixel p2d-360.png ratio=0.0051% (156/3070080 px, tol ch>24 ratio>0.40%)
+  PASS C pixel p2d-768.png ratio=0.2977% (15529/5215488 px, tol ch>24 ratio>0.40%)
+  PASS C pixel p2d-1024.png ratio=0.3437% (20260/5894144 px, tol ch>24 ratio>0.40%)
+  PASS C pixel laser-360.png ratio=0.0058% (156/2712240 px, tol ch>24 ratio>0.40%)
+  PASS C pixel laser-768.png ratio=0.0221% (902/4088832 px, tol ch>24 ratio>0.40%)
+  PASS C pixel laser-1024.png ratio=0.1466% (7234/4935680 px, tol ch>24 ratio>0.40%)
+
+RESULT: 19 pass, 3 fail  (A=9 overflow, B=3 squeeze, C=9 pixel, +1 baseline-set)
+GATE: FAIL — see FAIL lines above; diff artifacts in scripts/visual-regression-evidence/ (if pixel)
