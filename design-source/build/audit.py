@@ -19,7 +19,7 @@ SENTINELS = {
    "CleanPaths turns flat-color graphics into clean, closed-path cut files — with real DXF export — processed entirely on your device. No upload, no account, no watermark.",
    "Conversion runs 100% in your browser. There is no upload step — your files never leave your device. Close the tab and they're gone; we never had them.",
    "Drop a PNG, JPG or SVG here — or browse",
-   "Convert now — free",
+   "Try it free",
    "Flat-color graphics → cut-ready · Photos → stylized result",
    "Files stay on your device", "No account", "No watermark", "10 free conversions a day",
    "In our tests, a heavily compressed logo that default auto-tracing explodes into 88 messy color layers comes out with as few as 9 — closed paths, color-separated, no overlapping lines.",
@@ -151,7 +151,7 @@ SENTINELS = {
    "Conversor de JFIF para JPG — Grátis, sem Upload",
    "Arraste sua imagem JFIF e baixe o JPG em segundos.",
    "Arraste seu arquivo .jfif aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "Seus arquivos não saem do seu dispositivo",
    "Por que meu arquivo veio como JFIF?",
    "Como converter JFIF para JPG",
@@ -370,7 +370,7 @@ SENTINELS = {
  "pt-jfif-para-png": [
    "Conversor de JFIF para PNG — Grátis, sem Upload",
    "Arraste seu arquivo .jfif aqui — ou clique para escolher",
-   "Converter grátis",
+   "Testar grátis",
    "Por que converter JFIF para PNG?",
    "Como abrir um arquivo JFIF",
    "Converter JFIF para PNG grátis",
@@ -394,7 +394,7 @@ SENTINELS = {
  "pt-webp-para-svg": [
    "Conversor de WebP para SVG — Grátis, sem Upload",
    "Arraste seu arquivo .webp aqui — ou clique para escolher",
-   "Converter grátis",
+   "Testar grátis",
    "Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado",
    "Um aviso honesto antes de converter",
    "Converter WebP para SVG grátis",
@@ -1131,8 +1131,8 @@ def main():
             for w in PANEL_WORDS:
                 if w in low:
                     fails.append(f"[V17-NEG] {slug}/{fn}: panel word '{w}' present")
-    if "convert now — free" in raw17("png-to-dxf-for-laser-cutting").lower():
-        fails.append("[V17-NEG] png-to-dxf-for-laser-cutting: 'Convert now — free' present (content page, no dropzone CTA)")
+    if "try it free" in raw17("png-to-dxf-for-laser-cutting").lower():
+        fails.append("[V17-NEG] png-to-dxf-for-laser-cutting: 'Try it free' present (content page, no dropzone CTA)")
     if fails:
         print("\n".join(fails))
         print(f"\n{len(fails)} FAILURES")

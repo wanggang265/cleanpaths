@@ -17,7 +17,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
   <div class="dz-text">Drop a WebP here — or browse</div>
   <div class="dz-or">— or —</div>
-  <button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+  <button class="btn btn--primary btn--lg" type="button">Try it free</button>
   <div class="dz-formats">ACCEPTS: .WEBP · PROCESSED LOCALLY</div>
   
   <div><span class="microcopy">Flat-color graphics → <b>cut-ready</b> · Photos → <b>stylized result</b></span></div>

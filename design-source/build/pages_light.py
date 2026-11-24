@@ -123,7 +123,7 @@ def build_jfif():
     <div class="hero__eyebrow"><span class="spec">JFIF → JPG · instant repackaging</span></div>
     <h1>JFIF to JPG (JPEG) Converter — Free, No Upload</h1>
     <p class="hero__sub">Drag in a JFIF, download a JPG. The conversion happens entirely in your browser — there's no upload step, and nothing to sign up for.</p>
-    <div style="margin-top:32px">{dropzone(accept=".jfif", dz_text="Drop a .jfif file here — or browse", btn="Convert now — free", micro=None)}
+    <div style="margin-top:32px">{dropzone(accept=".jfif", dz_text="Drop a .jfif file here — or browse", btn="Try it free", micro=None)}
     <p style="margin-top:14px;font-size:14.5px;color:var(--ink-2)">Free · No upload · No watermark — your files never leave your device.</p></div>
   </div>
 </section>"""
@@ -168,7 +168,7 @@ def build_jfif():
   <div class="wrap" style="max-width:820px">
     <span class="spec">Free &amp; private</span>
     <h2 style="margin-top:12px">Convert JFIF to JPG free, without uploading</h2>
-    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Many online converters ask you to upload files first. CleanPaths is different: the conversion happens on your device. That means faster results for normal images and better privacy for personal or client work.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Many online converters ask you to upload files first. CleanPaths is different: faster results for normal images.</p>
     <p style="color:var(--ink-2);max-width:62em;margin-top:12px">If you only need to change a .jfif file into a more compatible .jpg, you do not need a full design suite or a paid converter.</p>
   </div>
 </section>"""
@@ -269,7 +269,7 @@ def build_pt():
         {UPLOAD_ICON}
         <div class="dz-text">Arraste seu arquivo .jfif aqui — ou clique para escolher</div>
         <div class="dz-or">— ou —</div>
-        <button class="btn btn--primary btn--lg" type="button">Converter agora — grátis</button>
+        <button class="btn btn--primary btn--lg" type="button">Testar grátis</button>
         <div class="dz-formats">ACEITA: .JFIF · PROCESSADO LOCALMENTE</div>
       </div>
       <div style="margin-top:14px"><div class="badges"><span class="badge">🔒 Seus arquivos não saem do seu dispositivo</span><span class="badge">Sem cadastro</span><span class="badge">Sem marca d'água</span></div></div>

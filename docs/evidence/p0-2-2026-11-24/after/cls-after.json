@@ -1,0 +1,50 @@
+[
+  {
+    "route": "/",
+    "w": 390,
+    "cls": 0,
+    "entries": 0
+  },
+  {
+    "route": "/",
+    "w": 768,
+    "cls": 0.0002517204661387996,
+    "entries": 1
+  },
+  {
+    "route": "/jfif-to-jpg/",
+    "w": 390,
+    "cls": 0,
+    "entries": 0
+  },
+  {
+    "route": "/jfif-to-jpg/",
+    "w": 768,
+    "cls": 0.0002517204661387996,
+    "entries": 1
+  },
+  {
+    "route": "/pt/jfif-para-jpg/",
+    "w": 390,
+    "cls": 0,
+    "entries": 0
+  },
+  {
+    "route": "/pt/jfif-para-jpg/",
+    "w": 768,
+    "cls": 0,
+    "entries": 0
+  },
+  {
+    "route": "/png-to-dxf/",
+    "w": 390,
+    "cls": 0,
+    "entries": 0
+  },
+  {
+    "route": "/png-to-dxf/",
+    "w": 768,
+    "cls": 0.0002517204661387996,
+    "entries": 1
+  }
+]

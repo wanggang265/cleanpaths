@@ -203,6 +203,11 @@ export const STATE_COPY = {
     mode_cut: 'Cut',
     mode_engrave: 'Engrave',
     mode_hint: 'Engrave = filled color layers — not photo engraving',
+    // P0-2 item 5 (2026-11-24 修改完善计划, 王刚 GO): selected-state chip button.
+    // States: Choose a file (hydrated) → Convert (chip) → Download (result).
+    // Outside the 05 §11 freeze — sanctioned by the same GO; scope recorded
+    // in design-source/P0-2-copy-addendum-2026-11-24.md.
+    sel_btn: 'Convert',
   },
   pt: {
     dz_drop: 'Arraste seu arquivo .jfif aqui — ou clique para escolher',
@@ -225,6 +230,9 @@ export const STATE_COPY = {
     pro_active: '✓ PRO ACTIVE',
     pro_no_cap: 'no daily cap',
     pro_offline: 'works offline after activation',
+    // P0-2 item 5: PT chip button — static PT CTA 'Testar grátis' opens the
+    // picker; the chip's explicit convert label stays PT.
+    sel_btn: 'Converter',
   },
 } as const;
 

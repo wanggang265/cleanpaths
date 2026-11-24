@@ -10,7 +10,7 @@ export const mainHtml = `<section class="hero matgrid">
       
       <!-- PT_HERO_DZ_LABEL --><div class="dz-text">Arraste seu arquivo .svg aqui — ou clique para escolher</div>
       <div class="dz-or">— ou —</div>
-      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Converter agora — grátis</button>
+      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Testar grátis</button>
       <div class="dz-formats">ACEITA: .SVG · PROCESSADO LOCALMENTE</div>
       <div style="margin-top:16px">
         <div class="seg" role="group" aria-label="DXF version">

@@ -15,7 +15,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
       <!-- WEBP2PNG_DZ_TEXT --><div class="dz-text">Drop a .webp file here — or browse</div>
       <div class="dz-or">— or —</div>
-      <!-- WEBP2PNG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+      <!-- WEBP2PNG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Try it free</button>
       <!-- WEBP2PNG_DZ_FORMATS --><div class="dz-formats">ACCEPTS: .WEBP · PROCESSED LOCALLY</div>
     </div>
     <div style="margin-top:14px"><!-- WEBP2PNG_BADGES --><div class="badges"><span class="badge">🔒 Files stay on your device</span> · <span class="badge">No account</span> · <span class="badge">No watermark</span> · <span class="badge">10 free conversions a day</span></div></div>

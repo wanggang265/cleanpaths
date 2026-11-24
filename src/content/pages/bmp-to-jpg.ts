@@ -15,7 +15,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
       <!-- BMP2JPG_DZ_TEXT --><div class="dz-text">Drop a .bmp file here — or browse</div>
       <div class="dz-or">— or —</div>
-      <!-- BMP2JPG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+      <!-- BMP2JPG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Try it free</button>
       <!-- BMP2JPG_DZ_FORMATS --><div class="dz-formats">ACCEPTS: .BMP · PROCESSED LOCALLY</div>
     </div>
     <div style="margin-top:14px"><!-- BMP2JPG_BADGES --><div class="badges"><span class="badge">🔒 Files stay on your device</span> · <span class="badge">No account</span> · <span class="badge">No watermark</span> · <span class="badge">10 free conversions a day</span></div></div>

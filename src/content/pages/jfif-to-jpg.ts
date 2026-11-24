@@ -15,7 +15,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
   <div class="dz-text">Drop a .jfif file here — or browse</div>
   <div class="dz-or">— or —</div>
-  <button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+  <button class="btn btn--primary btn--lg" type="button">Try it free</button>
   <div class="dz-formats">ACCEPTS: .JFIF · PROCESSED LOCALLY</div>
   
   
@@ -61,7 +61,7 @@ export const mainHtml = `<section class="hero matgrid">
   <div class="wrap" style="max-width:820px">
     <span class="spec">Free &amp; private</span>
     <h2 style="margin-top:12px">Convert JFIF to JPG free, without uploading</h2>
-    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Many online converters ask you to upload files first. CleanPaths is different: the conversion happens on your device. That means faster results for normal images and better privacy for personal or client work.</p>
+    <p style="color:var(--ink-2);max-width:62em;margin-top:12px">Many online converters ask you to upload files first. CleanPaths is different: faster results for normal images.</p>
     <p style="color:var(--ink-2);max-width:62em;margin-top:12px">If you only need to change a .jfif file into a more compatible .jpg, you do not need a full design suite or a paid converter.</p>
   </div>
 </section>

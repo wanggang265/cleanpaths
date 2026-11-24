@@ -214,6 +214,14 @@ h3 { font-size: 19px; }
 .dropzone .dz-text { font-family: var(--font-display); font-weight: 600; font-size: 20px; }
 .dropzone .dz-or { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin: var(--s2) 0 var(--s3); letter-spacing: .1em; }
 .dropzone .dz-formats { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); margin-top: var(--s3); letter-spacing: .08em; }
+/* P0-2 item 5: selected state — staged-file chip + Convert button. Icon/text/
+   or/primary hide via [data-state=selected] so only chip (+formats) remains. */
+.dz-selected { display: flex; align-items: center; gap: 10px; margin-bottom: var(--s3); min-width: 0; }
+.dz-sel-name { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+#convert[data-state="selected"] > .dz-icon,
+#convert[data-state="selected"] > .dz-text,
+#convert[data-state="selected"] > .dz-or,
+#convert[data-state="selected"] > .btn--primary { display: none; }
 .dropzone.is-dragover { border-color: var(--blade); background: var(--blade-soft); border-style: solid; }
 .microcopy {
   margin-top: var(--s3);
@@ -790,6 +798,11 @@ body:has(.cookie-notice) .fab-feedback { bottom: 84px; }
   /* stage-1 purefix (#10 Task 2): tool (dropzone) first on mobile —
      DOM order stays copy-first for no-JS/SEO, visual order only. */
   .hero__grid > div:has(.dropzone) { order: -1; }
+  /* P0-2 item 1: light pages (single-column hero, no .hero__grid) — upload
+     zone first on mobile, copy below. Same visual-order-only pattern; DOM
+     untouched for no-JS/SEO. :has() scope excludes home/DXF grid heroes. */
+  .hero .wrap:not(:has(.hero__grid)):has(#convert) { display: flex; flex-direction: column; }
+  .hero .wrap:not(:has(.hero__grid)) > div:has(#convert) { order: -1; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .section { padding: var(--s7) 0; }
   .hero { padding: var(--s6) 0; }
@@ -812,6 +825,18 @@ body:has(.cookie-notice) .fab-feedback { bottom: 84px; }
 .nav-mobile .menu a { padding: 10px 8px; color: var(--ink); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); font-size: 15px; }
 .nav-mobile .menu a:hover { color: var(--blade-dark); }
 @media (max-width: 620px) {
-  .nav-mobile { display: block; position: static; }
+  .nav-mobile { display: block; position: static; margin-left: auto; } /* P0-2: keep right-push (960 band sets 8px) */
   .nav-cta-header { display: none; }
+}
+
+/* P0-2 item 1 (2026-11-24 修改完善计划, 王刚 GO): 621–960 nav dead zone — desktop
+   links collapse but the hamburger only showed ≤620, leaving the full menu
+   unreachable. Placed AFTER the base .nav-mobile rule (cascade: same
+   specificity, later source wins) and scoped so ≤620 keeps margin-left:auto. */
+@media (max-width: 960px) {
+  .main-nav .nav-more { display: none; }
+  .nav-mobile { display: block; position: static; }
+}
+@media (min-width: 621px) and (max-width: 960px) {
+  .nav-mobile { margin-left: 8px; }
 }

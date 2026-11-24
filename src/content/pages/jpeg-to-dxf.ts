@@ -17,7 +17,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
       <!-- JPEG2DXF_DZ_TEXT --><div class="dz-text">Drop a .jpeg file here — or browse</div>
       <div class="dz-or">— or —</div>
-      <!-- JPEG2DXF_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+      <!-- JPEG2DXF_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Try it free</button>
       <!-- JPEG2DXF_DZ_FORMATS --><div class="dz-formats">ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY</div>
       <!-- JPEG2DXF_MICROCOPY --><div style="margin-top:12px"><span class="microcopy">Flat-color graphics → cut-ready · Photos → stylized result</span></div>
     </div>

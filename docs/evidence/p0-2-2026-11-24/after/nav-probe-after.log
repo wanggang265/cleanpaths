@@ -1,0 +1,9 @@
+621-960 nav dead band (after fix, 2026-11-24):
+w=961 navlinks 7/7 | hamburger none | More block | headerCTA flex
+w=960 navlinks 0/7 | hamburger block | More none | headerCTA flex
+w=900 navlinks 0/7 | hamburger block | More none | headerCTA flex
+w=768 navlinks 0/7 | hamburger block | More none | headerCTA flex
+w=700 navlinks 0/7 | hamburger block | More none | headerCTA flex
+w=621 navlinks 0/7 | hamburger block | More none | headerCTA flex
+w=620 navlinks 0/7 | hamburger block | More none | headerCTA none
+w=390 navlinks 0/7 | hamburger block | More none | headerCTA none

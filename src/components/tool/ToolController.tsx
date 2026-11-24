@@ -22,7 +22,7 @@ import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive
 import { decodeRaster, encodeBitmap, rasterizeSvg } from '@/lib/bitmap';
 import { beacon } from '@/lib/beacon';
 import { wireLicenseEntry } from '@/lib/license-panel';
-import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, BITMAP_LAYER_NOTES, proActiveHtml, resultHtml, processingHtml, type ResultRender } from './state-templates';
+import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, BITMAP_LAYER_NOTES, proActiveHtml, resultHtml, processingHtml, selectedHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
 import { openFeedbackDialog, TOOL_BUSY_EVENT } from '../feedback';
 
@@ -195,12 +195,13 @@ export default function ToolController(props: ToolProps) {
     const wireStatic = () => {
       // stage-1 purefix (#10 Task 5): honest empty-state label — the primary
       // button opens the file picker, it does not convert anything yet.
-      // EN only: PT pages keep their frozen copy (red line). Runs on mount
-      // and on reset() (initialHtml restores the frozen label first).
+      // EN only: PT keeps its static label (P0-2 R1, 2026-11-24: frozen PT
+      // CTA is now 'Testar grátis'; wiring below stays lang-agnostic). Runs
+      // on mount and on reset() (initialHtml restores the static label first).
       if (lang === 'en') {
         dz.querySelectorAll<HTMLButtonElement>('.btn--primary').forEach((b) => {
           if (b.dataset.toolDl) return;
-          if (b.textContent?.includes('Convert now')) b.textContent = 'Choose a file';
+          if (b.textContent?.includes('Try it free')) b.textContent = 'Choose a file';
         });
       }
       // primary CTA → picker
@@ -254,20 +255,44 @@ export default function ToolController(props: ToolProps) {
       e.preventDefault();
       dz.classList.remove('is-dragover');
       const f = e.dataTransfer?.files?.[0];
-      if (f) void run(f);
+      if (f) void showSelected(f);
     };
     dz.addEventListener('dragover', onDragOver);
     dz.addEventListener('dragleave', onDragLeave);
     dz.addEventListener('drop', onDrop);
     picker.onchange = () => {
       const f = picker.files?.[0];
-      if (f) void run(f);
+      if (f) void showSelected(f);
       picker.value = '';
+    };
+
+    // P0-2 item 5 (2026-11-24 修改完善计划, 王刚 GO): two-stage flow — picking a
+    // file only STAGES it (name chip + Convert button); nothing converts until
+    // the explicit Convert click. Format fast-fail keeps run()'s exact frozen
+    // error rendering and today's timing (upload_start IS the selection event,
+    // fired here; quota/engine side effects stay in run()).
+    let pendingFile: File | null = null;
+    const showSelected = (file: File) => {
+      gtagEvent('upload_start'); // #10 Task 6: file selected (any path: picker/drop)
+      const ext = extOf(file.name);
+      if (!accept.includes(ext)) {
+        renderState('error', errorHtml(`<b>${errorMessage.split('</b>')[0]}</b> ${errorMessage.split('</b>')[1] ?? ''}`, lang));
+        return;
+      }
+      pendingFile = file;
+      dz.dataset.state = 'selected';
+      dz.querySelector('.dz-selected')?.remove();
+      dz.insertAdjacentHTML('afterbegin', selectedHtml(file.name, lang));
+      dz.querySelector('[data-tool-convert]')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (pendingFile) void run(pendingFile);
+      });
     };
 
     async function run(file: File) {
       const myRun = ++runSeq; // 05 v1.6: cancel token — stale runs discard their outcome
-      gtagEvent('upload_start'); // #10 Task 6: file selected (any path: picker/drop)
+      // P0-2 item 5: upload_start moved to showSelected() — staging is the
+      // selection event; run() fires only on the explicit Convert click.
       // 1) format gate (frozen error)
       const ext = extOf(file.name);
       if (!accept.includes(ext)) {
@@ -627,6 +652,7 @@ export default function ToolController(props: ToolProps) {
       S.out = null;
       S.aiHdOn = false;
       S.sizeNote = null;
+      pendingFile = null; // P0-2 item 5: staged file discarded with the state
       wireStatic();
       setBusy(false);
     }

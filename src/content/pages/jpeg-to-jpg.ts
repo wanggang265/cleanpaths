@@ -15,7 +15,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
       <!-- JPEG2JPG_DZ_TEXT --><div class="dz-text">Drop a .jpeg file here — or browse</div>
       <div class="dz-or">— or —</div>
-      <!-- JPEG2JPG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+      <!-- JPEG2JPG_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Try it free</button>
       <!-- JPEG2JPG_DZ_FORMATS --><div class="dz-formats">ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY</div>
     </div>
     <div style="margin-top:14px"><!-- JPEG2JPG_BADGES --><div class="badges"><span class="badge">🔒 Files stay on your device</span> · <span class="badge">No account</span> · <span class="badge">No watermark</span> · <span class="badge">10 free conversions a day</span></div></div>

@@ -17,7 +17,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
   <div class="dz-text">Drop a JPG here — or browse</div>
   <div class="dz-or">— or —</div>
-  <button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+  <button class="btn btn--primary btn--lg" type="button">Try it free</button>
   <div class="dz-formats">ACCEPTS: .JPG, .JPEG · PROCESSED LOCALLY</div>
   <div style="margin-top:16px"><label class="switch"><span class="track"></span>Clean up bad images (recommended)</label></div>
   <div><span class="microcopy">Flat-color graphics → <b>cut-ready</b> · Photos → <b>stylized result</b></span></div>

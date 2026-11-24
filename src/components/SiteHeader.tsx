@@ -43,7 +43,7 @@ const TOOL_ROUTES = new Set([
 ]);
 
 /** Routes with NO header CTA (05 v1.13 §H negative sentinel: scenario page
- *  omits 'Convert now — free' — no on-page #convert anchor by design). */
+ *  omits 'Try it free' — no on-page #convert anchor by design). */
 const NO_CTA_ROUTES = new Set(['/png-to-dxf-for-laser-cutting/']);
 
 /** PT neutral pages → their EN pair for the "English version" link.
@@ -145,7 +145,7 @@ export default function SiteHeader({ activeRoute = '/', lang = 'en' }: { activeR
           {nl('/pricing/', activeRoute, 'Pricing')}
           {NO_CTA_ROUTES.has(activeRoute) ? null : (
             <a className="btn btn--primary btn--sm nav-cta nav-cta-header" href={convertHref}>
-              Convert now — free
+              Try it free
             </a>
           )}
         </nav>

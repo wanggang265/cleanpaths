@@ -42,6 +42,18 @@ export function errorHtml(message: string, lang: 'en' | 'pt'): string {
   <div style="margin-top:14px"><button class="btn" type="button" data-tool-reset>${c.err_btn}</button></div>`;
 }
 
+// P0-2 item 5 (2026-11-24 修改完善计划, 王刚 GO): selected state — staged file
+// chip + explicit Convert button. fileName is DATA (the user's own file name),
+// never copy; the button label comes from STATE_COPY.sel_btn (same GO).
+export function selectedHtml(fileName: string, lang: 'en' | 'pt'): string {
+  const c = STATE_COPY[lang];
+  return `
+  <div class="dz-selected" data-tool-selected>
+    <span class="dz-sel-name">${esc(fileName)}</span>
+    <button class="btn btn--primary btn--sm" type="button" data-tool-convert>${c.sel_btn}</button>
+  </div>`;
+}
+
 export function capHtml(lang: 'en' | 'pt'): string {
   if (lang === 'pt') {
     const c = CAP_COPY.pt;

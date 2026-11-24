@@ -1,0 +1,146 @@
+{
+  "results": [
+    {
+      "name": "nav w=961 desktop",
+      "pass": true,
+      "detail": "{\"burger\":\"none\",\"more\":\"block\",\"cta\":\"flex\",\"navlinks\":7}"
+    },
+    {
+      "name": "nav w=960 band fixed",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"flex\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=900 band fixed",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"flex\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=768 band fixed",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"flex\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=700 band fixed",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"flex\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=621 band fixed",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"flex\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=620 mobile",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"none\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=390 mobile",
+      "pass": true,
+      "detail": "{\"burger\":\"block\",\"more\":\"none\",\"cta\":\"none\",\"navlinks\":0}"
+    },
+    {
+      "name": "nav w=768 menu opens",
+      "pass": true,
+      "detail": "9 links"
+    },
+    {
+      "name": "nav w=768 menu links all 200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "EN hydration label = Choose a file",
+      "pass": true,
+      "detail": "Choose a file"
+    },
+    {
+      "name": "EN chip shows",
+      "pass": true,
+      "detail": "{\"name\":\"photo.jfif\",\"btn\":\"Convert\",\"state\":\"selected\",\"staticHidden\":true,\"iconHidden\":true}"
+    },
+    {
+      "name": "EN chip filename",
+      "pass": true,
+      "detail": "photo.jfif"
+    },
+    {
+      "name": "EN upload_start fired once at pick",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "EN convert → Download appears",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "EN upload_start NOT re-fired on Convert",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "EN reset restores empty state",
+      "pass": true,
+      "detail": "Choose a file"
+    },
+    {
+      "name": "EN invalid file fast-fails (frozen error)",
+      "pass": true,
+      "detail": "!That file can't be converted here. This page accepts .JFIF. Nothing was uploaded, so noth"
+    },
+    {
+      "name": "EN fast-fail upload_start counted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "PT static label = Testar grátis (no hydration)",
+      "pass": true,
+      "detail": "Testar grátis"
+    },
+    {
+      "name": "PT chip button = Converter",
+      "pass": true,
+      "detail": "Converter"
+    },
+    {
+      "name": "PT convert → Download appears",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "390 overflow sweep (47 routes)",
+      "pass": true,
+      "detail": "no horizontal overflow"
+    },
+    {
+      "name": "390 dz-above-h1 /jfif-to-jpg/",
+      "pass": true,
+      "detail": "{\"dz\":129,\"h1\":634.515625}"
+    },
+    {
+      "name": "390 dz-above-h1 /pt/jfif-para-jpg/",
+      "pass": true,
+      "detail": "{\"dz\":129,\"h1\":593.328125}"
+    },
+    {
+      "name": "390 dz-above-h1 /png-to-dxf/",
+      "pass": true,
+      "detail": "{\"dz\":97,\"h1\":724.328125}"
+    },
+    {
+      "name": "390 dz-above-h1 /",
+      "pass": true,
+      "detail": "{\"dz\":97,\"h1\":676.90625}"
+    },
+    {
+      "name": "CLS no regression vs before",
+      "pass": true,
+      "detail": "max 0.00025"
+    }
+  ],
+  "errors": [],
+  "at": "2026-11-24T13:59:07.323Z"
+}

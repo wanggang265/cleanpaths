@@ -19,7 +19,7 @@
    "Drop a .webp file here — or browse"
   ],
   "WEBP2PNG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "WEBP2PNG_DZ_FORMATS": [
    "ACCEPTS: .WEBP · PROCESSED LOCALLY"
@@ -117,7 +117,7 @@
   ],
   "PT_WEBP2PNG_DZ": [
    "Arraste seu arquivo .webp aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .WEBP · PROCESSADO LOCALMENTE"
   ],
   "PT_WEBP2PNG_BADGES": [
@@ -204,7 +204,7 @@
    "Drop a .webp file here — or browse"
   ],
   "WEBP2JPG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "WEBP2JPG_DZ_FORMATS": [
    "ACCEPTS: .WEBP · PROCESSED LOCALLY"
@@ -303,7 +303,7 @@
   ],
   "PT_WEBP2JPG_DZ": [
    "Arraste seu arquivo .webp aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .WEBP · PROCESSADO LOCALMENTE"
   ],
   "PT_WEBP2JPG_BADGES": [
@@ -389,7 +389,7 @@
    "Drop an .svg file here — or browse"
   ],
   "SVG2PNG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "SVG2PNG_DZ_FORMATS": [
    "ACCEPTS: .SVG · PROCESSED LOCALLY"
@@ -488,7 +488,7 @@
   ],
   "PT_SVG2PNG_DZ": [
    "Arraste seu arquivo .svg aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .SVG · PROCESSADO LOCALMENTE"
   ],
   "PT_SVG2PNG_BADGES": [
@@ -574,7 +574,7 @@
    "Drop a .jpeg file here — or browse"
   ],
   "JPEG2JPG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "JPEG2JPG_DZ_FORMATS": [
    "ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY"
@@ -676,7 +676,7 @@
   ],
   "PT_JPEG2JPG_DZ": [
    "Arraste seu arquivo .jpeg aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE"
   ],
   "PT_JPEG2JPG_BADGES": [
@@ -762,7 +762,7 @@
    "Drop an .svg file here — or browse"
   ],
   "SVG2JPG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "SVG2JPG_DZ_FORMATS": [
    "ACCEPTS: .SVG · PROCESSED LOCALLY"
@@ -861,7 +861,7 @@
   ],
   "PT_SVG2JPG_DZ": [
    "Arraste seu arquivo .svg aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .SVG · PROCESSADO LOCALMENTE"
   ],
   "PT_SVG2JPG_BADGES": [
@@ -947,7 +947,7 @@
    "Drop a .gif file here — or browse"
   ],
   "GIF2JPG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "GIF2JPG_DZ_FORMATS": [
    "ACCEPTS: .GIF · PROCESSED LOCALLY"
@@ -1047,7 +1047,7 @@
   ],
   "PT_GIF2JPG_DZ": [
    "Arraste seu arquivo .gif aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .GIF · PROCESSADO LOCALMENTE"
   ],
   "PT_GIF2JPG_BADGES": [
@@ -1133,7 +1133,7 @@
    "Drop a .bmp file here — or browse"
   ],
   "BMP2JPG_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "BMP2JPG_DZ_FORMATS": [
    "ACCEPTS: .BMP · PROCESSED LOCALLY"
@@ -1232,7 +1232,7 @@
   ],
   "PT_BMP2JPG_DZ": [
    "Arraste seu arquivo .bmp aqui — ou clique para escolher",
-   "Converter agora — grátis",
+   "Testar grátis",
    "ACEITA: .BMP · PROCESSADO LOCALMENTE"
   ],
   "PT_BMP2JPG_BADGES": [
@@ -1318,7 +1318,7 @@
    "Drop a .jpeg file here — or browse"
   ],
   "JPEG2DXF_DZ_BTN": [
-   "Convert now — free"
+   "Try it free"
   ],
   "JPEG2DXF_DZ_FORMATS": [
    "ACCEPTS: .JPEG, .JPG · PROCESSED LOCALLY"
@@ -1475,7 +1475,7 @@
    "Arraste seu arquivo .jpeg aqui — ou clique para escolher"
   ],
   "PT_JPEG2DXF_DZ_BTN": [
-   "Converter agora — grátis"
+   "Testar grátis"
   ],
   "PT_JPEG2DXF_DZ_FORMATS": [
    "ACEITA: .JPEG, .JPG · PROCESSADO LOCALMENTE"

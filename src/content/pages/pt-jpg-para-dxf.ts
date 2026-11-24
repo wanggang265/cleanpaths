@@ -10,7 +10,7 @@ export const mainHtml = `<section class="hero matgrid">
       
       <!-- PT_HERO_DZ_LABEL --><div class="dz-text">Arraste seu arquivo .jpg aqui — ou clique para escolher</div>
       <div class="dz-or">— ou —</div>
-      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Converter agora — grátis</button>
+      <!-- PT_HERO_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Testar grátis</button>
       <div class="dz-formats">ACEITA: .JPG · PROCESSADO LOCALMENTE</div>
       <!-- PT_HERO_TOGGLE --><label class="switch" style="margin-top:16px"><span class="track"></span>Limpar imagens ruins (recomendado)</label>
       <!-- PT_MICROCOPY --><div style="margin-top:12px"><span class="microcopy">Gráficos de cores chapadas → pronto para corte · Fotos → resultado estilizado</span></div>

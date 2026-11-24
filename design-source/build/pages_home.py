@@ -238,7 +238,7 @@ def build_states():
   """ + UPLOAD_ICON + """
   <div class="dz-text">Drop a PNG, JPG or SVG here — or browse</div>
   <div class="dz-or">RELEASE TO START</div>
-  <button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+  <button class="btn btn--primary btn--lg" type="button">Try it free</button>
   <div class="dz-formats">ACCEPTS: .PNG, .JPG, .SVG · PROCESSED LOCALLY</div>
 </div>"""),
         state_block("STATE 3 · processing", """

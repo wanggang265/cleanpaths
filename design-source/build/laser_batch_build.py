@@ -55,8 +55,8 @@ assert EN_FOOTER.count(OLD_LI) == 1
 EN_FOOTER = EN_FOOTER.replace(OLD_LI, NEW_LIS + OLD_LI)
 
 # scenario page: no on-page converter -> drop the header nav CTA (dead #convert anchor;
-# v1.13 §H negative sentinel: 'Convert now — free' must not appear on the content page)
-NAV_CTA = '    <a class="btn btn--primary btn--sm nav-cta nav-cta-header" href="#convert">Convert now — free</a>\n'
+# v1.13 §H negative sentinel: 'Try it free' must not appear on the content page)
+NAV_CTA = '    <a class="btn btn--primary btn--sm nav-cta nav-cta-header" href="#convert">Try it free</a>\n'
 assert NAV_CTA in EN_HEADER
 EN_HEADER_CONTENT = EN_HEADER.replace(NAV_CTA, "")
 

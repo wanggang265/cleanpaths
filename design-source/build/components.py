@@ -94,7 +94,7 @@ def header(active_route="/", lang="en"):
     {links}
     <details class="nav-more"><summary>More tools</summary><div class="menu">{more}</div></details>
     {samples}{people}{pricing}
-    <a class="btn btn--primary btn--sm nav-cta nav-cta-header" href="#convert">Convert now — free</a>
+    <a class="btn btn--primary btn--sm nav-cta nav-cta-header" href="#convert">Try it free</a>
   </nav>
   <details class="nav-mobile"><summary aria-label="Menu">☰</summary><div class="menu">{mobile}</div></details>
 </div></header>"""
@@ -106,7 +106,7 @@ def badges_row(extra=""):
     return '<div class="badges">' + "".join(f'<span class="badge">{b}</span>' for b in items) + "</div>"
 
 def dropzone(accept=".png, .jpg, .svg", dz_text="Drop a PNG, JPG or SVG here — or browse",
-             btn="Convert now — free", micro='Flat-color graphics → <b>cut-ready</b> · Photos → <b>stylized result</b>',
+             btn="Try it free", micro='Flat-color graphics → <b>cut-ready</b> · Photos → <b>stylized result</b>',
              badges_extra="10 free conversions a day", version_seg=False, cleanup_switch=False,
              shot_preset=False, anchor_id="convert", seg_note=""):
     seg = ""

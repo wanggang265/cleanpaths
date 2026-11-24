@@ -28,7 +28,7 @@ def build_jfif_png():
     <div class="hero__eyebrow"><span class="spec">JFIF → PNG · instant conversion</span></div>
     <h1>JFIF to PNG Converter — Free, No Upload</h1>
     <p class="hero__sub">Drag in a JFIF, download a PNG. The conversion happens entirely in your browser — there's no upload step, and nothing to sign up for.</p>
-    <div style="margin-top:32px">{dropzone(accept=".jfif", dz_text="Drop a .jfif file here — or browse", btn="Convert now — free", micro=None)}</div>
+    <div style="margin-top:32px">{dropzone(accept=".jfif", dz_text="Drop a .jfif file here — or browse", btn="Try it free", micro=None)}</div>
   </div>
 </section>"""
     explainer = """

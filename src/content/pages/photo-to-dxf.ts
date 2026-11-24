@@ -17,7 +17,7 @@ export const mainHtml = `<section class="hero matgrid">
 </svg>
   <!-- PHOTO2DXF_DZ_TEXT --><div class="dz-text">Drop a photo here — or browse</div>
   <div class="dz-or">— or —</div>
-  <!-- PHOTO2DXF_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Convert now — free</button>
+  <!-- PHOTO2DXF_DZ_BTN --><button class="btn btn--primary btn--lg" type="button">Try it free</button>
   <!-- PHOTO2DXF_DZ_FORMATS [PENDING-07-formats]: {FORMATS} placeholder chip, list NOT locked by copy — 07 backfills from real component accept list -->
   <div class="dz-formats">ACCEPTS: <span class="stat" style="border-color:var(--caution);color:var(--caution);background:var(--caution-soft)">{FORMATS}</span> · PROCESSED LOCALLY</div>
   <div style="margin-top:16px">

@@ -1,0 +1,8 @@
+621-960 nav dead band (reproduction probe, 2026-11-24):
+w=620  navlinks 0/7 visible | hamburger display=block
+w=621  navlinks 0/7 visible | hamburger display=none | MoreTools=visible | headerCTA=visible
+w=700  navlinks 0/7 visible | hamburger display=none
+w=768  navlinks 0/7 visible | hamburger display=none
+w=850  navlinks 0/7 visible | hamburger display=none
+w=960  navlinks 0/7 visible | hamburger display=none
+w=961  navlinks 7/7 visible | hamburger display=none
