@@ -479,7 +479,8 @@ def main():
     PT_PAGES = {"pt-jfif-para-jpg", "pt-jfif-para-png", "pt-webp-para-svg", "pt-imagem-para-dxf", "pt-foto-para-dxf",
                 "pt-webp-para-png", "pt-webp-para-jpg", "pt-svg-para-png", "pt-jpeg-para-jpg",
                 "pt-svg-para-jpg", "pt-gif-para-jpg", "pt-bmp-para-jpg", "pt-jpeg-para-dxf",
-                "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"}
+                "pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf",
+                "pt-hub"}  # P0-3b: /pt/ hub joins PT-side matrix (footer/support/06C neutral checks)
     LASER5 = {"image-to-dxf", "pt-imagem-para-dxf", "photo-to-dxf", "pt-foto-para-dxf", "png-to-dxf-for-laser-cutting"}
     # ---- v1.8 batch2: 16 new pages join every SENTINELS-driven matrix check (06c/E2/ROUTE-LINK/banned/footer) ----
     BATCH2_EN = ["webp-to-png", "webp-to-jpg", "svg-to-png", "jpeg-to-jpg",
@@ -491,6 +492,8 @@ def main():
     # ---- v1.9 batch3: 3 new PT DXF pages join every SENTINELS-driven matrix check ----
     for _s in ("pt-png-para-dxf", "pt-jpg-para-dxf", "pt-svg-para-dxf"):
         SENTINELS.setdefault(_s, [])
+    # ---- P0-3b: /pt/ hub joins every SENTINELS-driven matrix check (05-copy-freeze-v1.19 §H) ----
+    SENTINELS.setdefault("pt-hub", [])
     # ---- 2a (05-copy-freeze-v1.17 §L7): EN→PT pair-link pins — jfif-to-jpg 先例推广至 12 EN 页 ----
     for _s, _short in {"bmp-to-jpg": "BMP para JPG", "gif-to-jpg": "GIF para JPG",
                        "jpeg-to-dxf": "JPEG para DXF", "jpeg-to-jpg": "JPEG para JPG",
@@ -1133,6 +1136,40 @@ def main():
                     fails.append(f"[V17-NEG] {slug}/{fn}: panel word '{w}' present")
     if "try it free" in raw17("png-to-dxf-for-laser-cutting").lower():
         fails.append("[V17-NEG] png-to-dxf-for-laser-cutting: 'Try it free' present (content page, no dropzone CTA)")
+
+    # ---------- P0-3b (05-copy-freeze-v1.19 §H): /pt/ hub pins + 互链矩阵 ----------
+    # 正向 pin：META_T / H1 全串 + 网格 16 出链 + EN 首页 E-2 语言行（附录 §H 登记授权）
+    _hub_raw = read("pt-hub")
+    _hub_t = texts["pt-hub"]
+    if "Conversores DXF e SVG em Português — Grátis | CleanPaths" not in _hub_raw:
+        fails.append("[HUB-POS] pt-hub: META_T missing")
+    if "Todos os conversores do CleanPaths em português" not in _hub_raw:
+        fails.append("[HUB-POS] pt-hub: META_D missing")
+    if "Conversores DXF e SVG em Português — Grátis, sem Upload" not in _hub_t:
+        fails.append("[HUB-POS] pt-hub: H1 missing")
+    if _hub_raw.count("<details>") != 5:
+        fails.append(f"[HUB-POS] pt-hub: expected 5 FAQ details, got {_hub_raw.count('<details>')}")
+    # GRID_16：16 个 /pt/ 工具页出链（设计真源形态 ../pt-<slug>/code.html；生产侧 /pt/ 出链计数归 qa 脚本）
+    # 注意剔除页脚自回链（../pt-hub/code.html）；CTA 快捷钮与网格卡同 slug —— 按去重 slug 数计
+    _hub_links = {s for s in re.findall(r'href="\.\./(pt-[a-z-]+)/code\.html"', _hub_raw) if s != "pt-hub"}
+    if len(_hub_links) != 16:
+        fails.append(f"[HUB-POS] pt-hub: distinct grid outlinks != 16 (got {len(_hub_links)})")
+    if len(set(_hub_links)) != 16:
+        fails.append(f"[HUB-POS] pt-hub: grid anchors not unique 16/16 (got {len(set(_hub_links))})")
+    # EN 首页 E-2 语言行（整串入锚，v1.17 §7 行式）
+    if "Versão em português: Todos os conversores →" not in texts["home"]:
+        fails.append("[HUB-POS] home: E-2 language row missing")
+    # 互链矩阵：16 PT 工具页 + hub 本尊，页脚均须带 hub 回链（E-1/E-3 落位）
+    for _slug in PT_PAGES:
+        if 'href="../pt-hub/code.html"' not in read(_slug):
+            fails.append(f"[HUB-LINK] {_slug}: footer hub backlink missing")
+        if ">Todos os conversores<" not in read(_slug):
+            fails.append(f"[HUB-LINK] {_slug}: hub anchor text missing")
+    # 负向 pin：hub 文案域 $ / Assinatura / ilimitado 零命中（PT 中性红线，§H）
+    for _n in ("$", "Assinatura", "ilimitado", "R$"):
+        if _n in _hub_t:
+            fails.append(f"[HUB-NEG] pt-hub: '{_n}' present (PT neutral)")
+
     if fails:
         print("\n".join(fails))
         print(f"\n{len(fails)} FAILURES")

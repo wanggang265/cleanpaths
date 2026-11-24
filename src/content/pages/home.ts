@@ -155,4 +155,9 @@ export const mainHtml = `<section class="hero matgrid">
     <a class="btn btn--primary btn--lg" href="#convert">Convert free now</a>
     <p class="sub">No account · No watermark · Files stay on your device</p>
   </div>
+</section>
+<section class="section" style="padding:18px 0">
+  <div class="wrap" style="text-align:center">
+    <!-- EN_LANG_ROW_HUB --><p class="microcopy" style="margin:0"><a href="/pt/">Versão em português: Todos os conversores →</a></p>
+  </div>
 </section>`;

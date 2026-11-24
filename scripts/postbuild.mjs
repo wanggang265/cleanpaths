@@ -12,7 +12,10 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PT_PAGES = ['pt/jfif-para-jpg', 'pt/jfif-para-png', 'pt/webp-para-svg', 'pt/imagem-para-dxf', 'pt/foto-para-dxf'];
+// P0-3b: /pt/ hub joins the SSR lang fix (recon §G — new pages must carry the
+// correct value directly). P2 backfill of the 16 legacy PT pages stays deferred
+// (404-recon-2026-11-24 §6.4 — hydration covers them meanwhile).
+const PT_PAGES = ['pt', 'pt/jfif-para-jpg', 'pt/jfif-para-png', 'pt/webp-para-svg', 'pt/imagem-para-dxf', 'pt/foto-para-dxf'];
 
 for (const route of PT_PAGES) {
   const file = join(ROOT, 'out', route, 'index.html');

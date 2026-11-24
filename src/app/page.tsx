@@ -6,7 +6,11 @@ import { openGraphFor } from '@/lib/schema';
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    // P0-3b E-3: EN home reverse hreflang — pt-BR -> /pt/ hub (addendum 05 v1.19)
+    languages: { 'pt-BR': '/pt/' },
+  },
   openGraph: openGraphFor({ title, description, url: '/' }),
 };
 

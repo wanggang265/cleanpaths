@@ -1,3 +1,7 @@
 # SEO P2: trailing-slash normalization (next.config trailingSlash emits /route/
 # as canonical; 301 the bare form to it). Cloudflare Pages _redirects syntax.
 /pricing /pricing/ 301
+
+# P0-3b: /svg-to-dxf/ retired -> canonical converter route (recon 404-recon-2026-11-24 §6.1,
+# 督办修正目标 = /svg-to-dxf-converter/, 目标为裸转换器路由; CF Pages _redirects 语法)
+/svg-to-dxf/ /svg-to-dxf-converter/ 301

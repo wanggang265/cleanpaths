@@ -328,5 +328,12 @@ export const PAGES = [
     "type": "tool-neutral",
     "h1": "Conversor de SVG para DXF — R12 e R2000, Unidades Incluídas",
     "schema": "SoftwareApplication + FAQPage"
+  },
+  {
+    "slug": "pt-hub",
+    "route": "/pt",
+    "type": "hub",
+    "h1": "Conversores DXF e SVG em Português — Grátis, sem Upload",
+    "schema": "FAQPage"
   }
 ] as const;

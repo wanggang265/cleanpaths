@@ -47,6 +47,9 @@ export default function SiteFooter({ lang = 'en', route = '/' }: { lang?: 'en' |
               <span>·</span>
               <Link href={enPair}>English version</Link>
               <span>·</span>
+              {/* P0-3b: PT 页脚 hub 回链（05-copy-freeze-v1.19 §E，短名 = Todos os conversores） */}
+              <Link href="/pt/">Todos os conversores</Link>
+              <span>·</span>
               <span>Suporte: support [at] cleanpaths.io</span>
             </span>
           </div>

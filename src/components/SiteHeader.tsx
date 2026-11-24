@@ -50,6 +50,7 @@ const NO_CTA_ROUTES = new Set(['/png-to-dxf-for-laser-cutting/']);
  *  Full mapping per design truth v1.7 (2026-11-04: truth fixed the same
  *  mislink in pt-jfif-para-png / pt-webp-para-svg source HTML). */
 export const PT_EN_PAIR: Record<string, string> = {
+  '/pt/': '/',
   '/pt/jfif-para-jpg/': '/jfif-to-jpg/',
   '/pt/jfif-para-png/': '/jfif-to-png/',
   '/pt/webp-para-svg/': '/webp-to-svg/',
