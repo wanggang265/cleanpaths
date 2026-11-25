@@ -5,19 +5,23 @@
 
 ## OPEN
 
-### OI-1 §A-5 ×2 GUIDE 串 + §D-2 #1/#2 督办修正落站
-- 来源：P0-5c 申报偏差 #3（2026-11-25）
-- 现状：生产零回潮已实证（NEG ×14 全站复扫零命中），无线上风险；属附录文档一致性收尾
-- 处置：并入下批工单「附带修正栏」强制携带；落站需走 unlock→写→seal→lock + deploy-gate
-- 兜底：2026-12-09 前无新批次开工 → 升级为 30min micro-batch
+（当前无 OPEN 项——账面清零，2026-11-25 起进入纯数据观察期至 2026-12-02 GSC 复盘。）
 
-### OI-2 JFIF mock 制作工件存档
+## DONE
+
+### OD-3 OI-1 收尾：§A-5 ×2 GUIDE 串 + §D-2 #1/#2 一致性注记落档（2026-11-25，纯文档零部署）
+- 修正：v1.20 addendum §A-5 两 GUIDE 串（HOME_PNG_GUIDE/SAMPLES_PNG_GUIDE）与 §D-2 #1/#2 行注记**作废不落**（zhongshu 督办口径，DESIGN.md v1.21 同源）；冻结串字节零改动；EN-JPG/PNG_ENDPOINT 注记照常落位
+- 写链：unlock→precheck PASS（51 anchored）→seal（authorized_drift=1/undeclared=0/changed_files=0，zip `fae40385`）→lock；回执 2026-11-25T23:34:23+08:00 actor=chilun
+- 附带：OD-1 预记窗口事项完成（`.new` 冗余草稿 diff==0 后删除）
+- Gate 终扫 PASS：truth manifest 51 / 48 routes / frozen copy / audit.py NEGATIVE 断言 / 6b 全目录占位零命中
+- 提交：0e67d24（addendum + 证据）；证据：docs/evidence/2026-11-25-oi1-guide-consistency/fix-report.md
+- 零部署：不触碰 src/、路由、audit.py；生产维持 P0-5c 后状态（NEG ×14 零命中）
+
+### OD-4 OI-2 JFIF mock 制作工件存档结账（2026-11-25，以本条为账，非阻塞）
 - 来源：P0-5c 申报偏差 #1（2026-11-25）
 - 现状：6 mock HTML + 4 构建脚本移存 `/home/ubuntu/jfif-ctr-mocks-preserved/`（已 amend 剔除，未上生产）
 - 处置：不回归仓库。产物 11 PNG 已上生产，真源在 design-handoff zip + 镜像；DESIGN.md 被 truth-manifest 锚定（v1.21 changelog 已含），注记以本条为账，不再动真源防 seal drift
-- 可选：项目复盘时 tar 归档
-
-## DONE
+- 可选：项目复盘时 tar 归档（随本条永久在账，不阻塞任何批次）
 
 ### OD-2 P0-BOFU 占位修复批（2026-11-25，42→0 生产实证）
 - 事故：4 BOFU 竞品替代页 42 处 `[待确认]` 上生产；gate step6 只扫 legal 4 页 + audit.py 误把占位当 positive pin，双重防线漏网
