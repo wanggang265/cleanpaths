@@ -91,10 +91,12 @@
 
 ### A-5 辅助冻结串（内链与出站，见 §D）
 
+> 督办修正（2026-11-25，zhongshu 口径，DESIGN.md v1.21 同源）：`HOME_PNG_GUIDE` / `SAMPLES_PNG_GUIDE` 两串**作废不落**（生产 NEG ×14 全站复扫零命中，账目见 docs/open-items.md OI-1）；`EN-JPG_ENDPOINT` / `EN-PNG_ENDPOINT` 照常落位（§D-3）。
+
 | 槽位 | 冻结串 | 字符 | 落点 |
 |---|---|---|---|
-| `HOME_PNG_GUIDE` | `Need a lossless PNG instead? The JFIF to PNG converter repacks the same file — free, no upload.` | 95 | 首页既有 jfif 交叉引导段（`Got a .jfif file instead of a JPG? …` 行相邻） |
-| `SAMPLES_PNG_GUIDE` | `Want a PNG for editing instead? The JFIF to PNG converter is the same drag-and-drop fix.` | 88 | /samples/ 既有 jfif 引导句（`Need a compatible JPG first? You can convert JFIF to JPG free, right in your browser.` 行相邻） |
+| `HOME_PNG_GUIDE` | `Need a lossless PNG instead? The JFIF to PNG converter repacks the same file — free, no upload.` | 95 | **作废不落** — 原落点：首页既有 jfif 交叉引导段（`Got a .jfif file instead of a JPG? …` 行相邻） |
+| `SAMPLES_PNG_GUIDE` | `Want a PNG for editing instead? The JFIF to PNG converter is the same drag-and-drop fix.` | 88 | **作废不落** — 原落点：/samples/ 既有 jfif 引导句（`Need a compatible JPG first? You can convert JFIF to JPG free, right in your browser.` 行相邻） |
 | `EN-JPG_ENDPOINT` | `Already have a .jpeg? The JPEG to JPG converter does the same repackaging for files that are named .jpeg.` | 105 | /jfif-to-jpg/ FAQ 区块之后（FAQ 列表与页脚之间，前端裁量精确位） |
 | `EN-PNG_ENDPOINT` | `Other formats giving you trouble? The WebP to PNG converter handles WebP files the same way — in your browser, nothing uploaded.` | 128 | /jfif-to-png/ FAQ 区块之后（同上） |
 
@@ -137,10 +139,12 @@ states.json 哨兵段（L582-600）零触碰。#88 教训落实：本单即 wens
 
 **D-2 缺口新增（4 条，锚文本=§A-5 冻结串）**：
 
+> 督办修正（2026-11-25，zhongshu 口径，DESIGN.md v1.21 同源）：#1/#2 home/samples 新增**作废不落**（生产 NEG ×14 全站复扫零命中，账目见 docs/open-items.md OI-1）；#3/#4 随 §A-1/§A-3 FAQ 落位已上生产。
+
 | # | 源页 | 目标 | 锚文本 | 落点 |
 |---|---|---|---|---|
-| 1 | `/`（首页） | `/jfif-to-png/` | `JFIF to PNG converter` | 既有 jfif 交叉引导段，jpg 行相邻（HOME_PNG_GUIDE 串） |
-| 2 | `/samples/` | `/jfif-to-png/` | `JFIF to PNG converter` | 既有 `Need a compatible JPG first?…` 行相邻（SAMPLES_PNG_GUIDE 串） |
+| 1 | `/`（首页） | `/jfif-to-png/` | `JFIF to PNG converter` | **作废不落** — 原落点：既有 jfif 交叉引导段，jpg 行相邻（HOME_PNG_GUIDE 串） |
+| 2 | `/samples/` | `/jfif-to-png/` | `JFIF to PNG converter` | **作废不落** — 原落点：既有 `Need a compatible JPG first?…` 行相邻（SAMPLES_PNG_GUIDE 串） |
 | 3 | `/jfif-to-jpg/` | `/jfif-to-png/` | `JFIF to PNG converter` | FAQ2_A 答内（随 §A-1 ②落位，无需独立接线） |
 | 4 | `/pt/jfif-para-jpg/` | `/pt/jfif-para-png/` | `conversor de JFIF para PNG` | PT FAQ②A 答内（随 §A-3 ②落位；与 pt-para-png 现役反向链对称成环） |
 
