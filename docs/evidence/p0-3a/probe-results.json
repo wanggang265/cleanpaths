@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-11-24T14:18:04.416Z",
+  "base": "https://cleanpaths.io",
+  "results": [
+    {
+      "url": "https://cleanpaths.io/pt/converter-png-para-dxf/",
+      "status": 404,
+      "expect": 404,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_pt_converter-png-para-dxf_-404.png",
+      "title": "Page not found | CleanPaths"
+    },
+    {
+      "url": "https://cleanpaths.io/pt/bmp-to-jpg/",
+      "status": 404,
+      "expect": 404,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_pt_bmp-to-jpg_-404.png",
+      "title": "Page not found | CleanPaths"
+    },
+    {
+      "url": "https://cleanpaths.io/pt/screenshot-para-svg/",
+      "status": 404,
+      "expect": 404,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_pt_screenshot-para-svg_-404.png",
+      "title": "Page not found | CleanPaths"
+    },
+    {
+      "url": "https://cleanpaths.io/svg-to-dxf/",
+      "status": 404,
+      "expect": 404,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_svg-to-dxf_-404.png",
+      "title": "Page not found | CleanPaths"
+    },
+    {
+      "url": "https://cleanpaths.io/pt/",
+      "status": 404,
+      "expect": 404,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_pt_-404.png",
+      "title": "Page not found | CleanPaths"
+    },
+    {
+      "url": "https://cleanpaths.io/pt/png-para-dxf/",
+      "status": 200,
+      "expect": 200,
+      "pass": true,
+      "screenshot": "/home/ubuntu/projects/cleanpaths/scripts/qa-evidence-p0-3a/probe_pt_png-para-dxf_-200.png",
+      "title": "PNG para DXF — Conversor Grátis, sem Upload"
+    }
+  ]
+}

@@ -14,3 +14,7 @@ next-env.d.ts
 /verification/shots/*.png
 __pycache__/
 .wrangler/
+
+# truth-source sealed originals (chmod-locked in place; filed copies live in docs/evidence/)
+design-source/build/truth-manifest.sha256.new
+design-source/build/truth-receipts.log
