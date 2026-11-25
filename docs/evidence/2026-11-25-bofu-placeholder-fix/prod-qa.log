@@ -1,0 +1,29 @@
+{
+ "placeholder_total": 0,
+ "convertio_note": true,
+ "vectorizer_facts": 3,
+ "sitemap_loc": 48,
+ "baseline_faqs": {
+  "/jfif-to-jpg/": {
+   "faq": 4,
+   "expect": 4,
+   "ok": true
+  },
+  "/pt/jfif-para-jpg/": {
+   "faq": 7,
+   "expect": 7,
+   "ok": true
+  },
+  "/jfif-to-png/": {
+   "faq": 4,
+   "expect": 4,
+   "ok": true
+  },
+  "/pt/jfif-para-png/": {
+   "faq": 9,
+   "expect": 9,
+   "ok": true
+  }
+ },
+ "verdict": "PASS"
+}
