@@ -1,0 +1,88 @@
+== fetch 4 production pages ==
+  [PASS] GET /jfif-to-jpg/ == 200 — 200
+  [PASS] GET /jfif-to-png/ == 200 — 200
+  [PASS] GET /pt/jfif-para-jpg/ == 200 — 200
+  [PASS] GET /pt/jfif-para-png/ == 200 — 200
+== A1: FAQPage mainEntity counts 4/4/7/9 + verbatim vs addendum ==
+  [PASS] jfif-to-jpg: mainEntity==4 — got 4
+  [PASS] jfif-to-jpg: all Q names verbatim in v1.20 addendum
+  [PASS] jfif-to-png: mainEntity==4 — got 4
+  [PASS] jfif-to-png: all Q names verbatim in v1.20 addendum
+  [PASS] pt/jfif-para-jpg: mainEntity==7 — got 7
+  [PASS] pt/jfif-para-jpg: 新增 Q verbatim in v1.20（≥2 对） — 7 of 7（其余为 v1.10/v1.18 既有串，克制保留）
+  [PASS] pt/jfif-para-png: mainEntity==9 — got 9
+  [PASS] pt/jfif-para-png: 新增 Q verbatim in v1.20（≥2 对） — 6 of 9（其余为 v1.10/v1.18 既有串，克制保留）
+== A2: ④Q full form present ==
+  [PASS] jfif-to-jpg: ④Q full form（EN 域）
+  [PASS] jfif-to-png: ④Q full form（EN 域）
+  [PASS] pt/jfif-para-jpg: PT 对应④=PT 串在场且零英文④残留（克制）
+  [PASS] pt/jfif-para-png: PT 对应④=PT 串在场且零英文④残留（克制）
+== A3: NEGATIVE 判删串零回潮 ==
+  [PASS] NEG zero: 'Is JFIF the same as JPG?'
+  [PASS] NEG zero: 'Do you upload my files?'
+  [PASS] NEG zero: 'There is no account, no watermark, and no fi'
+  [PASS] NEG zero: 'It does not normalize metadata'
+  [PASS] NEG zero: 'Precision'
+  [PASS] NEG zero: 'Tracing paths'
+  [PASS] NEG zero: 'Download DXF'
+  [PASS] NEG zero: 'AI HD rescue'
+  [PASS] NEG zero: 'How to open a JFIF file'
+  [PASS] NEG zero: 'Is there a JFIF viewer?'
+  [PASS] NEG zero: 'Is there a limit?'
+  [PASS] NEG zero: 'Is a JFIF file the same as a JPEG?'
+  [PASS] NEG zero: 'Will converting JFIF to JPG reduce quality?'
+  [PASS] NEG zero: 'Will the PNG have a transparent background?'
+== A4: PT 克制 — 既有 5/7 对 Q 名在生产在场 + META 未动 ==
+  [PASS] pt/jfif-para-jpg: 既有 5 Q 全在场 — missing=[]
+  [PASS] pt/jfif-para-jpg: 新增①在场
+  [PASS] pt/jfif-para-png: 既有 7 Q 全在场 — missing=[]
+  [PASS] pt/jfif-para-png: 新增①在场
+== A5: 保留 pin（H1/徽章/mono 行）在场 ==
+  [PASS] jfif-to-jpg: pin 'JFIF to JPG (JPEG) Converter — Free, No '
+  [PASS] jfif-to-jpg: pin 'No upload. No account. No watermark. Fre'
+  [PASS] jfif-to-png: pin 'JFIF to PNG Converter — Free, No Upload'
+== A6: 11 PNG 生产 200 + alt/lazy/dims ==
+  [PASS] img jfif-en-shared-uploadform-pair.png == 200 — 200
+  [PASS] img jfif-to-jpg-faq1-before.png == 200 — 200
+  [PASS] img jfif-to-jpg-faq1-after.png == 200 — 200
+  [PASS] img jfif-to-jpg-converter-before.png == 200 — 200
+  [PASS] img jfif-to-jpg-converter-after.png == 200 — 200
+  [PASS] img jfif-to-png-faq2-before.png == 200 — 200
+  [PASS] img jfif-to-png-faq2-after.png == 200 — 200
+  [PASS] img pt-jfif-para-jpg-faq1-before.png == 200 — 200
+  [PASS] img pt-jfif-para-jpg-faq1-after.png == 200 — 200
+  [PASS] img pt-jfif-para-png-faq2-before.png == 200 — 200
+  [PASS] img pt-jfif-para-png-faq2-after.png == 200 — 200
+  [PASS] wired <img> tags == 12（pair 双联×2，其余 10） — tags=12 pair=2
+  [PASS] unique img src == 11 — got 11
+  [PASS] all wired imgs lazy+1200x750
+  [PASS] all alts verbatim from ALT.md — bad=0
+== A7: 内链成环 + D-4 防稀释 ==
+  [PASS] EN-JPG endpoint → /jpeg-to-jpg/
+  [PASS] EN-PNG endpoint → /webp-to-png/
+  [PASS] EN-JPG FAQ② → /jfif-to-png/
+  [PASS] EN-PNG FAQ② → /jfif-to-jpg/
+  [PASS] PT-JPG FAQ② → /pt/jfif-para-png/
+  [PASS] PT-PNG FAQ② → /pt/jfif-para-jpg/
+  [PASS] webp-to-png == 200 — 200
+  [PASS] webp-to-png: D-4 零新增反挂（无 jfif FAQ② 串/endpoint 串）
+  [PASS] svg-to-png == 200 — 200
+  [PASS] svg-to-png: D-4 零新增反挂（无 jfif FAQ② 串/endpoint 串）
+== A8: sitemap 48 零变化 + 旧路由回归 ==
+  [PASS] sitemap loc == 48 — got 48
+  [PASS] sitemap jfif 4 路由在场
+  [PASS] GET / == 200 — 200
+  [PASS] GET /pricing/ == 200 — 200
+  [PASS] GET /samples/ == 200 — 200
+  [PASS] GET /png-to-dxf/ == 200 — 200
+  [PASS] GET /jpg-to-dxf/ == 200 — 200
+  [PASS] GET /jpeg-to-jpg/ == 200 — 200
+  [PASS] GET /webp-to-png/ == 200 — 200
+  [PASS] GET /pt/ == 200 — 200
+== A9: META 长度渲染口径 ≤60/≤150 ==
+  [PASS] jfif-to-jpg: T 58≤60 + D 148≤150
+  [PASS] jfif-to-jpg: T 冻结串在场 — JFIF to JPG (JPEG) Converter — Fix .jfif Free | CleanPaths
+  [PASS] jfif-to-png: T 51≤60 + D 147≤150
+  [PASS] jfif-to-png: T 冻结串在场 — JFIF to PNG Converter — Fix .jfif Free | CleanPaths
+
+QA RESULT: ALL 9 ASSERTIONS GREEN (production)
