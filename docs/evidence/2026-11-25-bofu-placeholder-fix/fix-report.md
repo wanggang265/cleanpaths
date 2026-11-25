@@ -23,6 +23,7 @@ deploy-gate step6 盲区（占位扫描只覆盖 legal 4 页）与 audit.py 误�
 - 生产终扫 PASS：4 页占位 0 / convertio note 在场 / vectorizer 核实事实 3/3 / sitemap 48 /
   jfif baseline FAQ 4/4/7/9 精确保持 / 全部 dxf-jfif 路由 200
 
-## 待用户决策（open）
-- mock 工件（6 mock HTML + 4 构建脚本）现寄存 /home/ubuntu/jfif-ctr-mocks-preserved/，
-  是否回归仓库待指定位置
+## 关联账目
+- mock 工件：依账本 OI-2 既有裁决不回归仓库（现寄存 /home/ubuntu/jfif-ctr-mocks-preserved/）
+- OI-1（附录文档一致性收尾）本批不涉及，保持 OPEN，兜底日 2026-12-09 不变
+- 本批 seal 后 .new 与正本一致（diff exit=0），gitignore 继续盖住，惯例同 OD-1

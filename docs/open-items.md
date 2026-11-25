@@ -19,6 +19,13 @@
 
 ## DONE
 
+### OD-2 P0-BOFU 占位修复批（2026-11-25，42→0 生产实证）
+- 事故：4 BOFU 竞品替代页 42 处 `[待确认]` 上生产；gate step6 只扫 legal 4 页 + audit.py 误把占位当 positive pin，双重防线漏网
+- 修复：真源 4 页占位清零（3 轮 seal 合法链，manifest 51 PASS，镜像双副本同步）；vectorizer 3 格填官网核实值、convertio DXF 实锤补句、无来源数字零填入；gate 6b 全目录扫描新增；audit.py 误 pin 删除 + NEGATIVE 防回潮断言（缩进修正）；gitignore 补 zip/snapshot 漏项
+- 部署：ecb434e + 1b46179 + c4033fe（账本本条随后提交）；部署 ID 35db58bb→fedac00f（须用 api-token.pages env——deploy.sh 默认 token 无 Pages 权限，code 10000）
+- 终扫 PASS：4 页占位 0 / convertio note 在场 / vectorizer 事实 3/3 / sitemap 48 / jfif FAQ 4/4/7/9 保持 / 全部 dxf-jfif 路由 200
+- 证据：docs/evidence/2026-11-25-bofu-placeholder-fix/（fix-report.md + prod-qa.log + truth-receipts.log）
+
 ### OD-1 P0-5c 核销后账面卫生（2026-11-25，seal 零扰动）
 - truth-receipts.log：副本入库 `docs/evidence/p0-5c-2026-11-25/`（sha16 `121bd486d9910f46`，源=副本一致）；原件 0444 锁于 build/ seal 现场，gitignore
 - truth-manifest.sha256.new：与入库正本 diff exit=0（零漂移），锁内不可删 → gitignore，下次 unlock 窗口删除
