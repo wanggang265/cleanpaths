@@ -1,6 +1,6 @@
 0dca2e3525d57a2cda46742860e50b517d1ec4eb96e620ba2ce40aba10c38d5d  route-mapping.json
-f7dc5a48ea777100f68b152bc85480a8e2ebf717c2a4e9590e19b1e56a89beaf  DESIGN.md
-8046e11c63e50b0dd006facfa86d26aa4fb1dd6e238464d987d53075f1a943a1  build/audit.py
+6257c3afb1a298b7eea9cea03ba5eb1932c571eac2de8231ebc2119ea671e24d  DESIGN.md
+5c28a8188c0617c673f437d4b2d2e597d88753255a10135860b04e3674d94826  build/audit.py
 c1387ebfcdf39a4aef90fa6a2a46a963f407dc45163b17b79c964a2fc766874d  pages/bmp-to-jpg/code.html
 a6671fccb90315ebef3d244207a8e519ceb2f40c103fdff55ac89156e83158b3  pages/cloudconvert-alternative/code.html
 38c30eafb157f7deded0ee115d3d275801c55c86340bfa4e3848f702b84fe39c  pages/convertio-alternative/code.html
@@ -10,8 +10,8 @@ d55897f3d4ac5f0b53d7bb2186648e148805bd70b173ee53cd17f37936c92aab  pages/for-embr
 99602f50a337f1a5862e17e16ae55289c7472f2560b656ee8ae5ef1ab3ab650a  pages/gif-to-jpg/code.html
 53dd301b150cd656fe79da93a9b7ce63facc670a80c9b51aac56016c9b1d4d52  pages/home/code.html
 929ac40e0f50ecb12d54638b20bc60adf61739f23ba23795cb9497fda56381f1  pages/image-to-dxf/code.html
-1011406f060895ec413e3ef13a3f09f1cf15acda9d287e70f78c4623e6c752ae  pages/jfif-to-jpg/code.html
-414fefb80f2565fc314e28d78aacd4335901b4d397f7276f97ac90ed1e4f4c6d  pages/jfif-to-png/code.html
+b13f5de01539cab1517319ee543fb0a135b73e92e8cb531539f46214eee8a81d  pages/jfif-to-jpg/code.html
+ec3b558e07810db30fba40d7ac127618557c4c2112abf3293111a995f5ed3df7  pages/jfif-to-png/code.html
 3544e1d972d213d18b19650a99e13f670cb44257d5712fb27b126a25d13cbdab  pages/jpeg-to-dxf/code.html
 ba99d06256861c9171f4e70aaf193a362052f4cf789550215453b4f7443ab5b3  pages/jpeg-to-jpg/code.html
 1ea8c1ec248641124fc76965425633831c9c295b45273a8bd146bde153fb139b  pages/jpg-to-dxf/code.html
@@ -25,8 +25,8 @@ acdd9571bfb463d64727f826f9e3b0e517e988a27598b9e4fe5e4d39f3f33559  pages/pt-foto-
 f88f181c7aa045113890d9615dceac8c61c197a7d2cdea67ff46348868a0b9b4  pages/pt-gif-para-jpg/code.html
 376ff5115fce420f90f0e9df1dfbad107accea048119d4130dfecfef0e104e0e  pages/pt-hub/code.html
 110cda44203bc5afd642acc3513f7d811dba181ffe0b25ac10d4564fe67d79b5  pages/pt-imagem-para-dxf/code.html
-2af8151688c373c338c4b3d4f9f2e120d7ebd5abbb3e9c3e926d04964d03c983  pages/pt-jfif-para-jpg/code.html
-182ba7a3783fd3f5c736aaef71323c0ddd0cd1fc428f769d3f24c61f3f7d20b8  pages/pt-jfif-para-png/code.html
+d4b920e319a056507beed01b886547556eae2c5be65e5a31b55ebaecfebe3fe1  pages/pt-jfif-para-jpg/code.html
+235f4abc7fc6754444caf14ef9c9b771474ff5972b8529821c51f9cc9b4ba958  pages/pt-jfif-para-png/code.html
 9c42463d624dfbf9d5d6581c2ada2759a375ce1e17fb6d61acec2d1b2f0b0087  pages/pt-jpeg-para-dxf/code.html
 893d60505c9247242bd883d20a1a02a926e6ce2650609170cc40c55272533590  pages/pt-jpeg-para-jpg/code.html
 8b104f7cc9ce738e37c8809045436e8c567ed35c8671108165f5ce7947df93ac  pages/pt-jpg-para-dxf/code.html

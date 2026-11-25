@@ -130,22 +130,16 @@ SENTINELS = {
  ],
  "jfif-to-jpg": [
    "JFIF to JPG (JPEG) Converter — Free, No Upload",
-   "Is a JFIF file the same as a JPEG?",
    "Drag in a JFIF, download a JPG.",
    "Why did my file download as .jfif?",
    "How to convert JFIF to JPG",
    "What is a JFIF file?",
    "Convert JFIF free now",
    "Versão em português: JFIF para JPG →",
-   # ---- 05 v1.11 §8-2 + v1.14 §4: jfif 恢复批追加 4 针（恢复串逐字） ----
+   # ---- 05 v1.11 §8-2 + v1.14 §4: jfif 恢复批 4 针（v1.20 FAQ 重写后按附录 §B 退休 5 针、换 Q 1 针） ----
    "No upload. No account. No watermark. Free, 10 conversions a day.",
-   "Will converting JFIF to JPG reduce quality?",
    "Do you upload or store my files?",
-   "Is there a limit?",
-   # ---- 05g module B: FAQ#10-#12 (copy source: 05-copy-freeze-v1.10 §B) ----
-   "How to open a JFIF file",
-   "How do I open a JFIF file on a Mac or iPhone?",
-   "Is there a JFIF viewer?",
+   "Is the JFIF to JPG conversion free?",
  ],
  "pt-jfif-para-jpg": [
    "Conversor de JFIF para JPG — Grátis, sem Upload",
@@ -359,8 +353,6 @@ SENTINELS = {
    "Drop a .jfif file here — or browse",
    "Why convert JFIF to PNG?",
    "Convert JFIF to PNG in three steps",
-   "How to open a JFIF file",
-   "Will the PNG have a transparent background?",
    "Do you upload or store my files?",
    "Convert JFIF to PNG free now",
    "JFIF to JPG converter",
