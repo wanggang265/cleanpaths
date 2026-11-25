@@ -73,6 +73,13 @@ for f in src/content/pages/privacy.ts src/content/pages/terms.ts src/content/pag
   if grep -q 'class="fill"' "$f"; then fail "legal .fill placeholders still present in $f (must be zero)"; fi
   if grep -qE '\[用户填入|\[待确认|\[待回填' "$f"; then fail "legal placeholder marker still present in $f (must be zero)"; fi
 done
+
+# 6b) pending-verify placeholder marks must be ZERO across ALL extracted content pages
+#     (P0 fix 2026-11-25: 4 BOFU competitor pages shipped with [待确认] marks — gate only covered legal pages)
+for f in src/content/pages/*.ts; do
+  if grep -qE '\[待确认|\[用户填入|\[待回填' "$f"; then fail "placeholder mark still present in $f (must be zero)"; fi
+done
+ok "placeholder marks zero across all content pages (incl. BOFU competitor pages)"
 ok "legal .fill placeholders: zero (backfilled)"
 
 echo "✅ GATE: all checks passed — build may proceed"

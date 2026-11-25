@@ -18,3 +18,7 @@ __pycache__/
 # truth-source sealed originals (chmod-locked in place; filed copies live in docs/evidence/)
 design-source/build/truth-manifest.sha256.new
 design-source/build/truth-receipts.log
+
+# batch artifacts kept out of repo (zip lives at /home/ubuntu/design-handoffs/cleanpaths/)
+/design-handoff-v1.zip
+/.truth-pre-write.snapshot

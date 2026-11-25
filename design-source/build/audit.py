@@ -300,7 +300,6 @@ SENTINELS = {
    "See what your worst client logo becomes — free.",
    "🔒 Files stay on your device", "No account", "No watermark",
    "Convert free now", "Get CleanPaths Pro — $59, one time",
-   "待确认-落站前核实",
  ],
  "cloudconvert-alternative": [
    "A CloudConvert Alternative That Never Uploads Your File",
@@ -315,7 +314,6 @@ SENTINELS = {
    "Why does \"no upload\" matter for client work?",
    "It answers the NDA question by architecture, not by policy.",
    "Your client's logo never had to leave your machine. Keep it that way.",
-   "待确认-落站前核实现行定价",
  ],
  "vectorizer-ai-alternative": [
    "A Vectorizer.ai Alternative That Outputs Cut-Ready DXF",
@@ -329,7 +327,6 @@ SENTINELS = {
    "An honest note before you convert",
    "Can I switch from Vectorizer.ai to CleanPaths without losing anything?",
    "The next logo you trace can stay on your machine.",
-   "待确认-落站前核实其 DXF 输出规格",
  ],
  "convertio-alternative": [
    "A Convertio Alternative Built for Cut Files, Not Just Conversions",
@@ -344,7 +341,6 @@ SENTINELS = {
    "Is CleanPaths really free?",
    "Can I sell what I make with the output?",
    "That logo PNG sitting in your inbox? Convert it before the tab gets cold.",
-   "待确认-落站前核实现行定价",
  ],
  # ---- 06f: new tool pages (copy source: 05-copy-freeze-v1.8 §A/§B) ----
  "jfif-to-png": [
@@ -688,6 +684,11 @@ def main():
     # ---- v1.9 batch3: lowercase error forms are judged-deleted on the new PT DXF pages ----
     NEGATIVE["pt-png-para-dxf"] = ["Esta página aceita .png."]
     NEGATIVE["pt-jpg-para-dxf"] = ["Esta página aceita .jpg."]
+    # 2026-11-25 P0: pre-launch placeholder marks removed from 4 BOFU pages — guard against reintroduction
+    NEGATIVE["vectorizer-ai-alternative"] = ["待确认", "用户填入", "待回填"]
+    NEGATIVE["convertio-alternative"] = ["待确认", "用户填入", "待回填"]
+    NEGATIVE["cloudconvert-alternative"] = ["待确认", "用户填入", "待回填"]
+    NEGATIVE["vector-magic-alternative"] = ["待确认", "用户填入", "待回填"]
     NEGATIVE["pt-svg-para-dxf"] = ["Esta página aceita .svg."]
     # ---- #108 B2: lowercase error-sentence reverse assertions ----
     # 06b2 注释声称已存在、实测缺失。正向针为大写扩展名（This page accepts .WEBP.）；
@@ -867,10 +868,10 @@ def main():
     E5_ANCHOR = "What cleanup actually changes (in our tests)"
     E9_COMP = {"vector-magic-alternative": "Vector Magic", "cloudconvert-alternative": "CloudConvert",
                "vectorizer-ai-alternative": "Vectorizer.ai", "convertio-alternative": "Convertio"}
-    E10 = {"vector-magic-alternative": ["[待确认-落站前核实]"],
-           "cloudconvert-alternative": ["[其 DXF 输出范围待确认-落站前核实]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"],
-           "vectorizer-ai-alternative": ["[待确认-落站前核实其 DXF 输出规格]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"],
-           "convertio-alternative": ["[其 DXF 输出规格待确认-落站前核实]", "[待确认-落站前核实现行定价]", "[待确认-落站前核实]"]}
+    E10 = {"vector-magic-alternative": [],
+"cloudconvert-alternative": [],
+"vectorizer-ai-alternative": [],
+"convertio-alternative": []}  # 2026-11-25 P0: placeholder marks removed (now NEGATIVE)
     # E2 footer anchors on every EN page
     for slug in SENTINELS:
         if slug in PT_PAGES:
