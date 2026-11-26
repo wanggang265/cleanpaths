@@ -221,10 +221,22 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     // order-as-string shapes — see extractOrder).
     const { id: orderId, amountCents, currency: orderCurrency } = extractOrder(obj);
     const plan = typeof metadata.tier === 'string' ? metadata.tier : 'unknown';
+    // Creem real payloads carry product as an object ({id, name,...}); legacy
+    // docs showed a plain string. Accept both (same dual-shape policy as order).
+    const productLabel =
+      typeof obj.product === 'string'
+        ? obj.product
+        : obj.product && typeof obj.product === 'object'
+          ? String(
+              (obj.product as Record<string, unknown>).name ??
+                (obj.product as Record<string, unknown>).id ??
+                'n/a',
+            )
+          : 'n/a';
     const lines = [
       `${verified ? '💰' : '⚠️ UNVERIFIED'} CleanPaths order (checkout.completed)`,
       `Tier: ${plan}`,
-      `Product: ${typeof obj.product === 'string' ? obj.product : 'n/a'}`,
+      `Product: ${productLabel}`,
       `Amount: ${money(amountCents, orderCurrency)}`,
       `Email: ${maskEmail(customer.email ?? obj.email)}`,
       `Order: ${orderId || 'n/a'}`,
