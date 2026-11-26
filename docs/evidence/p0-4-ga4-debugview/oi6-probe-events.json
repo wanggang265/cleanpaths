@@ -1,0 +1,317 @@
+{
+  "generatedAt": "2026-11-26T16:35:46.110Z",
+  "base": "https://cleanpaths.io",
+  "seen": [
+    {
+      "label": "1.tool-en-loaded",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": []
+    },
+    {
+      "label": "2.upload_start-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "upload_start"
+      ]
+    },
+    {
+      "label": "3.convert_started-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "upload_start",
+        "convert_started",
+        "convert_success"
+      ]
+    },
+    {
+      "label": "4.convert_success-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "upload_start",
+        "convert_started",
+        "convert_success"
+      ]
+    },
+    {
+      "label": "5.download-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "upload_start",
+        "convert_started",
+        "convert_success",
+        "download"
+      ]
+    },
+    {
+      "label": "6.pricing_view-expected",
+      "url": "https://cleanpaths.io/pricing/",
+      "events": [
+        "pricing_view"
+      ]
+    },
+    {
+      "label": "7.buy_click-pricing+checkout_started-expected",
+      "url": "https://www.creem.io/checkout/prod_7vlF3MSgbHq3c4tTWONsz/ch_1EngfYCGxwhM47n003nUxS",
+      "events": []
+    },
+    {
+      "label": "8.tool-pt-page_location-expected",
+      "url": "https://cleanpaths.io/pt/jfif-para-jpg/",
+      "events": []
+    },
+    {
+      "label": "9.language_switch-header-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "language_switch"
+      ]
+    },
+    {
+      "label": "10.language_switch-footer-expected",
+      "url": "https://cleanpaths.io/jfif-to-jpg/",
+      "events": [
+        "language_switch"
+      ]
+    },
+    {
+      "label": "11.buy_click-cap-expected",
+      "url": "https://cleanpaths.io/pricing/",
+      "events": [
+        "pricing_view",
+        "upload_start"
+      ]
+    },
+    {
+      "label": "13.buy_click-cricut-expected",
+      "url": "https://cleanpaths.io/pricing/",
+      "events": [
+        "pricing_view"
+      ]
+    },
+    {
+      "label": "12.pricing_view-checkout-success-expected",
+      "url": "https://cleanpaths.io/pricing/",
+      "events": [
+        "pricing_view"
+      ]
+    }
+  ],
+  "network": [
+    {
+      "ctx": "A-conversion",
+      "dl": "https://cleanpaths.io/jfif-to-jpg/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "A-conversion",
+      "dl": "https://cleanpaths.io/jfif-to-jpg/",
+      "en": null
+    },
+    {
+      "ctx": "B-pricing",
+      "dl": "https://cleanpaths.io/pricing/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "C-language",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "C-language",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
+      "en": "language_switch",
+      "from_lang": "pt",
+      "to_lang": "en"
+    },
+    {
+      "ctx": "C-language",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "C-language",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
+      "en": "language_switch",
+      "from_lang": "pt",
+      "to_lang": "en"
+    },
+    {
+      "ctx": "D-cap",
+      "dl": "https://cleanpaths.io/jfif-to-jpg/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "D-cap",
+      "dl": "https://cleanpaths.io/pricing/",
+      "en": "page_view"
+    },
+    {
+      "ctx": "E-checkout-success",
+      "dl": "https://cleanpaths.io/pricing/",
+      "en": "page_view"
+    }
+  ],
+  "oob": [
+    {
+      "ctx": "A-conversion",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "A-conversion",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "A-conversion",
+      "en": "upload_start"
+    },
+    {
+      "ctx": "A-conversion",
+      "en": "convert_started"
+    },
+    {
+      "ctx": "A-conversion",
+      "en": "convert_success"
+    },
+    {
+      "ctx": "A-conversion",
+      "en": "download"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "pricing_view"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "buy_click"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "checkout_started"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "gtm.js"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "B-pricing",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "C-language",
+      "en": "language_switch"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.historyChange-v2"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "C-language",
+      "en": "language_switch"
+    },
+    {
+      "ctx": "C-language",
+      "en": "gtm.historyChange-v2"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "upload_start"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "buy_click"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "gtm.linkClick"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "pricing_view"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "D-cap",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "buy_click"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "gtm.linkClick"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "pricing_view"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "F-cricut",
+      "en": "gtm.load"
+    },
+    {
+      "ctx": "E-checkout-success",
+      "en": "pricing_view"
+    },
+    {
+      "ctx": "E-checkout-success",
+      "en": "gtm.dom"
+    },
+    {
+      "ctx": "E-checkout-success",
+      "en": "gtm.load"
+    }
+  ]
+}
