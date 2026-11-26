@@ -18,6 +18,7 @@
 
 ### OI-6 GA4 DebugView/报表级人工验证（boss UI 任务，§8.6 闭环要件；非 P0-4b 阻塞）
 - §8.6 全 9 事件 DebugView 截图 + page_location EN/PT 抽查（需 GA4 账号访问 G-9T8XY5EB0Y）
+- **进展（2026-11-26 深夜，jishi，探针就绪）**：`scripts/debugview-probe.cjs`（commit `4edc066`）一次性实发 §8.6 全 9 客户端事件（buy_click 三 slot / language_switch 双发 / page_location EN+PT wire 级全对，OOB 捕获防导航丢证）；§8.4 purchase debug 回放 PASS（HTTP 200 + validationMessages=[]，payload 与 creem.ts L294-307 逐字段一致）。**待 boss 白天在 DebugView 截图即可闭环**：boss 说开始 → jishi 重跑探针（~2 分钟）+ 重发 purchase 回放（DebugView 流 30 分钟窗口）→ boss 逐事件截图 → 证据落 docs/evidence/p0-4-ga4-debugview/。pricing 三事件 DebugView 命中顺带补报表级缺口。
 - **督办修正（2026-11-26 核销时）**：chuangkou 申报「已在 DebugView 流，直接截图即可」表述过强——debug_mode 系探针会话运行时注入（线上 bundle 零命中实证，见 OD-7），DebugView 设备流不常驻 → **截图前需重跑 debug 探针会话**（复用 p0-4a 探针流程或 Chrome GA Debugger 扩展）
 - pricing 三事件（pricing_view/buy_click/checkout_started）GA4 报表级验证：网络包因 GA4 v2 跨文档导航 flush 怪癖未抓到（DOM 8/8 已实证），以 Realtime/报表命中收口
 - 证据基线：docs/evidence/p0-4-ga4-debugview/p0-4a-prod-{network,dom-probe}.log
