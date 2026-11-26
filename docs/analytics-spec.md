@@ -111,7 +111,7 @@ device / country / 语言等走 GA4 标准维度自动采集，不在自定义�
 | 5 | `pricing_view` | FE | `/pricing/` 整页加载（CheckoutLinks mount，该组件仅包裹 pricing 页；P0-4a 实现） | — | 每次页面加载一次；`?checkout=success` 返回落地也算一次（页面加载真实发生） |
 | 6 | `buy_click` | FE | 付费 CTA 点击（CtaBeacon onClick，冻结串命中；P0-4a 实现） | `slot` = `pricing`/`cap`/`cricut`（与 beacon cta_click 三 slot 判定逻辑同源，便于两套数据交叉验证） | 仅三个预注册 slot；其余 CTA 文案不命中不发；每次点击一次 |
 | 7 | `checkout_started` | FE | 实际跳转发起：`/api/checkout` 成功后 `assign(url)` 前 / fallback `assign(CREEM_PRODUCT_URL[plan])` 前（CheckoutLinks.tsx L110/L114；P0-4a 实现） | `plan` = `pro`/`monthly-pass`/`batch-pack`/`precision-pack`；`path` = `api`/`fallback` | 每次 assign 发一次；offline `.catch`（用户留在页上）不发 |
-| 8 | `language_switch` | FE | 点击语言互切链接：PT 页 header「English version →」（SiteHeader.tsx L91 桌面 / L98 移动）与 PT 页 footer「English version」（SiteFooter.tsx L48；P0-4a 实现） | `from_lang`=`pt`，`to_lang`=`en`（现状仅 PT→EN 单向；新增 EN→PT 入口须先修订本节） | 每次点击一次；落地页 page_view 自动另计 |
+| 8 | `language_switch` | FE | 点击语言互切链接：PT 页 header「English version →」（SiteHeader.tsx L91 桌面 / L98 移动）与 PT 页 footer「English version」（SiteFooter.tsx L48；P0-4a 实现） | `from_lang`=`pt`，`to_lang`=`en`（本规格覆盖**组件级**互切入口：PT 页 SiteHeader L91/L98 + SiteFooter L48；EN 页正文 content 文件内的 Versão 链接——如 jfif-to-jpg.ts L115——**不在本批覆盖**，纳入须先修订本节） | 每次点击一次；落地页 page_view 自动另计 |
 | 9 | `purchase` | BE | Creem webhook（functions/api/webhooks/creem.ts）收到**支付成功类**事件后经 Measurement Protocol 发送（§8.4；P0-4b 实现） | `transaction_id`、`currency`、`value`、`items[item_id/item_name/price/quantity]` | `transaction_id` = Creem 收据号幂等：GA4 对重复 transaction_id 原生去重，webhook 重试不双计 |
 
 ### 8.3 时序关系图（冻结；GA4 集内部禁止同刻双发）
