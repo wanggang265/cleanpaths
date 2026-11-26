@@ -23,6 +23,14 @@
 
 ## DONE
 
+### OD-6 P1 动工前 CF 权限侦察核销（2026-11-26，纯只读零变更）
+- 交付：`docs/cf-p1-preflight-2026-11-26.md`（jishi，工单 PROMPT_jishi_cf_p1_preflight.md；skill cloudflare-token-permissions-ui-2026 督办同步后执行）
+- 督办复核 PASS：报告在盘 + 泄漏扫描零命中 + 关键探针独立复跑全对上（verify ID 9775632c=skill 台账 / rulesets list 200×5 phases / security_header HSTS 全关逐字段一致 / GraphQL 账号级 /graphql 200 真数据：11-25 requests 3639, uniques 433, cached 0）
+- **销账**：跨会话遗留「补 Zone Analytics Read」就此销账——11-24 已补加生效（token-switching §3 台账在先），11-26 双重实证；demand-signals 账本闸门句已加日期注记防再引用
+- Go/No-Go：P1-2 WAF **GO**（现代 WAF 读侧零缺口，当前 0 条自定义规则）；P1-1 缓存 / P1-3 HSTS **条件 GO**（Read✓，三个 Edit 待用户 UI 核对；P1-1 另受「P0 全验收」闸门；P1-3 动工需用户显式 GO——半不可逆）
+- 用户代办：token 编辑页核对 Cache Rules Edit / Zone WAF Edit / Zone Settings Edit（DNS & Zones 组下半段）→ Summary 页完整截图回传闭环；补 legacy Firewall Services Read 仅可选
+- 工单纪律记档：`waf/overrides` 端点 410 已退役，后续工单禁引用；jishi 首轮「skill 全机不存在」误报已归档（搜索口径漏类别子目录，dispatch skill 已 patch 防复发）
+
 ### OD-5 P0-4s GA4 规格冻结核销（2026-11-26，纯文档零部署）
 - 交付：4069ee9 docs/analytics-spec.md §8（L75-199，+126/−0 纯追加单文件，未 push 未部署）
 - 督办终审实证 PASS（12 项）：commit hash+msg / numstat / diff 零删除行 / 未 push（origin..HEAD 仅此 1 commit）/ §8.0–8.7 结构落位 / 8.2 恰 9 数据行 / 代码锚点全套（ToolController L98-101 守卫、L276、L317 beacon tool_start、L360+L366 stale 守卫与成功点、L735；layout L39-48 G-9T8XY5EB0Y；SiteHeader L83 lang==='pt' 分支+L91/L98；SiteFooter L48；CheckoutLinks L110/L114 assign；beacon.ts 5 事件枚举；creem.ts L103 maskEmail）/ QA 脚本 3 件在盘 / spec G-ID 4 处一致 / 偏差①属实（现行账本无 file_selected/convert_completed，旧两小节确随 11-25 重建归档）
