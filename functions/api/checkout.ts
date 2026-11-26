@@ -8,6 +8,9 @@
  *
  * Request:  { tier: "core"|"batch"|"precision"|"monthly"|"test" }
  *           (legacy alias: { plan: "pro"|"batch-pack"|"precision-pack"|"monthly-pass" })
+ *           optional client_id: GA4 client_id (P0-4a cross-unit contract) —
+ *           consumed verbatim, no format validation; non-empty passes through
+ *           into Creem metadata, missing/blank omits the key entirely.
  * Response: { ok: true, url: "https://www.creem.io/checkout/..." }
  * Errors:   400 invalid_tier / invalid_json, 429 rate_limited,
  *           500 not_configured, 502 upstream — no stack traces, no key leakage.
@@ -112,6 +115,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     return Response.json({ ok: false, error: 'invalid_tier' }, { status: 400 });
   }
 
+  // P0-4b cross-unit contract (P0-4a sends `client_id` from the _ga cookie):
+  // consume verbatim — no format validation; blank/missing omits the key so
+  // the webhook side falls back to its UUID path (analytics-spec §8.4).
+  const clientId =
+    typeof body.client_id === 'string' && body.client_id.trim().length > 0 ? body.client_id : '';
+
   const apiKey = context.env.CREEM_API_KEY;
   const productId = productIdFor(context.env, tier);
   if (!apiKey || !productId) {
@@ -138,7 +147,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         product_id: productId,
         units: 1,
         success_url: successUrl,
-        metadata: { source: 'cleanpaths.io', tier },
+        metadata: {
+          source: 'cleanpaths.io',
+          tier,
+          ...(clientId ? { client_id: clientId } : {}),
+        },
       }),
     });
   } catch {

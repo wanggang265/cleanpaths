@@ -16,6 +16,11 @@
  * Failure semantics (aligned with existing API): 401 on bad signature, 405 on
  * non-POST, no stack traces in any response.
  *
+ * P0-4b (analytics-spec §8.4): a verified checkout.completed additionally
+ * fires a server-side GA4 `purchase` via Measurement Protocol — the ONLY
+ * purchase channel (FE never sends purchase). Payload carries order-level
+ * fields exclusively; customer PII (email/name) never enters this path.
+ *
  * Interim state: CREEM_WEBHOOK_SECRET is backfilled by zhongshu AFTER this
  * endpoint is live (dispatch v2 §6). Until then events are accepted but the
  * Telegram notice is prefixed "UNVERIFIED" so spoofed noise is visible.
@@ -24,18 +29,22 @@
 interface Env {
   CREEM_WEBHOOK_SECRET?: string;
   TELEGRAM_BOT_TOKEN?: string;
+  GA4_API_SECRET?: string; // P0-4b: Measurement Protocol api_secret (analytics-spec §8.4)
 }
 
 interface PagesEventContext<E> {
   request: Request;
   env: E;
   next: () => Promise<Response>;
+  waitUntil: (promise: Promise<unknown>) => void; // extend response lifetime for fire-and-forget sends
 }
 type PagesFunction<E> = (context: PagesEventContext<E>) => Promise<Response> | Response;
 
 const TELEGRAM_CHAT_ID = '5190008355'; // same notify target as /api/feedback
 const TELEGRAM_CHAT_ID_FALLBACK = '8626495474';
 const TOLERANCE_S = 5 * 60;
+const GA4_MEASUREMENT_ID = 'G-9T8XY5EB0Y'; // analytics-spec §8.4 (frozen, same GA4 asset as the web gtag)
+const MP_TIMEOUT_MS = 6000; // GA4 send budget; the webhook 200 never waits this long (waitUntil)
 
 const encoder = new TextEncoder();
 
@@ -114,6 +123,55 @@ function money(amount: unknown, currency: unknown): string {
   return `${cur} ${(a / 100).toFixed(2)}`;
 }
 
+/**
+ * P0-4b dual-shape order extraction. Official docs ship `event.object.order`
+ * as an OBJECT (id / amount / amount_paid / currency — docs.creem.io
+ * OrderEntity); the legacy code assumed a bare string. Accept both, falling
+ * back to checkout-level fields. Only order-level fields are read here, so
+ * no customer PII can leak through this path.
+ */
+function extractOrder(obj: Record<string, unknown>): { id: string; amountCents: number | null; currency: string } {
+  let id = '';
+  let amountCents: number | null = null;
+  let currency = '';
+  const order = obj.order;
+  if (typeof order === 'string') {
+    id = order;
+  } else if (order && typeof order === 'object') {
+    const o = order as Record<string, unknown>;
+    if (typeof o.id === 'string') id = o.id;
+    if (typeof o.amount_paid === 'number') amountCents = o.amount_paid;
+    else if (typeof o.amount === 'number') amountCents = o.amount;
+    if (typeof o.currency === 'string') currency = o.currency;
+  }
+  // Checkout-level fallbacks: checkout id is stable per session, so it keeps
+  // GA4 transaction_id dedup (idempotency) intact even in degraded payloads.
+  if (!id && typeof obj.id === 'string') id = obj.id;
+  if (amountCents === null && typeof obj.amount === 'number') amountCents = obj.amount;
+  if (!currency && typeof obj.currency === 'string') currency = obj.currency;
+  return { id, amountCents, currency };
+}
+
+/**
+ * GA4 Measurement Protocol send (analytics-spec §8.4). Fire-and-forget:
+ * failures resolve to status 0 and are logged upstream — never thrown, never
+ * allowed to fail the webhook 2xx (Creem retries on non-2xx; GA4 dedups
+ * repeats via transaction_id if we ever do re-fire).
+ */
+async function sendPurchaseToGa4(mpUrl: string, payload: unknown): Promise<number> {
+  try {
+    const res = await fetch(mpUrl, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    await res.text(); // drain the body so the connection is released
+    return res.status;
+  } catch {
+    return 0;
+  }
+}
+
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const payload = await context.request.text();
   const secret = context.env.CREEM_WEBHOOK_SECRET;
@@ -146,13 +204,18 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const customer = (obj.customer ?? {}) as Record<string, unknown>;
 
   if (type === 'checkout.completed') {
+    // P0-4b: order-level extraction shared by the Telegram notice and the GA4
+    // MP purchase event (handles documented order-object and legacy
+    // order-as-string shapes — see extractOrder).
+    const { id: orderId, amountCents, currency: orderCurrency } = extractOrder(obj);
+    const plan = typeof metadata.tier === 'string' ? metadata.tier : 'unknown';
     const lines = [
       `${verified ? '💰' : '⚠️ UNVERIFIED'} CleanPaths order (checkout.completed)`,
-      `Tier: ${typeof metadata.tier === 'string' ? metadata.tier : 'n/a'}`,
+      `Tier: ${plan}`,
       `Product: ${typeof obj.product === 'string' ? obj.product : 'n/a'}`,
-      `Amount: ${money(obj.amount ?? obj.total, obj.currency)}`,
+      `Amount: ${money(amountCents, orderCurrency)}`,
       `Email: ${maskEmail(customer.email ?? obj.email)}`,
-      `Order: ${typeof obj.order === 'string' ? obj.order : 'n/a'}`,
+      `Order: ${orderId || 'n/a'}`,
       `Checkout: ${typeof obj.id === 'string' ? obj.id : 'n/a'}`,
     ];
 
@@ -176,6 +239,68 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         (async () => ((await sendTo(TELEGRAM_CHAT_ID)) || (await sendTo(TELEGRAM_CHAT_ID_FALLBACK))))(),
         new Promise((r) => setTimeout(r, 5000)),
       ]);
+    }
+
+    // GA4 purchase via Measurement Protocol (analytics-spec §8.4) — the only
+    // BE purchase channel. Fire-and-forget via waitUntil: the webhook returns
+    // its 200 immediately (Creem retry semantics) while the GA4 send runs in
+    // the background. Idempotency = GA4's native transaction_id dedup, so
+    // webhook redelivery never double-counts. Payload: order-level fields
+    // only; customer PII never enters (T4 red line).
+    const apiSecret = context.env.GA4_API_SECRET;
+    if (!apiSecret || !orderId || amountCents === null) {
+      console.log(
+        JSON.stringify({
+          mp_purchase_skipped: {
+            reason: !apiSecret ? 'no_api_secret' : !orderId ? 'no_order_id' : 'no_amount',
+            transaction_id: orderId,
+            plan,
+          },
+        }),
+      );
+    } else {
+      const rawClientId =
+        typeof metadata.client_id === 'string' && metadata.client_id.trim().length > 0 ? metadata.client_id : '';
+      // §8.4 frozen fallback: missing client_id → random UUID, purchase still
+      // sends (only the user-level join with checkout_started is weakened).
+      const clientId = rawClientId || crypto.randomUUID();
+      const value = amountCents / 100; // cents → currency units (the one spec-mandated conversion; no rounding)
+      const currency = orderCurrency.toUpperCase();
+      const mpUrl = `https://www.google-analytics.com/mp/collect?measurement_id=${GA4_MEASUREMENT_ID}&api_secret=${encodeURIComponent(apiSecret)}`;
+      const mpPayload = {
+        client_id: clientId,
+        events: [
+          {
+            name: 'purchase',
+            params: {
+              transaction_id: orderId,
+              currency,
+              value,
+              items: [{ item_id: plan, item_name: plan, price: value, quantity: 1 }],
+            },
+          },
+        ],
+      };
+      const timeout = new Promise<number>((resolve) => setTimeout(() => resolve(0), MP_TIMEOUT_MS));
+      context.waitUntil(
+        Promise.race([sendPurchaseToGa4(mpUrl, mpPayload), timeout]).then((status) => {
+          // Evidence log — order-level fields only; client_id reduced to a
+          // presence boolean (PII red line, T4).
+          console.log(
+            JSON.stringify({
+              mp_purchase: {
+                ok: status >= 200 && status < 300,
+                status,
+                transaction_id: orderId,
+                plan,
+                currency,
+                value,
+                client_id_provided: rawClientId !== '',
+              },
+            }),
+          );
+        }),
+      );
     }
   }
 
