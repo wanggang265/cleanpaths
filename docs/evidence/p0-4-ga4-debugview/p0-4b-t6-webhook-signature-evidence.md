@@ -24,3 +24,4 @@ T6 真实 Resend 期间发现：test 店 webhook endpoint 使用独立 signing s
 - `wrangler pages deployment tail` 对 20dcfaec 报 8000098「无 Pages Function」误报（bundle 实际含 Functions，_routes.json 已传），改用双对照探针取证，证据强度更高。
 - 本轮 boss 已在 Creem 后台对 test endpoint 点过一次 Resend（结果看 Creem 投递状态回执 + 是否触发 💰 TG 通知，探针已独立证明验签机制）。
 - **Runtime 确认（2026-11-26，boss 口述）**：Resend 触发的 💰 checkout.completed TG 通知已送达 boss TG（chat 5190008355）→ Creem→webhook→验签200→extractOrder→TG 全链路生产实证，T6 运行时侧闭环。[待确认]② 真实日志实证随之收口。
+- **真实载荷字段核验 + Product 形状补修（2026-11-26）**：boss 回传 TG 通知实文 — Amount USD 1.00 / Order ord_* / Checkout ch_* 全实数 = T2 订单双形状修复生产验证通过；Product 显示 n/a 暴露 object.product 是对象非字符串（与 order 同款历史误猜）→ commit 补 productLabel 双形状（name→id→n/a），TSC_OK，部署 `15e9b92a`，无签名 POST 401 复验通过。GA4 路径不读 product（全文件单点引用），无连带影响。
