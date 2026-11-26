@@ -27,7 +27,9 @@
  */
 
 interface Env {
-  CREEM_WEBHOOK_SECRET?: string;
+	CREEM_WEBHOOK_SECRET?: string;
+	/** P0-4b T6: test-store webhook endpoint has its own signing secret (differs from live's). */
+	CREEM_WEBHOOK_SECRET_TEST?: string;
   TELEGRAM_BOT_TOKEN?: string;
   GA4_API_SECRET?: string; // P0-4b: Measurement Protocol api_secret (analytics-spec §8.4)
 }
@@ -174,11 +176,21 @@ async function sendPurchaseToGa4(mpUrl: string, payload: unknown): Promise<numbe
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const payload = await context.request.text();
-  const secret = context.env.CREEM_WEBHOOK_SECRET;
+  // Live and test webhook endpoints carry different signing secrets; a match
+  // against either verifies the event (P0-4b T6 test-store deliveries).
+  // Semantics unchanged: no match + at least one secret configured = 401.
+  const secrets = [context.env.CREEM_WEBHOOK_SECRET, context.env.CREEM_WEBHOOK_SECRET_TEST].filter(
+    (s): s is string => typeof s === 'string' && s.length > 0,
+  );
 
   let verified = false;
-  if (secret) {
-    verified = await verifySignature(payload, context.request.headers, secret);
+  if (secrets.length > 0) {
+    for (const secret of secrets) {
+      if (await verifySignature(payload, context.request.headers, secret)) {
+        verified = true;
+        break;
+      }
+    }
     if (!verified) {
       return Response.json({ ok: false, error: 'invalid_signature' }, { status: 401 });
     }
