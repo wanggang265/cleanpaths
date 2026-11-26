@@ -4,9 +4,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-export CLOUDFLARE_API_TOKEN="${CLOUDFLARE_API_TOKEN:-$(cat /home/ubuntu/.cloudflare/api-token 2>/dev/null || true)}"
+export CLOUDFLARE_API_TOKEN="${CLO...(cat /home/ubuntu/.cloudflare/api-token.pages 2>/dev/null || true)}"
 if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
-  echo "❌ CLOUDFLARE_API_TOKEN missing (expected /home/ubuntu/.cloudflare/api-token)" >&2
+  echo "❌ CLOUDFLARE_API_TOKEN missing (expected /home/ubuntu/.cloudflare/api-token.pages)" >&2
   exit 1
 fi
 

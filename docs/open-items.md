@@ -11,6 +11,7 @@
 - 交付含 §8.4 四步 debug 证据（前缀 p0-4b-）
 
 - **进展（2026-11-26 晚，jishi 预研，督办已核销）**：[待确认]① Creem metadata 透传=官方 OpenAPI 实证（CreateCheckoutRequest.metadata object+additionalProperties，与现行 checkout.ts L141 同通道，回读 object.metadata 原样）；[待确认]② 事件类型文档侧已闭（checkout.completed=支付完成返回订单信息，目录无发起类事件，样本 order.status:paid；真实日志实证留 T6）。**载荷形状发现**：官方样本 object.order 是对象（id/amount/amount_paid/currency），现行 creem.ts L153/L155 按 string 读=历史误猜 → Telegram 通知 Amount/Order 长期 n/a 根因坐实，T2 双形状防御。阻塞不变=OI-5。证据：docs/evidence/p0-4-ga4-debugview/p0-4b-preflight-docs-evidence.md
+- **进展（2026-11-26 深夜，jishi，T6 签名验证闭环）**：test 店 endpoint 用独立 signing secret（与 live 不同）→ 401 根因坐实；修复=creem.ts 双密钥逻辑（commit `fd96387`，任一命中即过、全不中仍 401 语义不变）+ boss 归档密钥落 CF（stdin 零回显）；部署 `20dcfaec`；**双对照签名探针：TEST 密钥 200 ok / 错误密钥 401 invalid_signature**，机制闭环铁证。deploy.sh L7 token 源改 api-token.pages（旧 token Pages API 401 实证）。证据：docs/evidence/p0-4-ga4-debugview/p0-4b-t6-webhook-signature-evidence.md。OI-5 前置已消：GA4_API_SECRET 实测在键清单（待督办销账）。待 boss 侧收口：Creem Resend 投递回执 200 + Test Mode OFF 时机拍板。
 ### OI-5 GA4_API_SECRET 创建（boss UI 任务，OI-4 硬前置；2026-11-26 实测缺失）
 - secret list 实测 10 键无 GA4_API_SECRET（2026-11-26，wrangler 4.168.0）
 - 路径：GA4 后台 admin → 数据流 → G-9T8XY5EB0Y → Measurement Protocol API secrets → 创建 → 终端 `CLOUDFLARE_API_TOKEN=$(cat /home/ubuntu/.cloudflare/api-token.pages) npx wrangler pages secret put GA4_API_SECRET --project-name=cleanpaths`（值走终端 stdin，严禁进聊天）
