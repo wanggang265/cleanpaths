@@ -1,0 +1,172 @@
+[
+  {
+    "name": "A1 upload_start fires once on pick",
+    "pass": true,
+    "detail": "[\"upload_start\"]"
+  },
+  {
+    "name": "A2 upload_start.file_type=jfif (dot-less)",
+    "pass": true,
+    "detail": "{\"file_type\":\"jfif\"}"
+  },
+  {
+    "name": "A3 pricing_view NOT fired on tool page",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A4 upload_start still exactly 1 after Convert (no re-fire)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A5 convert_started fires once",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A6 convert_started.file_type=jfif (input ext)",
+    "pass": true,
+    "detail": "{\"file_type\":\"jfif\"}"
+  },
+  {
+    "name": "A7 convert_success fires once",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A8 convert_success.file_type=jpg (primary out key)",
+    "pass": true,
+    "detail": "{\"file_type\":\"jpg\"}"
+  },
+  {
+    "name": "A9 download NOT fired before click",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A10 download fires once",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "A11 download.file_type=jpg (regression: live param intact)",
+    "pass": true,
+    "detail": "{\"file_type\":\"jpg\"}"
+  },
+  {
+    "name": "A12 FE never fires purchase (§8.3)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "B1 fast-fail: upload_start still fires (invalid ext recorded as-is)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "B2 fast-fail: upload_start.file_type=pdf",
+    "pass": true,
+    "detail": "{\"file_type\":\"pdf\"}"
+  },
+  {
+    "name": "B3 fast-fail: convert_started NOT fired",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "C1 cap path: convert_started withheld (§8.3)",
+    "pass": true,
+    "detail": "[\"upload_start\"]"
+  },
+  {
+    "name": "C2 cap path: upload_start DID fire (pick precedes quota gate)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "C3 cap-state CTA → buy_click slot=cap",
+    "pass": true,
+    "detail": "{\"slot\":\"cap\"}"
+  },
+  {
+    "name": "D1 pricing_view fires exactly once on /pricing/ load",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "D2 buy_click slot=pricing",
+    "pass": true,
+    "detail": "{\"slot\":\"pricing\"}"
+  },
+  {
+    "name": "D3 checkout_started fires exactly once",
+    "pass": true,
+    "detail": "[{\"name\":\"checkout_started\",\"params\":{\"plan\":\"pro\",\"path\":\"api\"}}]"
+  },
+  {
+    "name": "D4 checkout_started path=api plan=pro",
+    "pass": true,
+    "detail": "{\"plan\":\"pro\",\"path\":\"api\"}"
+  },
+  {
+    "name": "D5 contract: client_id OMITTED without _ga cookie (GA blocked → none)",
+    "pass": true,
+    "detail": "{\"plan\":\"pro\",\"tier\":\"pro\",\"source\":\"pricing\",\"ts\":\"2026-11-26T14:48:12.384Z\"}"
+  },
+  {
+    "name": "D6 success landing: pricing_view fires once",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "D7 success landing: FE still never fires purchase (beacon≠GA4, §8.3)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "E1 checkout_started path=fallback on API 500",
+    "pass": true,
+    "detail": "{\"plan\":\"pro\",\"path\":\"fallback\"}"
+  },
+  {
+    "name": "E2 contract: client_id=123456789.987654321 (last two _ga segments)",
+    "pass": true,
+    "detail": "{\"plan\":\"pro\",\"tier\":\"pro\",\"source\":\"pricing\",\"ts\":\"2026-11-26T14:48:15.617Z\",\"client_id\":\"123456789.987654321\"}"
+  },
+  {
+    "name": "F1 offline .catch: checkout_started withheld",
+    "pass": true,
+    "detail": "[\"pricing_view\",\"buy_click\"]"
+  },
+  {
+    "name": "F2 offline: buy_click still fired (CTA click is real)",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "G1 header link → language_switch from_lang=pt to_lang=en",
+    "pass": true,
+    "detail": "{\"from_lang\":\"pt\",\"to_lang\":\"en\"}"
+  },
+  {
+    "name": "G2 footer link → language_switch pt→en",
+    "pass": true,
+    "detail": "[{\"name\":\"language_switch\",\"params\":{\"from_lang\":\"pt\",\"to_lang\":\"en\"}}]"
+  },
+  {
+    "name": "G3 logo click does NOT fire language_switch (no false positive)",
+    "pass": true,
+    "detail": "[]"
+  },
+  {
+    "name": "G4 EN page fires no language_switch",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "H1 cricut ROI CTA → buy_click slot=cricut",
+    "pass": true,
+    "detail": "{\"slot\":\"cricut\"}"
+  }
+]

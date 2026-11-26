@@ -21,6 +21,7 @@ import { precisionConfig, preprocessImage, traceImage } from '@/lib/tracer';
 import { captureLicenseFromUrl, consumeHdTry, getQuota, hdTriesLeft, isProActive, recordConversion } from '@/lib/quota';
 import { decodeRaster, encodeBitmap, rasterizeSvg } from '@/lib/bitmap';
 import { beacon } from '@/lib/beacon';
+import { gtagEvent } from '@/lib/gtag'; // P0-4a T1: shared GA4 event helper (analytics-spec §8)
 import { wireLicenseEntry } from '@/lib/license-panel';
 import { capHtml, errorHtml, feedbackOkHtml, JFIF_LAYER_NOTE, JFIF_PNG_LAYER_NOTE, JFIF_PNG_LAYER_NOTE_PT, BITMAP_LAYER_NOTES, proActiveHtml, resultHtml, processingHtml, selectedHtml, type ResultRender } from './state-templates';
 import { createProgressUI, SVG_PHASES, TRACE_PHASES, type ProgressUI } from './progress';
@@ -90,14 +91,6 @@ interface RunOutput {
 
 function setBusy(b: boolean) {
   window.dispatchEvent(new CustomEvent(TOOL_BUSY_EVENT, { detail: b }));
-}
-
-/** stage-1 purefix (#10 Task 6): GA4 custom events via the layout's gtag.
- *  Existence-guarded, fire-and-forget — never blocks the conversion flow and
- *  no-ops when gtag is absent (script blocked / no-JS). */
-function gtagEvent(name: string, params?: Record<string, unknown>) {
-  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-  if (typeof w.gtag === 'function') w.gtag('event', name, params);
 }
 
 function extOf(name: string): string {
@@ -273,8 +266,8 @@ export default function ToolController(props: ToolProps) {
     // fired here; quota/engine side effects stay in run()).
     let pendingFile: File | null = null;
     const showSelected = (file: File) => {
-      gtagEvent('upload_start'); // #10 Task 6: file selected (any path: picker/drop)
       const ext = extOf(file.name);
+      gtagEvent('upload_start', { file_type: ext.replace(/^\./, '') }); // #10 Task 6 + P0-4a §8.2 row1: file selected (any path: picker/drop; dot-less lowercased ext — invalid values recorded as-is; still fires BEFORE the format fast-fail)
       if (!accept.includes(ext)) {
         renderState('error', errorHtml(`<b>${errorMessage.split('</b>')[0]}</b> ${errorMessage.split('</b>')[1] ?? ''}`, lang));
         return;
@@ -315,6 +308,7 @@ export default function ToolController(props: ToolProps) {
       }
 
       beacon('tool_start'); // #54 preregistered: conversion started (post quota gate)
+      gtagEvent('convert_started', { file_type: ext.replace(/^\./, '') }); // P0-4a §8.2 row2: same instant as the beacon tool_start — cap-rejected runs never reach this line (no event on cap / on pick)
       renderState('processing', processingHtml(stepsFor(kind, lang), lang));
       // 07d: real staged progress — jfif/jfif-png repack+convert is near-instant, keep the
       // frozen static steps there; every other kind gets the live UI.
@@ -363,7 +357,7 @@ export default function ToolController(props: ToolProps) {
         S.out = out;
         recordConversion();
         beacon('tool_complete'); // #54 preregistered: conversion completed
-        gtagEvent('convert_success'); // #10 Task 6
+        gtagEvent('convert_success', { file_type: primaryResultKey().replace(/-/g, '_') }); // #10 Task 6 + P0-4a §8.2 row3: primary output key — same key space the download event uses (§8.3: stale/watchdog/cancelled runs return above, never reach here)
         renderResult();
       } catch (err) {
         if (myRun !== runSeq) return; // 05 v1.6: cancelled/reset mid-run — discard
@@ -655,6 +649,25 @@ export default function ToolController(props: ToolProps) {
       pendingFile = null; // P0-2 item 5: staged file discarded with the state
       wireStatic();
       setBusy(false);
+    }
+
+    /** P0-4a §8.2 row3: primary output key of the current result — the same
+     *  key space the download buttons consume. Mirrors renderResult()'s
+     *  downloads derivation (jfif/jfif-png/bitmap → png|jpg; dxfDual →
+     *  dxf-r2000|dxf-r12 by segVersion; else svg) — kept in sync manually,
+     *  renderResult itself is untouched. dxfDual pages report the first-shown
+     *  (primary) format; the user's actual pick is reported by the download
+     *  event per click. */
+    function primaryResultKey(): string {
+      if (kind === 'jfif-png') return 'png';
+      if (kind === 'jfif') return 'jpg';
+      if (isBitmapKind(kind)) return BITMAP_OUT[kind as BitmapKind]?.ext ?? 'jpg';
+      // jfif / jfif-png / bitmap kinds already returned above, so this is
+      // exactly renderResult()'s dxfDual branch (screenshot & webp-svg → svg).
+      if (kind !== 'screenshot' && kind !== 'webp-svg') {
+        return S.segVersion === 'R2000' ? 'dxf-r2000' : 'dxf-r12';
+      }
+      return 'svg';
     }
 
     function renderResult() {

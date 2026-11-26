@@ -21,6 +21,7 @@ import { useEffect, useRef } from 'react';
 import { CHECKOUT_COPY, LICENSE_COPY } from '@/lib/copy';
 import { wireLicenseEntry } from '@/lib/license-panel';
 import { beacon } from '@/lib/beacon';
+import { gtagEvent, gaClientId } from '@/lib/gtag'; // P0-4a §8.2 rows 5/7 + P0-4a→P0-4b client_id contract
 
 type Plan = 'pro' | 'monthly-pass' | 'batch-pack' | 'precision-pack';
 
@@ -92,6 +93,10 @@ export default function CheckoutLinks({ children }: { children?: React.ReactNode
   }, []);
 
   useEffect(() => {
+    // P0-4a §8.2 row5: pricing_view — this component wraps ONLY the /pricing/
+    // route, so mount == a real pricing page load; the ?checkout=success
+    // landing is a page load too and fires exactly once, the same way.
+    gtagEvent('pricing_view');
     const root = ref.current;
     if (!root) return;
     const onClick = (e: MouseEvent) => {
@@ -99,18 +104,23 @@ export default function CheckoutLinks({ children }: { children?: React.ReactNode
       if (!a) return;
       e.preventDefault();
       const plan = planFromButton(a as HTMLElement);
+      // P0-4a → P0-4b contract: optional GA4 client_id from the _ga cookie —
+      // OMITTED entirely when absent/unparseable (no empty string, no placeholder).
+      const cid = gaClientId();
       void fetch('/api/checkout', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ plan, tier: plan, source: 'pricing', ts: new Date().toISOString() }),
+        body: JSON.stringify({ plan, tier: plan, source: 'pricing', ts: new Date().toISOString(), ...(cid ? { client_id: cid } : {}) }),
       })
         .then(async (res) => {
           if (!res.ok) {
             // API misconfig/upstream — fall back to Creem's hosted product page.
+            gtagEvent('checkout_started', { plan, path: 'fallback' }); // P0-4a §8.2 row7: fires immediately before the assign
             window.location.assign(CREEM_PRODUCT_URL[plan]);
             return;
           }
           const data = (await res.json().catch(() => null)) as { url?: string } | null;
+          gtagEvent('checkout_started', { plan, path: 'api' }); // P0-4a §8.2 row7: API branch — fires immediately before the assign; the offline .catch below never reaches here
           window.location.assign(data?.url ?? CREEM_PRODUCT_URL[plan]);
         })
         .catch(() => {
