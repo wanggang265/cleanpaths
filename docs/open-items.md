@@ -5,9 +5,29 @@
 
 ## OPEN
 
-（当前无 OPEN 项——账面清零，2026-11-25 起进入纯数据观察期至 2026-12-02 GSC 复盘。）
+### OI-3 P0-4a GA4 前端事件实现（2026-11-26 派工，chuangkou）
+- 工单：`/home/ubuntu/demand-signals/2026-09-22-format-friction/PROMPT_chuangkou_p0-4a_ga4_fe.md`；规格事实源=analytics-spec §8 @ 4069ee9（督办终审 PASS，见 OD-5）
+- 文件域 `src/**`；含 T0 规格修订（督办授权 §8.2 row8 覆盖域表述）；跨单契约：POST /api/checkout body 可选 `client_id`（与 OI-4 写死一致）
+- 交付含 §8.6 DebugView/Network 证据 → docs/evidence/p0-4-ga4-debugview/（前缀 p0-4a-）+ scripts/qa-p0-4a.cjs
+
+### OI-4 P0-4b GA4 服务端 purchase MP（2026-11-26 派工，jishi）
+- 工单：`/home/ubuntu/demand-signals/2026-09-22-format-friction/PROMPT_jishi_p0-4b_ga4_mp.md`；规格=§8.4
+- 文件域 `functions/**`（与 OI-3 零重叠可并行）；硬前置=OI-5 secret + [待确认]①②实证（②已收窄：creem.ts L148 现行分支 checkout.completed）
+- 交付含 §8.4 四步 debug 证据（前缀 p0-4b-）
+
+### OI-5 GA4_API_SECRET 创建（boss UI 任务，OI-4 硬前置；2026-11-26 实测缺失）
+- secret list 实测 10 键无 GA4_API_SECRET（2026-11-26，wrangler 4.168.0）
+- 路径：GA4 后台 admin → 数据流 → G-9T8XY5EB0Y → Measurement Protocol API secrets → 创建 → 终端 `CLOUDFLARE_API_TOKEN=$(cat /home/ubuntu/.cloudflare/api-token.pages) npx wrangler pages secret put GA4_API_SECRET --project-name=cleanpaths`（值走终端 stdin，严禁进聊天）
+
+（上述 OI-3/4/5 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
 
 ## DONE
+
+### OD-5 P0-4s GA4 规格冻结核销（2026-11-26，纯文档零部署）
+- 交付：4069ee9 docs/analytics-spec.md §8（L75-199，+126/−0 纯追加单文件，未 push 未部署）
+- 督办终审实证 PASS（12 项）：commit hash+msg / numstat / diff 零删除行 / 未 push（origin..HEAD 仅此 1 commit）/ §8.0–8.7 结构落位 / 8.2 恰 9 数据行 / 代码锚点全套（ToolController L98-101 守卫、L276、L317 beacon tool_start、L360+L366 stale 守卫与成功点、L735；layout L39-48 G-9T8XY5EB0Y；SiteHeader L83 lang==='pt' 分支+L91/L98；SiteFooter L48；CheckoutLinks L110/L114 assign；beacon.ts 5 事件枚举；creem.ts L103 maskEmail）/ QA 脚本 3 件在盘 / spec G-ID 4 处一致 / 偏差①属实（现行账本无 file_selected/convert_completed，旧两小节确随 11-25 重建归档）
+- 审计发现 2 条（不回炉，闭环进下批工单）：F1=upload_start/convert_success 现网裸发无 file_type（L276/L366 实证，工单背景「带 file_type 参数」只对 download 成立）→ P0-4a T2/T4 补齐；F2=§8.2 row8「现状仅 PT→EN 单向」不成立（EN 页 content 反向链实证 jfif-to-jpg.ts L115）→ P0-4a T0 督办授权修订覆盖域表述
+- 工单 skill 先验记录：工单原件（demand-signals/…/PROMPT_chuangkou_p0-4s_ga4_spec_freeze.md）7 任务+硬约束逐条对照全覆盖；观察项（不阻塞）：报告未显式回执 frontend-site-automation 加载证据，鉴于纯文档单该 skill 无可执行要求且交付物实证零缺陷，按「轻 bug 不修成重流程」口径放行
 
 ### OD-3 OI-1 收尾：§A-5 ×2 GUIDE 串 + §D-2 #1/#2 一致性注记落档（2026-11-25，纯文档零部署）
 - 修正：v1.20 addendum §A-5 两 GUIDE 串（HOME_PNG_GUIDE/SAMPLES_PNG_GUIDE）与 §D-2 #1/#2 行注记**作废不落**（zhongshu 督办口径，DESIGN.md v1.21 同源）；冻结串字节零改动；EN-JPG/PNG_ENDPOINT 注记照常落位
