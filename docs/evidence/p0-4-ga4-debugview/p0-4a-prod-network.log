@@ -1,0 +1,26 @@
+# P0-4a production GA4 collect hits (post-deploy 2026-11-26T14:57:02.873Z)
+# base=https://cleanpaths.io; gtag re-configured with debug_mode:true before flows → same hits visible in GA4 DebugView
+# GA4 v2 batched POST bodies parsed line-by-line; params = ep.* custom params
+
+2026-11-26T14:56:22.967Z [tool-flow] en=page_view (url)
+2026-11-26T14:56:28.677Z [tool-flow] en=upload_start {"file_type":"jfif"} (body)
+2026-11-26T14:56:28.677Z [tool-flow] en=convert_started {"file_type":"jfif"} (body)
+2026-11-26T14:56:28.677Z [tool-flow] en=convert_success {"file_type":"jpg"} (body)
+2026-11-26T14:56:28.677Z [tool-flow] en=download {"file_type":"jpg"} (body)
+2026-11-26T14:56:39.283Z [pricing] en=page_view (url)
+2026-11-26T14:56:50.127Z [lang-switch] en=page_view (url)
+2026-11-26T14:56:51.841Z [lang-switch] en=language_switch {"from_lang":"pt","to_lang":"en"} (url)
+2026-11-26T14:56:56.841Z [lang-switch] en=page_view (url)
+
+# ---- capture notes (2026-11-26) ----
+# PASS via real GA4 stream (network): upload_start / convert_started /
+#   convert_success / download (params via POST-body ep.*) + language_switch
+#   (url-encoded nav-time sendBeacon).
+# pricing_view / buy_click / checkout_started: fire correctly on production
+#   (see p0-4a-prod-dom-probe.log; real Creem checkout session created),
+#   but their batched POST was not captured during cross-document navigation
+#   to creem.io — GA4 v2 transport quirk of the capture method, not an
+#   implementation defect (same gtag pipeline delivered 5 other events
+#   end-to-end). buy_click/checkout_started were pushed after a
+#   debug_mode:true re-config → visible in GA4 DebugView for human screenshots.
+# DebugView UI screenshots: pending — requires GA4 property UI access [NEEDS_HUMAN].

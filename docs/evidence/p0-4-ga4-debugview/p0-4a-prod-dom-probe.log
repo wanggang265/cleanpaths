@@ -1,0 +1,23 @@
+==== production DOM-side GA4 pushes (shim on window.dataLayer) ====
+[tool-flow] upload_start {"file_type":"jfif"}
+[tool-flow] convert_started {"file_type":"jfif"}
+[tool-flow] convert_success {"file_type":"jpg"}
+[tool-flow] download {"file_type":"jpg"}
+[pricing] pricing_view
+[pricing] buy_click {"slot":"pricing"}
+[pricing] checkout_started {"plan":"pro","path":"api"}
+[lang-switch] language_switch {"from_lang":"pt","to_lang":"en"}
+[success-landing] pricing_view
+
+==== coverage (DOM) ====
+PASS upload_start ×1 params={"file_type":"jfif"}
+PASS convert_started ×1 params={"file_type":"jfif"}
+PASS convert_success ×1 params={"file_type":"jpg"}
+PASS download ×1 params={"file_type":"jpg"}
+PASS pricing_view ×2 params=null
+PASS buy_click ×1 params={"slot":"pricing"}
+PASS checkout_started ×1 params={"plan":"pro","path":"api"}
+PASS language_switch ×1 params={"from_lang":"pt","to_lang":"en"}
+PASS no FE 'purchase' event (§8.3 red line)
+
+ALL DOM CHECKS PASS
