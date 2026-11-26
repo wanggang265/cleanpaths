@@ -5,11 +5,6 @@
 
 ## OPEN
 
-### OI-3 P0-4a GA4 前端事件实现（2026-11-26 派工，chuangkou）
-- 工单：`/home/ubuntu/demand-signals/2026-09-22-format-friction/PROMPT_chuangkou_p0-4a_ga4_fe.md`；规格事实源=analytics-spec §8 @ 4069ee9（督办终审 PASS，见 OD-5）
-- 文件域 `src/**`；含 T0 规格修订（督办授权 §8.2 row8 覆盖域表述）；跨单契约：POST /api/checkout body 可选 `client_id`（与 OI-4 写死一致）
-- 交付含 §8.6 DebugView/Network 证据 → docs/evidence/p0-4-ga4-debugview/（前缀 p0-4a-）+ scripts/qa-p0-4a.cjs
-
 ### OI-4 P0-4b GA4 服务端 purchase MP（2026-11-26 派工，jishi）
 - 工单：`/home/ubuntu/demand-signals/2026-09-22-format-friction/PROMPT_jishi_p0-4b_ga4_mp.md`；规格=§8.4
 - 文件域 `functions/**`（与 OI-3 零重叠可并行）；硬前置=OI-5 secret + [待确认]①②实证（②已收窄：creem.ts L148 现行分支 checkout.completed）
@@ -20,9 +15,21 @@
 - secret list 实测 10 键无 GA4_API_SECRET（2026-11-26，wrangler 4.168.0）
 - 路径：GA4 后台 admin → 数据流 → G-9T8XY5EB0Y → Measurement Protocol API secrets → 创建 → 终端 `CLOUDFLARE_API_TOKEN=$(cat /home/ubuntu/.cloudflare/api-token.pages) npx wrangler pages secret put GA4_API_SECRET --project-name=cleanpaths`（值走终端 stdin，严禁进聊天）
 
-（上述 OI-3/4/5 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
+### OI-6 GA4 DebugView/报表级人工验证（boss UI 任务，§8.6 闭环要件；非 P0-4b 阻塞）
+- §8.6 全 9 事件 DebugView 截图 + page_location EN/PT 抽查（需 GA4 账号访问 G-9T8XY5EB0Y）
+- **督办修正（2026-11-26 核销时）**：chuangkou 申报「已在 DebugView 流，直接截图即可」表述过强——debug_mode 系探针会话运行时注入（线上 bundle 零命中实证，见 OD-7），DebugView 设备流不常驻 → **截图前需重跑 debug 探针会话**（复用 p0-4a 探针流程或 Chrome GA Debugger 扩展）
+- pricing 三事件（pricing_view/buy_click/checkout_started）GA4 报表级验证：网络包因 GA4 v2 跨文档导航 flush 怪癖未抓到（DOM 8/8 已实证），以 Realtime/报表命中收口
+- 证据基线：docs/evidence/p0-4-ga4-debugview/p0-4a-prod-{network,dom-probe}.log
+
+（上述 OI-4/5/6 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
 
 ## DONE
+
+### OD-7 OI-3 P0-4a GA4 前端事件实现核销（2026-11-26，已部署生产）
+- 交付：0a4caac（T0 规格修订 +1）/ 9487e2f（主实现 +652：src/lib/gtag.ts 新建 + ToolController/CheckoutLinks/CtaBeacon + scripts/qa-p0-4a.cjs + 本地证据）/ e4d1b00（生产证据 +51）；部署 **02dbdcc0**（Production，Source=9487e2f，CF API 实证，language_switch 线上实测命中）；main ahead 7 未 push（push 归督办）
+- 督办终审实证 PASS：三 commit numstat 逐文件（零 functions/** 触碰；规格仅 0a4caac 单 hunk row8，§1–7+rows1–7 零改动）；**线上 bundle 直抓 7 事件串全命中、debug_mode 零命中**（申报「生产注入 debug_mode」实为探针会话运行时 re-config，未入库未上线，§8.2 参数冻结无违规）；QA 34/34（fails=0 实数）+ 回归 qa-p0-2 28/28（errors=0 实数）；client_id 契约两态断言实锤（D5 无 _ga→OMITTED / E2 注入→123456789.987654321）；生产网络侧 5 事件 file_type 全对（jfif/jfif/jpg/jpg）+ DOM 8/8 含三红线（无 FE purchase）
+- 偏差裁定 6 条全受控（语义均规格优先）：D1 去点（extOf 来源 + replace 实证 L270/L311）；D2 primaryResultKey 镜像（L661-670 与 renderResult 分支逐支一致；**镜像漂移=已知维护风险，改 renderResult 必须同步**）；D3 language_switch 改 CtaBeacon 委托监听（server 组件不可 onClick，/pt/ 守卫 + exact-text 两形态，三锚点语义等价，logo/privacy 不误发已实证）；D4 T0 按文件实文替换；D5 QA 脚本机制（el.click / hermetic 屏蔽 GA 网络 / 首版 network log 已被生产证据取代）；D6 pricing 网络包未抓到（GA4 v2 跨文档导航 flush 怪癖，DOM 8/8 + 同管道 5 事件网络级端到端命中顶上）；D7 顺带入库 jishi preflight 文件（已在 OI-4 进展行有主）
+- 残留 → OI-6（§8.6 人工验证）；遗留表述修正一处：DebugView「直接截图即可」不成立，见 OI-6
 
 ### OD-6 P1 动工前 CF 权限侦察核销（2026-11-26，纯只读零变更）
 - 交付：`docs/cf-p1-preflight-2026-11-26.md`（jishi，工单 PROMPT_jishi_cf_p1_preflight.md；skill cloudflare-token-permissions-ui-2026 督办同步后执行）
