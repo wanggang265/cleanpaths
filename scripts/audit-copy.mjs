@@ -36,6 +36,28 @@ if (failures) { console.error(`copy audit: ${failures} failure(s)`); process.exi
 console.log('copy audit: PASS (all FAQ strings byte-present in generated content)');
 
 // ---------------------------------------------------------------------------
+// P1-4③ schema-name pin (ticket PROMPT_chuangkou_p1-4c_p1-5_home_batch,
+// 2026-11-27; authorization: 11-24 plan item 4③): the EN home
+// SoftwareApplication name must be exactly `name="CleanPaths"` (once) in
+// src/app/page.tsx, and the old verbose value must be gone. The design-source
+// pages carry no JSON-LD, so the only scan surface for this field is src/.
+// ---------------------------------------------------------------------------
+{
+  const pageRaw = readFileSync(join(ROOT, 'src', 'app', 'page.tsx'), 'utf8');
+  const hits = (pageRaw.match(/name="CleanPaths"/g) || []).length;
+  if (hits !== 1) {
+    console.error(`✗ schema-name pin: src/app/page.tsx must carry name="CleanPaths" exactly once (got ${hits})`);
+    failures++;
+  }
+  if (pageRaw.includes('Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser')) {
+    console.error('✗ schema-name pin: old verbose SoftwareApplication.name still present in src/app/page.tsx');
+    failures++;
+  }
+  if (failures) { console.error(`schema-name pin: ${failures} failure(s)`); process.exit(1); }
+  console.log('schema-name pin: PASS (SoftwareApplication.name = CleanPaths, old value gone)');
+}
+
+// ---------------------------------------------------------------------------
 // §D-5 sentinel block (zhongshu 2026-10-11): runtime copy in src/lib/copy.ts
 // is OUTSIDE the design-source scan surface above. Pin every frozen runtime
 // string here — v1.4 六串 + v1.5 二十四串 — each must appear EXACTLY ONCE in

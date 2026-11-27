@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <ToolPage
       route="/"
-      name="Convert PNG, JPG, SVG to Cut-Ready DXF — Free, in Your Browser"
+      name="CleanPaths"
       description={description}
       mainHtml={mainHtml}
       kind="trace-multi"

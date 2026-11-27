@@ -38,6 +38,9 @@ SENTINELS = {
    "Client mess in, cut-ready file out. Keep the order moving.",
    "See how sellers use it →",
    "Free for 10 conversions a day — full quality, no watermark, for personal use. Selling what you make? CleanPaths Pro includes the commercial license — $59, one time, no daily cap. 30-day money-back guarantee.",
+   # P1-5 (ticket PROMPT_chuangkou_p1-4c_p1-5_home_batch, 2026-11-27): price-bar
+   # batch-pack cross-ref line — frozen string verbatim from 11-24 plan item 5.
+   "or add a $29 batch pack",
    "See pricing →",
    "Questions makers actually ask",
    "Do you upload or store my files?",

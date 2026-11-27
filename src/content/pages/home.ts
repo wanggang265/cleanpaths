@@ -139,7 +139,7 @@ export const mainHtml = `<section class="hero matgrid">
 </section>
 <section class="section--alt" style="padding:40px 0">
   <div class="wrap" style="display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <p style="font-size:17.5px;max-width:44em">Free for 10 conversions a day — full quality, no watermark, for personal use. Selling what you make? CleanPaths Pro includes <b>the commercial license</b> — $59, one time, no daily cap. 30-day money-back guarantee.</p>
+    <p style="font-size:17.5px;max-width:44em">Free for 10 conversions a day — full quality, no watermark, for personal use. Selling what you make? CleanPaths Pro includes <b>the commercial license</b> — $59, one time, no daily cap. 30-day money-back guarantee. <a href="/pricing/">or add a $29 batch pack</a>.</p>
     <a class="btn" href="/pricing/">See pricing →</a>
   </div>
 </section>
