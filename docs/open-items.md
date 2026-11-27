@@ -6,7 +6,8 @@
 ## OPEN
 
 ### OI-7 P1 批次（缓存/WAF/HSTS）闸门与代办挂账（2026-11-27 建，承接 OI-4/5/6 核销）
-- **P0 全验收章：已盖**（2026-11-27，OD-8/9/10 终审 PASS）→ **P1-1 全闸门解锁**（2026-11-27 总控零效果写探针三连实证：Zone Settings Edit=security_level 同值 PATCH 200 / Cache Rules Edit=cache_settings 空 entrypoint PUT 200 / Zone WAF Edit=firewall_custom 空 entrypoint PUT 200；boss dashboard 补权限代办销账，内部规范 v2 §2 与实测一致）。探针副作用登记：cache_settings（b73d642b…）与 firewall_custom（636949db…）两个**空 entrypoint ruleset** 被创建，各含 0 条规则、零流量行为，「全站 0 条自定义规则」事实不变（P1-2 评估时该两 phase entrypoint 返回 200+rules:[] 勿误判）。P1-1 待派（jishi P1-2 交付后串行）；P1-1 实施规格源待定位（11-24 诊断报告的 P1 细节，缺失则走规格冻结单通道）
+- **P0 全验收章：已盖**（2026-11-27，OD-8/9/10 终审 PASS）→ **P1-1 全闸门解锁**（2026-11-27 总控零效果写探针三连实证：Zone Settings Edit=security_level 同值 PATCH 200 / Cache Rules Edit=cache_settings 空 entrypoint PUT 200 / Zone WAF Edit=firewall_custom 空 entrypoint PUT 200；boss dashboard 补权限代办销账，内部规范 v2 §2 与实测一致）。探针副作用登记：cache_settings（b73d642b…）与 firewall_custom（636949db…）两个**空 entrypoint ruleset** 被创建，各含 0 条规则、零流量行为，「全站 0 条自定义规则」事实不变（P1-2 评估时该两 phase entrypoint 返回 200+rules:[] 勿误判）。**P1-1 规格冻结单已派** `PROMPT_jishi_p1-1_cache_spec_freeze.md`（2026-11-27，doc-only 零变更零部署；jishi P1-2 后串行）。规格源裁定：11-24 计划对 P1-1 仅一句「缓存」，路径/TTL/SEO 影响定义盘上零痕迹 + 跨会话回查零命中 → 按 P0-4s 先例立案走规格冻结单通道，实现单待规格督办终审 GO 后另派
+- 🔍 **P1×5 计数缺口**：11-24 计划头部记「P1×5」，全账可锚定仅 P1-1/2/3 三项；P1-4/P1-5 定义盘上零痕迹、会话回查零命中（2026-11-27）→ 待用户回供 11-24 计划原文补定义，或裁定「实际仅 3 项」修正计数。lastmod 真实化（P0-3a 顺手项）已实证随 P0-3b 落地（sitemap 现为 11-23~26 真实多值日期），无需另派
 - **P1-2 WAF 评估**：工单已派 `demand-signals/2026-09-22-format-friction/PROMPT_jishi_p1-2_waf_eval.md`（2026-11-27，纯只读评估单，零实施；实施须另单 + boss 对应 Edit 权限 + 拍板）；jishi 施工中
 - **P1-3 HSTS**：半不可逆，等 boss 显式 GO + Zone Settings Edit；无 GO 前零动作
 - boss 可选决策：live 真卡 $1 重试一单（建议 Test Mode OFF 后做，一单同时实证 live 签名密钥全链路；test 店 T6 已闭环，不做不阻塞）
