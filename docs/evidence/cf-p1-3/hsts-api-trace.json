@@ -1,0 +1,78 @@
+{
+ "go_reference": "boss GO \u5df2\u4e0b\uff0c\u4e24\u5355\u8fde\u53d1\uff082026-11-27 \u665a\uff09\u2014\u2014\u7763\u529e wangduoyu \u6d3e\u5de5\u8f6c\u53d1\u643a GO\uff1bZone Settings Edit \u5b9e\u8bc1 OD-6",
+ "before": {
+  "status": 200,
+  "result_verbatim": {
+   "id": "security_header",
+   "modified_on": null,
+   "value": {
+    "strict_transport_security": {
+     "enabled": false,
+     "max_age": 0,
+     "include_subdomains": false,
+     "preload": false,
+     "nosniff": false
+    }
+   },
+   "editable": true
+  },
+  "errors": []
+ },
+ "schema_check": {
+  "get_fields": [
+   "enabled",
+   "include_subdomains",
+   "max_age",
+   "nosniff",
+   "preload"
+  ],
+  "patch_required_fields": [
+   "enabled",
+   "include_subdomains",
+   "max_age",
+   "nosniff",
+   "preload"
+  ],
+  "missing_in_current_schema": []
+ },
+ "patch": {
+  "status": 200,
+  "errors": [],
+  "result_verbatim": {
+   "id": "security_header",
+   "modified_on": "2026-11-27T14:12:41.720657Z",
+   "value": {
+    "strict_transport_security": {
+     "enabled": true,
+     "max_age": 2592000,
+     "include_subdomains": false,
+     "preload": false,
+     "nosniff": false
+    }
+   },
+   "editable": true
+  }
+ },
+ "after_readback": {
+  "status": 200,
+  "result_verbatim": {
+   "id": "security_header",
+   "modified_on": "2026-11-27T14:12:41.720657Z",
+   "value": {
+    "strict_transport_security": {
+     "enabled": true,
+     "max_age": 2592000,
+     "include_subdomains": false,
+     "preload": false,
+     "nosniff": false
+    }
+   },
+   "editable": true
+  }
+ },
+ "dns_subdomains": {
+  "status": 403,
+  "subdomains": [],
+  "analysis": "include_subdomains=false \u2192 HSTS header \u4e0d\u5ef6\u5c55\u5b50\u57df\uff1b\u4e14 header \u672c\u8eab\u53ea\u5728\u4e3b\u57df\u54cd\u5e94\u4e0b\u53d1\uff0c\u65e0\u7eaf HTTP \u5b50\u57df\u88ab\u8bef\u5bfc\u9762"
+ }
+}

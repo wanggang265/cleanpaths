@@ -1,0 +1,23 @@
+=== P1-3 HSTS 边缘探针 2026-11-27T14:13:07Z ===
+-- / --
+HTTP/2 103 
+HTTP/2 200 
+strict-transport-security: max-age=2592000
+cf-cache-status: EXPIRED
+  [✓] max-age=2592000 在场
+  [✓] 无 includeSubDomains
+  [✓] 无 preload
+-- /pricing/ --
+HTTP/2 200 
+strict-transport-security: max-age=2592000
+cf-cache-status: EXPIRED
+  [✓] max-age=2592000 在场
+  [✓] 无 includeSubDomains
+  [✓] 无 preload
+-- /pt/jfif-para-jpg/ --
+HTTP/2 200 
+strict-transport-security: max-age=2592000
+cf-cache-status: EXPIRED
+  [✓] max-age=2592000 在场
+  [✓] 无 includeSubDomains
+  [✓] 无 preload
