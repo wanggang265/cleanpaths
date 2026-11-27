@@ -1,0 +1,268 @@
+{
+ "zone_lookup": {
+  "status": 200,
+  "zid_prefix": "cc6a8a96",
+  "zone_name": "cleanpaths.io"
+ },
+ "rulesets_list": {
+  "status": 200,
+  "body": {
+   "result": [
+    {
+     "description": "Created by the Cloudflare security team, this ruleset provides normalization on the URL path",
+     "id": "70339d97bdb34195bbf054b1ebe81f76",
+     "kind": "managed",
+     "last_updated": "2024-08-01T17:37:11.538019Z",
+     "name": "Cloudflare Normalization Ruleset",
+     "phase": "http_request_sanitize",
+     "version": "6"
+    },
+    {
+     "description": "Created by the Cloudflare security team, this ruleset applies default mitigations during HTTP response processing to protect your applications from security threats. It is regularly updated to address new threats and reduce false positives.",
+     "id": "b42644f558d04e41ba6afa4c79b51009",
+     "kind": "managed",
+     "last_updated": "2026-10-21T07:52:48.743926Z",
+     "name": "Cloudflare Managed Response Firewall Default",
+     "phase": "http_response_firewall_custom",
+     "version": "2"
+    },
+    {
+     "description": "Created by the Cloudflare security team, this ruleset is designed to provide protection for free zones",
+     "id": "77454fe2d30c4220b5701f6fdfb893ba",
+     "kind": "managed",
+     "last_updated": "2026-11-24T17:23:17.943172Z",
+     "name": "Cloudflare Managed Free Ruleset",
+     "phase": "http_request_firewall_managed",
+     "source": "firewall_managed",
+     "version": "89"
+    },
+    {
+     "description": "Automatic mitigation of HTTP-based DDoS attacks. Cloudflare routinely adds signatures to address new attack vectors. Additional configuration allows you to customize the sensitivity of each rule and the performed mitigation action.",
+     "id": "4d21379b4f9f4bb088e0729962c8b3cf",
+     "kind": "managed",
+     "last_updated": "2026-11-27T10:47:20.248581Z",
+     "name": "DDoS L7 ruleset",
+     "phase": "ddos_l7",
+     "version": "3542"
+    },
+    {
+     "description": "",
+     "id": "2889fb440a65489199d8660c75942dcd",
+     "kind": "zone",
+     "last_updated": "2026-10-10T07:00:52.045771Z",
+     "name": "default",
+     "phase": "http_request_dynamic_redirect",
+     "version": "1"
+    },
+    {
+     "description": "",
+     "id": "b73d642be60546208f9040963d995424",
+     "kind": "zone",
+     "last_updated": "2026-11-27T13:02:10.494521Z",
+     "name": "default",
+     "phase": "http_request_cache_settings",
+     "version": "1"
+    },
+    {
+     "description": "",
+     "id": "636949db4e4142b9bbaaea559460bd0c",
+     "kind": "zone",
+     "last_updated": "2026-11-27T13:02:11.053547Z",
+     "name": "default",
+     "phase": "http_request_firewall_custom",
+     "source": "firewall_custom",
+     "version": "1"
+    }
+   ],
+   "success": true,
+   "errors": [],
+   "messages": []
+  }
+ },
+ "phase_entrypoints": {
+  "http_request_firewall_custom": {
+   "status": 200,
+   "errors": [],
+   "name": "default",
+   "kind": "zone",
+   "version": "1",
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_request_firewall_managed": {
+   "status": 404,
+   "errors": [
+    {
+     "code": 10003,
+     "message": "could not find entrypoint ruleset in the http_request_firewall_managed phase"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_request_sbfm": {
+   "status": 400,
+   "errors": [
+    {
+     "message": "unknown phase \"http_request_sbfm\""
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_ratelimit": {
+   "status": 404,
+   "errors": [
+    {
+     "code": 10003,
+     "message": "could not find entrypoint ruleset in the http_ratelimit phase"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_request_cache_settings": {
+   "status": 200,
+   "errors": [],
+   "name": "default",
+   "kind": "zone",
+   "version": "1",
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_request_sanitize": {
+   "status": 403,
+   "errors": [
+    {
+     "message": "request is not authorized"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_response_firewall_custom": {
+   "status": 404,
+   "errors": [
+    {
+     "code": 10003,
+     "message": "could not find entrypoint ruleset in the http_response_firewall_custom phase"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "http_request_dynamic_redirect": {
+   "status": 403,
+   "errors": [
+    {
+     "message": "request is not authorized"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  },
+  "ddos_l7": {
+   "status": 403,
+   "errors": [
+    {
+     "message": "request is not authorized"
+    }
+   ],
+   "name": null,
+   "kind": null,
+   "version": null,
+   "rules_count": 0,
+   "rules_verbatim": null
+  }
+ },
+ "bot_management": {
+  "status": 200,
+  "errors": [],
+  "result": {
+   "enable_js": false,
+   "fight_mode": false,
+   "ai_bots_protection": "disabled",
+   "content_bots_protection": "disabled",
+   "crawler_protection": "disabled",
+   "ai_training": "disabled",
+   "ai_search": "disabled",
+   "ai_user": "disabled",
+   "ai_agents": {
+    "anthropic_agent": "disabled",
+    "google_agent": "disabled",
+    "instinct": "disabled",
+    "muse": "disabled",
+    "openai_agent": "disabled"
+   },
+   "is_robots_txt_managed": false,
+   "bot_preference_sync_enabled": false,
+   "cf_robots_variant": "policy_only",
+   "ai_bots_migration_opt_out": false,
+   "using_latest_model": true
+  }
+ },
+ "bot_management_ai_crawlers": {
+  "status": 404,
+  "errors": null,
+  "result": null
+ },
+ "rate_limits_v1": {
+  "status": 403,
+  "errors": [
+   {
+    "code": 10000,
+    "message": "Authentication error",
+    "documentation_url": "https://developers.cloudflare.com/api/resources/rate_limits/methods/list"
+   }
+  ],
+  "result": null
+ },
+ "zone_settings_security": {
+  "status": 200,
+  "items": {
+   "0rtt": "off",
+   "automatic_https_rewrites": "on",
+   "browser_check": "on",
+   "challenge_ttl": 1800,
+   "development_mode": "off",
+   "email_obfuscation": "on",
+   "hotlink_protection": "off",
+   "ip_geolocation": "on",
+   "min_tls_version": "1.0",
+   "mirage": "off",
+   "opportunistic_encryption": "on",
+   "rocket_loader": "off",
+   "security_header": {
+    "strict_transport_security": {
+     "enabled": false,
+     "max_age": 0,
+     "include_subdomains": false,
+     "preload": false,
+     "nosniff": false
+    }
+   },
+   "security_level": "medium",
+   "tls_1_3": "on",
+   "waf": "off",
+   "websockets": "on"
+  }
+ }
+}
