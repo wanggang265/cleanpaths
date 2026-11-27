@@ -1,0 +1,8 @@
+=== W1-3 变更后握手复测 2026-11-27T13:28:27Z ===
+-- tls1_1 (期望失败) --
+0004157B087E0000:error:0A00042E:SSL routines:ssl3_read_bytes:tlsv1 alert protocol version:../ssl/record/rec_layer_s3.c:1599:SSL alert number 70
+New, (NONE), Cipher is (NONE)
+-- tls1_2 (期望成功) --
+New, TLSv1.2, Cipher is ECDHE-ECDSA-CHACHA20-POLY1305
+-- tls1_3 (期望成功) --
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384

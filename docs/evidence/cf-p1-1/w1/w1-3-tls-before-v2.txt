@@ -1,0 +1,6 @@
+=== W1-3 前置证据 v2：SECLEVEL=0 强制 TLS1.1 客户端 2026-11-27T13:28:06Z ===
+OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+-- tls1_1 + SECLEVEL=0 (期望现状=服务器接受) --
+00B4957FE57F0000:error:0A00042E:SSL routines:ssl3_read_bytes:tlsv1 alert protocol version:../ssl/record/rec_layer_s3.c:1599:SSL alert number 70
+New, (NONE), Cipher is (NONE)
+    Protocol  : TLSv1.1

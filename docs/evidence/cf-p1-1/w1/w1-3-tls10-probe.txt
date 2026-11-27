@@ -1,0 +1,4 @@
+=== W1-3 补充：TLS1.0 探针（摸清边缘实际底线）2026-11-27T13:28:17Z ===
+00F412D8F97A0000:error:0A00042E:SSL routines:ssl3_read_bytes:tlsv1 alert protocol version:../ssl/record/rec_layer_s3.c:1599:SSL alert number 70
+New, (NONE), Cipher is (NONE)
+    Protocol  : TLSv1

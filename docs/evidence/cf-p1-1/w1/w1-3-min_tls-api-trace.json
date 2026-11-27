@@ -1,0 +1,16 @@
+{
+ "before": {
+  "status": 200,
+  "value": "1.0"
+ },
+ "patch": {
+  "status": 200,
+  "errors": [],
+  "value_returned": "1.2"
+ },
+ "after_readback": {
+  "status": 200,
+  "value": "1.2"
+ },
+ "tls_reality_note": "\u53d8\u66f4\u524d\u540e\u8fb9\u7f18\u884c\u4e3a\u96f6\u53d8\u5316\u5b9e\u8bc1\uff1aTLS1.0/1.1 \u5728\u53d8\u66f4\u524d\u5df2\u88ab\u8fb9\u7f18\u62d2\u7edd\uff08alert 70 protocol version\uff09\uff0c\u5b9e\u9645\u5e95\u7ebf\u5df2=1.2\uff1b\u672c PATCH \u4e3a\u8bbe\u7f6e\u503c\u4e0e\u8fb9\u7f18\u73b0\u5b9e\u7684\u5bf9\u9f50\uff0c\u96f6\u8bef\u4f24\u7a97\u53e3"
+}

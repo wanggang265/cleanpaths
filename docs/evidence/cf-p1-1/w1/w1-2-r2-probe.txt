@@ -1,0 +1,24 @@
+=== W1-2 验证探针 2026-11-27T13:27:35Z ===
+== probe 1 首次（可能 MISS/REVALIDATED 过渡）==
+HTTP/2 200 
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=aL147QavAivdDlFVny3SnzeMeDsCJsjmtCzXytQGMz2iZqKzOjeHBxeRS14lKN9SH9sMK%2BXRrtXoyfDiqyG79PXg%2BsSfh4cu%2B1hXgv35mJPX7Lr0ScX3wyrgTQ%2BAAXyI"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cache-control: public, max-age=14400, must-revalidate
+cf-cache-status: MISS
+== probe 2 二次（期望 HIT + max-age=31536000）==
+HTTP/2 200 
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=aL147QavAivdDlFVny3SnzeMeDsCJsjmtCzXytQGMz2iZqKzOjeHBxeRS14lKN9SH9sMK%2BXRrtXoyfDiqyG79PXg%2BsSfh4cu%2B1hXgv35mJPX7Lr0ScX3wyrgTQ%2BAAXyI"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cache-control: public, max-age=31536000, must-revalidate
+cf-cache-status: REVALIDATED
+== probe 3 三次 ==
+HTTP/2 200 
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=aL147QavAivdDlFVny3SnzeMeDsCJsjmtCzXytQGMz2iZqKzOjeHBxeRS14lKN9SH9sMK%2BXRrtXoyfDiqyG79PXg%2BsSfh4cu%2B1hXgv35mJPX7Lr0ScX3wyrgTQ%2BAAXyI"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cache-control: public, max-age=31536000, must-revalidate
+age: 5
+cf-cache-status: HIT
+== 反向探针: 另一静态目录（非 _next/static，如 /img 或 favicon）应不受 R2 影响 ==
+HTTP/2 200 
+cache-control: public, max-age=14400, must-revalidate
+cf-cache-status: MISS

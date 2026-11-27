@@ -1,0 +1,39 @@
+{
+ "w1_2_before_get": {
+  "status": 200,
+  "rules_count": 1
+ },
+ "w1_2_put_full_array": {
+  "status": 200,
+  "errors": [],
+  "rules_returned": [
+   {
+    "description": "R3: /api/* /admin/* explicit bypass (P1-1 spec W1; syntax fix: bypass via set_cache_settings cache=false)",
+    "action": "set_cache_settings",
+    "action_parameters": {
+     "cache": false
+    },
+    "enabled": true,
+    "id_prefix": "080ffda7"
+   },
+   {
+    "description": "R2: /_next/static/* immutable long cache Edge 30d + Browser 365d (P1-1 spec W1)",
+    "action": "set_cache_settings",
+    "action_parameters": {
+     "browser_ttl": {
+      "default": 31536000,
+      "mode": "override_origin"
+     },
+     "cache": true,
+     "edge_ttl": {
+      "default": 2592000,
+      "mode": "override_origin"
+     }
+    },
+    "enabled": true,
+    "id_prefix": "63c5eab4"
+   }
+  ],
+  "version": "3"
+ }
+}

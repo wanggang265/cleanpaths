@@ -1,0 +1,20 @@
+=== W1-1 验证探针 2026-11-27T13:25:20Z ===
+== probe 1: /api/feedback ==
+HTTP/2 405 
+cf-cache-status: DYNAMIC
+== probe 2: /api/feedback ==
+HTTP/2 405 
+cf-cache-status: DYNAMIC
+== probe 3: /api/feedback ==
+HTTP/2 405 
+cf-cache-status: DYNAMIC
+== /admin/* 反向探针（无 /admin 路由，用 404 路径验 bypass 语义）==
+HTTP/2 404 
+cf-cache-status: DYNAMIC
+== 反向探针: / HTML 应仍 DYNAMIC（R3 不误伤）==
+HTTP/2 103 
+HTTP/2 200 
+cf-cache-status: DYNAMIC
+== 反向探针: /_next/static 应仍 REVALIDATED（R3 不误伤）==
+HTTP/2 200 
+cf-cache-status: REVALIDATED

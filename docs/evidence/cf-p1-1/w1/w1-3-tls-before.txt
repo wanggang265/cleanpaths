@@ -1,0 +1,10 @@
+=== W1-3 前置证据：TLS1.1 现状握手（变更前）2026-11-27T13:27:56Z ===
+-- tls1_1 (期望现状=成功) --
+0054B2CBDF700000:error:0A0000BF:SSL routines:tls_setup_handshake:no protocols available:../ssl/statem/statem_lib.c:104:
+New, (NONE), Cipher is (NONE)
+-- tls1_2 (期望成功，变更后不得误伤) --
+New, TLSv1.2, Cipher is ECDHE-ECDSA-CHACHA20-POLY1305
+-- tls1_3 (期望成功) --
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+-- GET /zones settings/min_tls_version 现状 --
+status_field: 1.0 | success: True

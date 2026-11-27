@@ -1,0 +1,19 @@
+{
+ "w1_1_syntax_fix_diff": "spec \u00a73-R3 action=bypass_cache \u2192 API \u5b9e\u9645\u679a\u4e3e set_cache_settings + action_parameters.cache=false\uff08\u5de5\u5355\u5141\u8bb8\u8bed\u6cd5\u7ea7\u5fae\u8c03\uff0c\u8bed\u4e49\u7b49\u4ef7\uff09",
+ "w1_1_put_r3": {
+  "status": 200,
+  "errors": [],
+  "rules_returned": [
+   {
+    "expression": "starts_with(http.request.uri.path, \"/api/\") or starts_with(http.request.uri.path, \"/admin/\")",
+    "action": "set_cache_settings",
+    "action_parameters": {
+     "cache": false
+    },
+    "enabled": true,
+    "id_prefix": "080ffda7"
+   }
+  ],
+  "version": "2"
+ }
+}
