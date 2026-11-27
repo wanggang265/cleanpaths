@@ -148,6 +148,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           text: messageText,
           disable_web_page_preview: true,
         }),
+        // P0-1 §7: a hung Telegram call must not hold the request open
+        // indefinitely — 5s cap, then the existing catch treats it as
+        // non-delivery (fallback chat → 502). Never blocks the conversion
+        // flow, which is fully client-side.
+        signal: AbortSignal.timeout(5000),
       });
       return tg.ok;
     } catch {

@@ -12,7 +12,22 @@
 
 ## Portuguese / Português
 
-- [Conversor de JFIF para JPG](https://cleanpaths.io/pt/jfif-para-jpg/): Converta JFIF para JPG grátis, direto no navegador, sem upload
+- [JFIF para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/jfif-para-jpg/): Converta JFIF para JPG grátis, direto no navegador. Sem upload, sem cadastro, sem marca d'água — seus arquivos nunca saem do seu dispositivo.
+- [JFIF para PNG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/jfif-para-png/): Converta JFIF para PNG grátis, direto no navegador. Sem upload, sem cadastro, sem marca d'água — seus arquivos nunca saem do seu dispositivo.
+- [WebP para SVG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/webp-para-svg/): Converta WebP para SVG grátis, direto no navegador. Sem upload, sem cadastro, sem marca d'água — seus arquivos nunca saem do seu dispositivo.
+- [Imagem para DXF — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/imagem-para-dxf/): Converta imagens para DXF grátis, direto no navegador. Sem upload, sem cadastro, sem marca d'água — seus arquivos nunca saem do seu dispositivo.
+- [Foto para DXF — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/foto-para-dxf/): Converta fotos para DXF com expectativa honesta: fotos saem estilizadas (posterizadas). Grátis, no navegador — sem upload, sem cadastro.
+- [WebP para PNG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/webp-para-png/): Converta WebP para PNG grátis, direto no navegador. Mantém a transparência — sem upload, sem cadastro, sem marca d'água.
+- [WebP para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/webp-para-jpg/): Converta WebP para JPG grátis, direto no navegador. Arquivos pequenos que tudo abre — sem upload, sem cadastro.
+- [SVG para PNG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/svg-para-png/): Converta SVG para PNG grátis, direto no navegador. Fundo transparente preservado — sem upload, sem cadastro.
+- [JPEG para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/jpeg-para-jpg/): Converta JPEG para JPG sem perda de qualidade: mesmos pixels, nova extensão. Grátis, no navegador — sem upload.
+- [SVG para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/svg-para-jpg/): Converta SVG para JPG grátis, direto no navegador. Pronto para impressão e documentos — sem upload, sem cadastro.
+- [GIF para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/gif-para-jpg/): Converta GIF para JPG grátis, no navegador. GIFs animados são convertidos usando o primeiro quadro — sem upload.
+- [BMP para JPG — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/bmp-para-jpg/): Converta BMP para JPG grátis, direto no navegador. Diminua bitmaps pesados do Windows — sem upload, sem cadastro.
+- [JPEG para DXF — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/jpeg-para-dxf/): Converta JPEG para DXF grátis, direto no navegador. Trajetórias fechadas e camadas por cor — sem upload, sem cadastro.
+- [PNG para DXF — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/png-para-dxf/): Converta PNG para DXF com trajetórias fechadas, camadas por cor e unidades incluídas. Grátis — sem upload, sem cadastro, sem marca d'água.
+- [JPG para DXF — Conversor Grátis, sem Upload](https://cleanpaths.io/pt/jpg-para-dxf/): Converta JPG para DXF com limpeza embutida para imagens borradas e comprimidas. DXF pronto para corte, grátis — sem upload, sem cadastro.
+- [SVG para DXF — R12 e R2000, Unidades Incluídas](https://cleanpaths.io/pt/svg-para-dxf/): Converta SVG para DXF com compatibilidade CAD real: R2000 com unidades ou modo R12, tudo POLYLINE, sem SPLINE. Grátis, no navegador.
 
 ## Use-case guides
 

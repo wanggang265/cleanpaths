@@ -1,0 +1,3 @@
+caught: TimeoutError — swallowed, no escape
+delivered=false elapsed=5002ms (cap=5000ms)
+PASS: timeout fired, catch swallowed, caller got false — main flow untouched

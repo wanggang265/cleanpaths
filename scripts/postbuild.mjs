@@ -13,9 +13,23 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // P0-3b: /pt/ hub joins the SSR lang fix (recon §G — new pages must carry the
-// correct value directly). P2 backfill of the 16 legacy PT pages stays deferred
-// (404-recon-2026-11-24 §6.4 — hydration covers them meanwhile).
-const PT_PAGES = ['pt', 'pt/jfif-para-jpg', 'pt/jfif-para-png', 'pt/webp-para-svg', 'pt/imagem-para-dxf', 'pt/foto-para-dxf'];
+// correct value directly). Legacy-PT backfill: the batch-3 DXF trio
+// (png/jpg/svg-para-dxf) joined 2026-11-27 (open-items #114 / p2_hygiene_1
+// T1); remaining legacy PT pages stay deferred (404-recon-2026-11-24 §6.4 —
+// hydration covers them meanwhile).
+const PT_PAGES = [
+  'pt',
+  'pt/jfif-para-jpg',
+  'pt/jfif-para-png',
+  'pt/webp-para-svg',
+  'pt/imagem-para-dxf',
+  'pt/foto-para-dxf',
+  // P2 hygiene batch (2026-11-27): batch-3 DXF pages — SSR lang was left at
+  // "en" when these shipped (open-items #114 follow-up).
+  'pt/png-para-dxf',
+  'pt/jpg-para-dxf',
+  'pt/svg-para-dxf',
+];
 
 for (const route of PT_PAGES) {
   const file = join(ROOT, 'out', route, 'index.html');
