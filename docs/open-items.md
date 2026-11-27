@@ -5,18 +5,38 @@
 
 ## OPEN
 
-### OI-4 P0-4b GA4 服务端 purchase MP（2026-11-26 派工，jishi）
+### OI-7 P1 批次（缓存/WAF/HSTS）闸门与代办挂账（2026-11-27 建，承接 OI-4/5/6 核销）
+- **P0 全验收章：已盖**（2026-11-27，OD-8/9/10 终审 PASS）→ P1-1 缓存闸门解锁；剩唯一前置 = boss token 补 Cache Rules Edit（与 Zone WAF Edit / Zone Settings Edit 一次勾齐，Summary 截图回传闭环，见 OD-6 用户代办）
+- **P1-2 WAF 评估**：工单已派 `demand-signals/2026-09-22-format-friction/PROMPT_jishi_p1-2_waf_eval.md`（2026-11-27，纯只读评估单，零实施；实施须另单 + boss 对应 Edit 权限 + 拍板）；jishi 施工中
+- **P1-3 HSTS**：半不可逆，等 boss 显式 GO + Zone Settings Edit；无 GO 前零动作
+- boss 可选决策：live 真卡 $1 重试一单（建议 Test Mode OFF 后做，一单同时实证 live 签名密钥全链路；test 店 T6 已闭环，不做不阻塞）
+- push 欠账：main ahead 18（生产 ✅ / 推送 ⏳，direct upload 惯例，push 归督办）
+
+（OI-7 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
+
+## DONE
+
+### OD-8 OI-4 P0-4b GA4 服务端 purchase MP 核销（2026-11-27，督办终审·生产实证）
+- **督办终审核销 PASS（2026-11-27，独立实证非采信申报）**：三 commit 在档（`6fa561e`/`fd96387`/`6a939f7`）；CF Pages 部署源逐条吻合（529cd4ca←6fa561e / 20dcfaec←fd96387 / 15e9b92a←6a939f7=production 现役头部，API 实证）；生产 webhook 双负对照复测 401 invalid_signature（无签名/错签名，11-27 总控直测）；T6 双对照签名探针 + boss TG 实文（Amount USD 1.00 / Order / Checkout 全实数）；§8.4 规格行机械对照通过（MP 通道/GA4_API_SECRET 引用/幂等键 transaction_id=订单号/载荷形状/PII 禁收）。§8.4 debug 步骤①实证（validationMessages=[]）；②③④人工可视层随 OI-6 裁定降级（幂等靠 GA4 transaction_id 原生去重=平台行为+payload 构造层实证）。
+- boss 侧收口：Resend 投递回执已收（runtime 确认，见原进展行）；Test Mode OFF 时机 + live $1 重试移 OI-7 作 boss 可选决策，不阻塞 P0。
+### OI-4 P0-4b GA4 服务端 purchase MP（2026-11-26 派工，jishi）【已核销 → OD-8】
 - 工单：`/home/ubuntu/demand-signals/2026-09-22-format-friction/PROMPT_jishi_p0-4b_ga4_mp.md`；规格=§8.4
 - 文件域 `functions/**`（与 OI-3 零重叠可并行）；硬前置=OI-5 secret + [待确认]①②实证（②已收窄：creem.ts L148 现行分支 checkout.completed）
 - 交付含 §8.4 四步 debug 证据（前缀 p0-4b-）
 
 - **进展（2026-11-26 晚，jishi 预研，督办已核销）**：[待确认]① Creem metadata 透传=官方 OpenAPI 实证（CreateCheckoutRequest.metadata object+additionalProperties，与现行 checkout.ts L141 同通道，回读 object.metadata 原样）；[待确认]② 事件类型文档侧已闭（checkout.completed=支付完成返回订单信息，目录无发起类事件，样本 order.status:paid；真实日志实证留 T6）。**载荷形状发现**：官方样本 object.order 是对象（id/amount/amount_paid/currency），现行 creem.ts L153/L155 按 string 读=历史误猜 → Telegram 通知 Amount/Order 长期 n/a 根因坐实，T2 双形状防御。阻塞不变=OI-5。证据：docs/evidence/p0-4-ga4-debugview/p0-4b-preflight-docs-evidence.md
 - **进展（2026-11-26 深夜，jishi，T6 签名验证闭环）**：test 店 endpoint 用独立 signing secret（与 live 不同）→ 401 根因坐实；修复=creem.ts 双密钥逻辑（commit `fd96387`，任一命中即过、全不中仍 401 语义不变）+ boss 归档密钥落 CF（stdin 零回显）；部署 `20dcfaec`；**双对照签名探针：TEST 密钥 200 ok / 错误密钥 401 invalid_signature**，机制闭环铁证。deploy.sh L7 token 源改 api-token.pages（旧 token Pages API 401 实证）。证据：docs/evidence/p0-4-ga4-debugview/p0-4b-t6-webhook-signature-evidence.md。OI-5 前置已消：GA4_API_SECRET 实测在键清单（待督办销账）。待 boss 侧收口：Creem Resend 投递回执 200 + Test Mode OFF 时机拍板。
-### OI-5 GA4_API_SECRET 创建（boss UI 任务，OI-4 硬前置；2026-11-26 实测缺失）
+
+### OD-9 OI-5 GA4_API_SECRET 核销（2026-11-27，督办终审）
+- **督办终审核销 PASS（2026-11-27）**：`wrangler pages secret list --project-name=cleanpaths` 总控独立复跑，GA4_API_SECRET 在 production 键清单（现 12 键，连同 CREEM_WEBHOOK_SECRET_TEST），阻塞消除，销账。
+### OI-5 GA4_API_SECRET 创建（boss UI 任务，OI-4 硬前置；2026-11-26 实测缺失）【已核销 → OD-9】
 - secret list 实测 10 键无 GA4_API_SECRET（2026-11-26，wrangler 4.168.0）
 - 路径：GA4 后台 admin → 数据流 → G-9T8XY5EB0Y → Measurement Protocol API secrets → 创建 → 终端 `CLOUDFLARE_API_TOKEN=$(cat /home/ubuntu/.cloudflare/api-token.pages) npx wrangler pages secret put GA4_API_SECRET --project-name=cleanpaths`（值走终端 stdin，严禁进聊天）
 
-### OI-6 GA4 DebugView/报表级人工验证（boss UI 任务，§8.6 闭环要件；非 P0-4b 阻塞）
+
+### OD-10 OI-6 GA4 DebugView/报表级人工验证核销（2026-11-27，督办终审·证据链裁定）
+- **督办终审核销 PASS（2026-11-27）**：`oi6-probe-events.json` 实数复核 9/9 事件 ga_status=204（page_view×6 / language_switch×2 / upload_start×1，cid 单卡 1842828495.1795767155）；OI6-README 根因链（config 注入杀死 gtag 发送）与 8 机制考古在档。**裁定**：三层客观证据（dataLayer 9 入队 + wire 9 collect 全对 + GA4 服务端 9/9 HTTP 204 确收）替代 §8.6 DebugView 人工层；DebugView 人工验证与 Realtime/报表抽查降级为可选（boss 可选 GA Debugger 扩展路径），不再阻塞任何验收；pricing 三事件报表级收口同步降为可选。
+### OI-6 GA4 DebugView/报表级人工验证（boss UI 任务，§8.6 闭环要件；非 P0-4b 阻塞）【已核销 → OD-10】
 - §8.6 全 9 事件 DebugView 截图 + page_location EN/PT 抽查（需 GA4 账号访问 G-9T8XY5EB0Y）
 - **进展（2026-11-26 深夜，jishi，探针就绪）**：`scripts/debugview-probe.cjs`（commit `4edc066`）一次性实发 §8.6 全 9 客户端事件（buy_click 三 slot / language_switch 双发 / page_location EN+PT wire 级全对，OOB 捕获防导航丢证）；§8.4 purchase debug 回放 PASS（HTTP 200 + validationMessages=[]，payload 与 creem.ts L294-307 逐字段一致）。**待 boss 白天在 DebugView 截图即可闭环**：boss 说开始 → jishi 重跑探针（~2 分钟）+ 重发 purchase 回放（DebugView 流 30 分钟窗口）→ boss 逐事件截图 → 证据落 docs/evidence/p0-4-ga4-debugview/。pricing 三事件 DebugView 命中顺带补报表级缺口。
 - **督办修正（2026-11-26 核销时）**：chuangkou 申报「已在 DebugView 流，直接截图即可」表述过强——debug_mode 系探针会话运行时注入（线上 bundle 零命中实证，见 OD-7），DebugView 设备流不常驻 → **截图前需重跑 debug 探针会话**（复用 p0-4a 探针流程或 Chrome GA Debugger 扩展）
@@ -24,9 +44,6 @@
 - pricing 三事件（pricing_view/buy_click/checkout_started）报表级验证：探针 wire 层已实证三事件真实发出（oi6-probe-events.json），Realtime/报表命中收口降为可选
 - 证据基线：docs/evidence/p0-4-ga4-debugview/p0-4a-prod-{network,dom-probe}.log
 
-（上述 OI-4/5/6 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
-
-## DONE
 
 ### OD-7 OI-3 P0-4a GA4 前端事件实现核销（2026-11-26，已部署生产）
 - 交付：0a4caac（T0 规格修订 +1）/ 9487e2f（主实现 +652：src/lib/gtag.ts 新建 + ToolController/CheckoutLinks/CtaBeacon + scripts/qa-p0-4a.cjs + 本地证据）/ e4d1b00（生产证据 +51）；部署 **02dbdcc0**（Production，Source=9487e2f，CF API 实证，language_switch 线上实测命中）；main ahead 7 未 push（push 归督办）
