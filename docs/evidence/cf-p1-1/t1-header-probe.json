@@ -1,0 +1,85 @@
+{
+ "routes_json": {
+  "version": 1,
+  "include": [
+   "/api/*",
+   "/admin/*"
+  ],
+  "exclude": []
+ },
+ "out_stats": {
+  "html": 50,
+  "static_files": 119
+ },
+ "header_probe": {
+  "/": {
+   "status": "200",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "cf-cache-status": "DYNAMIC"
+   }
+  },
+  "/pricing/": {
+   "status": "200",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "cf-cache-status": "DYNAMIC"
+   }
+  },
+  "/pt/jfif-para-jpg/": {
+   "status": "200",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "cf-cache-status": "DYNAMIC"
+   }
+  },
+  "/_next/static/chunks/webpack-0f3dc8da88f1c143.js": {
+   "status": "200",
+   "headers": {
+    "content-type": "application/javascript",
+    "cache-control": "public, max-age=14400, must-revalidate",
+    "etag": "W/\"b4de3d9cdd0b0727e8da59aeaf8e45b5\"",
+    "vary": "accept-encoding",
+    "cf-cache-status": "REVALIDATED"
+   }
+  },
+  "/api/feedback": {
+   "status": "405",
+   "headers": {
+    "content-type": "application/json",
+    "cf-cache-status": "DYNAMIC"
+   }
+  },
+  "/sitemap.xml": {
+   "status": "200",
+   "headers": {
+    "content-type": "application/xml",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "etag": "\"19943391f50f44a75e1af0c3e220af60\"",
+    "cf-cache-status": "DYNAMIC"
+   }
+  },
+  "/robots.txt": {
+   "status": "200",
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "public, max-age=14400, must-revalidate",
+    "etag": "W/\"410b951d9e210275dac98b3cc1aa8f7c\"",
+    "vary": "accept-encoding",
+    "cf-cache-status": "REVALIDATED"
+   }
+  },
+  "/llms.txt": {
+   "status": "200",
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "etag": "\"64359f2aea12972767046a54dc3efe17\"",
+    "cf-cache-status": "DYNAMIC"
+   }
+  }
+ }
+}

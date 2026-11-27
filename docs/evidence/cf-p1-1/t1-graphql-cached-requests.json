@@ -1,0 +1,59 @@
+{
+ "status": 200,
+ "query_scope": "account-level POST /graphql, zoneTag in body (httpRequestsAdaptiveGroups.cacheStatus, count)",
+ "body": {
+  "data": {
+   "viewer": {
+    "zones": [
+     {
+      "httpRequestsAdaptiveGroups": [
+       {
+        "count": 5308,
+        "dimensions": {
+         "cacheStatus": "revalidated"
+        }
+       },
+       {
+        "count": 400,
+        "dimensions": {
+         "cacheStatus": "hit"
+        }
+       },
+       {
+        "count": 186,
+        "dimensions": {
+         "cacheStatus": "bypass"
+        }
+       },
+       {
+        "count": 1252,
+        "dimensions": {
+         "cacheStatus": "miss"
+        }
+       },
+       {
+        "count": 9,
+        "dimensions": {
+         "cacheStatus": "expired"
+        }
+       },
+       {
+        "count": 1890,
+        "dimensions": {
+         "cacheStatus": "none"
+        }
+       },
+       {
+        "count": 11377,
+        "dimensions": {
+         "cacheStatus": "dynamic"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "errors": null
+ }
+}
