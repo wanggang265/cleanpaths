@@ -1,0 +1,14 @@
+{
+ "s1_firewall_custom": {
+  "status": 200,
+  "ruleset_id_prefix": "636949db",
+  "name": "default",
+  "rules_verbatim": null,
+  "errors": []
+ },
+ "skip_doc_check": {
+  "fetched": 134345,
+  "action_parameters_mentions": 0,
+  "first_snippet": []
+ }
+}

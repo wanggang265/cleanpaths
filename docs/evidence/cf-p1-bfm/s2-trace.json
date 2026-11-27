@@ -1,0 +1,27 @@
+{
+ "s2_readback": {
+  "status": 200,
+  "rules_verbatim": [
+   {
+    "action": "skip",
+    "action_parameters": {
+     "phases": [
+      "http_request_sbfm"
+     ],
+     "ruleset": "current"
+    },
+    "description": "BFM skip exemption: payment paths (/api/webhooks, /api/checkout) bypass remaining custom rules and SBFM/AI-bots phase \u2014 PROMPT_jishi_bfm_impl.md S2 (2026-11-27)",
+    "enabled": true,
+    "expression": "(starts_with(http.request.uri.path, \"/api/webhooks\") or starts_with(http.request.uri.path, \"/api/checkout\"))",
+    "id": "928d995c1c044f6fbb210a4d2aada58c",
+    "last_updated": "2026-11-27T14:15:22.568407Z",
+    "logging": {
+     "enabled": true
+    },
+    "ref": "928d995c1c044f6fbb210a4d2aada58c",
+    "version": "1"
+   }
+  ]
+ },
+ "verbatim_match": true
+}

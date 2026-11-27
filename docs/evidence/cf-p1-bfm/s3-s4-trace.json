@@ -1,0 +1,173 @@
+{
+ "s3_baseline": {
+  "enable_js": false,
+  "fight_mode": false,
+  "ai_bots_protection": "disabled",
+  "content_bots_protection": "disabled",
+  "crawler_protection": "disabled",
+  "ai_training": "disabled",
+  "ai_search": "disabled",
+  "ai_user": "disabled"
+ },
+ "s3_put": {
+  "status": 200,
+  "errors": [],
+  "result_verbatim": {
+   "enable_js": false,
+   "fight_mode": false,
+   "ai_bots_protection": "block",
+   "content_bots_protection": "disabled",
+   "crawler_protection": "disabled",
+   "ai_training": "disallow",
+   "ai_search": "disabled",
+   "ai_user": "disabled",
+   "ai_agents": {
+    "anthropic_agent": "disabled",
+    "google_agent": "disabled",
+    "instinct": "disabled",
+    "muse": "disabled",
+    "openai_agent": "disabled"
+   },
+   "is_robots_txt_managed": false,
+   "bot_preference_sync_enabled": false,
+   "cf_robots_variant": "policy_only",
+   "ai_bots_migration_opt_out": false,
+   "using_latest_model": true
+  }
+ },
+ "s3_readback": {
+  "status": 200,
+  "result_verbatim": {
+   "enable_js": false,
+   "fight_mode": false,
+   "ai_bots_protection": "block",
+   "content_bots_protection": "disabled",
+   "crawler_protection": "disabled",
+   "ai_training": "disallow",
+   "ai_search": "disabled",
+   "ai_user": "disabled",
+   "ai_agents": {
+    "anthropic_agent": "disabled",
+    "google_agent": "disabled",
+    "instinct": "disabled",
+    "muse": "disabled",
+    "openai_agent": "disabled"
+   },
+   "is_robots_txt_managed": false,
+   "bot_preference_sync_enabled": false,
+   "cf_robots_variant": "policy_only",
+   "ai_bots_migration_opt_out": false,
+   "using_latest_model": true
+  },
+  "drift_vs_baseline": {
+   "is_robots_txt_managed": {
+    "from": null,
+    "to": false
+   },
+   "ai_agents": {
+    "from": null,
+    "to": {
+     "anthropic_agent": "disabled",
+     "google_agent": "disabled",
+     "instinct": "disabled",
+     "muse": "disabled",
+     "openai_agent": "disabled"
+    }
+   },
+   "ai_bots_migration_opt_out": {
+    "from": null,
+    "to": false
+   },
+   "bot_preference_sync_enabled": {
+    "from": null,
+    "to": false
+   },
+   "ai_training": {
+    "from": "disabled",
+    "to": "disallow"
+   },
+   "ai_bots_protection": {
+    "from": "disabled",
+    "to": "block"
+   },
+   "cf_robots_variant": {
+    "from": null,
+    "to": "policy_only"
+   },
+   "using_latest_model": {
+    "from": null,
+    "to": true
+   }
+  }
+ },
+ "s4_probes": {
+  "webhook_gptbot_post": {
+   "code": "401",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  },
+  "checkout_gptbot_get": {
+   "code": "405",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  },
+  "checkout_gptbot_post": {
+   "code": "400",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  },
+  "homepage_gptbot": {
+   "code": "200",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  },
+  "homepage_normal_ua": {
+   "code": "200",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  },
+  "pricing_normal_ua": {
+   "code": "200",
+   "cf_mitigated_header": false,
+   "cf_block_page_features": false
+  }
+ },
+ "s4_elapsed_sec": 0.5,
+ "s4_verdict": "PARTIAL_REVIEW",
+ "drift_rollback": {
+  "status": 200,
+  "put_body": {
+   "ai_bots_protection": "block",
+   "ai_training": "disabled"
+  },
+  "readback": {
+   "ai_bots_protection": "disabled",
+   "ai_training": "disabled",
+   "fight_mode": false,
+   "content_bots_protection": "disabled",
+   "crawler_protection": "disabled",
+   "ai_search": "disabled",
+   "ai_user": "disabled"
+  },
+  "note": "S3 \u6700\u5c0f body \u89e6\u53d1 API \u9ed8\u8ba4\u8865\u9f50\u81f4 ai_training disabled\u2192disallow \u8ba1\u5212\u5916\u6f02\u79fb\uff0c\u6309\u300c\u53ea\u52a8\u4e00\u4e2a\u5b57\u6bb5\u300d\u7eaa\u5f8b\u56de\u6eda\uff1bai_bots_protection=block \u95f8\u4fdd\u6301\u5f00\u542f"
+ },
+ "s4_reverse_probe_analysis": "GPTBot \u88f8 UA \u9996\u9875 200 \u2260 \u5f00\u5173\u65e0\u6548\uff1aCF\u300cBlock AI Scrapers and Crawlers\u300d\u4f5c\u7528\u4e8e verified AI bots\uff08IP/ASN \u771f\u5b9e\u6027\u9a8c\u8bc1\u540e\u7684\u5df2\u77e5\u722c\u866b\uff09\uff0c\u672c\u673a\u88f8 UA \u4f2a\u88c5 GPTBot \u65e0\u6cd5\u901a\u8fc7 verified bot \u5339\u914d \u2192 \u53cd\u5411 403 \u5224\u636e\u5728\u88f8 UA \u63a2\u9488\u4e0b\u67b6\u6784\u4e0d\u53ef\u8fbe\uff08\u540c W1-1 BYPASS \u5224\u636e\u7f3a\u9677\u5148\u4f8b\uff09\uff1b\u771f\u5b9e\u9a8c\u8bc1\u8def\u5f84=CF dashboard \u5b89\u5168\u4e8b\u4ef6 + boss $1 live \u5355\u540e OI-7 \u8865\u884c",
+ "gate_reopen": {
+  "status": 200,
+  "put_body": {
+   "ai_bots_protection": "block"
+  },
+  "readback": {
+   "ai_bots_protection": "block",
+   "ai_training": "disallow",
+   "fight_mode": false
+  },
+  "api_semantics_note": "\u7ec4\u5408 body {ai_bots_protection+ai_training} \u89e6\u53d1 free \u6863 config \u5206\u652f\u5207\u6362\u81f4 ai_bots_protection \u88ab\u91cd\u7f6e disabled\uff08\u5b9e\u8bc1\uff09\uff1b\u5355\u5b57\u6bb5 body {ai_bots_protection:block} \u662f\u552f\u4e00\u53ef\u590d\u73b0\u5f00\u95f8\u5199\u6cd5\uff0c\u5176\u8fde\u5e26 ai_training=disallow \u7cfb CF \u5b98\u65b9\u9ed8\u8ba4\u8865\u9f50\uff08robots.txt \u6307\u4ee4\u57df\uff0c\u5efa\u8bae\u7c7b\u4e0d\u963b\u65ad\u6d41\u91cf\uff0c\u884c\u4e3a\u9762\u4ec5\u591a AI \u722c\u866b\u963b\u65ad\uff09\u2192 \u6309 W1-1 \u5148\u4f8b\u5982\u5b9e\u767b\u8bb0\u4ea4\u7763\u529e\u6838\u9500\u65f6\u88c1\u5b9a"
+ },
+ "gate_reopen_reprobes": {
+  "webhook_gptbot_post": "401",
+  "checkout_gptbot_get": "405",
+  "homepage_normal_ua": "200",
+  "expected": "401 / 405 \u6216\u4e1a\u52a1 4xx / 200"
+ }
+}
