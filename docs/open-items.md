@@ -6,7 +6,7 @@
 ## OPEN
 
 ### OI-7 P1 批次（缓存/WAF/HSTS）闸门与代办挂账（2026-11-27 建，承接 OI-4/5/6 核销）
-- **P0 全验收章：已盖**（2026-11-27，OD-8/9/10 终审 PASS）→ P1-1 缓存闸门解锁；剩唯一前置 = boss token 补 Cache Rules Edit（与 Zone WAF Edit / Zone Settings Edit 一次勾齐，Summary 截图回传闭环，见 OD-6 用户代办）
+- **P0 全验收章：已盖**（2026-11-27，OD-8/9/10 终审 PASS）→ **P1-1 全闸门解锁**（2026-11-27 总控零效果写探针三连实证：Zone Settings Edit=security_level 同值 PATCH 200 / Cache Rules Edit=cache_settings 空 entrypoint PUT 200 / Zone WAF Edit=firewall_custom 空 entrypoint PUT 200；boss dashboard 补权限代办销账，内部规范 v2 §2 与实测一致）。探针副作用登记：cache_settings（b73d642b…）与 firewall_custom（636949db…）两个**空 entrypoint ruleset** 被创建，各含 0 条规则、零流量行为，「全站 0 条自定义规则」事实不变（P1-2 评估时该两 phase entrypoint 返回 200+rules:[] 勿误判）。P1-1 待派（jishi P1-2 交付后串行）；P1-1 实施规格源待定位（11-24 诊断报告的 P1 细节，缺失则走规格冻结单通道）
 - **P1-2 WAF 评估**：工单已派 `demand-signals/2026-09-22-format-friction/PROMPT_jishi_p1-2_waf_eval.md`（2026-11-27，纯只读评估单，零实施；实施须另单 + boss 对应 Edit 权限 + 拍板）；jishi 施工中
 - **P1-3 HSTS**：半不可逆，等 boss 显式 GO + Zone Settings Edit；无 GO 前零动作
 - boss 可选决策：live 真卡 $1 重试一单（建议 Test Mode OFF 后做，一单同时实证 live 签名密钥全链路；test 店 T6 已闭环，不做不阻塞）
@@ -57,6 +57,7 @@
 - **销账**：跨会话遗留「补 Zone Analytics Read」就此销账——11-24 已补加生效（token-switching §3 台账在先），11-26 双重实证；demand-signals 账本闸门句已加日期注记防再引用
 - Go/No-Go：P1-2 WAF **GO**（现代 WAF 读侧零缺口，当前 0 条自定义规则）；P1-1 缓存 / P1-3 HSTS **条件 GO**（Read✓，三个 Edit 待用户 UI 核对；P1-1 另受「P0 全验收」闸门；P1-3 动工需用户显式 GO——半不可逆）
 - 用户代办：token 编辑页核对 Cache Rules Edit / Zone WAF Edit / Zone Settings Edit（DNS & Zones 组下半段）→ Summary 页完整截图回传闭环；补 legacy Firewall Services Read 仅可选
+  → **【2026-11-27 注记，销账】**三个 Edit 已由总控零效果写探针直接实测确认全有（security_level 同值 PATCH / cache_settings 与 firewall_custom 空 entrypoint PUT 各 200；方法已沉淀 token-switching skill §3），dashboard 核对与 Summary 截图代办取消；legacy Firewall Services Read 仍可选不派
 - 工单纪律记档：`waf/overrides` 端点 410 已退役，后续工单禁引用；jishi 首轮「skill 全机不存在」误报已归档（搜索口径漏类别子目录，dispatch skill 已 patch 防复发）
 
 ### OD-5 P0-4s GA4 规格冻结核销（2026-11-26，纯文档零部署）
