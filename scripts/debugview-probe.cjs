@@ -41,6 +41,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // GET /g/collect?v=2&en=<event>&dl=<page_location>&ep.<param>=... — nav-proof.
 const netEvents = [];
 const oobEvents = [];
+// request object -> index in netEvents, filled by the response listener below
+const respIdxByReq = new WeakMap();
 function wireConsole(page, ctxLabel) {
   page.on('console', (msg) => {
     const t = msg.text();
@@ -53,38 +55,38 @@ function wireNetwork(page, ctxLabel) {
     const req = route.request();
     const u = req.url();
     const p = new URL(u).searchParams;
-    const base = { ctx: ctxLabel, dl: p.get('dl') };
+    // POST collects carry everything form-encoded in the body; GET in URL params.
+    const merged = new URLSearchParams(p.toString());
     const body = req.postData();
-    if (body) {
-      try {
-        const j = JSON.parse(body);
-        for (const e of j.events || []) {
-          const ep = e.params || {};
-          netEvents.push({
-            ...base,
-            en: e.name,
-            file_type: ep.file_type,
-            slot: ep.slot,
-            plan: ep.plan,
-            path: ep.path,
-            from_lang: ep.from_lang,
-            to_lang: ep.to_lang,
-          });
-        }
-        return;
-      } catch {}
+    if (body && !body.startsWith('{')) {
+      try { for (const [k, v] of new URLSearchParams(body)) if (!merged.has(k)) merged.set(k, v); } catch {}
     }
+    const base = {
+      ctx: ctxLabel,
+      en: merged.get('en'),
+      cid: merged.get('cid'),
+      debug: merged.get('ep.debug_mode') || merged.get('debug_mode') || merged.get('_dbg') || undefined,
+      dl: merged.get('dl'),
+    };
     netEvents.push({
       ...base,
-      en: p.get('en'),
-      file_type: p.get('ep.file_type') || p.get('epn.file_type') || undefined,
-      slot: p.get('ep.slot') || undefined,
-      plan: p.get('ep.plan') || undefined,
-      path: p.get('ep.path') || undefined,
-      from_lang: p.get('ep.from_lang') || undefined,
-      to_lang: p.get('ep.to_lang') || undefined,
+      file_type: merged.get('ep.file_type') || merged.get('epn.file_type') || undefined,
+      slot: merged.get('ep.slot') || undefined,
+      plan: merged.get('ep.plan') || undefined,
+      path: merged.get('ep.path') || undefined,
+      from_lang: merged.get('ep.from_lang') || undefined,
+      to_lang: merged.get('ep.to_lang') || undefined,
     });
+    respIdxByReq.set(req, netEvents.length - 1);
     route.continue().catch(() => {});
+  });
+  // GA4 server acceptance evidence: response status for each collect hit.
+  page.on('response', (res) => {
+    try {
+      if (!/\/g\/collect/.test(res.url())) return;
+      const idx = respIdxByReq.get(res.request());
+      if (idx !== undefined && netEvents[idx]) netEvents[idx].ga_status = res.status();
+    } catch {}
   });
 }
 
@@ -100,19 +102,29 @@ async function newCtx(browser, seedCap = false) {
     const __origPush = window.dataLayer.push.bind(window.dataLayer);
     // Sync intercept: gtag stub pushes arguments objects (['event', name, params]);
     // capture at push time — survives even instant location.assign afterwards.
+    // ALSO inject debug_mode:true into every event + config entry (GA-documented
+    // per-event debug method; a lone gtag('set',...) from a raw array proved
+    // unreliable — DebugView showed no traffic with it).
     window.dataLayer.push = function (...args) {
       try {
         const x = args[0];
+        if (x && typeof x === 'object' && !Array.isArray(x) && x[0] === 'event') {
+          if (x[1]) oob(x[1]);
+          // EVENT-level debug_mode only. Do NOT patch config: config-level
+          // debug_mode empirically suppresses gtag sends entirely (bisected).
+          const patched = [x[0], x[1], Object.assign({}, (typeof x[2] === 'object' && x[2]) || {}, { debug_mode: true })];
+          return __origPush.call(this, patched);
+        }
         if (x && typeof x === 'object' && x[0] === 'event' && x[1]) oob(x[1]);
         else if (x && typeof x === 'object' && !Array.isArray(x) && typeof x.event === 'string') oob(x.event);
       } catch {}
       return __origPush.apply(this, args);
     };
-    window.dataLayer.push(['set', 'debug_mode', true]);
     if (cap) {
       localStorage.setItem('cp.free.day', new Date().toISOString().slice(0, 10));
       localStorage.setItem('cp.free.count', '10');
     }
+    window.dataLayer.push(['set', 'debug_mode', true]);
     // Mirror gtag events to sessionStorage at push time (300ms poll) — survives
     // same-tab navigation, so events fired right before location.assign are
     // still readable from the next document.
@@ -133,7 +145,16 @@ async function newCtx(browser, seedCap = false) {
       } catch {}
     }, 200);
   }, seedCap);
-  const ctxOpts = { bypassCSP: true };
+  await ctx.addCookies([
+    {
+      // Shared GA4 client_id → all probe contexts appear as ONE DebugView
+      // device stream (easy for the boss to find; _ga cookie pre-seed).
+      name: '_ga',
+      value: 'GA1.1.1842828495.1795767155',
+      domain: '.cleanpaths.io',
+      path: '/',
+    },
+  ]);
   return ctx;
 }
 
@@ -195,7 +216,9 @@ const byText = (sel, text) =>
   page.setDefaultTimeout(30000);
 
   await page.goto(`${BASE}/jfif-to-jpg/`, { waitUntil: 'networkidle' });
-  await sleep(1500);
+  // 12s: GA4 batches hits and late-flush events (e.g. pricing_view) can take
+  // ~10s to ship; short waits lose them from wire capture.
+  await sleep(12000);
   await snap(page, '1.tool-en-loaded', seen);
 
   await page.setInputFiles('input[type="file"]', fixture);

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T16:35:46.110Z",
+  "generatedAt": "2026-11-27T12:25:16.818Z",
   "base": "https://cleanpaths.io",
   "seen": [
     {
@@ -51,7 +51,7 @@
     },
     {
       "label": "7.buy_click-pricing+checkout_started-expected",
-      "url": "https://www.creem.io/checkout/prod_7vlF3MSgbHq3c4tTWONsz/ch_1EngfYCGxwhM47n003nUxS",
+      "url": "https://www.creem.io/checkout/prod_7vlF3MSgbHq3c4tTWONsz/ch_2rWZrTQvaWORKjA2VgTNZM",
       "events": []
     },
     {
@@ -99,57 +99,71 @@
   "network": [
     {
       "ctx": "A-conversion",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/jfif-to-jpg/",
-      "en": "page_view"
+      "ga_status": 204
     },
     {
       "ctx": "A-conversion",
+      "en": "upload_start",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/jfif-to-jpg/",
-      "en": null
+      "file_type": "jfif",
+      "ga_status": 204
     },
     {
       "ctx": "B-pricing",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/pricing/",
-      "en": "page_view"
+      "ga_status": 204
     },
     {
       "ctx": "C-language",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
-      "en": "page_view"
+      "ga_status": 204
     },
     {
       "ctx": "C-language",
-      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
       "en": "language_switch",
+      "cid": "1842828495.1795767155",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
       "from_lang": "pt",
-      "to_lang": "en"
+      "to_lang": "en",
+      "ga_status": 204
     },
     {
       "ctx": "C-language",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
-      "en": "page_view"
+      "ga_status": 204
     },
     {
       "ctx": "C-language",
-      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
       "en": "language_switch",
+      "cid": "1842828495.1795767155",
+      "dl": "https://cleanpaths.io/pt/jfif-para-jpg/",
       "from_lang": "pt",
-      "to_lang": "en"
+      "to_lang": "en",
+      "ga_status": 204
     },
     {
       "ctx": "D-cap",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/jfif-to-jpg/",
-      "en": "page_view"
-    },
-    {
-      "ctx": "D-cap",
-      "dl": "https://cleanpaths.io/pricing/",
-      "en": "page_view"
+      "ga_status": 204
     },
     {
       "ctx": "E-checkout-success",
+      "en": "page_view",
+      "cid": "1842828495.1795767155",
       "dl": "https://cleanpaths.io/pricing/",
-      "en": "page_view"
+      "ga_status": 204
     }
   ],
   "oob": [

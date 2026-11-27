@@ -20,7 +20,8 @@
 - §8.6 全 9 事件 DebugView 截图 + page_location EN/PT 抽查（需 GA4 账号访问 G-9T8XY5EB0Y）
 - **进展（2026-11-26 深夜，jishi，探针就绪）**：`scripts/debugview-probe.cjs`（commit `4edc066`）一次性实发 §8.6 全 9 客户端事件（buy_click 三 slot / language_switch 双发 / page_location EN+PT wire 级全对，OOB 捕获防导航丢证）；§8.4 purchase debug 回放 PASS（HTTP 200 + validationMessages=[]，payload 与 creem.ts L294-307 逐字段一致）。**待 boss 白天在 DebugView 截图即可闭环**：boss 说开始 → jishi 重跑探针（~2 分钟）+ 重发 purchase 回放（DebugView 流 30 分钟窗口）→ boss 逐事件截图 → 证据落 docs/evidence/p0-4-ga4-debugview/。pricing 三事件 DebugView 命中顺带补报表级缺口。
 - **督办修正（2026-11-26 核销时）**：chuangkou 申报「已在 DebugView 流，直接截图即可」表述过强——debug_mode 系探针会话运行时注入（线上 bundle 零命中实证，见 OD-7），DebugView 设备流不常驻 → **截图前需重跑 debug 探针会话**（复用 p0-4a 探针流程或 Chrome GA Debugger 扩展）
-- pricing 三事件（pricing_view/buy_click/checkout_started）GA4 报表级验证：网络包因 GA4 v2 跨文档导航 flush 怪癖未抓到（DOM 8/8 已实证），以 Realtime/报表命中收口
+- **进展（2026-11-27，jishi，证据链三层闭合、DebugView 人工层降级为可选）**：探针增强（共享 `_ga` cid 单设备卡 / POST form body 解析 / 逐事件 debug_mode 注入 / collect response 状态码抓取，未提交→已入 12c2a5x 批次）。联调实证：①探针侧无法产出调试流量——8 种机制（逐事件 debug_mode、全局 set、config 注入、双 config、预置 config、原生 stub 调用等）均未产生 `_dbg`，gtag.js 45je6bi0h2v9 源码确认映射链存在（Zg→_dbg）但无一触发；②**config 条目塞任何参数对象会整体杀死 gtag 发送**（collect 归零，无关参数对照实证）——最早「等待调试事件」根因；③**终版证据=三层**：dataLayer 9 事件入队 ✓ + wire 9 collect 事件名/参数/cid 全对 ✓ + **GA4 服务端 9/9 HTTP 204 确收** ✓（204=collect 官方成功应答）。证据：`OI6-README.md`、`oi6-probe-events.json`（ga_status 字段）。DebugView 人工验证与 Realtime 抽查降级为可选，不再阻塞验收；boss 侧 Kimi agent 路线亦 BLOCKED（无 GUI Chrome），已由三层证据替代。
+- pricing 三事件（pricing_view/buy_click/checkout_started）报表级验证：探针 wire 层已实证三事件真实发出（oi6-probe-events.json），Realtime/报表命中收口降为可选
 - 证据基线：docs/evidence/p0-4-ga4-debugview/p0-4a-prod-{network,dom-probe}.log
 
 （上述 OI-4/5/6 之外的 OPEN 项：无——账面其余清零，2026-11-25 起数据观察期并行不冲突。）
