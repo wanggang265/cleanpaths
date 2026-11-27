@@ -1,0 +1,58 @@
+=== W2-2 R4 验证探针 2026-11-27T13:49:37Z ===
+===== /sitemap.xml 3连 =====
+-- probe 1 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+cf-cache-status: MISS
+-- probe 2 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- probe 3 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- 字节级一致性（MISS 回源体 vs HIT 缓存体 sha256）--
+sha256-1: e9a5e4800e0fc3eed3964b666a5bed60d4b62237f19c4c63f4343fc579775bd5
+sha256-2: e9a5e4800e0fc3eed3964b666a5bed60d4b62237f19c4c63f4343fc579775bd5
+一致 ✓
+===== /robots.txt 3连 =====
+-- probe 1 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+cf-cache-status: REVALIDATED
+-- probe 2 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- probe 3 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- 字节级一致性（MISS 回源体 vs HIT 缓存体 sha256）--
+sha256-1: 64570dec3d2801882c43a2bde6bb070e339fe80976656db9f00fac7005c9a24d
+sha256-2: 64570dec3d2801882c43a2bde6bb070e339fe80976656db9f00fac7005c9a24d
+一致 ✓
+===== /llms.txt 3连 =====
+-- probe 1 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+cf-cache-status: MISS
+-- probe 2 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- probe 3 --
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+age: 0
+cf-cache-status: HIT
+-- 字节级一致性（MISS 回源体 vs HIT 缓存体 sha256）--
+sha256-1: 3bd362023281b148efd78e67eda3ec05427275ea487c6961f9707fe31c8fb75b
+sha256-2: 3bd362023281b148efd78e67eda3ec05427275ea487c6961f9707fe31c8fb75b
+一致 ✓

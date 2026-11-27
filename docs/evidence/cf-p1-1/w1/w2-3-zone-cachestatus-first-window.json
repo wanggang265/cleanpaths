@@ -1,0 +1,13 @@
+{
+ "window": "2026-11-27T13:00:00Z~14:00:00Z",
+ "distribution": {
+  "dynamic": 404,
+  "revalidated": 158,
+  "hit": 49,
+  "miss": 42,
+  "bypass": 19,
+  "none": 9
+ },
+ "total": 681,
+ "note": "R1 13:48Z \u4e0a\u7ebf\uff0c\u672c\u7a97\u53e3\u5927\u5934\u4ecd\u662f\u53d8\u66f4\u524d\u6d41\u91cf\uff1b\u9996\u8f6e\u53d6\u8bc1\u4ec5\u8bb0\u5f55\u8d77\u70b9\uff0c48h \u89c2\u5bdf\u7a97\u590d\u6d4b"
+}

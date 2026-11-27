@@ -1,0 +1,48 @@
+=== W2-1 R1 验证探针 2026-11-27T13:48:51Z ===
+===== / 3连 =====
+-- / probe 1 --
+HTTP/2 103 
+HTTP/2 200 
+cf-cache-status: MISS
+(set-cookie 行缺席=无)
+-- / probe 2 --
+HTTP/2 103 
+HTTP/2 200 
+age: 0
+cf-cache-status: HIT
+(set-cookie 行缺席=无)
+-- / probe 3 --
+HTTP/2 103 
+HTTP/2 200 
+age: 0
+cf-cache-status: HIT
+(set-cookie 行缺席=无)
+===== /pricing/ 3连 =====
+-- /pricing/ probe 1 --
+HTTP/2 103 
+HTTP/2 200 
+cf-cache-status: MISS
+(set-cookie 行缺席=无)
+-- /pricing/ probe 2 --
+HTTP/2 200 
+age: 0
+cf-cache-status: HIT
+(set-cookie 行缺席=无)
+-- /pricing/ probe 3 --
+HTTP/2 200 
+age: 0
+cf-cache-status: HIT
+(set-cookie 行缺席=无)
+===== / HTML 完整可渲染 + MISS/HIT 字节级一致 =====
+body sha256 第一次: f585ad9dea30a153f7a4baff6a81b09afa01a39c67b810c6679167402330cd85
+body sha256 第二次: f585ad9dea30a153f7a4baff6a81b09afa01a39c67b810c6679167402330cd85
+字节级一致 ✓
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/> ...
+</html> 出现次数: 1
+===== 反向: /_next/static 不受 R1 影响（仍 365d + HIT）=====
+HTTP/2 200 
+cache-control: public, max-age=31536000, must-revalidate
+cf-cache-status: HIT
+===== 反向: /api/feedback 仍 BYPASS 管道外（405）=====
+HTTP/2 405 
+cf-cache-status: DYNAMIC

@@ -1,0 +1,41 @@
+{
+ "w2_2_before_get": {
+  "status": 200,
+  "rules_count": 3
+ },
+ "w2_2_put_r4": {
+  "status": 200,
+  "errors": [],
+  "rules_returned": [
+   {
+    "description": "R3: /api/* /admin/* explicit bypass (P1-1 spec W1; syntax fix: bypass via set_cache_settings cache=false)",
+    "action": "set_cache_settings",
+    "enabled": true,
+    "expression": "starts_with(http.request.uri.path, \"/api/\") or starts_with(http.request.uri.path, \"/admin/\")",
+    "id_prefix": "080ffda7"
+   },
+   {
+    "description": "R2: /_next/static/* immutable long cache Edge 30d + Browser 365d (P1-1 spec W1)",
+    "action": "set_cache_settings",
+    "enabled": true,
+    "expression": "starts_with(http.request.uri.path, \"/_next/static/\")",
+    "id_prefix": "63c5eab4"
+   },
+   {
+    "description": "R1: HTML edge cache 300s, browser respect origin (P1-1 spec W2; syntax diff: contains\u2192ends_with, cache-rules fn set)",
+    "action": "set_cache_settings",
+    "enabled": true,
+    "expression": "not starts_with(http.request.uri.path, \"/api/\") and not starts_with(http.request.uri.path, \"/admin/\") and not starts_with(http.request.uri.path, \"/_next/static/\") and ends_with(http.request.uri.path, \"/\")",
+    "id_prefix": "6a1b03de"
+   },
+   {
+    "description": "R4: sitemap/robots/llms edge cache 300s (P1-1 spec W2)",
+    "action": "set_cache_settings",
+    "enabled": true,
+    "expression": "http.request.uri.path in {\"/sitemap.xml\" \"/robots.txt\" \"/llms.txt\"}",
+    "id_prefix": "1bf88c3b"
+   }
+  ],
+  "version": "5"
+ }
+}
